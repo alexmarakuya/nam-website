@@ -8,8 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root {
     --bg: #f4f2e8;
@@ -849,66 +847,6 @@
   .prox-list li:last-child { border-bottom: none; }
   .prox-time { font-family: 'Sometype Mono', monospace; color: var(--terracotta); font-weight: 600; min-width: 85px; font-size: 0.9rem; }
 
-  /* ── Interactive Map ── */
-  #locationMap { z-index: 1; }
-  #locationMap .leaflet-control-attribution { font-size: 9px; opacity: 0.6; }
-  #locationMap .leaflet-control-zoom a {
-    background: var(--bg) !important; color: var(--green) !important;
-    border-color: var(--border) !important; font-size: 16px !important;
-    width: 32px !important; height: 32px !important; line-height: 32px !important;
-  }
-  #locationMap .leaflet-control-zoom a:hover { background: var(--bg-warm) !important; }
-  .map-marker-pin {
-    width: 36px; height: 36px; border-radius: 50% 50% 50% 0;
-    background: var(--terracotta); transform: rotate(-45deg);
-    position: absolute; left: 50%; top: 50%;
-    margin: -36px 0 0 -18px;
-    box-shadow: 0 3px 12px rgba(212,107,68,0.4);
-    animation: mapMarkerBounce 0.6s ease-out;
-  }
-  .map-marker-pin::after {
-    content: ''; width: 18px; height: 18px; border-radius: 50%;
-    background: var(--bg); position: absolute;
-    left: 50%; top: 50%; transform: translate(-50%, -50%);
-  }
-  .map-marker-pulse {
-    width: 60px; height: 60px; border-radius: 50%;
-    background: rgba(212,107,68,0.2);
-    position: absolute; left: 50%; top: 50%;
-    margin: -18px 0 0 -30px;
-    animation: mapPulse 2s ease-out infinite;
-  }
-  @keyframes mapMarkerBounce {
-    0% { opacity: 0; transform: rotate(-45deg) translateY(-40px); }
-    60% { transform: rotate(-45deg) translateY(4px); }
-    100% { opacity: 1; transform: rotate(-45deg) translateY(0); }
-  }
-  @keyframes mapPulse {
-    0% { transform: scale(0.5); opacity: 0.8; }
-    100% { transform: scale(2.5); opacity: 0; }
-  }
-  .map-label {
-    font-family: 'Epilogue', sans-serif; font-weight: 600;
-    font-size: 13px; color: var(--green);
-    background: var(--bg); padding: 6px 14px;
-    border-radius: 6px; white-space: nowrap;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-    border: 1px solid var(--border);
-    letter-spacing: 0.02em;
-  }
-  .map-poi-marker {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: rgba(42,58,43,0.4);
-    border: 2px solid rgba(42,58,43,0.6);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  }
-  .map-poi-label {
-    font-family: 'Sometype Mono', monospace; font-size: 10px;
-    color: var(--text-secondary); white-space: nowrap;
-    text-shadow: 0 0 4px var(--bg), 0 0 4px var(--bg);
-    letter-spacing: 0.03em;
-  }
-
   /* ── Ownership ── */
   .own-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   .own-col {
@@ -1191,6 +1129,13 @@
     #s26 > div { padding: 40px 24px 28px !important; }
     #s31 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; }
     #s31 > div { padding: 40px 24px 28px !important; }
+    /* Stats grid on slide 5: 4 cols → 2x2 */
+    #s5 .slide-inner > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem !important; }
+    /* Image mosaic on slide 18: stack vertically */
+    #s18 .slide-inner > div:last-child { grid-template-columns: 1fr !important; }
+    #s18 .slide-inner > div:last-child > div:first-child { grid-row: span 1 !important; height: 35vh; }
+    #s18 .slide-inner > div:last-child > div:nth-child(2),
+    #s18 .slide-inner > div:last-child > div:nth-child(3) { height: 25vh; }
   }
 </style>
 </head>
@@ -1787,8 +1732,8 @@
 
 <!-- 22 ─ Location with Map (Swiss split) -->
 <section class="slide swiss-split" style="background:var(--bg);" id="s22">
-  <div class="swiss-split-img" style="padding:0;background:var(--bg-warm);">
-    <div id="locationMap" style="width:100%;height:100%;"></div>
+  <div class="swiss-split-img" style="display:flex;align-items:center;justify-content:center;background:var(--bg-warm);padding:40px;">
+    <img src="assets/Location Map.png" alt="Koh Phangan map showing Baan Nai Suan" style="max-width:100%;max-height:80vh;border-radius:10px;object-fit:contain;">
   </div>
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-content" style="background:var(--bg);">
@@ -1837,6 +1782,10 @@
       <span style="color:rgba(244,242,232,0.3);">24</span>
       <span style="color:rgba(244,242,232,0.3);">All images are for illustrative purposes only</span>
     </div>
+  </div>
+  <div class="hero-accent-strip">
+    <div class="hero-accent-cream"></div>
+    <div class="hero-accent-terracotta"></div>
   </div>
   <div class="hero-img-strip">
     <img src="assets/Site_2.jpg" alt="Casa NāM site" style="object-position:center center;">
@@ -2152,7 +2101,6 @@
       else s.classList.remove('active');
     });
     if (current === 7) setTimeout(animateChart, 300); else resetChart();
-    if (current === 21) setTimeout(animateMap, 400); else resetMap();
     if (current === 30) setTimeout(animatePayment, 300); else resetPayment();
   }
 
@@ -2310,113 +2258,6 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && navOpen) { e.preventDefault(); closeSlideNav(); }
   });
-
-  /* ── Interactive Map (Slide 22) ── */
-  var mapInstance = null;
-  var mapInitialized = false;
-  var casaCoords = [9.7580, 100.0120];
-  var islandCoords = [9.7400, 100.0300];
-
-  var poiLocations = [
-    { coords: [9.7630, 100.0085], name: 'Khao Raa National Park' },
-    { coords: [9.7555, 100.0165], name: 'Cafés & restaurants' },
-    { coords: [9.7540, 100.0050], name: 'Wellness centres' },
-    { coords: [9.7480, 100.0200], name: 'West-coast beaches' },
-    { coords: [9.7130, 99.9960], name: 'Thong Sala Pier' },
-    { coords: [9.7810, 100.0580], name: 'Chaloklum' }
-  ];
-  var poiMarkers = [];
-  var mainMarker = null;
-  var mainLabel = null;
-
-  function initMap() {
-    if (mapInitialized) return;
-    mapInitialized = true;
-    mapInstance = L.map('locationMap', {
-      zoomControl: true,
-      attributionControl: true,
-      scrollWheelZoom: false,
-      doubleClickZoom: true,
-      dragging: true,
-      zoomSnap: 0.5,
-      zoomDelta: 0.5
-    }).setView(islandCoords, 11);
-
-    /* Warm-toned map tiles (CartoDB Positron for a clean, light look) */
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(mapInstance);
-
-    /* Position zoom control */
-    mapInstance.zoomControl.setPosition('bottomright');
-  }
-
-  function animateMap() {
-    initMap();
-    /* Reset view to wide island view first */
-    mapInstance.setView(islandCoords, 11, { animate: false });
-
-    /* Remove old markers */
-    if (mainMarker) { mapInstance.removeLayer(mainMarker); mainMarker = null; }
-    if (mainLabel) { mapInstance.removeLayer(mainLabel); mainLabel = null; }
-    poiMarkers.forEach(function(m) { mapInstance.removeLayer(m); });
-    poiMarkers = [];
-
-    /* Animated fly-in to Casa NāM location */
-    setTimeout(function() {
-      mapInstance.flyTo(casaCoords, 14.5, { duration: 2.2, easeLinearity: 0.25 });
-    }, 300);
-
-    /* Drop the main marker after the fly animation */
-    setTimeout(function() {
-      var pinIcon = L.divIcon({
-        className: '',
-        html: '<div class="map-marker-pulse"></div><div class="map-marker-pin"></div>',
-        iconSize: [36, 36],
-        iconAnchor: [18, 36]
-      });
-      mainMarker = L.marker(casaCoords, { icon: pinIcon }).addTo(mapInstance);
-
-      /* Label */
-      var labelIcon = L.divIcon({
-        className: '',
-        html: '<div class="map-label">Casa N&#x101;M</div>',
-        iconSize: [0, 0],
-        iconAnchor: [-22, 20]
-      });
-      mainLabel = L.marker(casaCoords, { icon: labelIcon }).addTo(mapInstance);
-    }, 2600);
-
-    /* Add POI markers with staggered animation */
-    setTimeout(function() {
-      poiLocations.forEach(function(poi, i) {
-        setTimeout(function() {
-          var dotIcon = L.divIcon({
-            className: '',
-            html: '<div class="map-poi-marker"></div><div class="map-poi-label" style="position:absolute;left:16px;top:-4px;">' + poi.name + '</div>',
-            iconSize: [10, 10],
-            iconAnchor: [5, 5]
-          });
-          var m = L.marker(poi.coords, { icon: dotIcon }).addTo(mapInstance);
-          poiMarkers.push(m);
-        }, i * 150);
-      });
-    }, 3000);
-
-    /* Invalidate size to fix rendering in hidden container */
-    setTimeout(function() { mapInstance.invalidateSize(); }, 100);
-  }
-
-  function resetMap() {
-    if (!mapInstance) return;
-    if (mainMarker) { mapInstance.removeLayer(mainMarker); mainMarker = null; }
-    if (mainLabel) { mapInstance.removeLayer(mainLabel); mainLabel = null; }
-    poiMarkers.forEach(function(m) { mapInstance.removeLayer(m); });
-    poiMarkers = [];
-    mapInstance.setView(islandCoords, 11, { animate: false });
-  }
 
   goTo(0);
 })();

@@ -12,6 +12,3 @@ assets/Site_1.jpeg
 # Large originals (compressed versions used instead)
 assets/Exterior.png
 assets/Exterior Pan Out.mp4
-
-# Static map (replaced by interactive Leaflet map)
-assets/Location Map.png
