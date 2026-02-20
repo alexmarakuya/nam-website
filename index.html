@@ -128,25 +128,25 @@
   .slide.active .list-item:nth-child(6), .slide.active .info-row:nth-child(6) { transition-delay: 0.65s; }
 
   /* Split-layout slide panel fades (s26, s31) */
-  #s26 > div, #s31 > div {
+  #s25 > div, #s30 > div {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  #s26.active > div:first-child, #s31.active > div:first-child {
+  #s25.active > div:first-child, #s30.active > div:first-child {
     opacity: 1; transform: translateY(0); transition-delay: 0.1s;
   }
-  #s26.active > div:last-child, #s31.active > div:last-child {
+  #s25.active > div:last-child, #s30.active > div:last-child {
     opacity: 1; transform: translateY(0); transition-delay: 0.25s;
   }
 
   /* Page 23 blockquote centered fade */
-  #s23 blockquote {
+  #s22 blockquote {
     opacity: 0;
     transform: translateY(18px) scale(0.97);
     transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
   }
-  #s23.active blockquote {
+  #s22.active blockquote {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
@@ -816,8 +816,8 @@
   .concept-card-text { display: flex; flex-direction: column; justify-content: center; }
   .concept-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
   .concept-card p { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
-  #s16 .concept-card { flex-direction: column; gap: 0.5rem; padding: 2rem 0; }
-  #s16 .concept-card h3 { font-size: 1.35rem; margin-bottom: 0; }
+  #s15 .concept-card { flex-direction: column; gap: 0.5rem; padding: 2rem 0; }
+  #s15 .concept-card h3 { font-size: 1.35rem; margin-bottom: 0; }
   .card-thumb {
     width: 180px;
     min-width: 180px;
@@ -1127,10 +1127,10 @@
     .hero-main { height: auto; flex: 1; }
     .hero-accent-strip { display: none; }
     .hero-img-strip { width: 100%; height: 35vh; flex-shrink: 0; }
-    #s26 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; }
-    #s26 > div { padding: 40px 24px 28px !important; }
-    #s31 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; }
-    #s31 > div { padding: 40px 24px 28px !important; }
+    #s25 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; }
+    #s25 > div { padding: 40px 24px 28px !important; }
+    #s30 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; }
+    #s30 > div { padding: 40px 24px 28px !important; }
     /* Stats grid on slide 5: 4 cols → 2x2 */
     #s5 .slide-inner > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
     /* Image mosaic on slide 18: stack vertically */
@@ -1141,11 +1141,10 @@
     /* Slide 10: override inline gap:6rem */
     .grid-2[style*="gap:6rem"] { gap: 2rem !important; }
     /* Slide 19: remove nowrap */
-    #s19 h2 { white-space: normal !important; }
     /* Slide 22: reduce map padding */
-    #s22 .swiss-split-img { padding: 20px !important; }
+    #s21 .swiss-split-img { padding: 20px !important; }
     /* Slide 23: reduce blockquote padding */
-    #s23 > div:nth-child(3) { padding: 24px !important; }
+    #s22 > div:nth-child(3) { padding: 24px !important; }
     /* Tables: shrink for mobile */
     .tbl th, .tbl td { font-size: 0.72rem !important; padding: 0.55rem 0.4rem !important; }
     .tbl th { font-size: 0.62rem !important; }
@@ -1156,8 +1155,8 @@
     .tl-dot { margin: 0.25rem 0 0 !important; flex-shrink: 0; }
     .tl-txt { max-width: 100% !important; margin: 0 !important; }
     /* Payment milestones: 2x2 grid */
-    #s31 .pay-progress > div:last-child { flex-wrap: wrap !important; gap: 1rem !important; }
-    #s31 .pay-milestone { flex: 0 0 45% !important; }
+    #s30 .pay-progress > div:last-child { flex-wrap: wrap !important; gap: 1rem !important; }
+    #s30 .pay-milestone { flex: 0 0 45% !important; }
     /* Climate chart: allow scroll if needed */
     .climate-chart-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .climate-chart-wrapper .climate-svg { min-width: 600px; }
@@ -1645,20 +1644,8 @@
   </div>
 </section>
 
-<!-- 15 ─ Exterior - Full bleed -->
-<section class="slide img-full" id="s15">
-  <img src="assets/Exterior.jpg" alt="Casa NāM exterior view">
-  <div class="img-full-overlay"></div>
-  <div class="img-full-caption">
-    <div class="label" style="color:var(--terracotta-light);">Architecture</div>
-    <h2>Locally informed design</h2>
-    <p>Architecture informed by Thai building traditions, climate conditions, and the surrounding landscape &mdash; with an emphasis on durability and everyday living.</p>
-  </div>
-  <div class="sn">15</div>
-</section>
-
-<!-- 16 ─ Home Concepts -->
-<section class="slide bg-cream" id="s16">
+<!-- 15 ─ Home Concepts (overview) -->
+<section class="slide bg-cream" id="s15">
   <div class="slide-inner">
     <div style="margin-bottom:2.5rem;">
       <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Home Concepts</div>
@@ -1671,10 +1658,22 @@
       <div class="concept-card"><h3>Flexible ownership structure</h3></div>
     </div>
   </div>
+  <div class="sn">15</div>
+</section>
+
+<!-- 16 ─ Exterior - Full bleed -->
+<section class="slide img-full" id="s16">
+  <img src="assets/Exterior.jpg" alt="Casa NāM exterior view">
+  <div class="img-full-overlay"></div>
+  <div class="img-full-caption">
+    <div class="label" style="color:var(--terracotta-light);">Architecture</div>
+    <h2>Locally informed design</h2>
+    <p>Architecture informed by Thai building traditions, climate conditions, and the surrounding landscape &mdash; with an emphasis on durability and everyday living.</p>
+  </div>
   <div class="sn">16</div>
 </section>
 
-<!-- 17 ─ Bedroom - Swiss split -->
+<!-- 17 ─ Living-centred design -->
 <section class="slide swiss-split" id="s17">
   <div class="swiss-split-img">
     <img src="assets/Bedroom_1.png" alt="Casa NāM bedroom">
@@ -1685,83 +1684,71 @@
   </div>
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-content">
-    <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Spaces</div>
+    <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Living-Centred Design</div>
     <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Designed for<br>restful living</h2>
-    <p class="sub" style="margin-top:1.5rem;">Each home includes two ensuite bedrooms with natural light, cross-ventilation, and considered material choices.</p>
-    <p class="sub" style="margin-top:1.25rem;">Spaces are generous enough for long-term living, with room for personal touches that make the space your own.</p>
+    <p class="sub" style="margin-top:1.5rem;">Private homes and shared spaces are arranged to support everyday residential use and long-term living patterns on the island.</p>
+    <p class="sub" style="margin-top:1.25rem;">Each home includes two ensuite bedrooms with natural light, cross-ventilation, and considered material choices.</p>
     <div class="swiss-footer-note">Two ensuite bedrooms per home &mdash; designed for comfort and privacy.</div>
   </div>
   <div class="sn">17</div>
 </section>
 
-<!-- 18 ─ Interior mosaic -->
+<!-- 18 ─ Locally informed architecture -->
 <section class="slide bg-cream grain watermark watermark-light wm-center" id="s18">
   <div class="slide-inner" style="display:flex;flex-direction:column;height:100%;">
     <div style="margin-bottom:2rem;">
-      <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Interior Spaces</div>
-      <h2>Designed for everyday living</h2>
-      <p class="sub-ep" style="margin-top:0.75rem;max-width:500px;">Clean lines, natural materials, and generous proportions &mdash; spaces that feel both considered and effortless.</p>
+      <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Locally Informed Architecture</div>
+      <h2>Built for the tropics</h2>
+      <p class="sub-ep" style="margin-top:0.75rem;max-width:500px;">Architecture informed by local Thai building traditions, climate conditions, and the surrounding landscape &mdash; with an emphasis on durability.</p>
     </div>
     <div style="flex:1;min-height:0;display:grid;grid-template-columns:1.4fr 1fr;gap:16px;">
       <div style="grid-row:span 2;border-radius:10px;overflow:hidden;position:relative;">
         <img src="assets/Bedroom_2.png" alt="Bedroom suite" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.75rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Bedroom suite</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Bedroom suite</div>
       </div>
       <div style="border-radius:10px;overflow:hidden;position:relative;">
         <img src="assets/Bedroom_3.png" alt="Natural light" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.75rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Natural light</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Natural materials</div>
       </div>
       <div style="border-radius:10px;overflow:hidden;position:relative;">
         <img src="assets/Living_Room.png" alt="Living room" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.75rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Living room</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Open living</div>
       </div>
     </div>
   </div>
   <div class="sn">18</div>
 </section>
 
-<!-- 19 ─ Living Room 2 - Swiss split reversed -->
-<section class="slide swiss-split" id="s19">
+<!-- 19 ─ Shared spaces for everyday life -->
+<section class="slide img-full" id="s19">
+  <img src="assets/Communal_Space.png" alt="Communal gathering space">
+  <div class="img-full-overlay"></div>
+  <div class="img-full-caption">
+    <div class="label" style="color:rgba(244,242,232,0.85);">Shared Spaces for Everyday Life</div>
+    <h2>Designed for natural interaction</h2>
+    <p>A communal kitchen, hangout spaces, and a large swimming pool &mdash; thoughtfully designed for everyday use and natural interaction without obligation.</p>
+  </div>
+  <div class="sn">19</div>
+</section>
+
+<!-- 20 ─ Flexible ownership structure -->
+<section class="slide swiss-split" id="s20">
   <div class="swiss-split-content">
-    <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Interior</div>
-    <h2 style="font-size:clamp(2rem,3.5vw,3rem);white-space:nowrap;">Open living</h2>
-    <p class="sub" style="margin-top:1.5rem;">Generous open-plan living spaces that connect seamlessly with the outdoors.</p>
-    <p class="sub" style="margin-top:1.25rem;">Natural materials, high ceilings, and cross-ventilation create an atmosphere that&rsquo;s both grounded and airy.</p>
+    <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Flexible Ownership</div>
+    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Your space,<br>your terms</h2>
+    <p class="sub" style="margin-top:1.5rem;">Homes support full ownership or shared ownership between two parties, with layouts that allow for adaptable use over time.</p>
+    <p class="sub" style="margin-top:1.25rem;">Generous open-plan living spaces connect seamlessly with the outdoors. Natural materials, high ceilings, and cross-ventilation create an atmosphere that&rsquo;s both grounded and airy.</p>
     <div class="swiss-footer-note">Indoor-outdoor living, designed for the tropical climate.</div>
   </div>
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-img">
     <img src="assets/Living_Room_2.png" alt="Casa NāM living space">
   </div>
-  <div class="sn">19</div>
-</section>
-
-<!-- 20 ─ Communal - full bleed -->
-<section class="slide img-full" id="s20">
-  <img src="assets/Communal_Space.png" alt="Communal gathering space">
-  <div class="img-full-overlay"></div>
-  <div class="img-full-caption">
-    <div class="label" style="color:rgba(244,242,232,0.85);">Common Spaces</div>
-    <h2>Shared spaces for everyday life</h2>
-    <p>A communal kitchen, hangout spaces, and a large swimming pool &mdash; designed for natural interaction without obligation.</p>
-  </div>
   <div class="sn">20</div>
 </section>
 
-<!-- 21 ─ Paths - full bleed -->
-<section class="slide img-full" id="s21">
-  <img src="assets/Paths.png" alt="Walking paths">
-  <div class="img-full-overlay"></div>
-  <div class="img-full-caption">
-    <div class="label" style="color:rgba(244,242,232,0.85);">The Grounds</div>
-    <h2>Connected by nature</h2>
-    <p>Winding paths through tropical gardens connect private homes to shared spaces, creating a rhythm between solitude and togetherness.</p>
-  </div>
-  <div class="sn">21</div>
-</section>
-
-<!-- 22 ─ Location with Map (Swiss split) -->
-<section class="slide swiss-split" style="background:var(--bg);" id="s22">
+<!-- 21 ─ Location with Map (Swiss split) -->
+<section class="slide swiss-split" style="background:var(--bg);" id="s21">
   <div class="swiss-split-img" style="display:flex;align-items:center;justify-content:center;background:var(--bg-warm);padding:40px;">
     <img src="assets/Location Map.png" alt="Koh Phangan map showing Baan Nai Suan" style="max-width:100%;max-height:80vh;border-radius:10px;object-fit:contain;">
   </div>
@@ -1782,11 +1769,11 @@
       </ul>
     </div>
   </div>
-  <div class="sn">22</div>
+  <div class="sn">21</div>
 </section>
 
-<!-- 23 ─ Palms - full bleed transition -->
-<section class="slide img-full" id="s23">
+<!-- 22 ─ Palms - full bleed transition -->
+<section class="slide img-full" id="s22">
   <img src="assets/Palms.jpeg" alt="Palm trees from below">
   <div class="img-full-overlay" style="background:rgba(26,26,24,0.72);"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;padding:60px;">
@@ -1796,11 +1783,11 @@
       <div style="width:60px;height:2px;background:var(--terracotta);margin:2rem auto 0;"></div>
     </blockquote>
   </div>
-  <div class="sn" style="color:rgba(255,255,255,0.5);z-index:3;">23</div>
+  <div class="sn" style="color:rgba(255,255,255,0.5);z-index:3;">22</div>
 </section>
 
-<!-- 24 ─ Section: The Opportunity -->
-<section class="slide hero-slide" id="s24">
+<!-- 23 ─ Section: The Opportunity -->
+<section class="slide hero-slide" id="s23">
   <div class="hero-main grain">
     <div class="hero-content">
       <div class="label" style="color:var(--terracotta-light);">Part three</div>
@@ -1809,7 +1796,7 @@
       <p class="sub" style="color:rgba(244,242,232,0.55);margin-top:1.5rem;">Ownership, projections, and how to get involved.</p>
     </div>
     <div class="hero-footer-line">
-      <span style="color:rgba(244,242,232,0.3);">24</span>
+      <span style="color:rgba(244,242,232,0.3);">23</span>
       <span style="color:rgba(244,242,232,0.3);">All images are for illustrative purposes only</span>
     </div>
   </div>
@@ -1822,8 +1809,8 @@
   </div>
 </section>
 
-<!-- 25 ─ How Ownership Works -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s25">
+<!-- 24 ─ How Ownership Works -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s24">
   <div class="slide-inner">
     <div style="text-align:center;margin-bottom:2.5rem;">
       <div class="label" style="justify-content:center;"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Ownership</div>
@@ -1840,18 +1827,18 @@
     <div class="img-hint-accent"></div>
     <img src="assets/Exterior.jpg" alt="" style="object-position:center center;">
   </div>
-  <div class="sn">25</div>
+  <div class="sn">24</div>
 </section>
 
-<!-- 26 ─ Ownership Details (two-tone split) -->
-<section class="slide" style="padding:0 !important;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;height:100%;width:100vw;align-items:stretch;" id="s26">
+<!-- 25 ─ Ownership Details (two-tone split) -->
+<section class="slide" style="padding:0 !important;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;height:100%;width:100vw;align-items:stretch;" id="s25">
   <div style="background:var(--green);padding:70px 60px 40px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;" class="grain">
     <div class="label" style="color:var(--terracotta-light);">Ownership Details</div>
     <h3 style="color:var(--bg);font-size:1.35rem;margin-bottom:2rem;">Legal &mdash; Straightforward &amp; Secure</h3>
     <div class="list-item" style="border-color:rgba(244,242,232,0.12);"><div class="dot"></div><div><h4 style="color:var(--bg);">Secure 30-year private leasehold</h4><p style="color:rgba(244,242,232,0.6);">Registered in your name under a long-term lease structure designed for individual ownership.</p></div></div>
     <div class="list-item" style="border-color:rgba(244,242,232,0.12);"><div class="dot"></div><div><h4 style="color:var(--bg);">No nominee company required</h4><p style="color:rgba(244,242,232,0.6);">Ownership is held directly &mdash; without nominee risk or ongoing company maintenance fees.</p></div></div>
     <div class="list-item" style="border-color:rgba(244,242,232,0.12);border-bottom:none;"><div class="dot"></div><div><h4 style="color:var(--bg);">Clear contractual framework</h4><p style="color:rgba(244,242,232,0.6);">Reservation secured under signed agreement, followed by formal Leasehold Agreement with defined rights.</p></div></div>
-    <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:60px;">26</div>
+    <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:60px;">25</div>
   </div>
   <div style="background:var(--bg-warm);padding:70px 60px 40px;display:flex;flex-direction:column;justify-content:center;">
     <div class="label" style="color:var(--terracotta);">&nbsp;</div>
@@ -1863,8 +1850,8 @@
   </div>
 </section>
 
-<!-- 27 ─ Management -->
-<section class="slide bg-warm watermark watermark-light wm-left" id="s27">
+<!-- 26 ─ Management -->
+<section class="slide bg-warm watermark watermark-light wm-left" id="s26">
   <div class="slide-inner grid-2" style="align-items:start;">
     <div>
       <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Operations</div>
@@ -1882,11 +1869,11 @@
     <div class="img-hint-accent"></div>
     <img src="assets/Communal_Space.png" alt="" style="object-position:center 40%;">
   </div>
-  <div class="sn">27</div>
+  <div class="sn">26</div>
 </section>
 
-<!-- 28 ─ Short-Term Projections -->
-<section class="slide bg-green" id="s28">
+<!-- 27 ─ Short-Term Projections -->
+<section class="slide bg-green" id="s27">
   <div class="slide-inner">
     <div style="margin-bottom:1rem;">
       <div class="label">Projections</div>
@@ -1910,11 +1897,11 @@
       </a>
     </div>
   </div>
-  <div class="sn">28</div>
+  <div class="sn">27</div>
 </section>
 
-<!-- 29 ─ Long-Term Projections -->
-<section class="slide bg-green" id="s29">
+<!-- 28 ─ Long-Term Projections -->
+<section class="slide bg-green" id="s28">
   <div class="slide-inner">
     <div style="margin-bottom:1rem;">
       <div class="label">Projections</div>
@@ -1938,11 +1925,11 @@
       </a>
     </div>
   </div>
-  <div class="sn">29</div>
+  <div class="sn">28</div>
 </section>
 
-<!-- 30 ─ Timeline -->
-<section class="slide bg-cream watermark watermark-light wm-bl" id="s30">
+<!-- 29 ─ Timeline -->
+<section class="slide bg-cream watermark watermark-light wm-bl" id="s29">
   <div class="slide-inner">
     <div style="text-align:center;">
       <div class="label" style="justify-content:center;"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Timeline</div>
@@ -1959,11 +1946,11 @@
     <img src="assets/Paths.png" alt="" style="object-position:center center;">
     <div class="img-hint-accent"></div>
   </div>
-  <div class="sn">30</div>
+  <div class="sn">29</div>
 </section>
 
-<!-- 31 ─ Payment -->
-<section class="slide" style="padding:0 !important;display:grid;grid-template-columns:35% 1fr;grid-template-rows:1fr;height:100%;width:100vw;align-items:stretch;" id="s31">
+<!-- 30 ─ Payment -->
+<section class="slide" style="padding:0 !important;display:grid;grid-template-columns:35% 1fr;grid-template-rows:1fr;height:100%;width:100vw;align-items:stretch;" id="s30">
   <!-- Down Payment (left - terracotta accent) -->
   <div style="background:var(--green);padding:70px 50px 40px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;" class="grain">
     <div class="label" style="color:var(--terracotta-light);">Payments</div>
@@ -1973,7 +1960,7 @@
       <div style="font-size:clamp(2rem,5vw,2.8rem);font-weight:700;color:var(--bg);line-height:1;">THB 1M</div>
       <div style="font-family:'Sometype Mono',monospace;font-size:0.88rem;color:rgba(244,242,232,0.55);margin-top:0.75rem;line-height:1.5;">Reservation secured<br>under signed agreement</div>
     </div>
-    <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:50px;">31</div>
+    <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:50px;">30</div>
   </div>
   <!-- Remaining Balance (right - cream) -->
   <div style="background:var(--bg);padding:70px 60px 40px;display:flex;flex-direction:column;justify-content:center;">
@@ -2010,8 +1997,8 @@
   </div>
 </section>
 
-<!-- 32 ─ Paths 2 transition -->
-<section class="slide img-full" id="s32">
+<!-- 31 ─ Paths 2 transition -->
+<section class="slide img-full" id="s31">
   <img src="assets/Paths_2.png" alt="Garden paths">
   <div class="img-full-overlay" style="background:rgba(26,26,24,0.65);"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;padding:60px;">
@@ -2021,11 +2008,11 @@
       <div style="width:60px;height:2px;background:var(--terracotta);margin:2rem auto 0;"></div>
     </blockquote>
   </div>
-  <div class="sn" style="color:rgba(255,255,255,0.5);z-index:3;">32</div>
+  <div class="sn" style="color:rgba(255,255,255,0.5);z-index:3;">31</div>
 </section>
 
-<!-- 33 ─ CTA -->
-<section class="slide swiss-split" id="s33">
+<!-- 32 ─ CTA -->
+<section class="slide swiss-split" id="s32">
   <div class="swiss-split-img">
     <img src="assets/Gardens.png" alt="Casa NāM gardens">
     <div class="swiss-split-img-overlay"></div>
@@ -2050,7 +2037,7 @@
       </div>
     </div>
   </div>
-  <div class="sn">33</div>
+  <div class="sn">32</div>
 </section>
 
 </div><!-- /deck -->
@@ -2135,7 +2122,7 @@
       else s.classList.remove('active');
     });
     if (current === 7) setTimeout(animateChart, 300); else resetChart();
-    if (current === 30) setTimeout(animatePayment, 300); else resetPayment();
+    if (current === 29) setTimeout(animatePayment, 300); else resetPayment();
   }
 
   function animatePayment() {
@@ -2195,27 +2182,26 @@
     ]},
     { section: 'The Home', items: [
       { idx: 13, title: 'The Home' },
-      { idx: 14, title: 'Exterior' },
-      { idx: 15, title: 'Home Concepts' },
-      { idx: 16, title: 'Bedroom' },
-      { idx: 17, title: 'Interior' },
-      { idx: 18, title: 'Living Room' },
-      { idx: 19, title: 'Communal' },
-      { idx: 20, title: 'Paths' },
-      { idx: 21, title: 'Location' },
-      { idx: 22, title: 'Palms' }
+      { idx: 14, title: 'Home Concepts' },
+      { idx: 15, title: 'Exterior' },
+      { idx: 16, title: 'Living-Centred Design' },
+      { idx: 17, title: 'Architecture' },
+      { idx: 18, title: 'Shared Spaces' },
+      { idx: 19, title: 'Flexible Ownership' },
+      { idx: 20, title: 'Location' },
+      { idx: 21, title: 'Palms' }
     ]},
     { section: 'The Opportunity', items: [
-      { idx: 23, title: 'The Opportunity' },
-      { idx: 24, title: 'How Ownership Works' },
-      { idx: 25, title: 'Ownership Details' },
-      { idx: 26, title: 'Management' },
-      { idx: 27, title: 'Short-Term Projections' },
-      { idx: 28, title: 'Long-Term Projections' },
-      { idx: 29, title: 'Timeline' },
-      { idx: 30, title: 'Payment' },
-      { idx: 31, title: 'Paths' },
-      { idx: 32, title: 'Contact' }
+      { idx: 22, title: 'The Opportunity' },
+      { idx: 23, title: 'How Ownership Works' },
+      { idx: 24, title: 'Ownership Details' },
+      { idx: 25, title: 'Management' },
+      { idx: 26, title: 'Short-Term Projections' },
+      { idx: 27, title: 'Long-Term Projections' },
+      { idx: 28, title: 'Timeline' },
+      { idx: 29, title: 'Payment' },
+      { idx: 30, title: 'Paths' },
+      { idx: 31, title: 'Contact' }
     ]}
   ];
 
