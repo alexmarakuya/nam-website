@@ -1134,10 +1134,10 @@
     /* Stats grid on slide 5: 4 cols → 2x2 */
     #s5 .slide-inner > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
     /* Image mosaic on slide 18: stack vertically */
-    #s18 .slide-inner > div:last-child { grid-template-columns: 1fr !important; }
-    #s18 .slide-inner > div:last-child > div:first-child { grid-row: span 1 !important; height: 35vh; }
-    #s18 .slide-inner > div:last-child > div:nth-child(2),
-    #s18 .slide-inner > div:last-child > div:nth-child(3) { height: 25vh; }
+    #s17 .slide-inner > div:last-child { grid-template-columns: 1fr !important; }
+    #s17 .slide-inner > div:last-child > div:first-child { grid-row: span 1 !important; height: 35vh; }
+    #s17 .slide-inner > div:last-child > div:nth-child(2),
+    #s17 .slide-inner > div:last-child > div:nth-child(3) { height: 25vh; }
     /* Slide 10: override inline gap:6rem */
     .grid-2[style*="gap:6rem"] { gap: 2rem !important; }
     /* Slide 19: remove nowrap */
@@ -1652,10 +1652,10 @@
       <h2>Our home concept</h2>
     </div>
     <div class="grid-2-cards">
-      <div class="concept-card"><h3>Living-centred design</h3></div>
       <div class="concept-card"><h3>Locally informed architecture</h3></div>
-      <div class="concept-card"><h3>Shared spaces for everyday life</h3></div>
+      <div class="concept-card"><h3>Living-centred design</h3></div>
       <div class="concept-card"><h3>Flexible ownership structure</h3></div>
+      <div class="concept-card"><h3>Shared spaces for everyday life</h3></div>
     </div>
   </div>
   <div class="sn">15</div>
@@ -1673,8 +1673,34 @@
   <div class="sn">16</div>
 </section>
 
-<!-- 17 ─ Living-centred design -->
-<section class="slide swiss-split" id="s17">
+<!-- 17 ─ Locally informed architecture -->
+<section class="slide bg-cream grain watermark watermark-light wm-center" id="s17">
+  <div class="slide-inner" style="display:flex;flex-direction:column;height:100%;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Locally Informed Architecture</div>
+      <h2>Built for the tropics</h2>
+      <p class="sub-ep" style="margin-top:0.75rem;max-width:550px;">Architecture shaped by Thai building traditions, tropical climate, and the surrounding landscape &mdash; prioritising natural ventilation, durable materials, and a connection to the outdoors.</p>
+    </div>
+    <div style="flex:1;min-height:0;display:grid;grid-template-columns:1.4fr 1fr;gap:16px;">
+      <div style="grid-row:span 2;border-radius:10px;overflow:hidden;position:relative;">
+        <img src="assets/Bedroom_2.png" alt="Natural materials and finishes" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Natural finishes</div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;position:relative;">
+        <img src="assets/Bedroom_3.png" alt="Cross-ventilation" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Cross-ventilation</div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;position:relative;">
+        <img src="assets/Living_Room.png" alt="Indoor-outdoor living" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Indoor-outdoor flow</div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">17</div>
+</section>
+
+<!-- 18 ─ Living-centred design -->
+<section class="slide swiss-split" id="s18">
   <div class="swiss-split-img">
     <img src="assets/Bedroom_1.png" alt="Casa NāM bedroom">
     <div class="swiss-split-img-overlay"></div>
@@ -1685,64 +1711,38 @@
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-content">
     <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Living-Centred Design</div>
-    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Designed for<br>restful living</h2>
-    <p class="sub" style="margin-top:1.5rem;">Private homes and shared spaces are arranged to support everyday residential use and long-term living patterns on the island.</p>
-    <p class="sub" style="margin-top:1.25rem;">Each home includes two ensuite bedrooms with natural light, cross-ventilation, and considered material choices.</p>
-    <div class="swiss-footer-note">Two ensuite bedrooms per home &mdash; designed for comfort and privacy.</div>
-  </div>
-  <div class="sn">17</div>
-</section>
-
-<!-- 18 ─ Locally informed architecture -->
-<section class="slide bg-cream grain watermark watermark-light wm-center" id="s18">
-  <div class="slide-inner" style="display:flex;flex-direction:column;height:100%;">
-    <div style="margin-bottom:2rem;">
-      <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Locally Informed Architecture</div>
-      <h2>Built for the tropics</h2>
-      <p class="sub-ep" style="margin-top:0.75rem;max-width:500px;">Architecture informed by local Thai building traditions, climate conditions, and the surrounding landscape &mdash; with an emphasis on durability.</p>
-    </div>
-    <div style="flex:1;min-height:0;display:grid;grid-template-columns:1.4fr 1fr;gap:16px;">
-      <div style="grid-row:span 2;border-radius:10px;overflow:hidden;position:relative;">
-        <img src="assets/Bedroom_2.png" alt="Bedroom suite" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Bedroom suite</div>
-      </div>
-      <div style="border-radius:10px;overflow:hidden;position:relative;">
-        <img src="assets/Bedroom_3.png" alt="Natural light" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Natural materials</div>
-      </div>
-      <div style="border-radius:10px;overflow:hidden;position:relative;">
-        <img src="assets/Living_Room.png" alt="Living room" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.8);letter-spacing:0.1em;text-transform:uppercase;">Open living</div>
-      </div>
-    </div>
+    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Designed for<br>everyday life</h2>
+    <p class="sub" style="margin-top:1.5rem;">Homes are arranged to support long-term residential use &mdash; not short stays or holiday rentals. Every space is designed for the rhythms of daily life on the island.</p>
+    <p class="sub" style="margin-top:1.25rem;">Each home includes two ensuite bedrooms with natural light, cross-ventilation, and considered material choices throughout.</p>
+    <div class="swiss-footer-note">Two ensuite bedrooms per home &mdash; generous, private, and comfortable.</div>
   </div>
   <div class="sn">18</div>
 </section>
 
-<!-- 19 ─ Shared spaces for everyday life -->
-<section class="slide img-full" id="s19">
-  <img src="assets/Communal_Space.png" alt="Communal gathering space">
-  <div class="img-full-overlay"></div>
-  <div class="img-full-caption">
-    <div class="label" style="color:rgba(244,242,232,0.85);">Shared Spaces for Everyday Life</div>
-    <h2>Designed for natural interaction</h2>
-    <p>A communal kitchen, hangout spaces, and a large swimming pool &mdash; thoughtfully designed for everyday use and natural interaction without obligation.</p>
-  </div>
-  <div class="sn">19</div>
-</section>
-
-<!-- 20 ─ Flexible ownership structure -->
-<section class="slide swiss-split" id="s20">
+<!-- 19 ─ Flexible ownership structure -->
+<section class="slide swiss-split" id="s19">
   <div class="swiss-split-content">
     <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Flexible Ownership</div>
-    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Your space,<br>your terms</h2>
-    <p class="sub" style="margin-top:1.5rem;">Homes support full ownership or shared ownership between two parties, with layouts that allow for adaptable use over time.</p>
-    <p class="sub" style="margin-top:1.25rem;">Generous open-plan living spaces connect seamlessly with the outdoors. Natural materials, high ceilings, and cross-ventilation create an atmosphere that&rsquo;s both grounded and airy.</p>
-    <div class="swiss-footer-note">Indoor-outdoor living, designed for the tropical climate.</div>
+    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Your space,<br>your way</h2>
+    <p class="sub" style="margin-top:1.5rem;">Homes can be held by a single owner or shared between two parties. Layouts are designed to support adaptable use over time &mdash; whether you live here full-time or part of the year.</p>
+    <p class="sub" style="margin-top:1.25rem;">Open-plan living spaces connect seamlessly with the outdoors. High ceilings and cross-ventilation make every room feel both grounded and airy.</p>
+    <div class="swiss-footer-note">Full or shared ownership &mdash; structured for flexibility.</div>
   </div>
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-img">
     <img src="assets/Living_Room_2.png" alt="Casa NāM living space">
+  </div>
+  <div class="sn">19</div>
+</section>
+
+<!-- 20 ─ Shared spaces for everyday life -->
+<section class="slide img-full" id="s20">
+  <img src="assets/Communal_Space.png" alt="Communal gathering space">
+  <div class="img-full-overlay"></div>
+  <div class="img-full-caption">
+    <div class="label" style="color:rgba(244,242,232,0.85);">Shared Spaces for Everyday Life</div>
+    <h2>Community without obligation</h2>
+    <p>A communal kitchen, covered hangout spaces, and a large swimming pool &mdash; thoughtfully placed for natural interaction, without the pressure of forced proximity.</p>
   </div>
   <div class="sn">20</div>
 </section>
@@ -2184,10 +2184,10 @@
       { idx: 13, title: 'The Home' },
       { idx: 14, title: 'Home Concepts' },
       { idx: 15, title: 'Exterior' },
-      { idx: 16, title: 'Living-Centred Design' },
-      { idx: 17, title: 'Architecture' },
-      { idx: 18, title: 'Shared Spaces' },
-      { idx: 19, title: 'Flexible Ownership' },
+      { idx: 16, title: 'Architecture' },
+      { idx: 17, title: 'Living-Centred' },
+      { idx: 18, title: 'Flexible Ownership' },
+      { idx: 19, title: 'Shared Spaces' },
       { idx: 20, title: 'Location' },
       { idx: 21, title: 'Palms' }
     ]},
