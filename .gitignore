@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Photoshop source files
+*.psd
+
+# Unused originals (replaced by Site_1.jpg / Site_2.jpg)
+assets/Landscape_1.jpeg
+assets/Landscape_2.jpeg
+assets/Site_1.jpeg
+
+# Large originals (compressed versions used instead)
+assets/Exterior.png
+assets/Exterior Pan Out.mp4
+
+# Static map (replaced by interactive Leaflet map)
+assets/Location Map.png
