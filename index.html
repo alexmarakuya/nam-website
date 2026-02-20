@@ -1130,12 +1130,40 @@
     #s31 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; }
     #s31 > div { padding: 40px 24px 28px !important; }
     /* Stats grid on slide 5: 4 cols → 2x2 */
-    #s5 .slide-inner > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem !important; }
+    #s5 .slide-inner > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
     /* Image mosaic on slide 18: stack vertically */
     #s18 .slide-inner > div:last-child { grid-template-columns: 1fr !important; }
     #s18 .slide-inner > div:last-child > div:first-child { grid-row: span 1 !important; height: 35vh; }
     #s18 .slide-inner > div:last-child > div:nth-child(2),
     #s18 .slide-inner > div:last-child > div:nth-child(3) { height: 25vh; }
+    /* Slide 10: override inline gap:6rem */
+    .grid-2[style*="gap:6rem"] { gap: 2rem !important; }
+    /* Slide 19: remove nowrap */
+    #s19 h2 { white-space: normal !important; }
+    /* Slide 22: reduce map padding */
+    #s22 .swiss-split-img { padding: 20px !important; }
+    /* Slide 23: reduce blockquote padding */
+    #s23 > div:nth-child(3) { padding: 24px !important; }
+    /* Tables: shrink for mobile */
+    .tbl th, .tbl td { font-size: 0.72rem !important; padding: 0.55rem 0.4rem !important; }
+    .tbl th { font-size: 0.62rem !important; }
+    /* Timeline: vertical stack */
+    .tl { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; padding: 1.5rem 0 !important; margin: 2rem 0 !important; }
+    .tl::before { display: none !important; }
+    .tl-item { text-align: left !important; display: flex !important; align-items: flex-start !important; gap: 1rem !important; }
+    .tl-dot { margin: 0.25rem 0 0 !important; flex-shrink: 0; }
+    .tl-txt { max-width: 100% !important; margin: 0 !important; }
+    /* Payment milestones: 2x2 grid */
+    #s31 .pay-progress > div:last-child { flex-wrap: wrap !important; gap: 1rem !important; }
+    #s31 .pay-milestone { flex: 0 0 45% !important; }
+    /* Climate chart: allow scroll if needed */
+    .climate-chart-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .climate-chart-wrapper .climate-svg { min-width: 600px; }
+    /* Season bar: smaller text */
+    .season-bar { font-size: 0.55rem !important; height: 26px !important; }
+    /* Body text sizes: slightly smaller on mobile */
+    .sub { font-size: 1.1rem !important; }
+    .sub-ep { font-size: 1.15rem !important; }
   }
 </style>
 </head>
@@ -1940,7 +1968,7 @@
     <h2 style="color:var(--bg);font-size:clamp(2rem,3.5vw,3rem);margin-bottom:2.5rem;">Payment<br>structure</h2>
     <div style="padding:2.5rem;border:1px solid rgba(244,242,232,0.15);border-radius:14px;background:rgba(244,242,232,0.04);">
       <div style="font-family:'Sometype Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta-light);margin-bottom:1rem;">Down Payment</div>
-      <div style="font-size:2.8rem;font-weight:700;color:var(--bg);line-height:1;">THB 1M</div>
+      <div style="font-size:clamp(2rem,5vw,2.8rem);font-weight:700;color:var(--bg);line-height:1;">THB 1M</div>
       <div style="font-family:'Sometype Mono',monospace;font-size:0.88rem;color:rgba(244,242,232,0.55);margin-top:0.75rem;line-height:1.5;">Reservation secured<br>under signed agreement</div>
     </div>
     <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:50px;">31</div>
@@ -1956,22 +1984,22 @@
       <div style="display:flex;justify-content:space-between;margin-top:-8px;position:relative;">
         <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 0.3s;">
           <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:2rem;font-weight:700;color:var(--green);">40%</div>
+          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">40%</div>
           <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Foundation work</div>
         </div>
         <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 0.6s;">
           <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:2rem;font-weight:700;color:var(--green);">30%</div>
+          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">30%</div>
           <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Roofing work</div>
         </div>
         <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 0.9s;">
           <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:2rem;font-weight:700;color:var(--green);">20%</div>
+          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">20%</div>
           <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Interior work</div>
         </div>
         <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 1.2s;">
           <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:2rem;font-weight:700;color:var(--green);">10%</div>
+          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">10%</div>
           <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Delivery &amp; handover</div>
         </div>
       </div>
@@ -2033,7 +2061,7 @@
     </div>
     <button onclick="nextSlide()" class="nav-arrow" title="Next">&rarr;</button>
   </div>
-  <button class="nav-pdf" onclick="window.print()" title="Download as PDF"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span> PDF</span></button>
+  <button class="nav-pdf" onclick="exportPDF()" title="Download as PDF" id="pdfBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span> PDF</span></button>
 </nav>
 <div class="slide-nav-backdrop" id="slideNavBackdrop"></div>
 <div class="slide-nav-dropdown" id="slideNav"></div>
@@ -2261,6 +2289,103 @@
 
   goTo(0);
 })();
+</script>
+
+<!-- PDF export libraries (loaded async, only used on demand) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
+<script>
+function exportPDF() {
+  var btn = document.getElementById('pdfBtn');
+  var origHTML = btn.innerHTML;
+  btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span> Generating\u2026</span>';
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+
+  var slides = document.querySelectorAll('.slide');
+  var total = slides.length;
+  var deck = document.getElementById('deck');
+  var savedTransform = deck.style.transform;
+  var savedTransition = deck.style.transition;
+
+  /* Disable transitions for fast capture */
+  deck.style.transition = 'none';
+
+  /* Make all slides active (visible) for capture */
+  slides.forEach(function(s) { s.classList.add('active'); });
+
+  /* Give the chart and payment animations a moment */
+  var chartEl = document.querySelector('.climate-chart-container');
+  if (chartEl) chartEl.classList.add('chart-animated');
+
+  var idx = 0;
+  var canvases = [];
+  var vw = window.innerWidth;
+  var vh = window.innerHeight - 52; /* minus nav height */
+
+  function captureNext() {
+    if (idx >= total) {
+      buildPDF();
+      return;
+    }
+    /* Scroll deck to this slide */
+    deck.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
+
+    /* Update progress in button */
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span> ' + (idx + 1) + '/' + total + '</span>';
+
+    setTimeout(function() {
+      html2canvas(slides[idx], {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null,
+        width: vw,
+        height: vh,
+        windowWidth: vw,
+        windowHeight: vh,
+        x: 0,
+        y: 0
+      }).then(function(canvas) {
+        canvases.push(canvas);
+        idx++;
+        captureNext();
+      }).catch(function() {
+        /* Skip failed slide */
+        idx++;
+        captureNext();
+      });
+    }, 150);
+  }
+
+  function buildPDF() {
+    var jsPDF = window.jspdf.jsPDF;
+    var pdf = new jsPDF({
+      orientation: 'landscape',
+      unit: 'px',
+      format: [vw, vh],
+      hotfixes: ['px_scaling']
+    });
+
+    canvases.forEach(function(canvas, i) {
+      if (i > 0) pdf.addPage([vw, vh], 'landscape');
+      var imgData = canvas.toDataURL('image/jpeg', 0.92);
+      pdf.addImage(imgData, 'JPEG', 0, 0, vw, vh);
+    });
+
+    pdf.save('Casa-NaM-Pitch-Deck.pdf');
+
+    /* Restore */
+    deck.style.transition = savedTransition;
+    deck.style.transform = savedTransform;
+    btn.innerHTML = origHTML;
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+
+  /* Small delay to let the UI update */
+  setTimeout(captureNext, 100);
+}
 </script>
 
 </body>
