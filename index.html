@@ -1152,9 +1152,11 @@
     /* Slide 13: prevent content crossing into vertical img-hint */
     #s13 .slide-inner { padding-right: 20px !important; }
     #s13 .img-hint-v { display: none; }
-    /* Slide 19: remove nowrap */
-    /* Slide 20: reduce map padding */
-    #s20 .swiss-split-img { padding: 20px !important; }
+    /* Slide 20: make map + text scroll together on mobile */
+    #s20 { overflow-y: auto !important; }
+    #s20 .swiss-split-img { height: auto !important; flex-shrink: 0; padding: 20px !important; }
+    #s20 .swiss-split-img img { max-height: 50vh; }
+    #s20 .swiss-split-content { overflow: visible !important; flex-shrink: 0; }
     /* Slide 21: reduce blockquote padding */
     #s21 > div:nth-child(3) { padding: 24px !important; }
     /* Tables: shrink for mobile */
