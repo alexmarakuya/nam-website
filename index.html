@@ -962,52 +962,50 @@
     position: relative;
     flex-shrink: 0;
     z-index: 100;
-    background: rgba(38,38,36,0.95); backdrop-filter: blur(10px);
-    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(38,38,36,0.6); backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
     padding: 0 30px; height: var(--nav-h);
   }
-  .nav-bar .logo { font-family: 'Epilogue', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--bg); letter-spacing: 0.05em; flex-shrink: 0; position: relative; z-index: 2; }
   .nav-center {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-    display: flex; align-items: center; gap: 10px; z-index: 1;
+    display: flex; align-items: center; gap: 6px; z-index: 1;
   }
   .nav-arrow {
-    background: rgba(244,242,232,0.1); border: 1px solid rgba(244,242,232,0.2); color: var(--bg);
-    width: 38px; height: 38px; border-radius: 6px; cursor: pointer; font-size: 1rem;
-    display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+    background: none; border: none; color: rgba(244,242,232,0.45);
+    width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+    display: flex; align-items: center; justify-content: center; transition: color 0.2s;
     font-family: 'Sometype Mono', monospace; flex-shrink: 0;
   }
-  .nav-arrow:hover { background: rgba(244,242,232,0.2); }
+  .nav-arrow:hover { color: var(--bg); }
   .slide-counter {
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    font-family: 'Epilogue', sans-serif; font-size: 0.85rem;
-    color: var(--bg); text-align: center;
-    cursor: pointer; padding: 6px 20px; border-radius: 6px;
-    border: 1px solid rgba(244,242,232,0.25);
-    background: rgba(244,242,232,0.08);
-    transition: background 0.2s, color 0.2s, border-color 0.2s; user-select: none;
+    font-family: 'Epilogue', sans-serif; font-size: 0.82rem;
+    color: rgba(244,242,232,0.55); text-align: center;
+    cursor: pointer; padding: 4px 10px; border-radius: 6px;
+    border: none;
+    background: none;
+    transition: color 0.2s; user-select: none;
     white-space: nowrap;
   }
-  .slide-counter:hover { background: rgba(244,242,232,0.18); border-color: rgba(244,242,232,0.4); color: #fff; }
-  .slide-counter.nav-active { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+  .slide-counter:hover { color: var(--bg); }
+  .slide-counter.nav-active { color: var(--terracotta); }
   .counter-num {
-    font-family: 'Sometype Mono', monospace; font-size: 0.75rem;
-    opacity: 0.7; font-weight: 500;
+    font-family: 'Sometype Mono', monospace; font-size: 0.72rem;
+    opacity: 0.6; font-weight: 500;
   }
-  .counter-dot { opacity: 0.4; font-size: 0.9rem; }
-  .counter-name { font-weight: 500; letter-spacing: 0.01em; width: 180px; text-align: center; }
+  .counter-dot { opacity: 0.35; font-size: 0.85rem; }
+  .counter-name { font-weight: 500; letter-spacing: 0.01em; max-width: 160px; text-align: center; }
 
   /* ── PDF button ── */
   .nav-pdf {
-    background: rgba(244,242,232,0.12); border: 1px solid rgba(244,242,232,0.2);
-    color: var(--bg); height: 38px; padding: 0 16px; border-radius: 6px;
+    background: none; border: none;
+    color: rgba(244,242,232,0.4); height: 34px; padding: 0 10px; border-radius: 6px;
     cursor: pointer; font-family: 'Sometype Mono', monospace;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;
-    transition: background 0.2s, border-color 0.2s; flex-shrink: 0;
-    position: relative; z-index: 2;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px;
+    transition: color 0.2s; flex-shrink: 0;
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
   }
-  .nav-pdf:hover { background: rgba(244,242,232,0.22); border-color: rgba(244,242,232,0.4); }
+  .nav-pdf:hover { color: var(--bg); }
 
   /* ── Slide navigator dropdown ── */
   .slide-nav-dropdown {
@@ -1105,9 +1103,10 @@
     .info-columns { grid-template-columns: 1fr; gap: 2rem; }
     .info-row { grid-template-columns: 28px 1fr; gap: 0.2rem; }
     .info-row .info-value { grid-column: 2; }
-    .nav-bar { padding: 0 16px; }
+    .nav-bar { padding: 0 12px; }
     .slide-nav-dropdown { width: calc(100vw - 32px); }
-    .counter-name { max-width: 100px; overflow: hidden; text-overflow: ellipsis; }
+    .counter-name { max-width: 90px; overflow: hidden; text-overflow: ellipsis; }
+    .nav-pdf { right: 12px; }
     .nav-pdf span { display: none; }
     .split-img { flex-direction: column; }
     .split-img-photo { width: 100%; height: 40vh; }
@@ -2051,7 +2050,6 @@
 </div><!-- /deck-wrapper -->
 
 <nav class="nav-bar">
-  <div class="logo" onclick="goTo(0)" style="cursor:pointer;" title="Back to start">Casa N&#x101;M</div>
   <div class="nav-center">
     <button onclick="prevSlide()" class="nav-arrow" title="Previous">&larr;</button>
     <div class="slide-counter" id="counter" onclick="toggleSlideNav()" title="Jump to slide">
@@ -2302,14 +2300,24 @@ function exportPDF() {
   btn.disabled = true;
   btn.style.opacity = '0.5';
 
+  /* Check libraries loaded */
+  if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
+    alert('PDF libraries are still loading. Please wait a moment and try again.');
+    btn.innerHTML = origHTML; btn.disabled = false; btn.style.opacity = '1';
+    return;
+  }
+
   var slides = document.querySelectorAll('.slide');
   var total = slides.length;
   var deck = document.getElementById('deck');
+  var wrapper = document.querySelector('.deck-wrapper');
   var savedTransform = deck.style.transform;
   var savedTransition = deck.style.transition;
+  var savedOverflow = wrapper.style.overflow;
 
   /* Disable transitions for fast capture */
   deck.style.transition = 'none';
+  wrapper.style.overflow = 'visible';
 
   /* Make all slides active (visible) for capture */
   slides.forEach(function(s) { s.classList.add('active'); });
@@ -2336,55 +2344,72 @@ function exportPDF() {
 
     setTimeout(function() {
       html2canvas(slides[idx], {
-        scale: 2,
+        scale: 1.5,
         useCORS: true,
         allowTaint: true,
+        logging: false,
         backgroundColor: null,
         width: vw,
         height: vh,
         windowWidth: vw,
         windowHeight: vh,
-        x: 0,
+        scrollX: 0,
+        scrollY: 0,
+        x: slides[idx].getBoundingClientRect().left,
         y: 0
       }).then(function(canvas) {
         canvases.push(canvas);
         idx++;
         captureNext();
-      }).catch(function() {
-        /* Skip failed slide */
+      }).catch(function(err) {
+        console.warn('Slide ' + (idx+1) + ' capture failed:', err);
         idx++;
         captureNext();
       });
-    }, 150);
+    }, 250);
   }
 
   function buildPDF() {
-    var jsPDF = window.jspdf.jsPDF;
-    var pdf = new jsPDF({
-      orientation: 'landscape',
-      unit: 'px',
-      format: [vw, vh],
-      hotfixes: ['px_scaling']
-    });
+    if (canvases.length === 0) {
+      alert('PDF generation failed — no slides could be captured. Try on desktop.');
+      restore();
+      return;
+    }
+    try {
+      var jsPDF = window.jspdf.jsPDF;
+      var pdf = new jsPDF({
+        orientation: 'landscape',
+        unit: 'px',
+        format: [vw, vh],
+        hotfixes: ['px_scaling']
+      });
 
-    canvases.forEach(function(canvas, i) {
-      if (i > 0) pdf.addPage([vw, vh], 'landscape');
-      var imgData = canvas.toDataURL('image/jpeg', 0.92);
-      pdf.addImage(imgData, 'JPEG', 0, 0, vw, vh);
-    });
+      canvases.forEach(function(canvas, i) {
+        if (i > 0) pdf.addPage([vw, vh], 'landscape');
+        var imgData = canvas.toDataURL('image/jpeg', 0.85);
+        pdf.addImage(imgData, 'JPEG', 0, 0, vw, vh);
+      });
 
-    pdf.save('Casa-NaM-Pitch-Deck.pdf');
+      pdf.save('Casa-NaM-Pitch-Deck.pdf');
+    } catch(e) {
+      console.error('PDF build error:', e);
+      alert('PDF generation failed: ' + e.message);
+    }
+    restore();
+  }
 
-    /* Restore */
+  function restore() {
     deck.style.transition = savedTransition;
     deck.style.transform = savedTransform;
+    wrapper.style.overflow = savedOverflow;
+    slides.forEach(function(s) { if (s !== slides[cur]) s.classList.remove('active'); });
     btn.innerHTML = origHTML;
     btn.disabled = false;
     btn.style.opacity = '1';
   }
 
   /* Small delay to let the UI update */
-  setTimeout(captureNext, 100);
+  setTimeout(captureNext, 200);
 }
 </script>
 
