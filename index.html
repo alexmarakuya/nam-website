@@ -127,16 +127,16 @@
   .slide.active .list-item:nth-child(5), .slide.active .info-row:nth-child(5) { transition-delay: 0.55s; }
   .slide.active .list-item:nth-child(6), .slide.active .info-row:nth-child(6) { transition-delay: 0.65s; }
 
-  /* Split-layout slide panel fades (s24, s29) */
-  #s24 > div, #s29 > div {
+  /* Split-layout slide panel fades (s30 – Payment) */
+  #s30 > div {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  #s24.active > div:first-child, #s29.active > div:first-child {
+  #s30.active > div:first-child {
     opacity: 1; transform: translateY(0); transition-delay: 0.1s;
   }
-  #s24.active > div:last-child, #s29.active > div:last-child {
+  #s30.active > div:last-child {
     opacity: 1; transform: translateY(0); transition-delay: 0.25s;
   }
 
@@ -817,8 +817,9 @@
   .concept-card-text { display: flex; flex-direction: column; justify-content: center; }
   .concept-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
   .concept-card p { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
-  #s15 .concept-card { flex-direction: column; gap: 0.5rem; padding: 2rem 0; }
+  #s15 .concept-card { flex-direction: column; gap: 0.75rem; padding: 2rem 0; }
   #s15 .concept-card h3 { font-size: 1.35rem; margin-bottom: 0; }
+  #s15 .concept-card svg { flex-shrink: 0; }
   .card-thumb {
     width: 180px;
     min-width: 180px;
@@ -857,6 +858,7 @@
     border-radius: 10px;
     background: var(--white);
   }
+  .own-col svg { margin-bottom: 1rem; flex-shrink: 0; }
   .own-col h3 { font-size: 1.1rem; color: var(--terracotta); margin-bottom: 1.25rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--border); }
   .own-col p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
 
@@ -873,13 +875,23 @@
   .tl { display: flex; justify-content: space-between; position: relative; margin: 3.5rem 0; padding: 2.5rem 0; }
   .tl::before { content: ''; position: absolute; top: calc(2.5rem + 8px); left: 8%; right: 8%; height: 2px; background: var(--border); }
   .tl-item { text-align: center; position: relative; z-index: 1; flex: 1; }
-  .tl-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--terracotta); margin: 0 auto 1.25rem; border: 3px solid var(--bg); box-shadow: 0 0 0 1.5px var(--terracotta); }
+  .tl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terracotta); margin: 0 auto 1.25rem; border: none; box-shadow: none; }
   .tl-date { font-family: 'Sometype Mono', monospace; font-size: 0.85rem; font-weight: 600; color: var(--terracotta); margin-bottom: 0.5rem; }
   .tl-txt { font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--text-secondary); font-weight: 400; line-height: 1.45; max-width: 160px; margin: 0 auto; }
 
   /* ── Payment ── */
   .pay-flow { max-width: 950px; }
   .pay-section-title { font-family: 'Sometype Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); font-weight: 600; margin-bottom: 0.75rem; margin-top: 2rem; }
+  /* Payment timeline: always vertical */
+  .pay-tl { flex-direction: column; align-items: flex-start; gap: 0; padding: 1.5rem 0 1.5rem 36px; margin: 1.5rem 0 2rem; }
+  .pay-tl::before { left: 11px; right: auto; top: 1.5rem; bottom: 1.5rem; height: auto; width: 2px; background: var(--terracotta); opacity: 0.25; }
+  .pay-tl .tl-item { text-align: left; display: flex; flex-direction: column; gap: 0; padding: 1rem 0; position: relative; }
+  .pay-tl .tl-item:first-child { padding-top: 0; }
+  .pay-tl .tl-item:last-child { padding-bottom: 0; }
+  .pay-tl .tl-txt { max-width: 100%; margin: 0; }
+  .pay-row { display: flex; align-items: center; gap: 1rem; position: relative; }
+  .pay-row .tl-dot { position: absolute; left: -32px; top: 50%; transform: translateY(-50%); margin: 0; flex-shrink: 0; width: 8px; height: 8px; }
+  .pay-row .tl-txt { font-size: 0.88rem; color: var(--text-secondary); }
 
   /* ── TOC ── */
   .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
@@ -920,6 +932,57 @@
     margin-top: 2rem;
     text-decoration: none;
   }
+  .cta-sticky-bar { display: none; }
+
+  /* ── Currency selector ── */
+  /* ── Currency Picker ── */
+  .currency-picker {
+    position: absolute; left: 24px; top: 0; bottom: 0;
+    display: flex; align-items: center;
+    z-index: 10;
+  }
+  .currency-trigger {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.08em;
+    background: none;
+    color: rgba(244,242,232,0.55);
+    border: none;
+    padding: 5px 2px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 5px;
+    transition: color 0.2s;
+  }
+  .currency-trigger:hover { color: rgba(244,242,232,0.9); }
+  .currency-trigger svg { opacity: 0.5; transition: transform 0.25s; }
+  .currency-picker.open .currency-trigger svg { transform: rotate(180deg); }
+  .currency-popup {
+    position: fixed; bottom: calc(var(--nav-h) + 12px); left: 50%; transform: translateX(-50%) scale(0.95);
+    background: var(--bg); border-radius: 8px;
+    display: flex; flex-direction: column; align-items: center; gap: 0; padding: 8px 12px 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.08);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 200;
+  }
+  .currency-picker.open .currency-popup {
+    opacity: 1; pointer-events: auto; transform: translateX(-50%) scale(1);
+  }
+  .currency-note {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.04em;
+    color: var(--text-muted); padding: 4px 8px 6px;
+    white-space: nowrap;
+  }
+  .currency-opt {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+    padding: 8px 14px; border: none; border-radius: 5px;
+    background: transparent; color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+  }
+  .currency-opt:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+  .currency-opt.active {
+    background: var(--terracotta); color: #fff;
+  }
 
   /* ── Climate Chart ── */
   .climate-chart-container { width: 100%; max-width: 1100px; margin: 0 auto; }
@@ -954,6 +1017,24 @@
   .season-peak { background: rgba(212,107,68,0.75); color: var(--bg); }
   .season-high { background: rgba(180,155,100,0.55); color: var(--green); }
   .season-low { background: rgba(42,58,43,0.18); color: var(--green); }
+  .chart-rotate-hint { display: none; }
+  .chart-rotate-hint .rotate-icon { width: 18px; height: 18px; transform: rotate(90deg); }
+  .chart-rotate-hint .rotate-arrow { width: 14px; height: 14px; margin-left: 2px; margin-right: 6px; }
+  /* Mobile horizontal climate chart (hidden on desktop) */
+  .climate-mobile { display: none; }
+  .cm-row { display: flex; align-items: center; gap: 8px; }
+  .cm-month { font-family: 'Sometype Mono', monospace; font-size: 0.7rem; font-weight: 600; color: var(--text-secondary); width: 32px; flex-shrink: 0; letter-spacing: 0.04em; }
+  .cm-bar-wrap { flex: 1; height: 22px; background: none; border-radius: 4px; position: relative; overflow: hidden; }
+  .cm-bar { height: 100%; border-radius: 4px; transition: width 0.8s cubic-bezier(0.22,0.61,0.36,1); width: 0; }
+  .chart-animated .cm-bar { width: var(--bar-w); }
+  .cm-rain-peak { background: var(--terracotta); }
+  .cm-rain-high { background: rgba(180,155,100,0.7); }
+  .cm-rain-low { background: rgba(42,58,43,0.35); }
+  .cm-temps { font-family: 'Sometype Mono', monospace; font-size: 0.62rem; color: var(--text-muted); width: 62px; flex-shrink: 0; text-align: right; letter-spacing: 0.02em; }
+  .cm-temps .cm-hi { color: var(--terracotta); }
+  .cm-temps .cm-lo { color: var(--green); }
+  .cm-axis-label { font-family: 'Sometype Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-align: center; padding: 0; margin-bottom: 2px; }
+  .cm-rain-val { font-family: 'Sometype Mono', monospace; font-size: 0.58rem; color: var(--text-muted); width: 32px; text-align: right; flex-shrink: 0; }
   .chart-legend { display: flex; gap: 2rem; justify-content: center; margin-top: 1.25rem; font-family: 'Sometype Mono', monospace; font-size: 0.88rem; color: var(--text-secondary); letter-spacing: 0.04em; }
   .legend-item { display: flex; align-items: center; gap: 8px; }
   .legend-swatch { width: 16px; height: 4px; border-radius: 2px; }
@@ -973,9 +1054,9 @@
   }
   .nav-arrow {
     background: none; border: none; color: rgba(244,242,232,0.7);
-    width: 40px; height: 40px; border-radius: 6px; cursor: pointer; font-size: 1.15rem;
+    width: 56px; height: 56px; border-radius: 6px; cursor: pointer; font-size: 1.65rem;
     display: flex; align-items: center; justify-content: center; transition: color 0.2s, opacity 0.2s;
-    font-family: 'Sometype Mono', monospace; flex-shrink: 0;
+    font-family: 'Sometype Mono', monospace; flex-shrink: 0; margin-bottom: 4px;
   }
   .nav-arrow:hover { color: var(--bg); }
   .nav-arrow:disabled { opacity: 0.15; pointer-events: none; cursor: default; }
@@ -992,22 +1073,38 @@
   .slide-counter.nav-active { color: var(--terracotta); }
   .counter-num {
     font-family: 'Sometype Mono', monospace; font-size: 0.72rem;
-    opacity: 0.7; font-weight: 500;
+    opacity: 0.7; font-weight: 500; margin-bottom: 2px;
   }
   .counter-name { font-weight: 500; letter-spacing: 0.01em; text-align: left;
     overflow: hidden; text-overflow: ellipsis; }
 
-  /* ── PDF button ── */
-  .nav-pdf {
-    background: none; border: none;
-    color: rgba(244,242,232,0.55); height: 34px; padding: 0 10px; border-radius: 6px;
-    cursor: pointer; font-family: 'Sometype Mono', monospace;
-    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px;
-    transition: color 0.2s; flex-shrink: 0;
-    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+  /* ── Share picker ── */
+  .share-picker { position: absolute; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; }
+  .share-trigger {
+    background: none; border: none; padding: 5px 2px; cursor: pointer;
+    color: rgba(244,242,232,0.55); display: inline-flex; align-items: center;
+    transition: color 0.2s;
   }
-  .nav-pdf:hover { color: var(--bg); }
+  .share-trigger:hover { color: rgba(244,242,232,0.9); }
+  .share-popup {
+    position: fixed; bottom: calc(var(--nav-h) + 12px); left: 50%; transform: translateX(-50%) scale(0.95);
+    background: var(--bg); border-radius: 8px;
+    display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 6px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.08);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 200;
+  }
+  .share-picker.open .share-popup { opacity: 1; pointer-events: auto; transform: translateX(-50%) scale(1); }
+  .share-opt {
+    font-family: 'Sometype Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em;
+    padding: 10px 16px; border: none; border-radius: 5px;
+    background: transparent; color: var(--text-secondary);
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    display: flex; align-items: center; gap: 8px; text-align: left;
+  }
+  .share-opt:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+  .share-opt svg { flex-shrink: 0; }
 
   /* ── Slide navigator dropdown ── */
   .slide-nav-dropdown {
@@ -1058,8 +1155,10 @@
   /* ── TOC clickable items ── */
   .toc-section h3 { cursor: pointer; transition: color 0.2s; }
   .toc-section h3:hover { color: var(--terracotta); }
+  .toc-section h3::after { content: ' \2192'; font-size: 0.85em; opacity: 0.4; margin-left: 0.3em; }
   .toc-section ul li { cursor: pointer; transition: color 0.2s; }
   .toc-section ul li:hover { color: var(--terracotta); }
+  .toc-section ul li::after { content: ' \2192'; font-size: 0.75em; opacity: 0.35; margin-left: 0.3em; }
 
   /* ── Progress bar ── */
   .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); z-index: 200; transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; }
@@ -1101,16 +1200,21 @@
   }
 
   @media (max-width: 768px) {
-    .slide { padding: 12px 24px 16px; }
+    .slide { padding: 0 24px; justify-content: flex-start !important; align-items: flex-start !important; }
+    .slide-inner { padding-top: 0; width: 100%; }
     /* Page 1: reduce hero title size + more top breathing room */
     .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
     #s1 .hero-main { padding-top: 48px !important; }
-    /* Hide on-slide page numbers, enlarge nav counter number */
+    /* Hide on-slide page numbers (both .sn and hero footer numbers) */
     .sn { display: none !important; }
+    #s4 .hero-footer-line span:first-child,
+    #s14 .hero-footer-line span:first-child,
+    #s22 .hero-footer-line span:first-child { display: none !important; }
     .counter-num { font-size: 0.86rem !important; }
     .slide.img-full { padding: 0 !important; }
     .grid-2-cards { grid-template-columns: 1fr; gap: 0; }
     .concept-card { flex-direction: column; gap: 1rem; padding: 1.5rem 0; }
+    #s7 .concept-card { border-top: none; }
     .card-thumb { width: 100%; min-width: 100%; height: 160px; border-radius: 8px; }
     .concept-card h3 { font-size: 1.05rem; }
     .concept-card p { font-size: 0.95rem; }
@@ -1121,8 +1225,8 @@
     .slide-nav-dropdown { width: calc(100vw - 32px); }
     .slide-counter { width: 140px; }
     .counter-name { overflow: hidden; text-overflow: ellipsis; }
-    .nav-pdf { right: 12px; }
-    .nav-pdf span { display: none; }
+    .currency-picker { left: 12px; }
+    .share-picker { right: 12px; }
     .split-img { flex-direction: column; }
     .split-img-photo { width: 100%; height: 40vh; }
     .split-img-content { padding: 28px 28px 28px; }
@@ -1138,59 +1242,92 @@
     .hero-slide { flex-direction: column; }
     .hero-main { height: auto; flex: 1; }
     .hero-accent-strip { display: none; }
+    #s1 .hero-accent-strip { display: flex; flex-direction: row; width: 100%; height: 18px; }
+    #s1 .hero-accent-strip > div { flex: 1; }
     .hero-img-strip { width: 100%; height: 35vh; flex-shrink: 0; }
-    #s24 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; overflow-y: auto !important; }
-    #s24 > div { padding: 36px 24px 28px !important; }
-    #s29 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; }
-    #s29 > div { padding: 40px 24px 28px !important; }
+    #s30 { grid-template-columns: 1fr !important; grid-template-rows: auto auto !important; overflow-y: auto !important; }
+    #s30 > div { padding: 72px 24px 28px !important; justify-content: flex-start !important; overflow: visible !important; }
+    #s30 > div:first-child h2 { margin-bottom: 1.5rem !important; }
+    #s30 > div:first-child > div:last-of-type { padding: 1.5rem !important; }
     /* Stats grid on slide 5: 4 cols → 2x2 */
     #s5 .slide-inner > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
     /* Image grid on slide 17: stack vertically */
-    #s17 .slide-inner > div:last-child { grid-template-columns: 1fr !important; }
-    #s17 .slide-inner > div:last-child > div { height: 35vh; }
-    /* More top whitespace for title on mobile */
-    #s3, #s6, #s7, #s11, #s12, #s13, #s17, #s23 { padding-top: 72px !important; }
-    /* Page 3: remove bottom padding so content scrolls to nav edge */
-    #s3 { padding-bottom: 0 !important; }
-    /* Slide 10: override inline gap:6rem + add top space for img-hint */
+    #s17 .slide-inner > div:last-child { grid-template-columns: 1fr !important; padding-bottom: 1.5rem; }
+    #s17 .slide-inner > div:last-child > div { height: auto; max-height: 50vh; }
+    #s17 .slide-inner > div:last-child img { width: 100%; height: auto; max-height: 50vh; object-fit: cover; }
+    /* Standardised top whitespace on mobile — all content slides */
+    #s2, #s3, #s5, #s6, #s7, #s8, #s10, #s11, #s12, #s13, #s15, #s17, #s23, #s26, #s27, #s28, #s29 { padding-top: 72px !important; }
+    #s24, #s25 { padding: 72px 24px 40px !important; overflow-y: auto !important; }
+    /* Allow scroll on content slides that may overflow */
+    #s2, #s3, #s5, #s6, #s7, #s8, #s10, #s11, #s12, #s13, #s15, #s17, #s23, #s26, #s27, #s28, #s29 { overflow-y: auto !important; }
+    /* Slide 10: override inline gap:6rem + hide img-hints */
     .grid-2[style*="gap:6rem"] { gap: 2rem !important; }
-    #s10 { padding-top: 65px !important; }
-    /* Slide 7: inset content away from left img-hint */
-    #s7 { padding-left: 60px !important; }
+    #s10 .img-hint, #s11 .img-hint, #s23 .img-hint, #s26 .img-hint { display: none !important; }
+    /* Slide 7: hide img-hint on mobile */
+    #s7 .img-hint-v { display: none !important; }
     /* Slide 13: prevent content crossing into vertical img-hint */
     #s13 .slide-inner { padding-right: 20px !important; }
     #s13 .img-hint-v { display: none; }
-    /* Slide 20: make map + text scroll together on mobile */
-    #s20 { overflow-y: auto !important; }
-    #s20 .swiss-split-img { height: auto !important; flex-shrink: 0; padding: 20px !important; }
-    #s20 .swiss-split-img img { max-height: 50vh; }
-    #s20 .swiss-split-content { overflow: visible !important; flex-shrink: 0; }
+    #s13 .info-note { padding-bottom: 1.5rem; }
+    #s23 .info-note { padding-bottom: 1.5rem; }
+    /* Slide 18: full-flow scroll with image inline */
+    #s18 { overflow-y: auto !important; padding: 0 !important; }
+    #s18 .swiss-split-content { overflow: visible !important; flex-shrink: 0; padding: 72px 24px 1.5rem !important; justify-content: flex-start !important; }
+    #s18 .swiss-split-img { height: auto !important; flex-shrink: 0; }
+    #s18 .swiss-split-img img { width: 100%; height: auto; max-height: 50vh; object-fit: cover; }
+    #s18 .swiss-footer-note { margin-top: 1.5rem; }
+    /* Slide 20: map first, then text — scroll together, same bg, no bar */
+    #s20 { overflow-y: auto !important; padding: 0 !important; align-items: flex-start !important; justify-content: flex-start !important; }
+    #s20 .swiss-split-content { overflow: visible !important; flex-shrink: 0; order: 2; justify-content: flex-start !important; padding: 1.5rem 24px 2rem !important; }
+    #s20 .swiss-split-bar { display: none !important; }
+    #s20 .swiss-split-img { height: auto !important; flex-shrink: 0; order: 1; background: var(--bg) !important; padding: 76px 24px 0 !important; }
+    #s20 .swiss-split-img img { max-height: 55vh; border-radius: 10px; }
     /* Slide 21: reduce blockquote padding */
     #s21 > div:nth-child(3) { padding: 24px !important; }
     /* Tables: shrink for mobile */
     .tbl th, .tbl td { font-size: 0.72rem !important; padding: 0.55rem 0.4rem !important; }
     .tbl th { font-size: 0.62rem !important; }
+    .tbl-hide-mobile { display: none !important; }
     /* Timeline: vertical stack */
-    .tl { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; padding: 1.5rem 0 !important; margin: 2rem 0 !important; }
-    .tl::before { display: none !important; }
-    .tl-item { text-align: left !important; display: flex !important; align-items: flex-start !important; gap: 1rem !important; }
-    .tl-dot { margin: 0.25rem 0 0 !important; flex-shrink: 0; }
-    .tl-txt { max-width: 100% !important; margin: 0 !important; }
-    /* Payment milestones: 2x2 grid */
-    #s29 .pay-progress > div:last-child { flex-wrap: wrap !important; gap: 1rem !important; }
-    #s29 .pay-milestone { flex: 0 0 45% !important; }
+    .tl { flex-direction: column !important; align-items: flex-start !important; gap: 0 !important; padding: 1.5rem 0 1.5rem 36px !important; margin: 2rem 0 !important; position: relative; }
+    .tl::before { display: block !important; left: 11px !important; right: auto !important; top: 1.5rem !important; bottom: 1.5rem !important; height: auto !important; width: 2px !important; background: var(--border) !important; }
+    .tl-item { text-align: left !important; display: flex !important; flex-direction: column !important; gap: 0.25rem !important; padding: 1.25rem 0 !important; position: relative; }
+    .tl-item:first-child { padding-top: 0 !important; }
+    .tl-item:last-child { padding-bottom: 0 !important; }
+    .tl-dot { position: absolute !important; left: -32px !important; top: 1.25rem !important; margin: 0 !important; flex-shrink: 0; width: 8px !important; height: 8px !important; }
+    .tl-item:first-child .tl-dot { top: 0 !important; }
+    .tl-date { font-size: 0.9rem !important; }
+    .tl-txt { max-width: 100% !important; margin: 0 !important; font-size: 0.9rem !important; }
+    #s29 .img-hint { display: none !important; }
     /* Climate chart: allow scroll if needed */
-    .climate-chart-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; height: 280px !important; margin-top: 1rem !important; }
-    .climate-chart-wrapper .climate-svg { min-width: 600px; }
+    .climate-chart-wrapper { display: none !important; }
+    .chart-rotate-hint { display: none !important; }
+    .climate-mobile { display: flex !important; flex-direction: column; gap: 16px; margin-top: 1rem; }
     /* Season bar: smaller text */
-    .season-bar { font-size: 0.65rem !important; height: 28px !important; margin-top: 0.5rem !important; }
+    .season-bar { font-size: 0.6rem !important; height: 24px !important; margin-top: 0.75rem !important; min-width: 0; }
     /* Legend: compact on mobile */
     .chart-legend { gap: 1rem !important; font-size: 0.75rem !important; margin-top: 0.75rem !important; flex-wrap: wrap; justify-content: center; }
     .legend-swatch { width: 12px !important; height: 3px !important; }
     .legend-block { width: 10px !important; height: 10px !important; }
+    /* Page 6 cards: tighter spacing between divider/icon and source/next card */
+    .card { padding: 1.75rem 0 !important; }
+    .card svg { margin-bottom: 0.5rem !important; }
+    .card .src { margin-top: 0.6rem !important; }
     /* Body text sizes: slightly smaller on mobile */
     .sub { font-size: 1.1rem !important; }
     .sub-ep { font-size: 1.15rem !important; }
+    /* Slide 32 CTA: full rework for mobile */
+    #s32 { overflow-y: auto !important; padding: 0 !important; flex-direction: column !important; display: flex !important; align-items: stretch !important; }
+    #s32 .swiss-split-img { width: 100% !important; height: 55vw !important; flex-shrink: 0; order: 1; }
+    #s32 .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; }
+    #s32 .swiss-split-img-overlay { display: none; }
+    #s32 .swiss-split-img-caption { bottom: 16px; left: 24px; }
+    #s32 .swiss-split-img-caption h2 { font-size: 1.6rem !important; }
+    #s32 .swiss-split-bar { display: none !important; }
+    #s32 .swiss-split-content { flex-shrink: 0 !important; order: 2; overflow: visible !important; justify-content: flex-start !important; padding: 2rem 24px 6rem !important; }
+    #s32 .cta-content p { font-size: 1rem !important; }
+    #s32 .cta-desktop-btn { display: none !important; }
+    #s32 .cta-sticky-bar { display: block !important; position: sticky; bottom: 0; left: 0; right: 0; z-index: 10; order: 3; flex-shrink: 0; }
   }
 </style>
 </head>
@@ -1213,7 +1350,7 @@
     </div>
     <div class="hero-footer-line">
       <span>Koh Phangan, Thailand</span>
-      <span><img src="assets/Asterix.svg" alt="" style="width:14px;height:14px;filter:brightness(0) invert(1);opacity:0.5;vertical-align:-1px;margin-right:4px;">Last updated: February 2026</span>
+      <span style="opacity:0.35;">Last updated: February 2026</span>
     </div>
   </div>
   <div class="hero-accent-strip">
@@ -1286,7 +1423,7 @@
     </div>
     <div class="hero-footer-line">
       <span style="color:rgba(244,242,232,0.3);">04</span>
-      <span style="color:rgba(244,242,232,0.3);">All images are for illustrative purposes only</span>
+      <span style="color:rgba(244,242,232,0.3);">Some images are AI generated for illustrative purposes</span>
     </div>
   </div>
   <div class="hero-accent-strip">
@@ -1303,7 +1440,7 @@
   <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
     <div style="margin-bottom:3.5rem;">
       <div class="label" style="justify-content:center;"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Overview</div>
-      <h2 style="font-size:clamp(2.5rem,4.5vw,4rem);">Casa N&#x101;M at a glance</h2>
+      <h2>Casa N&#x101;M at a glance</h2>
       <p class="sub-ep" style="margin-top:1rem;max-width:550px;margin-left:auto;margin-right:auto;">A residential alternative on Koh Phangan &mdash; combining design, community, and accessible ownership.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;width:100%;max-width:900px;">
@@ -1313,9 +1450,9 @@
         <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Intentionally<br>crafted homes</div>
       </div>
       <div style="text-align:center;">
-        <div style="font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--green);line-height:1;">&euro;80K</div>
+        <div style="font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--green);line-height:1;"><span data-currency data-thb="2990000" data-format="compact">&euro;80K</span></div>
         <div style="width:30px;height:2px;background:var(--terracotta);margin:1rem auto;"></div>
-        <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Starting price<br>(2.99m THB)</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Starting price<br><span data-currency data-thb="2990000" data-format="sub">(2.99m THB)</span></div>
       </div>
       <div style="text-align:center;">
         <div style="font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--terracotta);line-height:1;">~14%</div>
@@ -1517,17 +1654,23 @@
         <rect class="chart-hover-zone" data-idx="11" x="781" y="20" width="60" height="280" fill="transparent" cursor="pointer"/>
       </svg>
       <div class="chart-tooltip" id="chart-tooltip"></div>
+      <div class="season-bar">
+        <div class="season-seg season-peak" style="flex:1;">Peak</div>
+        <div class="season-seg season-high" style="flex:3;">High Season</div>
+        <div class="season-seg season-low" style="flex:7;">Low Season</div>
+        <div class="season-seg season-peak" style="flex:1;">Peak</div>
+      </div>
     </div>
-    <div class="season-bar">
-      <div class="season-seg season-peak" style="flex:1;">Peak</div>
-      <div class="season-seg season-high" style="flex:3;">High Season</div>
-      <div class="season-seg season-low" style="flex:7;">Low Season</div>
-      <div class="season-seg season-peak" style="flex:1;">Peak</div>
-    </div>
-    <div class="chart-legend">
-      <div class="legend-item"><div class="legend-swatch" style="background:var(--terracotta);"></div>High Temp</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:var(--green);"></div>Low Temp</div>
-      <div class="legend-item"><div class="legend-block" style="background:rgba(42,58,43,0.2);"></div>Rainfall (mm)</div>
+    <div class="chart-rotate-hint"><svg class="rotate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M12 16h.01"/></svg><svg class="rotate-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M1 10C3.5 5.2 8.3 2 14 2c4.4 0 8 2.5 9.5 6"/></svg><span>Flip your phone to view the full chart</span></div>
+    <!-- Mobile horizontal chart (generated by JS) -->
+    <div class="climate-mobile" id="climate-mobile"></div>
+    <div class="chart-legend" style="flex-direction:column;align-items:center;gap:4px;">
+      <div style="font-family:'Sometype Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);">Seasons</div>
+      <div style="display:flex;gap:1rem;">
+        <div class="legend-item"><div class="legend-block" style="background:var(--terracotta);"></div>Peak</div>
+        <div class="legend-item"><div class="legend-block" style="background:rgba(180,155,100,0.7);"></div>High</div>
+        <div class="legend-item"><div class="legend-block" style="background:rgba(42,58,43,0.35);"></div>Low</div>
+      </div>
     </div>
   </div>
   <div class="sn">08</div>
@@ -1658,7 +1801,7 @@
     </div>
     <div class="hero-footer-line">
       <span style="color:rgba(244,242,232,0.3);">14</span>
-      <span style="color:rgba(244,242,232,0.3);">All images are for illustrative purposes only</span>
+      <span style="color:rgba(244,242,232,0.3);">Some images are AI generated for illustrative purposes</span>
     </div>
   </div>
   <div class="hero-accent-strip">
@@ -1678,10 +1821,10 @@
       <h2>Our home concept</h2>
     </div>
     <div class="grid-2-cards">
-      <div class="concept-card"><h3>Locally informed architecture</h3></div>
-      <div class="concept-card"><h3>Living-centred design</h3></div>
-      <div class="concept-card"><h3>Flexible ownership structure</h3></div>
-      <div class="concept-card"><h3>Shared spaces for everyday life</h3></div>
+      <div class="concept-card"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><h3>Locally informed architecture</h3></div>
+      <div class="concept-card"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg><h3>Living-centred design</h3></div>
+      <div class="concept-card"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><h3>Flexible ownership structure</h3></div>
+      <div class="concept-card"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Shared spaces for everyday life</h3></div>
     </div>
   </div>
   <div class="sn">15</div>
@@ -1725,7 +1868,7 @@
 <section class="slide swiss-split" id="s18">
   <div class="swiss-split-content">
     <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Home Concepts</div>
-    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Flexible ownership structure</h2>
+    <h2>Flexible ownership structure</h2>
     <p class="sub" style="margin-top:1.5rem;">Homes can be held by a single owner or shared between two parties. Layouts are designed to support adaptable use over time &mdash; whether you live here full-time or part of the year.</p>
     <div class="swiss-footer-note">Full or shared ownership &mdash; structured for flexibility.</div>
   </div>
@@ -1756,7 +1899,7 @@
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-content" style="background:var(--bg);">
     <div class="label" style="color:var(--terracotta);"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Location</div>
-    <h2 style="font-size:clamp(2rem,3.5vw,3rem);">Baan Nai Suan,<br>Koh Phangan</h2>
+    <h2>Baan Nai Suan,<br>Koh Phangan</h2>
     <p class="sub" style="margin-top:1rem;">Set on a quiet back street near the mountain line, surrounded by greenery and low-density residential land.</p>
     <div style="margin-top:2.5rem;">
       <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:1rem;">Proximity</div>
@@ -1798,7 +1941,7 @@
     </div>
     <div class="hero-footer-line">
       <span style="color:rgba(244,242,232,0.3);">22</span>
-      <span style="color:rgba(244,242,232,0.3);">All images are for illustrative purposes only</span>
+      <span style="color:rgba(244,242,232,0.3);">Some images are AI generated for illustrative purposes</span>
     </div>
   </div>
   <div class="hero-accent-strip">
@@ -1818,11 +1961,11 @@
       <h2>How ownership works</h2>
     </div>
     <div class="own-grid">
-      <div class="own-col"><h3>Straightforward &amp; secure</h3><p>Registered 30-year private leasehold. Foreign-friendly structure. No Thai company required, no ongoing legal and admin costs. Direct agreement with clear documentation.</p></div>
-      <div class="own-col"><h3>Full-service management</h3><p>On-island team managing day-to-day operations. Maintenance, housekeeping, and upkeep support. Rental management provided. Structured for hands-off ownership.</p></div>
-      <div class="own-col"><h3>Accessible entry &amp; clear numbers</h3><p>Starting from THB 2,990,000 (&euro;80,000) per co-ownership share*. Full-villa purchase option available. ~14% projected yield. No hidden fees.</p></div>
+      <div class="own-col"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg><h3>Straightforward &amp; secure</h3><p>Registered 30-year private leasehold. Foreign-friendly structure. No Thai company required, no ongoing legal and admin costs. Direct agreement with clear documentation.</p></div>
+      <div class="own-col"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><h3>Full-service management</h3><p>On-island team managing day-to-day operations. Maintenance, housekeeping, and upkeep support. Rental management provided. Structured for hands-off ownership.</p></div>
+      <div class="own-col"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--terracotta)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><h3>Accessible entry &amp; clear numbers</h3><p>Starting from <span data-currency data-thb="2990000" data-format="full">THB 2,990,000 (&euro;80,000)</span> per co-ownership share*. Full-villa purchase option available. ~14% projected yield. No hidden fees.</p></div>
     </div>
-    <p class="info-note" style="text-align:center;">* Normal price: THB 3,490,000 (&euro;95,000)</p>
+    <p class="info-note" style="text-align:center;">* Normal price: <span data-currency data-thb="3490000" data-format="full">THB 3,490,000 (&euro;95,000)</span></p>
   </div>
   <div class="img-hint img-hint-v" style="right:0;">
     <div class="img-hint-accent"></div>
@@ -1832,27 +1975,37 @@
 </section>
 
 <!-- 24 ─ Ownership Details (two-tone split) -->
-<section class="slide" style="padding:0 !important;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;height:100%;width:100vw;align-items:stretch;" id="s24">
-  <div style="background:var(--green);padding:70px 60px 40px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;" class="grain">
+<!-- 24 ─ Ownership: Legal -->
+<section class="slide bg-green grain" id="s24" style="padding:70px 100px 40px;">
+  <div class="slide-inner" style="max-width:900px;">
     <div class="label" style="color:var(--terracotta-light);">Ownership Details</div>
-    <h3 style="color:var(--bg);font-size:1.35rem;margin-bottom:2rem;">Legal &mdash; Straightforward &amp; Secure</h3>
-    <div class="list-item" style="border-color:rgba(244,242,232,0.12);"><div class="dot"></div><div><h4 style="color:var(--bg);">Secure 30-year private leasehold</h4><p style="color:rgba(244,242,232,0.6);">Registered in your name under a long-term lease structure designed for individual ownership.</p></div></div>
-    <div class="list-item" style="border-color:rgba(244,242,232,0.12);"><div class="dot"></div><div><h4 style="color:var(--bg);">No nominee company required</h4><p style="color:rgba(244,242,232,0.6);">Ownership is held directly &mdash; without nominee risk or ongoing company maintenance fees.</p></div></div>
-    <div class="list-item" style="border-color:rgba(244,242,232,0.12);border-bottom:none;"><div class="dot"></div><div><h4 style="color:var(--bg);">Clear contractual framework</h4><p style="color:rgba(244,242,232,0.6);">Reservation secured under signed agreement, followed by formal Leasehold Agreement with defined rights.</p></div></div>
-    <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:60px;">24</div>
+    <h2 style="color:var(--bg);">Legal &mdash; Straightforward &amp; Secure</h2>
+    <div style="margin-top:2.5rem;">
+      <div class="list-item" style="border-color:rgba(244,242,232,0.12);"><div class="dot"></div><div><h4 style="color:var(--bg);">Secure 30-year private leasehold</h4><p style="color:rgba(244,242,232,0.6);">Registered in your name under a long-term lease structure designed for individual ownership.</p></div></div>
+      <div class="list-item" style="border-color:rgba(244,242,232,0.12);"><div class="dot"></div><div><h4 style="color:var(--bg);">No nominee company required</h4><p style="color:rgba(244,242,232,0.6);">Ownership is held directly &mdash; without nominee risk or ongoing company maintenance fees.</p></div></div>
+      <div class="list-item" style="border-color:rgba(244,242,232,0.12);border-bottom:none;"><div class="dot"></div><div><h4 style="color:var(--bg);">Clear contractual framework</h4><p style="color:rgba(244,242,232,0.6);">Reservation secured under signed agreement, followed by formal Leasehold Agreement with defined rights.</p></div></div>
+    </div>
   </div>
-  <div style="background:var(--bg-warm);padding:70px 60px 40px;display:flex;flex-direction:column;justify-content:center;">
-    <div class="label" style="color:var(--terracotta);">&nbsp;</div>
-    <h3 style="color:var(--green);font-size:1.35rem;margin-bottom:2rem;">Financial &mdash; Accessible Entry</h3>
-    <div class="list-item"><div class="dot" style="background:var(--terracotta);"></div><div><h4>Starting from THB 2,990,000 (&euro;80,000)</h4><p>Early release pricing for a limited number of units per co-ownership share.</p></div></div>
-    <div class="list-item"><div class="dot" style="background:var(--terracotta);"></div><div><h4>~14% projected yield</h4><p>Designed for passive income under N&#x101;M in-house management.</p></div></div>
-    <div class="list-item"><div class="dot" style="background:var(--terracotta);"></div><div><h4>Full-unit purchase option</h4><p>Option to acquire the entire 2-bedroom unit with the same competitive offering.</p></div></div>
-    <div class="list-item" style="border-bottom:none;"><div class="dot" style="background:var(--terracotta);"></div><div><h4>Transparent cost structure</h4><p>Clear holding costs with no hidden fees.</p></div></div>
-  </div>
+  <div class="sn" style="color:rgba(244,242,232,0.3);">24</div>
 </section>
 
-<!-- 25 ─ Management -->
-<section class="slide bg-warm watermark watermark-light wm-left" id="s25">
+<!-- 25 ─ Ownership: Financial -->
+<section class="slide bg-warm" id="s25" style="padding:70px 100px 40px;">
+  <div class="slide-inner" style="max-width:900px;">
+    <div class="label" style="color:var(--terracotta);">Ownership Details</div>
+    <h2>Financial &mdash; Accessible Entry</h2>
+    <div style="margin-top:2.5rem;">
+      <div class="list-item"><div class="dot" style="background:var(--terracotta);"></div><div><h4>Starting from <span data-currency data-thb="2990000" data-format="full">THB 2,990,000 (&euro;80,000)</span></h4><p>Early release pricing for a limited number of units per co-ownership share.</p></div></div>
+      <div class="list-item"><div class="dot" style="background:var(--terracotta);"></div><div><h4>~14% projected yield</h4><p>Designed for passive income under N&#x101;M in-house management.</p></div></div>
+      <div class="list-item"><div class="dot" style="background:var(--terracotta);"></div><div><h4>Full-unit purchase option</h4><p>Option to acquire the entire 2-bedroom unit with the same competitive offering.</p></div></div>
+      <div class="list-item" style="border-bottom:none;"><div class="dot" style="background:var(--terracotta);"></div><div><h4>Transparent cost structure</h4><p>Clear holding costs with no hidden fees.</p></div></div>
+    </div>
+  </div>
+  <div class="sn">25</div>
+</section>
+
+<!-- 26 ─ Management -->
+<section class="slide bg-warm watermark watermark-light wm-left" id="s26">
   <div class="slide-inner grid-2" style="align-items:start;">
     <div>
       <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Operations</div>
@@ -1870,11 +2023,11 @@
     <div class="img-hint-accent"></div>
     <img src="assets/Communal_Space.png" alt="" style="object-position:center 40%;">
   </div>
-  <div class="sn">25</div>
+  <div class="sn">26</div>
 </section>
 
-<!-- 26 ─ Short-Term Projections -->
-<section class="slide bg-green" id="s26">
+<!-- 27 ─ Short-Term Projections -->
+<section class="slide bg-green" id="s27">
   <div class="slide-inner">
     <div style="margin-bottom:1rem;">
       <div class="label">Projections</div>
@@ -1882,11 +2035,11 @@
       <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three occupancy levels</p>
     </div>
     <table class="tbl">
-      <thead><tr><th>Scenario</th><th>Occupancy</th><th>Nightly Rate</th><th>Annual Revenue</th><th>Net Yield</th></tr></thead>
+      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Occupancy</th><th class="tbl-hide-mobile">Nightly Rate</th><th>Annual Revenue</th><th>Net Yield</th></tr></thead>
       <tbody>
-        <tr><td>Conservative</td><td>55%</td><td>$95</td><td>~$19,000</td><td>~10%</td></tr>
-        <tr><td>Base case</td><td>65%</td><td>$95</td><td>~$22,500</td><td class="hi">~14%</td></tr>
-        <tr><td>Optimistic</td><td>75%</td><td>$95</td><td>~$26,000</td><td>~17%</td></tr>
+        <tr><td>Conservative</td><td class="tbl-hide-mobile">55%</td><td class="tbl-hide-mobile"><span data-currency data-usd="95" data-format="rate">$95</span></td><td><span data-currency data-usd="19000" data-format="revenue">~$19,000</span></td><td>~10%</td></tr>
+        <tr><td>Base case</td><td class="tbl-hide-mobile">65%</td><td class="tbl-hide-mobile"><span data-currency data-usd="95" data-format="rate">$95</span></td><td><span data-currency data-usd="22500" data-format="revenue">~$22,500</span></td><td class="hi">~14%</td></tr>
+        <tr><td>Optimistic</td><td class="tbl-hide-mobile">75%</td><td class="tbl-hide-mobile"><span data-currency data-usd="95" data-format="rate">$95</span></td><td><span data-currency data-usd="26000" data-format="revenue">~$26,000</span></td><td>~17%</td></tr>
       </tbody>
     </table>
     <p class="tbl-note">Nightly rate based on market data from current AirDNA for 2-bedroom villas in Koh Phangan.<br>Disclaimer: Simplified forecasts, not guarantees. Market conditions may change.</p>
@@ -1898,11 +2051,11 @@
       </a>
     </div>
   </div>
-  <div class="sn">26</div>
+  <div class="sn">27</div>
 </section>
 
-<!-- 27 ─ Long-Term Projections -->
-<section class="slide bg-green" id="s27">
+<!-- 28 ─ Long-Term Projections -->
+<section class="slide bg-green" id="s28">
   <div class="slide-inner">
     <div style="margin-bottom:1rem;">
       <div class="label">Projections</div>
@@ -1910,11 +2063,11 @@
       <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three price levels</p>
     </div>
     <table class="tbl">
-      <thead><tr><th>Scenario</th><th>Monthly Rent</th><th>Annual Revenue</th><th>Net Yield</th></tr></thead>
+      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Monthly Rent</th><th>Annual Revenue</th><th>Net Yield</th></tr></thead>
       <tbody>
-        <tr><td>Conservative</td><td>$1,200</td><td>~$14,400</td><td>~8%</td></tr>
-        <tr><td>Base case</td><td>$1,500</td><td>~$18,000</td><td class="hi">~10%</td></tr>
-        <tr><td>Optimistic</td><td>$1,800</td><td>~$21,600</td><td>~13%</td></tr>
+        <tr><td>Conservative</td><td class="tbl-hide-mobile"><span data-currency data-usd="1200" data-format="rate">$1,200</span></td><td><span data-currency data-usd="14400" data-format="revenue">~$14,400</span></td><td>~8%</td></tr>
+        <tr><td>Base case</td><td class="tbl-hide-mobile"><span data-currency data-usd="1500" data-format="rate">$1,500</span></td><td><span data-currency data-usd="18000" data-format="revenue">~$18,000</span></td><td class="hi">~10%</td></tr>
+        <tr><td>Optimistic</td><td class="tbl-hide-mobile"><span data-currency data-usd="1800" data-format="rate">$1,800</span></td><td><span data-currency data-usd="21600" data-format="revenue">~$21,600</span></td><td>~13%</td></tr>
       </tbody>
     </table>
     <p class="tbl-note">Based on comparable long-term villa rentals (current AirDNA data, local agency listings for Koh Phangan).</p>
@@ -1926,11 +2079,11 @@
       </a>
     </div>
   </div>
-  <div class="sn">27</div>
+  <div class="sn">28</div>
 </section>
 
-<!-- 28 ─ Timeline -->
-<section class="slide bg-cream watermark watermark-light wm-bl" id="s28">
+<!-- 29 ─ Timeline -->
+<section class="slide bg-cream watermark watermark-light wm-bl" id="s29">
   <div class="slide-inner">
     <div style="text-align:center;">
       <div class="label" style="justify-content:center;"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Timeline</div>
@@ -1947,59 +2100,46 @@
     <img src="assets/Paths.png" alt="" style="object-position:center center;">
     <div class="img-hint-accent"></div>
   </div>
-  <div class="sn">28</div>
+  <div class="sn">29</div>
 </section>
 
-<!-- 29 ─ Payment -->
-<section class="slide" style="padding:0 !important;display:grid;grid-template-columns:35% 1fr;grid-template-rows:1fr;height:100%;width:100vw;align-items:stretch;" id="s29">
+<!-- 30 ─ Payment -->
+<section class="slide" style="padding:0 !important;display:grid;grid-template-columns:35% 1fr;grid-template-rows:1fr;height:100%;width:100vw;align-items:stretch;" id="s30">
   <!-- Down Payment (left - terracotta accent) -->
   <div style="background:var(--green);padding:70px 50px 40px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;" class="grain">
     <div class="label" style="color:var(--terracotta-light);">Payments</div>
-    <h2 style="color:var(--bg);font-size:clamp(2rem,3.5vw,3rem);margin-bottom:2.5rem;">Payment<br>structure</h2>
+    <h2 style="color:var(--bg);margin-bottom:2.5rem;">Payment<br>structure</h2>
     <div style="padding:2.5rem;border:1px solid rgba(244,242,232,0.15);border-radius:14px;background:rgba(244,242,232,0.04);">
       <div style="font-family:'Sometype Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta-light);margin-bottom:1rem;">Down Payment</div>
-      <div style="font-size:clamp(2rem,5vw,2.8rem);font-weight:700;color:var(--bg);line-height:1;">THB 1M</div>
+      <div style="font-size:clamp(2rem,5vw,2.8rem);font-weight:700;color:var(--bg);line-height:1;"><span data-currency data-thb="1000000" data-format="short">THB 1M</span></div>
+      <div style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:rgba(244,242,232,0.45);margin-top:0.4rem;"><span data-currency data-thb="1000000" data-format="equiv">&asymp; &euro;27,000</span></div>
       <div style="font-family:'Sometype Mono',monospace;font-size:0.88rem;color:rgba(244,242,232,0.55);margin-top:0.75rem;line-height:1.5;">Reservation secured<br>under signed agreement</div>
     </div>
-    <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:50px;">29</div>
+    <div class="sn" style="color:rgba(244,242,232,0.3);position:absolute;bottom:40px;left:50px;">30</div>
   </div>
   <!-- Remaining Balance (right - cream) -->
   <div style="background:var(--bg);padding:70px 60px 40px;display:flex;flex-direction:column;justify-content:center;">
-    <div style="font-family:'Sometype Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:2rem;">Remaining Balance &mdash; Milestone-Based</div>
-    <!-- Animated progress bar -->
-    <div class="pay-progress" style="position:relative;margin-bottom:3rem;">
-      <div style="height:4px;background:var(--border);border-radius:2px;position:relative;overflow:hidden;">
-        <div class="pay-progress-fill" style="height:100%;width:0%;background:linear-gradient(90deg,var(--terracotta),var(--green));border-radius:2px;transition:width 1.5s cubic-bezier(0.22,0.61,0.36,1);"></div>
+    <div style="font-family:'Sometype Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:0.5rem;">Remaining Balance &mdash; Milestone-Based</div>
+    <div class="tl pay-tl">
+      <div class="tl-item pay-milestone" style="opacity:0;transform:translateY(6px);transition:all 0.4s ease 0.1s;">
+        <div class="pay-row"><div class="tl-dot" style="background:var(--terracotta);border-color:var(--terracotta);"></div><div class="tl-date" style="color:var(--green);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;">40%</div><div class="tl-txt">Foundation work</div></div>
       </div>
-      <div style="display:flex;justify-content:space-between;margin-top:-8px;position:relative;">
-        <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 0.3s;">
-          <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">40%</div>
-          <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Foundation work</div>
-        </div>
-        <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 0.6s;">
-          <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">30%</div>
-          <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Roofing work</div>
-        </div>
-        <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 0.9s;">
-          <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">20%</div>
-          <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Interior work</div>
-        </div>
-        <div class="pay-milestone" style="text-align:center;flex:1;opacity:0;transform:translateY(10px);transition:all 0.5s ease 1.2s;">
-          <div style="width:16px;height:16px;border-radius:50%;background:var(--terracotta);margin:0 auto 1rem;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--terracotta);"></div>
-          <div style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--green);">10%</div>
-          <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);margin-top:0.4rem;">Delivery &amp; handover</div>
-        </div>
+      <div class="tl-item pay-milestone" style="opacity:0;transform:translateY(6px);transition:all 0.4s ease 0.2s;">
+        <div class="pay-row"><div class="tl-dot" style="background:var(--terracotta);border-color:var(--terracotta);"></div><div class="tl-date" style="color:var(--green);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;">30%</div><div class="tl-txt">Roofing work</div></div>
+      </div>
+      <div class="tl-item pay-milestone" style="opacity:0;transform:translateY(6px);transition:all 0.4s ease 0.3s;">
+        <div class="pay-row"><div class="tl-dot" style="background:var(--terracotta);border-color:var(--terracotta);"></div><div class="tl-date" style="color:var(--green);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;">20%</div><div class="tl-txt">Interior work</div></div>
+      </div>
+      <div class="tl-item pay-milestone" style="opacity:0;transform:translateY(6px);transition:all 0.4s ease 0.4s;">
+        <div class="pay-row"><div class="tl-dot" style="background:var(--terracotta);border-color:var(--terracotta);"></div><div class="tl-date" style="color:var(--green);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;">10%</div><div class="tl-txt">Delivery &amp; handover</div></div>
       </div>
     </div>
     <p style="font-family:'Sometype Mono',monospace;font-size:0.78rem;color:var(--text-muted);line-height:1.7;max-width:550px;">Payments are linked to verified construction milestones. Each instalment is triggered only after the corresponding stage is confirmed complete.</p>
   </div>
 </section>
 
-<!-- 30 ─ Paths 2 transition -->
-<section class="slide img-full" id="s30">
+<!-- 31 ─ Paths 2 transition -->
+<section class="slide img-full" id="s31">
   <img src="assets/Paths_2.png" alt="Garden paths">
   <div class="img-full-overlay" style="background:rgba(26,26,24,0.65);"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;padding:60px;">
@@ -2009,11 +2149,11 @@
       <div style="width:60px;height:2px;background:var(--terracotta);margin:2rem auto 0;"></div>
     </blockquote>
   </div>
-  <div class="sn" style="color:rgba(255,255,255,0.5);z-index:3;">30</div>
+  <div class="sn" style="color:rgba(255,255,255,0.5);z-index:3;">31</div>
 </section>
 
-<!-- 31 ─ CTA -->
-<section class="slide swiss-split" id="s31">
+<!-- 32 ─ CTA -->
+<section class="slide swiss-split" id="s32">
   <div class="swiss-split-img">
     <img src="assets/Gardens.png" alt="Casa NāM gardens">
     <div class="swiss-split-img-overlay"></div>
@@ -2024,13 +2164,12 @@
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-content">
     <div class="cta-content">
-      <div class="line-accent" style="margin:0 0 1.5rem;"></div>
       <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Next Steps</div>
       <h2>Becoming a founding owner</h2>
       <p>To secure your preferred unit, schedule a private conversation to review current availability and next steps.</p>
       <p>Reservations are confirmed upon contract signing, followed by milestone-based payments.</p>
-      <div style="margin-top:2.5rem;">
-        <a href="#" class="cta-btn" style="font-size:1rem;padding:1.2rem 3rem;margin-top:0;">Talk to us now</a>
+      <div class="cta-desktop-btn" style="margin-top:2.5rem;">
+        <a href="https://wa.me/message/3RVKLOPKCTS2P1" target="_blank" rel="noopener" class="cta-btn" style="font-size:1rem;padding:1.2rem 3rem;margin-top:0;">Talk to us now</a>
       </div>
       <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
         <div style="font-family:'Sometype Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Limited availability</div>
@@ -2038,7 +2177,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">31</div>
+  <!-- Sticky mobile CTA -->
+  <div class="cta-sticky-bar">
+    <a href="https://wa.me/message/3RVKLOPKCTS2P1" target="_blank" rel="noopener" class="cta-btn" style="font-size:0.85rem;padding:1rem 0;margin:0;width:100%;text-align:center;border-radius:0;display:block;">Talk to us now</a>
+  </div>
+  <div class="sn">32</div>
 </section>
 
 </div><!-- /deck -->
@@ -2053,7 +2196,35 @@
     </div>
     <button onclick="nextSlide()" class="nav-arrow" id="nextBtn" title="Next">&rarr;</button>
   </div>
-  <button class="nav-pdf" onclick="exportPDF()" title="Download as PDF" id="pdfBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span> PDF</span></button>
+  <div class="currency-picker" id="currencyPicker">
+    <button class="currency-trigger" id="currencyTrigger" onclick="toggleCurrencyPicker()" title="Display currency">
+      <span id="currencyLabel">THB</span>
+      <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 4l3-3 3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="currency-popup" id="currencyPopup">
+      <div style="display:flex;gap:0;padding:0;">
+        <button class="currency-opt active" data-cur="THB" onclick="selectCurrency('THB')">THB</button>
+        <button class="currency-opt" data-cur="EUR" onclick="selectCurrency('EUR')">EUR</button>
+        <button class="currency-opt" data-cur="USD" onclick="selectCurrency('USD')">USD</button>
+      </div>
+      <div class="currency-note">Rates based on today's market rate</div>
+    </div>
+  </div>
+  <div class="share-picker" id="sharePicker">
+    <button class="share-trigger" onclick="toggleSharePicker()" title="Share">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+    </button>
+    <div class="share-popup" id="sharePopup">
+      <button class="share-opt" onclick="doSharePDF()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </button>
+      <button class="share-opt" onclick="doShareLink()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        Share link
+      </button>
+    </div>
+  </div>
 </nav>
 <div class="slide-nav-backdrop" id="slideNavBackdrop"></div>
 <div class="slide-nav-dropdown" id="slideNav"></div>
@@ -2108,6 +2279,39 @@
     });
   }
 
+  // Build mobile horizontal bar chart
+  var mobileChart = document.getElementById('climate-mobile');
+  if (mobileChart) {
+    var maxRain = 400;
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    // Axis label
+    var axisLabel = document.createElement('div');
+    axisLabel.className = 'cm-axis-label';
+    axisLabel.textContent = 'Rainfall (mm)';
+    mobileChart.appendChild(axisLabel);
+
+    climateData.forEach(function(d, i) {
+      var pct = (d.rain / maxRain * 100).toFixed(1);
+      var seasonClass = d.season === 'Peak' ? 'cm-rain-peak' : d.season === 'High Season' ? 'cm-rain-high' : 'cm-rain-low';
+      var row = document.createElement('div');
+      row.className = 'cm-row';
+      row.innerHTML = '<div class="cm-month">' + months[i] + '</div>' +
+        '<div class="cm-bar-wrap"><div class="cm-bar ' + seasonClass + '" style="--bar-w:' + pct + '%;"></div></div>' +
+        '<div class="cm-rain-val">' + d.rain + '</div>' +
+        '<div class="cm-temps"><span class="cm-hi">' + d.high + '°</span> / <span class="cm-lo">' + d.low + '°</span></div>';
+      mobileChart.appendChild(row);
+    });
+  }
+
+  function animateMobileChart() {
+    var mc = document.getElementById('climate-mobile');
+    if (mc) mc.classList.add('chart-animated');
+  }
+  function resetMobileChart() {
+    var mc = document.getElementById('climate-mobile');
+    if (mc) mc.classList.remove('chart-animated');
+  }
+
   function goTo(n) {
     if (navOpen) closeSlideNav();
     current = Math.max(0, Math.min(total - 1, n));
@@ -2122,21 +2326,17 @@
       if (i === current) s.classList.add('active');
       else s.classList.remove('active');
     });
-    if (current === 7) setTimeout(animateChart, 300); else resetChart();
-    if (current === 28) setTimeout(animatePayment, 300); else resetPayment();
+    if (current === 7) { setTimeout(animateChart, 300); setTimeout(animateMobileChart, 300); } else { resetChart(); resetMobileChart(); }
+    if (current === 29) setTimeout(animatePayment, 300); else resetPayment();
   }
 
   function animatePayment() {
-    var fill = document.querySelector('.pay-progress-fill');
     var milestones = document.querySelectorAll('.pay-milestone');
-    if (fill) fill.style.width = '100%';
     milestones.forEach(function(m) { m.style.opacity = '1'; m.style.transform = 'translateY(0)'; });
   }
   function resetPayment() {
-    var fill = document.querySelector('.pay-progress-fill');
     var milestones = document.querySelectorAll('.pay-milestone');
-    if (fill) fill.style.width = '0%';
-    milestones.forEach(function(m) { m.style.opacity = '0'; m.style.transform = 'translateY(10px)'; });
+    milestones.forEach(function(m) { m.style.opacity = '0'; m.style.transform = 'translateY(6px)'; });
   }
 
   window.nextSlide = function() { goTo(current + 1); };
@@ -2194,14 +2394,15 @@
     { section: 'The Opportunity', items: [
       { idx: 21, title: 'The Opportunity' },
       { idx: 22, title: 'How Ownership Works' },
-      { idx: 23, title: 'Ownership Details' },
-      { idx: 24, title: 'Management' },
-      { idx: 25, title: 'Short-Term Projections' },
-      { idx: 26, title: 'Long-Term Projections' },
-      { idx: 27, title: 'Timeline' },
-      { idx: 28, title: 'Payment' },
-      { idx: 29, title: 'Paths' },
-      { idx: 30, title: 'Contact' }
+      { idx: 23, title: 'Ownership: Legal' },
+      { idx: 24, title: 'Ownership: Financial' },
+      { idx: 25, title: 'Management' },
+      { idx: 26, title: 'Short-Term Projections' },
+      { idx: 27, title: 'Long-Term Projections' },
+      { idx: 28, title: 'Timeline' },
+      { idx: 29, title: 'Payment' },
+      { idx: 30, title: 'Paths' },
+      { idx: 31, title: 'Contact' }
     ]}
   ];
 
@@ -2279,6 +2480,175 @@
     if (e.key === 'Escape' && navOpen) { e.preventDefault(); closeSlideNav(); }
   });
 
+  /* ── Currency conversion engine ── */
+  var currencyRates = { THB: 1, EUR: 0.0273, USD: 0.0290 };
+  var thbToUsd = 0.0290; // fallback THB→USD
+
+  // Fetch live rates (free, no key)
+  fetch('https://api.exchangerate-api.com/v4/latest/THB')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.rates) {
+        currencyRates.EUR = data.rates.EUR || currencyRates.EUR;
+        currencyRates.USD = data.rates.USD || currencyRates.USD;
+        thbToUsd = currencyRates.USD;
+        updateCurrency();
+      }
+    })
+    .catch(function() { /* silently use fallback rates */ });
+
+  function fmtNum(n, decimals) {
+    if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (n >= 100000) return Math.round(n).toLocaleString('en');
+    if (n >= 1000) return Math.round(n).toLocaleString('en');
+    return n.toFixed(decimals || 0);
+  }
+
+  function fmtCurrency(amount, currency, prefix) {
+    var sym = currency === 'EUR' ? '\u20AC' : currency === 'USD' ? '$' : '';
+    var label = currency === 'THB' ? 'THB ' : '';
+    var p = prefix || '';
+    return p + label + sym + fmtNum(amount);
+  }
+
+  var activeCurrency = 'THB';
+
+  window.toggleCurrencyPicker = function() {
+    document.getElementById('currencyPicker').classList.toggle('open');
+  };
+
+  window.selectCurrency = function(cur) {
+    activeCurrency = cur;
+    // Update trigger label
+    document.getElementById('currencyLabel').textContent = cur;
+    // Update active state on buttons
+    document.querySelectorAll('.currency-opt').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.cur === cur);
+    });
+    // Close popup
+    document.getElementById('currencyPicker').classList.remove('open');
+    updateCurrency();
+  };
+
+  // Close picker when clicking outside
+  document.addEventListener('click', function(e) {
+    var picker = document.getElementById('currencyPicker');
+    if (picker && !picker.contains(e.target)) {
+      picker.classList.remove('open');
+    }
+  });
+
+  // Share picker
+  window.toggleSharePicker = function() {
+    document.getElementById('sharePicker').classList.toggle('open');
+  };
+
+  window.doSharePDF = function() {
+    document.getElementById('sharePicker').classList.remove('open');
+    exportPDF();
+  };
+
+  window.doShareLink = function() {
+    document.getElementById('sharePicker').classList.remove('open');
+    if (navigator.share) {
+      navigator.share({ title: document.title, url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        alert('Link copied to clipboard');
+      });
+    }
+  };
+
+  // Close share picker when clicking outside
+  document.addEventListener('click', function(e) {
+    var sp = document.getElementById('sharePicker');
+    if (sp && !sp.contains(e.target)) {
+      sp.classList.remove('open');
+    }
+  });
+
+  window.updateCurrency = function() {
+    var sel = activeCurrency;
+    document.querySelectorAll('[data-currency]').forEach(function(el) {
+      var thb = parseFloat(el.dataset.thb);
+      var usd = parseFloat(el.dataset.usd);
+      var fmt = el.dataset.format;
+      var amount, converted;
+
+      if (!isNaN(thb)) {
+        // THB-based amount
+        if (sel === 'THB') converted = thb;
+        else converted = thb * currencyRates[sel];
+      } else if (!isNaN(usd)) {
+        // USD-based amount — convert via THB
+        var thbEquiv = usd / thbToUsd;
+        if (sel === 'USD') converted = usd;
+        else if (sel === 'THB') converted = thbEquiv;
+        else converted = thbEquiv * currencyRates[sel];
+      } else return;
+
+      switch (fmt) {
+        case 'compact':
+          // e.g. "€80K" or "THB 3M"
+          if (sel === 'THB') {
+            el.textContent = 'THB ' + (converted >= 1000000 ? (converted/1000000).toFixed(1).replace(/\.0$/,'') + 'M' : Math.round(converted/1000) + 'K');
+          } else {
+            var sym = sel === 'EUR' ? '\u20AC' : '$';
+            el.textContent = sym + Math.round(converted/1000) + 'K';
+          }
+          break;
+        case 'sub':
+          // e.g. "(2.99m THB)" or "(€80,000)" — parenthetical subtitle
+          if (sel === 'THB') {
+            el.textContent = '(' + (converted/1000000).toFixed(2) + 'm THB)';
+          } else {
+            var sym2 = sel === 'EUR' ? '\u20AC' : '$';
+            el.textContent = '(' + sym2 + Math.round(converted).toLocaleString('en') + ')';
+          }
+          break;
+        case 'full':
+          // e.g. "THB 2,990,000 (€80,000)" → single currency display
+          el.textContent = fmtCurrency(converted, sel);
+          break;
+        case 'short':
+          // e.g. "THB 1M" or "€27,000"
+          if (sel === 'THB') {
+            el.textContent = 'THB ' + (converted >= 1000000 ? (converted/1000000).toFixed(0) + 'M' : Math.round(converted).toLocaleString('en'));
+          } else {
+            var sym3 = sel === 'EUR' ? '\u20AC' : '$';
+            el.textContent = sym3 + Math.round(converted).toLocaleString('en');
+          }
+          break;
+        case 'equiv':
+          // e.g. "≈ €27,000" — hide when showing same currency as primary
+          if (sel === 'THB') {
+            // Show EUR equivalent
+            var eurVal = thb * currencyRates.EUR;
+            el.textContent = '\u2248 \u20AC' + Math.round(eurVal).toLocaleString('en');
+          } else {
+            // Hide equiv line when already showing converted
+            el.textContent = '';
+          }
+          break;
+        case 'rate':
+          // e.g. "$95" or "€87" or "THB 3,275"
+          el.textContent = fmtCurrency(converted, sel);
+          break;
+        case 'revenue':
+          // e.g. "~$19,000" or "~€17,400"
+          el.textContent = fmtCurrency(converted, sel, '~');
+          break;
+      }
+    });
+    localStorage.setItem('preferredCurrency', sel);
+  };
+
+  // Restore saved preference
+  var savedCurrency = localStorage.getItem('preferredCurrency');
+  if (savedCurrency && ['THB','EUR','USD'].indexOf(savedCurrency) !== -1) {
+    selectCurrency(savedCurrency);
+  }
+
   goTo(0);
 })();
 </script>
@@ -2288,7 +2658,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
 <script>
 function exportPDF() {
-  var btn = document.getElementById('pdfBtn');
+  var btn = document.querySelector('.share-trigger');
   var origHTML = btn.innerHTML;
   btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span> Generating\u2026</span>';
   btn.disabled = true;
