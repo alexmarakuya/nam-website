@@ -628,10 +628,10 @@
     inset: 0;
   }
 
-  /* ── Hero arrow hint ── */
+  /* ── Hero arrow hint (mobile only) ── */
   .hero-arrow-hint {
     align-self: flex-end;
-    display: flex; align-items: center; gap: 6px;
+    display: none; align-items: center; gap: 6px;
     color: rgba(244,242,232,0.4);
     font-family: 'Sometype Mono', monospace; font-size: 0.72rem;
     letter-spacing: 0.08em; text-transform: uppercase;
@@ -643,6 +643,53 @@
   @keyframes arrow-bounce {
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(8px); }
+  }
+
+  /* ── Nav tooltip hint (desktop, slide 1) ── */
+  .nav-hint {
+    position: fixed;
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--terracotta);
+    color: var(--bg);
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    white-space: nowrap;
+  }
+  .nav-hint.visible { opacity: 1; animation: hint-bounce 1.8s ease-in-out infinite; }
+  @keyframes hint-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
+  }
+  .nav-hint::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--terracotta);
+  }
+  .nav-hint-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--bg);
+    animation: hint-blink 1.5s ease-in-out infinite;
+  }
+  @keyframes hint-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 
   /* ── Slide with image half ── */
@@ -888,6 +935,32 @@
   .tbl-note { font-family: 'Sometype Mono', monospace; font-size: 0.84rem; color: var(--text-muted); margin-top: 1.5rem; line-height: 1.8; }
   .cta-link:hover { background: rgba(244,242,232,0.12) !important; border-color: rgba(244,242,232,0.45) !important; }
 
+  /* ── Unit toggle (Per unit / Full villa) ── */
+  .unit-toggle {
+    display: inline-flex;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(244,242,232,0.2);
+  }
+  .unit-toggle-btn {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border: none;
+    background: transparent;
+    color: rgba(244,242,232,0.45);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .unit-toggle-btn:hover { color: rgba(244,242,232,0.75); }
+  .unit-toggle-btn.active {
+    background: rgba(244,242,232,0.95);
+    color: var(--green);
+  }
+
   /* ── Timeline ── */
   .tl { display: flex; justify-content: space-between; position: relative; margin: 3.5rem 0; padding: 2.5rem 0; }
   .tl::before { content: ''; position: absolute; top: calc(2.5rem + 3px); left: 8%; right: 8%; height: 2px; background: var(--border); }
@@ -1002,8 +1075,8 @@
   }
 
   /* ── Climate Chart ── */
-  .climate-chart-container { width: 100%; max-width: 1100px; margin: 0 auto; }
-  .climate-chart-wrapper { position: relative; width: 100%; height: 400px; margin-top: 2rem; }
+  .climate-chart-container { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; height: 100%; }
+  .climate-chart-wrapper { position: relative; width: 100%; flex: 1; min-height: 0; margin-top: 1.5rem; }
   .climate-svg { width: 100%; height: 100%; overflow: visible; }
   .chart-bar { transform-origin: bottom; transform: scaleY(0); transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); cursor: pointer; }
   .chart-bar:hover { filter: brightness(1.15); }
@@ -1203,8 +1276,9 @@
     /* Page 1: reduce hero title size + more top breathing room */
     .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
     #s1 .hero-main { padding-top: 48px !important; }
-    .hero-arrow-hint { align-self: center; margin-top: 1rem; }
+    .hero-arrow-hint { display: flex; align-self: center; margin-top: 1rem; }
     .hero-arrow-label { display: inline; }
+    .nav-hint { display: none !important; }
     /* Hide on-slide page numbers (both .sn and hero footer numbers) */
     .sn { display: none !important; }
     #s4 .hero-footer-line span:first-child,
@@ -1553,9 +1627,15 @@
 <!-- 08 ─ Climate Chart -->
 <section class="slide bg-cream" id="s8">
   <div class="slide-inner climate-chart-container">
-    <div style="margin-bottom:0.5rem;">
-      <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Koh Phangan</div>
-      <h2>Climate chart</h2>
+    <div style="margin-bottom:0.5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;">
+      <div>
+        <div class="label"><img src="assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Koh Phangan</div>
+        <h2>Climate chart</h2>
+      </div>
+      <div class="chart-legend" style="gap:1.5rem;margin-bottom:0.5rem;">
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--terracotta);"></div>High temp</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--green);"></div>Low temp</div>
+      </div>
     </div>
     <div class="climate-chart-wrapper" id="climate-chart">
       <svg class="climate-svg" viewBox="0 0 880 380" preserveAspectRatio="xMidYMid meet">
@@ -1668,14 +1748,6 @@
     <div class="chart-rotate-hint"><svg class="rotate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M12 16h.01"/></svg><svg class="rotate-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M1 10C3.5 5.2 8.3 2 14 2c4.4 0 8 2.5 9.5 6"/></svg><span>Flip your phone to view the full chart</span></div>
     <!-- Mobile horizontal chart (generated by JS) -->
     <div class="climate-mobile" id="climate-mobile"></div>
-    <div class="chart-legend" style="flex-direction:column;align-items:center;gap:4px;">
-      <div style="font-family:'Sometype Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);">Seasons</div>
-      <div style="display:flex;gap:1rem;">
-        <div class="legend-item"><div class="legend-block" style="background:var(--terracotta);"></div>Peak</div>
-        <div class="legend-item"><div class="legend-block" style="background:rgba(180,155,100,0.7);"></div>High</div>
-        <div class="legend-item"><div class="legend-block" style="background:rgba(42,58,43,0.35);"></div>Low</div>
-      </div>
-    </div>
   </div>
   <div class="sn">08</div>
 </section>
@@ -2033,17 +2105,24 @@
 <!-- 27 ─ Short-Term Projections -->
 <section class="slide bg-green" id="s27">
   <div class="slide-inner">
-    <div style="margin-bottom:1rem;">
-      <div class="label">Projections</div>
-      <h2>Short-term rental projections</h2>
-      <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three occupancy levels</p>
+    <div style="margin-bottom:1rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div class="label">Projections</div>
+        <h2>Short-term rental projections</h2>
+        <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three occupancy levels</p>
+        <p class="tbl-note" style="margin-top:0.5rem;color:rgba(244,242,232,0.4);">Investment basis: <span data-currency data-unit-val data-thb-full="5980000" data-thb="2990000" data-format="full">THB 2,990,000</span> <span class="unit-basis-label">(per unit)</span></p>
+      </div>
+      <div class="unit-toggle" id="unitToggle27">
+        <button class="unit-toggle-btn active" data-unit="share" onclick="setUnit('share')">Per unit</button>
+        <button class="unit-toggle-btn" data-unit="full" onclick="setUnit('full')">Full villa</button>
+      </div>
     </div>
     <table class="tbl">
-      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Occupancy</th><th class="tbl-hide-mobile">Nightly Rate</th><th>Annual Gross Profit</th><th>ROI</th></tr></thead>
+      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Occupancy</th><th class="tbl-hide-mobile">Nightly Rate</th><th>Annual Gross Profit</th><th>ROI</th><th>Payback</th></tr></thead>
       <tbody>
-        <tr><td>Conservative</td><td class="tbl-hide-mobile">60%</td><td class="tbl-hide-mobile"><span data-currency data-thb="4500" data-format="rate">THB 4,500</span></td><td><span data-currency data-thb="777600" data-format="revenue">~THB 778K</span></td><td>~13%</td></tr>
-        <tr><td>Base case</td><td class="tbl-hide-mobile">70%</td><td class="tbl-hide-mobile"><span data-currency data-thb="5500" data-format="rate">THB 5,500</span></td><td><span data-currency data-thb="1108800" data-format="revenue">~THB 1.1M</span></td><td class="hi">~19%</td></tr>
-        <tr><td>Optimistic</td><td class="tbl-hide-mobile">80%</td><td class="tbl-hide-mobile"><span data-currency data-thb="6500" data-format="rate">THB 6,500</span></td><td><span data-currency data-thb="1497600" data-format="revenue">~THB 1.5M</span></td><td>~25%</td></tr>
+        <tr><td>Conservative</td><td class="tbl-hide-mobile">60%</td><td class="tbl-hide-mobile"><span data-currency data-unit-val data-thb-full="4500" data-thb="2250" data-format="rate">THB 2,250</span></td><td><span data-currency data-unit-val data-thb-full="777600" data-thb="388800" data-format="revenue">~THB 389K</span></td><td>~13%</td><td>~7.7 yrs</td></tr>
+        <tr><td>Base case</td><td class="tbl-hide-mobile">70%</td><td class="tbl-hide-mobile"><span data-currency data-unit-val data-thb-full="5500" data-thb="2750" data-format="rate">THB 2,750</span></td><td><span data-currency data-unit-val data-thb-full="1108800" data-thb="554400" data-format="revenue">~THB 554K</span></td><td class="hi">~19%</td><td class="hi">~5.4 yrs</td></tr>
+        <tr><td>Optimistic</td><td class="tbl-hide-mobile">80%</td><td class="tbl-hide-mobile"><span data-currency data-unit-val data-thb-full="6500" data-thb="3250" data-format="rate">THB 3,250</span></td><td><span data-currency data-unit-val data-thb-full="1497600" data-thb="748800" data-format="revenue">~THB 749K</span></td><td>~25%</td><td>~4.0 yrs</td></tr>
       </tbody>
     </table>
     <p class="tbl-note">Nightly rate based on market data from current AirDNA for 2-bedroom villas in Koh Phangan.<br>Disclaimer: Simplified forecasts, not guarantees. Market conditions may change.</p>
@@ -2061,17 +2140,24 @@
 <!-- 28 ─ Long-Term Projections -->
 <section class="slide bg-green" id="s28">
   <div class="slide-inner">
-    <div style="margin-bottom:1rem;">
-      <div class="label">Projections</div>
-      <h2>Long-term rental projections</h2>
-      <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three price levels</p>
+    <div style="margin-bottom:1rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div class="label">Projections</div>
+        <h2>Long-term rental projections</h2>
+        <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three price levels</p>
+        <p class="tbl-note" style="margin-top:0.5rem;color:rgba(244,242,232,0.4);">Investment basis: <span data-currency data-unit-val data-thb-full="5980000" data-thb="2990000" data-format="full">THB 2,990,000</span> <span class="unit-basis-label">(per unit)</span></p>
+      </div>
+      <div class="unit-toggle" id="unitToggle28">
+        <button class="unit-toggle-btn active" data-unit="share" onclick="setUnit('share')">Per unit</button>
+        <button class="unit-toggle-btn" data-unit="full" onclick="setUnit('full')">Full villa</button>
+      </div>
     </div>
     <table class="tbl">
-      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Monthly Rent</th><th>Annual Gross Profit</th><th>ROI</th></tr></thead>
+      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Monthly Rent</th><th>Annual Gross Profit</th><th>ROI</th><th>Payback</th></tr></thead>
       <tbody>
-        <tr><td>Conservative</td><td class="tbl-hide-mobile"><span data-currency data-thb="60000" data-format="rate">THB 60,000</span></td><td><span data-currency data-thb="648000" data-format="revenue">~THB 648K</span></td><td>~11%</td></tr>
-        <tr><td>Base case</td><td class="tbl-hide-mobile"><span data-currency data-thb="75000" data-format="rate">THB 75,000</span></td><td><span data-currency data-thb="810000" data-format="revenue">~THB 810K</span></td><td class="hi">~14%</td></tr>
-        <tr><td>Optimistic</td><td class="tbl-hide-mobile"><span data-currency data-thb="90000" data-format="rate">THB 90,000</span></td><td><span data-currency data-thb="972000" data-format="revenue">~THB 972K</span></td><td>~16%</td></tr>
+        <tr><td>Conservative</td><td class="tbl-hide-mobile"><span data-currency data-unit-val data-thb-full="60000" data-thb="30000" data-format="rate">THB 30,000</span></td><td><span data-currency data-unit-val data-thb-full="648000" data-thb="324000" data-format="revenue">~THB 324K</span></td><td>~11%</td><td>~9.2 yrs</td></tr>
+        <tr><td>Base case</td><td class="tbl-hide-mobile"><span data-currency data-unit-val data-thb-full="75000" data-thb="37500" data-format="rate">THB 37,500</span></td><td><span data-currency data-unit-val data-thb-full="810000" data-thb="405000" data-format="revenue">~THB 405K</span></td><td class="hi">~14%</td><td class="hi">~7.4 yrs</td></tr>
+        <tr><td>Optimistic</td><td class="tbl-hide-mobile"><span data-currency data-unit-val data-thb-full="90000" data-thb="45000" data-format="rate">THB 45,000</span></td><td><span data-currency data-unit-val data-thb-full="972000" data-thb="486000" data-format="revenue">~THB 486K</span></td><td>~16%</td><td>~6.2 yrs</td></tr>
       </tbody>
     </table>
     <p class="tbl-note">Based on comparable long-term villa rentals (current AirDNA data, local agency listings for Koh Phangan).</p>
@@ -2217,6 +2303,7 @@
   <button class="share-btn" onclick="doShare()" title="Share">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
   </button>
+  <div class="nav-hint" id="navHint"><div class="nav-hint-dot"></div>Start here</div>
 </nav>
 <div class="slide-nav-backdrop" id="slideNavBackdrop"></div>
 <div class="slide-nav-dropdown" id="slideNav"></div>
@@ -2304,9 +2391,28 @@
     if (mc) mc.classList.remove('chart-animated');
   }
 
+  function positionNavHint() {
+    var navHintEl = document.getElementById('navHint');
+    var btn = document.getElementById('nextBtn');
+    if (!navHintEl || !btn) return;
+    var r = btn.getBoundingClientRect();
+    navHintEl.style.left = (r.left + r.width / 2) + 'px';
+    navHintEl.style.bottom = (window.innerHeight - r.top + 10) + 'px';
+    navHintEl.style.transform = 'translateX(-50%)';
+  }
+
   function goTo(n) {
     var hint = document.getElementById('heroArrowHint');
     if (hint && n > 0) hint.style.opacity = '0';
+    var navHintEl = document.getElementById('navHint');
+    if (navHintEl) {
+      if (n === 0) {
+        positionNavHint();
+        setTimeout(function() { navHintEl.classList.add('visible'); }, 800);
+      } else {
+        navHintEl.classList.remove('visible');
+      }
+    }
     if (navOpen) closeSlideNav();
     current = Math.max(0, Math.min(total - 1, n));
     deck.style.transform = 'translateX(-' + (current * 100) + 'vw)';
@@ -2562,6 +2668,23 @@
     } else {
       fallbackCopy(url, done);
     }
+  };
+
+  /* ── Unit toggle (Per unit / Full villa) ── */
+  var activeUnit = 'share';
+
+  window.setUnit = function(unit) {
+    activeUnit = unit;
+    document.querySelectorAll('.unit-toggle-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.unit === unit);
+    });
+    document.querySelectorAll('[data-unit-val]').forEach(function(el) {
+      el.dataset.thb = unit === 'full' ? el.dataset.thbFull : Math.round(parseFloat(el.dataset.thbFull) / 2);
+    });
+    document.querySelectorAll('.unit-basis-label').forEach(function(el) {
+      el.textContent = unit === 'full' ? '(full villa)' : '(per unit)';
+    });
+    updateCurrency();
   };
 
   window.updateCurrency = function() {
