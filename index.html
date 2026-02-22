@@ -1075,8 +1075,8 @@
   }
 
   /* ── Climate Chart ── */
-  .climate-chart-container { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; height: 100%; }
-  .climate-chart-wrapper { position: relative; width: 100%; flex: 1; min-height: 0; margin-top: 1.5rem; }
+  .climate-chart-container { width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; height: 100%; overflow-y: hidden; }
+  .climate-chart-wrapper { position: relative; width: 100%; flex: 1; min-height: 0; margin-top: 0.75rem; }
   .climate-svg { width: 100%; height: 100%; overflow: visible; }
   .chart-bar { transform-origin: bottom; transform: scaleY(0); transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); cursor: pointer; }
   .chart-bar:hover { filter: brightness(1.15); }
@@ -1102,7 +1102,7 @@
   .chart-tooltip { position: absolute; background: var(--green); color: var(--bg); padding: 12px 16px; border-radius: 8px; font-family: 'Sometype Mono', monospace; font-size: 0.8rem; line-height: 1.6; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; z-index: 10; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
   .chart-tooltip.visible { opacity: 1; }
   .chart-tooltip-label { font-weight: 600; color: var(--terracotta); margin-bottom: 2px; }
-  .season-bar { display: flex; margin-top: 0.75rem; border-radius: 6px; overflow: hidden; height: 36px; font-family: 'Sometype Mono', monospace; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .season-bar { display: flex; margin-top: 0.4rem; border-radius: 6px; overflow: hidden; height: 32px; font-family: 'Sometype Mono', monospace; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .season-seg { display: flex; align-items: center; justify-content: center; font-weight: 600; }
   .season-peak { background: rgba(212,107,68,0.75); color: var(--bg); }
   .season-high { background: rgba(180,155,100,0.55); color: var(--green); }
@@ -2497,6 +2497,7 @@
     });
     if (current === 7) { setTimeout(animateChart, 300); setTimeout(animateMobileChart, 300); } else { resetChart(); resetMobileChart(); }
     if (current === 29) setTimeout(animatePayment, 300); else resetPayment();
+    if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
   }
 
   function animatePayment() {
@@ -2838,7 +2839,17 @@
     selectCurrency(savedCurrency);
   }
 
-  goTo(0);
+  var startSlide = parseInt(window.location.hash.replace('#', ''), 10);
+  goTo((startSlide >= 1 && startSlide <= total) ? startSlide - 1 : 0);
+
+  window.addEventListener('hashchange', function() {
+    var h = parseInt(window.location.hash.replace('#', ''), 10);
+    if (h >= 1 && h <= total && h - 1 !== current) {
+      goTo._skipHash = true;
+      goTo(h - 1);
+      goTo._skipHash = false;
+    }
+  });
 
   /* ── Environment badge ── */
   (function() {
