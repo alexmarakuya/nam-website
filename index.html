@@ -1234,6 +1234,55 @@
   /* ── Progress bar ── */
   .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); z-index: 200; transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; }
 
+  /* ── Environment badge ── */
+  .env-badge {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: default;
+    transition: opacity 0.3s ease;
+    opacity: 0.45;
+  }
+  .env-badge:hover { opacity: 1; }
+  .env-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: env-pulse 2s ease-in-out infinite;
+  }
+  .env-dot-staging { background: #f5a623; }
+  .env-dot-local { background: #4cd964; }
+  .env-label {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  .env-badge:hover .env-label {
+    max-width: 80px;
+    opacity: 1;
+  }
+  @keyframes env-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
   /* ── Slide Number ── */
   .sn { position: absolute; top: 32px; right: 44px; font-family: 'Sometype Mono', monospace; font-size: 0.92rem; color: var(--text-secondary); letter-spacing: 0.1em; }
   .bg-green .sn { color: rgba(244,242,232,0.5); }
@@ -1408,6 +1457,10 @@
 <body>
 
 <div class="progress-bar" id="progress"></div>
+<div class="env-badge" id="envBadge" style="display:none;">
+  <div class="env-dot" id="envDot"></div>
+  <span class="env-label" id="envLabel"></span>
+</div>
 
 <div class="deck-wrapper">
 <div class="deck" id="deck">
@@ -2770,6 +2823,22 @@
   }
 
   goTo(0);
+
+  /* ── Environment badge ── */
+  (function() {
+    var host = window.location.hostname;
+    var badge = document.getElementById('envBadge');
+    var dot = document.getElementById('envDot');
+    var label = document.getElementById('envLabel');
+    if (!badge) return;
+    var env = null;
+    if (host === 'localhost' || host === '127.0.0.1') env = 'local';
+    else if (/^\d+\.\d+\.\d+\.\d+$/.test(host)) env = 'staging';
+    if (!env) return;
+    dot.classList.add('env-dot-' + env);
+    label.textContent = env === 'local' ? 'Local' : 'Staging';
+    badge.style.display = 'flex';
+  })();
 })();
 </script>
 
