@@ -630,13 +630,13 @@
 
   /* ── Hero arrow hint ── */
   .hero-arrow-hint {
-    position: absolute; bottom: 48px; right: 40px;
+    align-self: flex-end;
     display: flex; align-items: center; gap: 6px;
     color: rgba(244,242,232,0.4);
     font-family: 'Sometype Mono', monospace; font-size: 0.72rem;
     letter-spacing: 0.08em; text-transform: uppercase;
     cursor: pointer; animation: arrow-bounce 1.8s ease-in-out infinite;
-    transition: opacity 0.4s;
+    transition: opacity 0.4s; margin-top: 1rem;
   }
   .hero-arrow-hint:hover { color: rgba(244,242,232,0.7); }
   .hero-arrow-label { display: none; }
@@ -890,7 +890,7 @@
 
   /* ── Timeline ── */
   .tl { display: flex; justify-content: space-between; position: relative; margin: 3.5rem 0; padding: 2.5rem 0; }
-  .tl::before { content: ''; position: absolute; top: calc(2.5rem + 8px); left: 8%; right: 8%; height: 2px; background: var(--border); }
+  .tl::before { content: ''; position: absolute; top: calc(2.5rem + 3px); left: 8%; right: 8%; height: 2px; background: var(--border); }
   .tl-item { text-align: center; position: relative; z-index: 1; flex: 1; }
   .tl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terracotta); margin: 0 auto 1.25rem; border: none; box-shadow: none; }
   .tl-date { font-family: 'Sometype Mono', monospace; font-size: 0.85rem; font-weight: 600; color: var(--terracotta); margin-bottom: 0.5rem; }
@@ -1095,33 +1095,14 @@
   .counter-name { font-weight: 500; letter-spacing: 0.01em; text-align: left;
     overflow: hidden; text-overflow: ellipsis; }
 
-  /* ── Share picker ── */
-  .share-picker { position: absolute; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; }
-  .share-trigger {
+  /* ── Share button ── */
+  .share-btn {
+    position: absolute; right: 24px; top: 0; bottom: 0;
+    display: flex; align-items: center; z-index: 10;
     background: none; border: none; padding: 5px 2px; cursor: pointer;
-    color: rgba(244,242,232,0.55); display: inline-flex; align-items: center;
-    transition: color 0.2s;
+    color: rgba(244,242,232,0.55); transition: color 0.2s;
   }
-  .share-trigger:hover { color: rgba(244,242,232,0.9); }
-  .share-popup {
-    position: fixed; bottom: calc(var(--nav-h) + 12px); left: 50%; transform: translateX(-50%) scale(0.95);
-    background: var(--bg); border-radius: 8px;
-    display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 6px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.08);
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 200;
-  }
-  .share-picker.open .share-popup { opacity: 1; pointer-events: auto; transform: translateX(-50%) scale(1); }
-  .share-opt {
-    font-family: 'Sometype Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em;
-    padding: 10px 16px; border: none; border-radius: 5px;
-    background: transparent; color: var(--text-secondary);
-    cursor: pointer; transition: all 0.2s; white-space: nowrap;
-    display: flex; align-items: center; gap: 8px; text-align: left;
-  }
-  .share-opt:hover { color: var(--text); background: rgba(0,0,0,0.04); }
-  .share-opt svg { flex-shrink: 0; }
+  .share-btn:hover { color: rgba(244,242,232,0.9); }
 
   /* ── Slide navigator dropdown ── */
   .slide-nav-dropdown {
@@ -1222,12 +1203,8 @@
     /* Page 1: reduce hero title size + more top breathing room */
     .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
     #s1 .hero-main { padding-top: 48px !important; }
-    .hero-arrow-hint { right: auto; left: 50%; bottom: 24px; transform: translateX(-50%); animation: arrow-bounce-mobile 1.8s ease-in-out infinite; }
+    .hero-arrow-hint { align-self: center; margin-top: 1rem; }
     .hero-arrow-label { display: inline; }
-    @keyframes arrow-bounce-mobile {
-      0%, 100% { transform: translateX(-50%); }
-      50% { transform: translateX(calc(-50% + 8px)); }
-    }
     /* Hide on-slide page numbers (both .sn and hero footer numbers) */
     .sn { display: none !important; }
     #s4 .hero-footer-line span:first-child,
@@ -1249,7 +1226,7 @@
     .slide-counter { width: 140px; }
     .counter-name { overflow: hidden; text-overflow: ellipsis; }
     .currency-picker { left: 12px; }
-    .share-picker { right: 12px; }
+    .share-btn { right: 12px; }
     .split-img { flex-direction: column; }
     .split-img-photo { width: 100%; height: 40vh; }
     .split-img-content { padding: 28px 28px 28px; }
@@ -2062,11 +2039,11 @@
       <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three occupancy levels</p>
     </div>
     <table class="tbl">
-      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Occupancy</th><th class="tbl-hide-mobile">Nightly Rate</th><th>Annual Revenue</th><th>Net Yield</th></tr></thead>
+      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Occupancy</th><th class="tbl-hide-mobile">Nightly Rate</th><th>Annual Gross Profit</th><th>ROI</th></tr></thead>
       <tbody>
-        <tr><td>Conservative</td><td class="tbl-hide-mobile">55%</td><td class="tbl-hide-mobile"><span data-currency data-usd="95" data-format="rate">$95</span></td><td><span data-currency data-usd="19000" data-format="revenue">~$19,000</span></td><td>~10%</td></tr>
-        <tr><td>Base case</td><td class="tbl-hide-mobile">65%</td><td class="tbl-hide-mobile"><span data-currency data-usd="95" data-format="rate">$95</span></td><td><span data-currency data-usd="22500" data-format="revenue">~$22,500</span></td><td class="hi">~14%</td></tr>
-        <tr><td>Optimistic</td><td class="tbl-hide-mobile">75%</td><td class="tbl-hide-mobile"><span data-currency data-usd="95" data-format="rate">$95</span></td><td><span data-currency data-usd="26000" data-format="revenue">~$26,000</span></td><td>~17%</td></tr>
+        <tr><td>Conservative</td><td class="tbl-hide-mobile">60%</td><td class="tbl-hide-mobile"><span data-currency data-thb="4500" data-format="rate">THB 4,500</span></td><td><span data-currency data-thb="777600" data-format="revenue">~THB 778K</span></td><td>~13%</td></tr>
+        <tr><td>Base case</td><td class="tbl-hide-mobile">70%</td><td class="tbl-hide-mobile"><span data-currency data-thb="5500" data-format="rate">THB 5,500</span></td><td><span data-currency data-thb="1108800" data-format="revenue">~THB 1.1M</span></td><td class="hi">~19%</td></tr>
+        <tr><td>Optimistic</td><td class="tbl-hide-mobile">80%</td><td class="tbl-hide-mobile"><span data-currency data-thb="6500" data-format="rate">THB 6,500</span></td><td><span data-currency data-thb="1497600" data-format="revenue">~THB 1.5M</span></td><td>~25%</td></tr>
       </tbody>
     </table>
     <p class="tbl-note">Nightly rate based on market data from current AirDNA for 2-bedroom villas in Koh Phangan.<br>Disclaimer: Simplified forecasts, not guarantees. Market conditions may change.</p>
@@ -2090,16 +2067,16 @@
       <p class="sub" style="color:rgba(244,242,232,0.65);">Based on three price levels</p>
     </div>
     <table class="tbl">
-      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Monthly Rent</th><th>Annual Revenue</th><th>Net Yield</th></tr></thead>
+      <thead><tr><th>Scenario</th><th class="tbl-hide-mobile">Monthly Rent</th><th>Annual Gross Profit</th><th>ROI</th></tr></thead>
       <tbody>
-        <tr><td>Conservative</td><td class="tbl-hide-mobile"><span data-currency data-usd="1200" data-format="rate">$1,200</span></td><td><span data-currency data-usd="14400" data-format="revenue">~$14,400</span></td><td>~8%</td></tr>
-        <tr><td>Base case</td><td class="tbl-hide-mobile"><span data-currency data-usd="1500" data-format="rate">$1,500</span></td><td><span data-currency data-usd="18000" data-format="revenue">~$18,000</span></td><td class="hi">~10%</td></tr>
-        <tr><td>Optimistic</td><td class="tbl-hide-mobile"><span data-currency data-usd="1800" data-format="rate">$1,800</span></td><td><span data-currency data-usd="21600" data-format="revenue">~$21,600</span></td><td>~13%</td></tr>
+        <tr><td>Conservative</td><td class="tbl-hide-mobile"><span data-currency data-thb="60000" data-format="rate">THB 60,000</span></td><td><span data-currency data-thb="648000" data-format="revenue">~THB 648K</span></td><td>~11%</td></tr>
+        <tr><td>Base case</td><td class="tbl-hide-mobile"><span data-currency data-thb="75000" data-format="rate">THB 75,000</span></td><td><span data-currency data-thb="810000" data-format="revenue">~THB 810K</span></td><td class="hi">~14%</td></tr>
+        <tr><td>Optimistic</td><td class="tbl-hide-mobile"><span data-currency data-thb="90000" data-format="rate">THB 90,000</span></td><td><span data-currency data-thb="972000" data-format="revenue">~THB 972K</span></td><td>~16%</td></tr>
       </tbody>
     </table>
     <p class="tbl-note">Based on comparable long-term villa rentals (current AirDNA data, local agency listings for Koh Phangan).</p>
     <div style="margin-top:2rem;text-align:center;">
-      <a href="https://docs.google.com/spreadsheets/d/1YQZ1tLbRHN80GKlIEfG72C-DxmXoi6pIQBtC6Hz39GU/edit?usp=sharing" target="_blank" rel="noopener" class="cta-link" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border:1px solid rgba(244,242,232,0.25);border-radius:8px;color:var(--bg);text-decoration:none;font-family:'Sometype Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s ease;background:rgba(244,242,232,0.06);">
+      <a href="https://docs.google.com/spreadsheets/d/1YQZ1tLbRHN80GKlIEfG72C-DxmXoi6pIQBtC6Hz39GU/edit?gid=959497864#gid=959497864" target="_blank" rel="noopener" class="cta-link" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border:1px solid rgba(244,242,232,0.25);border-radius:8px;color:var(--bg);text-decoration:none;font-family:'Sometype Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s ease;background:rgba(244,242,232,0.06);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
         Open full calculations
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
@@ -2237,21 +2214,9 @@
       <div class="currency-note">Rates based on today's market rate</div>
     </div>
   </div>
-  <div class="share-picker" id="sharePicker">
-    <button class="share-trigger" onclick="toggleSharePicker()" title="Share">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-    </button>
-    <div class="share-popup" id="sharePopup">
-      <button class="share-opt" onclick="doSharePDF()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download PDF
-      </button>
-      <button class="share-opt" onclick="doShareLink()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-        Share link
-      </button>
-    </div>
-  </div>
+  <button class="share-btn" onclick="doShare()" title="Share">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+  </button>
 </nav>
 <div class="slide-nav-backdrop" id="slideNavBackdrop"></div>
 <div class="slide-nav-dropdown" id="slideNav"></div>
@@ -2567,18 +2532,8 @@
     }
   });
 
-  // Share picker
-  window.toggleSharePicker = function() {
-    document.getElementById('sharePicker').classList.toggle('open');
-  };
-
-  window.doSharePDF = function() {
-    document.getElementById('sharePicker').classList.remove('open');
-    exportPDF();
-  };
-
-  window.doShareLink = function() {
-    document.getElementById('sharePicker').classList.remove('open');
+  // Share button
+  window.doShare = function() {
     if (navigator.share) {
       navigator.share({ title: document.title, url: window.location.href });
     } else {
@@ -2587,14 +2542,6 @@
       });
     }
   };
-
-  // Close share picker when clicking outside
-  document.addEventListener('click', function(e) {
-    var sp = document.getElementById('sharePicker');
-    if (sp && !sp.contains(e.target)) {
-      sp.classList.remove('open');
-    }
-  });
 
   window.updateCurrency = function() {
     var sel = activeCurrency;
@@ -2682,129 +2629,6 @@
 })();
 </script>
 
-<!-- PDF export libraries (loaded async, only used on demand) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
-<script>
-function exportPDF() {
-  var btn = document.querySelector('.share-trigger');
-  var origHTML = btn.innerHTML;
-  btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span> Generating\u2026</span>';
-  btn.disabled = true;
-  btn.style.opacity = '0.5';
-
-  /* Check libraries loaded */
-  if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
-    alert('PDF libraries are still loading. Please wait a moment and try again.');
-    btn.innerHTML = origHTML; btn.disabled = false; btn.style.opacity = '1';
-    return;
-  }
-
-  var slides = document.querySelectorAll('.slide');
-  var total = slides.length;
-  var deck = document.getElementById('deck');
-  var wrapper = document.querySelector('.deck-wrapper');
-  var savedTransform = deck.style.transform;
-  var savedTransition = deck.style.transition;
-  var savedOverflow = wrapper.style.overflow;
-
-  /* Disable transitions for fast capture */
-  deck.style.transition = 'none';
-  wrapper.style.overflow = 'visible';
-
-  /* Make all slides active (visible) for capture */
-  slides.forEach(function(s) { s.classList.add('active'); });
-
-  /* Give the chart and payment animations a moment */
-  var chartEl = document.querySelector('.climate-chart-container');
-  if (chartEl) chartEl.classList.add('chart-animated');
-
-  var idx = 0;
-  var canvases = [];
-  var vw = window.innerWidth;
-  var vh = window.innerHeight - 52; /* minus nav height */
-
-  function captureNext() {
-    if (idx >= total) {
-      buildPDF();
-      return;
-    }
-    /* Scroll deck to this slide */
-    deck.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
-
-    /* Update progress in button */
-    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span> ' + (idx + 1) + '/' + total + '</span>';
-
-    setTimeout(function() {
-      html2canvas(slides[idx], {
-        scale: 1.5,
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-        backgroundColor: null,
-        width: vw,
-        height: vh,
-        windowWidth: vw,
-        windowHeight: vh,
-        scrollX: 0,
-        scrollY: 0,
-        x: slides[idx].getBoundingClientRect().left,
-        y: 0
-      }).then(function(canvas) {
-        canvases.push(canvas);
-        idx++;
-        captureNext();
-      }).catch(function(err) {
-        console.warn('Slide ' + (idx+1) + ' capture failed:', err);
-        idx++;
-        captureNext();
-      });
-    }, 250);
-  }
-
-  function buildPDF() {
-    if (canvases.length === 0) {
-      alert('PDF generation failed — no slides could be captured. Try on desktop.');
-      restore();
-      return;
-    }
-    try {
-      var jsPDF = window.jspdf.jsPDF;
-      var pdf = new jsPDF({
-        orientation: 'landscape',
-        unit: 'px',
-        format: [vw, vh],
-        hotfixes: ['px_scaling']
-      });
-
-      canvases.forEach(function(canvas, i) {
-        if (i > 0) pdf.addPage([vw, vh], 'landscape');
-        var imgData = canvas.toDataURL('image/jpeg', 0.85);
-        pdf.addImage(imgData, 'JPEG', 0, 0, vw, vh);
-      });
-
-      pdf.save('Casa-NaM-Pitch-Deck.pdf');
-    } catch(e) {
-      console.error('PDF build error:', e);
-      alert('PDF generation failed: ' + e.message);
-    }
-    restore();
-  }
-
-  function restore() {
-    deck.style.transition = savedTransition;
-    deck.style.transform = savedTransform;
-    wrapper.style.overflow = savedOverflow;
-    slides.forEach(function(s) { if (s !== slides[cur]) s.classList.remove('active'); });
-    btn.innerHTML = origHTML;
-    btn.disabled = false;
-    btn.style.opacity = '1';
-  }
-
-  /* Small delay to let the UI update */
-  setTimeout(captureNext, 200);
-}
-</script>
 
 </body>
 </html>
