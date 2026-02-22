@@ -92,10 +92,10 @@
 
   /* ── Banner ── */
   .banner { background: var(--sunwashed); width: 100%; display: flex; justify-content: center; padding: 64px 120px; }
-  .banner-inner { display: flex; align-items: center; gap: 24px; max-width: 1200px; width: 100%; }
+  .banner-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 1200px; width: 100%; text-align: center; }
   .banner-heading { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
   .banner-inner .h3 { color: var(--cream); }
-  .banner-inner .body-lg { color: var(--cream); flex: 1; }
+  .banner-inner .body-lg { color: var(--cream); }
 
   /* ── Feature rows ── */
   .features { background: var(--oat); width: 100%; }
@@ -103,7 +103,7 @@
   .feature-row:first-child { padding-top: 120px; }
   .feature-row:last-child { padding-bottom: 120px; }
   .feature-row.reversed { flex-direction: row-reverse; }
-  .feature-text { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+  .feature-text { flex: 1; display: flex; flex-direction: column; gap: 12px; }
   .feature-text .heading-row { display: flex; align-items: center; gap: 12px; }
   .feature-text .h3 { color: var(--deep-green); }
   .feature-text .body-lg { color: var(--slate); }
@@ -111,7 +111,7 @@
   .feature-img img { width: 100%; height: 100%; object-fit: cover; }
 
   /* ── Village quote ── */
-  .village-quote { background: var(--sage); width: 100%; display: flex; justify-content: center; padding: 64px 240px; text-align: center; }
+  .village-quote { background: var(--sage); width: 100%; display: flex; justify-content: center; padding: 64px 120px; text-align: center; }
   .village-quote-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; }
   .village-quote .h3 { color: var(--deep-green); }
 
@@ -154,7 +154,7 @@
   .inline-cta-btn:hover { filter: brightness(0.95); }
 
   /* ── Ownership section ── */
-  .ownership-section { background: var(--sage); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 64px; padding: 64px 120px 0; position: relative; }
+  .ownership-section { background: var(--sage); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 48px; padding: 64px 120px 0; position: relative; }
   .ownership-header { text-align: center; max-width: 960px; display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
   .ownership-header .h2 { color: var(--slate); }
   .ownership-header .subtitle { color: var(--slate); font-size: 24px; letter-spacing: -0.48px; }
@@ -224,7 +224,7 @@
   .arch-svg.entering .unit-b { opacity: 1; transform: translateY(0) !important; }
   .arch-svg.entering .unit-a .draw, .arch-svg.entering .unit-b .draw { stroke-dashoffset: 0; }
 
-  .ownership-quote-section { background: var(--sage); width: 100%; display: flex; justify-content: center; padding: 80px 120px; }
+  .ownership-quote-section { background: var(--sage); width: 100%; display: flex; justify-content: center; padding: 48px 120px 64px; }
   .ownership-quote { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; text-align: center; }
   .ownership-quote .h3 { color: var(--deep-green); }
 
@@ -311,16 +311,24 @@
     .hero-wrap { padding: 0 40px; }
     .banner { padding: 48px 40px; }
     .banner-inner { flex-direction: column; gap: 16px; }
-    .feature-row, .feature-row.reversed { flex-direction: column; padding: 48px 40px; gap: 40px; }
-    .feature-row:first-child { padding-top: 80px; }
-    .feature-row:last-child { padding-bottom: 80px; }
+    .feature-row, .feature-row.reversed { flex-direction: column; padding: 24px 24px; gap: 24px; }
+    .feature-row:first-child { padding-top: 60px; }
+    .feature-row:last-child { padding-bottom: 60px; }
     .village-quote { padding: 48px 40px; }
-    .why-section { padding: 80px 40px; }
-    .why-inner { flex-direction: column; gap: 60px; }
-    .who-section { padding: 80px 40px; }
-    .who-cards { grid-template-columns: repeat(2, 1fr); }
+    .why-section { padding: 48px 40px; }
+    .why-inner { flex-direction: column; gap: 32px; }
+    .why-right { gap: 32px; }
+    .why-item { padding-bottom: 24px; }
+    .who-section { padding: 48px 0; gap: 32px; }
+    .who-header { padding: 0 40px; }
+    .who-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 16px; padding: 0; scrollbar-width: none; }
+    .who-cards::-webkit-scrollbar { display: none; }
+    .who-card { min-width: 280px; max-width: 320px; flex-shrink: 0; scroll-snap-align: start; }
+    .who-card:first-child { margin-left: 40px; }
+    .who-card:last-child { margin-right: 40px; }
     .inline-cta { padding: 40px; }
-    .ownership-section { padding: 48px 40px; }
+    .ownership-section { padding: 48px 40px 0; gap: 32px; }
+    .ownership-quote-section { padding: 40px 40px; }
     .ownership-tabs { padding: 32px 40px; gap: 40px; }
     .tab-item-trigger { padding: 16px 0; }
     .timeline-section { padding: 80px 40px 48px; }
@@ -336,40 +344,51 @@
   @media (max-width: 640px) {
     :root {
       --text-h1: 40px;
-      --text-h2: 32px;
-      --text-h3: 24px;
+      --text-h2: 24px;
+      --text-h3: 20px;
       --text-body-lg: 16px;
     }
+    .icon { width: 24px; height: 24px; }
+    .icon-sm { width: 20px; height: 20px; }
     .h1 { letter-spacing: -0.8px; }
     .h2 { letter-spacing: -0.64px; }
     .h3, .subtitle, .tab-item-trigger { letter-spacing: -0.48px; }
+    .subtitle, .who-header .subtitle, .why-left .subtitle, .ownership-header .subtitle, .mfy-left .subtitle, .mfy-card .subtitle { font-size: 16px; }
     .body-lg, .body-lg-semi { letter-spacing: -0.32px; }
     .site-header { padding: 20px 24px; }
     .site-nav { gap: 20px; }
     .hero-wrap { padding: 0 24px; }
     .hero-content { padding-top: 40px; gap: 40px; }
     .hero-intro { gap: 24px; }
+    .hero-image { margin-left: -24px; margin-right: -24px; width: calc(100% + 48px); }
     .banner { padding: 40px 24px; }
-    .feature-row { padding: 40px 24px; gap: 32px; }
-    .feature-row:first-child { padding-top: 60px; }
-    .feature-row:last-child { padding-bottom: 60px; }
-    .feature-img { aspect-ratio: 16 / 10; border-radius: 16px; }
+    .feature-row { padding: 20px 24px; gap: 16px; }
+    .feature-row:first-child { padding-top: 48px; }
+    .feature-row:last-child { padding-bottom: 48px; }
+    .feature-img { aspect-ratio: 16 / 10; border-radius: 16px; width: 100%; }
     .village-quote { padding: 40px 24px; }
-    .why-section { padding: 60px 24px; }
-    .why-inner { gap: 40px; }
-    .who-section { padding: 60px 0; }
+    .why-section { padding: 40px 24px; }
+    .why-inner { gap: 24px; }
+    .why-left { gap: 16px; }
+    .why-right { gap: 24px; }
+    .why-item { padding-bottom: 20px; gap: 10px; }
+    .why-item .heading-row { gap: 10px; }
+    .who-section { padding: 40px 0; gap: 24px; }
     .who-header { padding: 0 24px; }
-    .who-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 16px; padding: 0 24px; scrollbar-width: none; }
+    .who-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 16px; scrollbar-width: none; padding: 0 24px; }
     .who-cards::-webkit-scrollbar { display: none; }
-    .who-card { min-width: 260px; max-width: 280px; min-height: auto; flex-shrink: 0; scroll-snap-align: start; }
+    .who-card { min-width: 240px; max-width: 260px; min-height: auto; flex-shrink: 0; scroll-snap-align: start; }
     .who-card .card-icon { height: 44px; width: 96px; }
     .inline-cta { padding: 32px 24px; }
     .inline-cta-inner { flex-direction: column; text-align: center; gap: 20px; }
-    .inline-cta-text { justify-content: center; }
-    .ownership-section { padding: 40px 24px; }
+    .inline-cta-text { flex-direction: column; align-items: center; gap: 12px; }
+    .inline-cta-text .icon-sm { width: 32px; height: 32px; }
+    .ownership-section { padding: 40px 24px 0; gap: 32px; }
+    .ownership-quote-section { padding: 40px 24px; }
     .ownership-tabs { flex-direction: column; padding: 24px; border-radius: 24px; gap: 24px; }
     .tab-visual { min-height: 208px; order: -1; }
     .tab-item-trigger { font-size: 16px; padding: 14px 0; }
+    .tab-item-body-inner .body-lg { font-size: 14px; }
     .timeline-section { padding: 60px 24px 40px; }
     .tl { flex-direction: column; align-items: flex-start; padding-left: 32px; }
     .tl::before { left: 3px; right: auto; top: 0; bottom: 0; height: auto; width: 2px; }
@@ -615,6 +634,16 @@
       </div>
       <div class="tab-visual">
           <svg class="arch-svg" viewBox="-20 -16 360 232" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background topo lines (always visible hint) -->
+            <g class="topo-hint" opacity="0.12">
+              <path d="M-20 30 Q40 18 100 32 Q160 46 220 28 Q280 10 340 24" stroke="#7d7970" stroke-width="0.6" fill="none"/>
+              <path d="M-20 56 Q50 44 120 54 Q190 64 260 48 Q310 38 340 50" stroke="#7d7970" stroke-width="0.5" fill="none"/>
+              <path d="M-20 84 Q60 76 130 88 Q200 100 270 82 Q320 70 340 80" stroke="#7d7970" stroke-width="0.6" fill="none"/>
+              <path d="M-20 112 Q40 104 110 116 Q180 128 250 108 Q300 96 340 110" stroke="#7d7970" stroke-width="0.5" fill="none"/>
+              <path d="M-20 140 Q50 132 120 144 Q190 156 260 136 Q310 124 340 138" stroke="#7d7970" stroke-width="0.6" fill="none"/>
+              <path d="M-20 168 Q60 160 130 172 Q200 184 270 164 Q320 152 340 166" stroke="#7d7970" stroke-width="0.5" fill="none"/>
+              <path d="M-20 196 Q40 188 110 200 Q180 212 250 192 Q300 180 340 194" stroke="#7d7970" stroke-width="0.6" fill="none"/>
+            </g>
             <g class="building fade" style="transform-origin: 160px 100px;">
               <!-- Unit A (left bedroom) -->
               <g class="unit-a fade" style="transform-origin: 120px 100px;">
@@ -697,9 +726,6 @@
               <circle class="draw" cx="296" cy="96" r="3" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
               <circle class="draw" cx="150" cy="196" r="4" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
               <circle class="draw" cx="176" cy="4" r="3" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
-              <!-- Contour lines -->
-              <path class="draw" d="M-10 24 Q80 16 160 26 Q240 36 330 20" stroke="#d4d0c8" stroke-width="0.4" fill="none"/>
-              <path class="draw" d="M-10 178 Q80 186 160 176 Q240 166 330 182" stroke="#d4d0c8" stroke-width="0.4" fill="none"/>
             </g>
           </svg>
         </div>
