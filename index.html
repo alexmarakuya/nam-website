@@ -907,7 +907,7 @@
   .pay-tl .tl-item:last-child { padding-bottom: 0; }
   .pay-tl .tl-txt { max-width: 100%; margin: 0; }
   .pay-row { display: flex; align-items: center; gap: 1rem; position: relative; }
-  .pay-row .tl-dot { position: absolute; left: -32px; top: 50%; transform: translateY(-50%); margin: 0; flex-shrink: 0; width: 8px; height: 8px; }
+  .pay-row .tl-dot { position: absolute; left: -28px; top: 50%; transform: translateY(-50%); margin: 0; flex-shrink: 0; width: 8px; height: 8px; }
   .pay-row .tl-txt { font-size: 0.88rem; color: var(--text-secondary); }
 
   /* ── TOC ── */
@@ -1294,7 +1294,7 @@
     .tl-item { text-align: left !important; display: flex !important; flex-direction: column !important; gap: 0.25rem !important; padding: 1.25rem 0 !important; position: relative; }
     .tl-item:first-child { padding-top: 0 !important; }
     .tl-item:last-child { padding-bottom: 0 !important; }
-    .tl-dot { position: absolute !important; left: -32px !important; top: 1.25rem !important; margin: 0 !important; flex-shrink: 0; width: 8px !important; height: 8px !important; }
+    .tl-dot { position: absolute !important; left: -28px !important; top: 1.25rem !important; margin: 0 !important; flex-shrink: 0; width: 8px !important; height: 8px !important; }
     .tl-item:first-child .tl-dot { top: 0 !important; }
     .tl-date { font-size: 0.9rem !important; }
     .tl-txt { max-width: 100% !important; margin: 0 !important; font-size: 0.9rem !important; }
@@ -2533,13 +2533,34 @@
   });
 
   // Share button
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+    cb();
+  }
   window.doShare = function() {
+    var url = window.location.href;
     if (navigator.share) {
-      navigator.share({ title: document.title, url: window.location.href });
+      navigator.share({ title: document.title, url: url }).catch(function(){});
+      return;
+    }
+    var done = function() {
+      var t = document.createElement('div');
+      t.textContent = 'Link copied \u2713';
+      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#2a3a2b;color:#f4f2e8;padding:10px 20px;border-radius:6px;font-size:0.85rem;z-index:9999;opacity:0;transition:opacity 0.3s';
+      document.body.appendChild(t);
+      requestAnimationFrame(function(){ t.style.opacity='1'; });
+      setTimeout(function(){ t.style.opacity='0'; setTimeout(function(){ t.remove(); }, 300); }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(function() { fallbackCopy(url, done); });
     } else {
-      navigator.clipboard.writeText(window.location.href).then(function() {
-        alert('Link copied to clipboard');
-      });
+      fallbackCopy(url, done);
     }
   };
 
