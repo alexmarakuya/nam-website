@@ -1242,24 +1242,29 @@
     z-index: 300;
     display: flex;
     align-items: center;
-    gap: 0;
-    padding: 0;
-    width: 17px;
-    height: 17px;
     justify-content: center;
-    border-radius: 5px;
+    width: 24px;
+    height: 24px;
+    cursor: default;
+  }
+  .env-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
     background: rgba(0,0,0,0.55);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    cursor: default;
-    transition: opacity 0.3s ease;
     opacity: 0.45;
+    transition: opacity 0.3s ease;
   }
-  .env-badge:hover { opacity: 1; }
+  .env-badge:hover::before { opacity: 1; }
   .env-dot {
     width: 7px; height: 7px;
     border-radius: 50%;
     flex-shrink: 0;
+    position: relative;
+    z-index: 1;
     animation: env-pulse 2s ease-in-out infinite;
   }
   .env-dot-staging { background: #f5a623; }
@@ -1271,15 +1276,22 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.9);
-    max-width: 0;
-    overflow: hidden;
     white-space: nowrap;
-    transition: max-width 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+    left: 100%;
+    margin-left: 6px;
+    padding: 0 8px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
   .env-badge:hover .env-label {
-    max-width: 80px;
-    margin-left: 6px;
     opacity: 1;
   }
   @keyframes env-pulse {
