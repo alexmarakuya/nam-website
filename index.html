@@ -140,8 +140,8 @@
   .who-header .subtitle { color: var(--slate); font-size: 24px; letter-spacing: -0.48px; }
   .who-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; width: 100%; position: relative; z-index: 1; }
   .who-card { background: var(--cream); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px; min-height: 330px; }
-  .who-card .card-icon { height: 80px; display: flex; align-items: center; justify-content: flex-start; }
-  .who-card .card-icon img { width: 100%; height: 100%; }
+  .who-card .card-icon { height: 56px; width: 120px; display: flex; align-items: center; justify-content: flex-start; }
+  .who-card .card-icon img { width: 100%; height: 100%; object-fit: contain; object-position: left; }
   .who-card .body-lg-semi { color: var(--granite); }
 
   /* ── Inline CTA ── */
@@ -154,29 +154,78 @@
   .inline-cta-btn:hover { filter: brightness(0.95); }
 
   /* ── Ownership section ── */
-  .ownership-section { background: var(--sage); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 64px; padding: 64px 120px; overflow: hidden; position: relative; }
+  .ownership-section { background: var(--sage); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 64px; padding: 64px 120px 0; position: relative; }
   .ownership-header { text-align: center; max-width: 960px; display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
   .ownership-header .h2 { color: var(--slate); }
   .ownership-header .subtitle { color: var(--slate); font-size: 24px; letter-spacing: -0.48px; }
-  .accordion { background: var(--cream); border-radius: 40px; padding: 48px 56px; max-width: 1200px; width: 100%; position: relative; z-index: 1; }
-  .accordion-item { border-bottom: 1px solid var(--beige); }
-  .accordion-item:last-child { border-bottom: none; }
-  .accordion-trigger { background: none; border: none; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 0; font-family: var(--font-display); font-weight: 400; font-size: var(--text-h3); line-height: 1.2; letter-spacing: -0.64px; color: var(--slate); text-align: left; transition: color 0.3s; }
-  .accordion-trigger:hover { color: var(--sunwashed); }
-  .accordion-trigger.active { color: var(--sunwashed); }
-  .accordion-icon { width: 24px; height: 24px; flex-shrink: 0; position: relative; transition: transform 0.35s ease; }
-  .accordion-icon::before, .accordion-icon::after { content: ''; position: absolute; background: currentColor; border-radius: 1px; }
-  .accordion-icon::before { top: 50%; left: 4px; right: 4px; height: 2px; transform: translateY(-50%); }
-  .accordion-icon::after { left: 50%; top: 4px; bottom: 4px; width: 2px; transform: translateX(-50%); transition: transform 0.35s ease, opacity 0.35s ease; }
-  .accordion-trigger.active .accordion-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
-  .accordion-panel { overflow: hidden; max-height: 0; transition: max-height 0.4s ease; }
-  .accordion-panel.open { max-height: 500px; }
-  .accordion-panel-inner { display: flex; gap: 40px; align-items: flex-start; padding-bottom: 28px; }
-  .accordion-graphic { width: 120px; height: 120px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--oat); border-radius: 20px; }
-  .accordion-graphic img { width: 64px; height: 64px; }
-  .accordion-text { display: flex; flex-direction: column; gap: 12px; flex: 1; }
-  .accordion-text .body-lg { color: var(--slate); }
-  .ownership-quote { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; text-align: center; position: relative; z-index: 1; }
+  .ownership-tabs { background: var(--cream); border-radius: 40px; padding: 48px 56px; max-width: 1200px; width: 100%; position: relative; z-index: 1; display: flex; gap: 56px; align-items: center; }
+  .tab-accordion { display: flex; flex-direction: column; gap: 0; flex: 1; }
+  .tab-item { border-bottom: 1px solid var(--beige); }
+  .tab-item:last-child { border-bottom: none; }
+  .tab-item-trigger { background: none; border: none; cursor: pointer; padding: 20px 0; font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1.2; letter-spacing: -0.52px; color: var(--slate); text-align: left; transition: color 0.3s; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .tab-item-trigger:hover { color: var(--sunwashed); }
+  .tab-item.active .tab-item-trigger { color: var(--sunwashed); }
+  .tab-item-trigger::after { content: '+'; font-family: var(--font-display); font-size: 20px; color: var(--granite); transition: transform 0.3s ease; flex-shrink: 0; }
+  .tab-item.active .tab-item-trigger::after { content: '\2212'; }
+  .tab-item-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s ease; }
+  .tab-item.active .tab-item-body { grid-template-rows: 1fr; }
+  .tab-item-body-inner { overflow: hidden; padding: 0; display: flex; flex-direction: column; gap: 12px; transition: padding 0.5s ease; }
+  .tab-item.active .tab-item-body-inner { padding: 0 0 16px 0; }
+  .tab-item-body-inner .body-lg { color: var(--slate); }
+  .tab-visual { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; }
+  .tab-visual svg { width: 100%; height: auto; aspect-ratio: 360 / 232; max-height: 360px; }
+
+  /* SVG draw animation */
+  .arch-svg .draw { stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 2s ease, opacity 1.2s ease, transform 1.2s ease; }
+  .arch-svg .fade { transition: opacity 1.2s ease, transform 1.2s ease; }
+  .arch-svg .building { opacity: 1; transform: scale(1); }
+
+  /* Default: everything hidden */
+  .arch-svg .unit-a, .arch-svg .unit-b { opacity: 0; transform: translateY(0); }
+
+  .arch-svg .shared-floor .draw { stroke-dashoffset: 1000; opacity: 0; }
+  .arch-svg .divider .draw { stroke-dashoffset: 1000; opacity: 0; }
+  .arch-svg .ground { opacity: 0; }
+  .arch-svg .ground .draw { stroke-dashoffset: 1000; }
+  .arch-svg .ground .plot-border { opacity: 1; transition: opacity 1.8s ease 1s; }
+
+  /* State 0: Two-bedroom homes — side by side, then stagger */
+  .arch-svg.s0 .unit-a { opacity: 1; transform: translateY(16px); }
+  .arch-svg.s0 .unit-b { opacity: 1; transform: translateY(-16px); }
+  .arch-svg.s0 .unit-a .draw, .arch-svg.s0 .unit-b .draw { stroke-dashoffset: 0; }
+
+  /* State 1: Full or shared ownership — ground floor fades, shared level draws */
+  .arch-svg.s1 .unit-a { opacity: 0.15; transform: translateY(16px); }
+  .arch-svg.s1 .unit-b { opacity: 0.15; transform: translateY(-16px); }
+  .arch-svg.s1 .unit-a .draw, .arch-svg.s1 .unit-b .draw { stroke-dashoffset: 0; }
+  .arch-svg.s1 .shared-floor .draw { stroke-dashoffset: 0; opacity: 1; }
+
+  /* State 2: Shared spaces — divider appears */
+  .arch-svg.s2 .unit-a { opacity: 0.15; transform: translateY(16px); }
+  .arch-svg.s2 .unit-b { opacity: 0.15; transform: translateY(-16px); }
+  .arch-svg.s2 .unit-a .draw, .arch-svg.s2 .unit-b .draw { stroke-dashoffset: 0; }
+  .arch-svg.s2 .shared-floor .draw { stroke-dashoffset: 0; opacity: 1; }
+  .arch-svg.s2 .divider .draw { stroke-dashoffset: 0; opacity: 1; }
+
+  /* State 3: Accessible quality — whole building shrinks, ground + trees draw */
+  .arch-svg.s3 .building { transform: scale(0.7) rotate(90deg); opacity: 0.25; }
+  .arch-svg.s3 .unit-a { opacity: 1; transform: translateY(16px); }
+  .arch-svg.s3 .unit-b { opacity: 1; transform: translateY(-16px); }
+  .arch-svg.s3 .unit-a .draw, .arch-svg.s3 .unit-b .draw { stroke-dashoffset: 0; }
+  .arch-svg.s3 .shared-floor .draw { stroke-dashoffset: 0; opacity: 1; }
+  .arch-svg.s3 .divider .draw { stroke-dashoffset: 0; opacity: 1; }
+  .arch-svg.s3 .ground { opacity: 1; }
+  .arch-svg.s3 .ground .draw { stroke-dashoffset: 0; }
+  .arch-svg.s3 .ground .plot-border { opacity: 0.2; }
+  
+
+  /* Entering: units draw aligned, then shift after class is removed */
+  .arch-svg.entering .unit-a { opacity: 1; transform: translateY(0) !important; }
+  .arch-svg.entering .unit-b { opacity: 1; transform: translateY(0) !important; }
+  .arch-svg.entering .unit-a .draw, .arch-svg.entering .unit-b .draw { stroke-dashoffset: 0; }
+
+  .ownership-quote-section { background: var(--sage); width: 100%; display: flex; justify-content: center; padding: 80px 120px; }
+  .ownership-quote { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; text-align: center; }
   .ownership-quote .h3 { color: var(--deep-green); }
 
   /* ── Timeline section ── */
@@ -272,7 +321,8 @@
     .who-cards { grid-template-columns: repeat(2, 1fr); }
     .inline-cta { padding: 40px; }
     .ownership-section { padding: 48px 40px; }
-    .accordion { padding: 32px 40px; }
+    .ownership-tabs { padding: 32px 40px; gap: 40px; }
+    .tab-item-trigger { padding: 16px 0; }
     .timeline-section { padding: 80px 40px 48px; }
     .mfy-section { padding: 80px 40px; }
     .mfy-top { flex-direction: column; gap: 60px; }
@@ -292,7 +342,7 @@
     }
     .h1 { letter-spacing: -0.8px; }
     .h2 { letter-spacing: -0.64px; }
-    .h3, .subtitle, .accordion-trigger { letter-spacing: -0.48px; }
+    .h3, .subtitle, .tab-item-trigger { letter-spacing: -0.48px; }
     .body-lg, .body-lg-semi { letter-spacing: -0.32px; }
     .site-header { padding: 20px 24px; }
     .site-nav { gap: 20px; }
@@ -307,18 +357,19 @@
     .village-quote { padding: 40px 24px; }
     .why-section { padding: 60px 24px; }
     .why-inner { gap: 40px; }
-    .who-section { padding: 60px 24px; }
-    .who-cards { grid-template-columns: 1fr; gap: 20px; }
-    .who-card { min-height: auto; }
+    .who-section { padding: 60px 0; }
+    .who-header { padding: 0 24px; }
+    .who-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 16px; padding: 0 24px; scrollbar-width: none; }
+    .who-cards::-webkit-scrollbar { display: none; }
+    .who-card { min-width: 260px; max-width: 280px; min-height: auto; flex-shrink: 0; scroll-snap-align: start; }
+    .who-card .card-icon { height: 44px; width: 96px; }
     .inline-cta { padding: 32px 24px; }
     .inline-cta-inner { flex-direction: column; text-align: center; gap: 20px; }
     .inline-cta-text { justify-content: center; }
     .ownership-section { padding: 40px 24px; }
-    .accordion { padding: 20px 24px; border-radius: 24px; }
-    .accordion-trigger { padding: 20px 0; }
-    .accordion-panel-inner { flex-direction: column; gap: 24px; }
-    .accordion-graphic { width: 80px; height: 80px; border-radius: 16px; }
-    .accordion-graphic img { width: 48px; height: 48px; }
+    .ownership-tabs { flex-direction: column; padding: 24px; border-radius: 24px; gap: 24px; }
+    .tab-visual { min-height: 208px; order: -1; }
+    .tab-item-trigger { font-size: 16px; padding: 14px 0; }
     .timeline-section { padding: 60px 24px 40px; }
     .tl { flex-direction: column; align-items: flex-start; padding-left: 32px; }
     .tl::before { left: 3px; right: auto; top: 0; bottom: 0; height: auto; width: 2px; }
@@ -523,78 +574,143 @@
       <p class="subtitle">Casa NāM offers a simple and flexible ownership structure, designed for long-term living.</p>
     </div>
 
-    <div class="accordion fade-up" id="ownershipAccordion">
-      <div class="accordion-item">
-        <button class="accordion-trigger active" aria-expanded="true">
-          <span>Two-bedroom homes</span>
-          <span class="accordion-icon"></span>
-        </button>
-        <div class="accordion-panel open">
-          <div class="accordion-panel-inner">
-            <div class="accordion-graphic">
-              <img src="assets/landing/icon-home.svg" alt="">
-            </div>
-            <div class="accordion-text">
+    <div class="ownership-tabs fade-up" id="ownershipTabs">
+      <div class="tab-accordion">
+        <div class="tab-item active" data-tab="0">
+          <button class="tab-item-trigger">Two-bedroom homes</button>
+          <div class="tab-item-body">
+            <div class="tab-item-body-inner">
               <p class="body-lg">Each home is a two-bedroom residence with two private ensuite bedrooms and a shared living level that includes kitchen, dining, and everyday living space.</p>
               <p class="body-lg">The layout supports living together while maintaining clear personal boundaries.</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="accordion-item">
-        <button class="accordion-trigger" aria-expanded="false">
-          <span>Full or shared ownership</span>
-          <span class="accordion-icon"></span>
-        </button>
-        <div class="accordion-panel">
-          <div class="accordion-panel-inner">
-            <div class="accordion-graphic">
-              <img src="assets/landing/icon-people.svg" alt="">
+        <div class="tab-item" data-tab="1">
+          <button class="tab-item-trigger">Full or shared ownership</button>
+          <div class="tab-item-body">
+            <div class="tab-item-body-inner">
+              <p class="body-lg">This structure makes it possible to buy together and live independently, without compromising design quality, comfort, or long-term livability.</p>
+              <p class="body-lg">It's a practical way to access a well-designed home while sharing responsibility and cost.</p>
             </div>
-            <div class="accordion-text">
-              <p class="body-lg">Own your home outright, or share ownership with someone you choose. Each unit is designed for flexible, long-term arrangements that adapt to your situation over time.</p>
+          </div>
+        </div>
+        <div class="tab-item" data-tab="2">
+          <button class="tab-item-trigger">Shared spaces, by choice</button>
+          <div class="tab-item-body">
+            <div class="tab-item-body-inner">
+              <p class="body-lg">In addition to the project's common areas, including a pool, hangout spaces, and a communal kitchen, each home includes its own shared living level for daily use.</p>
+              <p class="body-lg">Spaces are designed to adapt over time, allowing for more privacy if needs change.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-item" data-tab="3">
+          <button class="tab-item-trigger">Accessible quality</button>
+          <div class="tab-item-body">
+            <div class="tab-item-body-inner">
+              <p class="body-lg">Thoughtful design and quality materials, priced to remain genuinely accessible. By keeping the footprint compact, each home gains generous green space around it.</p>
+              <p class="body-lg">It's a practical way to access a well-designed home, with a balanced and flexible approach to ownership.</p>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="accordion-item">
-        <button class="accordion-trigger" aria-expanded="false">
-          <span>Shared spaces, by choice</span>
-          <span class="accordion-icon"></span>
-        </button>
-        <div class="accordion-panel">
-          <div class="accordion-panel-inner">
-            <div class="accordion-graphic">
-              <img src="assets/landing/icon-heart.svg" alt="">
-            </div>
-            <div class="accordion-text">
-              <p class="body-lg">Common areas — pool, kitchen, gathering spaces — are available to all residents. Use them as much or as little as you like. Community forms naturally, without obligation.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <button class="accordion-trigger" aria-expanded="false">
-          <span>Accessible quality</span>
-          <span class="accordion-icon"></span>
-        </button>
-        <div class="accordion-panel">
-          <div class="accordion-panel-inner">
-            <div class="accordion-graphic">
-              <img src="assets/landing/icon-asterisk.svg" alt="">
-            </div>
-            <div class="accordion-text">
-              <p class="body-lg">Thoughtful design and quality materials, priced to remain genuinely accessible. Casa NāM is built to offer long-term value without compromising on craft or care.</p>
-            </div>
-          </div>
+      <div class="tab-visual">
+          <svg class="arch-svg" viewBox="-20 -16 360 232" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="building fade" style="transform-origin: 160px 100px;">
+              <!-- Unit A (left bedroom) -->
+              <g class="unit-a fade" style="transform-origin: 120px 100px;">
+                <rect class="draw" x="80" y="40" width="80" height="120" rx="1" stroke="#4a4a45" stroke-width="1.5" fill="var(--cream)"/>
+              </g>
+              <!-- Unit B (right bedroom) -->
+              <g class="unit-b fade" style="transform-origin: 200px 100px;">
+                <rect class="draw" x="160" y="40" width="80" height="120" rx="1" stroke="#4a4a45" stroke-width="1.5" fill="var(--cream)"/>
+              </g>
+              <!-- Shared floor (second level) -->
+              <g class="shared-floor fade" style="transform-origin: 160px 100px;">
+                <rect class="draw" x="80" y="56" width="160" height="88" rx="1" stroke="#4a4a45" stroke-width="1.5" fill="var(--cream)"/>
+              </g>
+              <!-- Divider line (inside shared floor) -->
+              <g class="divider fade">
+                <line class="draw" x1="160" y1="60" x2="160" y2="140" stroke="#4a4a45" stroke-width="1.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+              </g>
+            </g>
+            <!-- Ground / landscape -->
+            <g class="ground fade" style="transform-origin: 160px 100px;">
+              <!-- Plot boundary (dotted, fades out in s3) -->
+              <g class="plot-border fade">
+                <rect class="draw" x="16" y="10" width="288" height="180" rx="2" stroke="#7d7970" stroke-width="1.2" fill="none" stroke-dasharray="3 5" stroke-linecap="round"/>
+              </g>
+              <!-- Trees inside perimeter -->
+              <circle class="draw" cx="42" cy="38" r="14" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="42" cy="38" r="7" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="66" cy="54" r="10" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="66" cy="54" r="5" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="50" cy="80" r="6" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="38" cy="110" r="9" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="38" cy="110" r="4" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="56" cy="132" r="5" stroke="#c8c4ba" stroke-width="0.6" fill="none"/>
+              <circle class="draw" cx="36" cy="152" r="12" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="36" cy="152" r="6" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="62" cy="170" r="8" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="280" cy="36" r="15" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="280" cy="36" r="8" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="258" cy="58" r="11" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="258" cy="58" r="5" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="274" cy="90" r="7" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="286" cy="118" r="5" stroke="#c8c4ba" stroke-width="0.6" fill="none"/>
+              <circle class="draw" cx="270" cy="142" r="13" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="270" cy="142" r="6" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="252" cy="170" r="9" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="252" cy="170" r="4" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="130" cy="178" r="8" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="160" cy="182" r="6" stroke="#c8c4ba" stroke-width="0.6" fill="none"/>
+              <circle class="draw" cx="192" cy="176" r="10" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="192" cy="176" r="5" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="100" cy="18" r="7" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="220" cy="20" r="9" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="220" cy="20" r="4" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <!-- Trees outside perimeter (spilling beyond boundary) -->
+              <circle class="draw" cx="8" cy="22" r="16" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="8" cy="22" r="8" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="2" cy="70" r="10" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="10" cy="170" r="13" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="10" cy="170" r="6" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="44" cy="196" r="11" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="44" cy="196" r="5" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="120" cy="198" r="8" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="200" cy="196" r="12" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="200" cy="196" r="6" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="290" cy="192" r="9" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="312" cy="60" r="14" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="312" cy="60" r="7" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="316" cy="130" r="10" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="306" cy="170" r="15" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="306" cy="170" r="7" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="316" cy="16" r="9" stroke="#9a9890" stroke-width="0.7" fill="none"/>
+              <circle class="draw" cx="80" cy="2" r="11" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="80" cy="2" r="5" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <circle class="draw" cx="260" cy="4" r="13" stroke="#9a9890" stroke-width="0.8" fill="none"/>
+              <circle class="draw" cx="260" cy="4" r="6" stroke="#c8c4ba" stroke-width="0.4" fill="none"/>
+              <!-- Small scattered shrubs -->
+              <circle class="draw" cx="24" cy="96" r="4" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
+              <circle class="draw" cx="70" cy="94" r="3" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
+              <circle class="draw" cx="246" cy="104" r="4" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
+              <circle class="draw" cx="296" cy="96" r="3" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
+              <circle class="draw" cx="150" cy="196" r="4" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
+              <circle class="draw" cx="176" cy="4" r="3" stroke="#c8c4ba" stroke-width="0.5" fill="none"/>
+              <!-- Contour lines -->
+              <path class="draw" d="M-10 24 Q80 16 160 26 Q240 36 330 20" stroke="#d4d0c8" stroke-width="0.4" fill="none"/>
+              <path class="draw" d="M-10 178 Q80 186 160 176 Q240 166 330 182" stroke="#d4d0c8" stroke-width="0.4" fill="none"/>
+            </g>
+          </svg>
         </div>
       </div>
     </div>
 
-    <div class="ownership-quote fade-up">
+  </section>
+
+  <!-- Ownership quote -->
+  <section class="ownership-quote-section">
+    <div class="ownership-quote">
       <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
       <p class="h3">This is a place for people who are comfortable with independence and proximity existing at the same time.</p>
     </div>
@@ -704,27 +820,39 @@
 
 <script>
 (function() {
-  // Accordion
-  var accordion = document.getElementById('ownershipAccordion');
-  if (accordion) {
-    accordion.addEventListener('click', function(e) {
-      var trigger = e.target.closest('.accordion-trigger');
+  // Ownership tabs + SVG animation
+  var tabWrap = document.getElementById('ownershipTabs');
+  if (tabWrap) {
+    var archSvg = tabWrap.querySelector('.arch-svg');
+    var hasAnimated = false;
+
+    // Initial entrance: draw aligned, then stagger after delay
+    var enterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !hasAnimated && archSvg) {
+          hasAnimated = true;
+          archSvg.classList.add('entering');
+          setTimeout(function() {
+            archSvg.classList.remove('entering');
+            archSvg.classList.add('s0');
+          }, 2400);
+          enterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    enterObserver.observe(tabWrap);
+
+    tabWrap.addEventListener('click', function(e) {
+      var trigger = e.target.closest('.tab-item-trigger');
       if (!trigger) return;
-      var panel = trigger.nextElementSibling;
-      var isOpen = trigger.classList.contains('active');
-
-      accordion.querySelectorAll('.accordion-trigger').forEach(function(t) {
-        t.classList.remove('active');
-        t.setAttribute('aria-expanded', 'false');
-      });
-      accordion.querySelectorAll('.accordion-panel').forEach(function(p) {
-        p.classList.remove('open');
-      });
-
-      if (!isOpen) {
-        trigger.classList.add('active');
-        trigger.setAttribute('aria-expanded', 'true');
-        panel.classList.add('open');
+      var item = trigger.closest('.tab-item');
+      var idx = item.getAttribute('data-tab');
+      var wasActive = item.classList.contains('active');
+      tabWrap.querySelectorAll('.tab-item').forEach(function(ti) { ti.classList.remove('active'); });
+      if (!wasActive) item.classList.add('active');
+      if (archSvg) {
+        archSvg.classList.remove('s0', 's1', 's2', 's3', 'entering');
+        if (!wasActive) archSvg.classList.add('s' + idx);
       }
     });
   }
