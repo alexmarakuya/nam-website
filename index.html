@@ -4,12 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa NāM — Residential living, designed for connection</title>
+<meta name="description" content="Casa NāM is a small, design-led residential village on Koh Phangan — private homes and shared spaces for people who want to live well on the island over time.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa NāM — Residential living, designed for connection">
+<meta property="og:description" content="A small, design-led residential village on Koh Phangan. Private homes and shared spaces for people who want to live well on the island over time.">
+<meta property="og:image" content="assets/landing/hero-poster.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.8 15c-3.71-3.05-6.72-6.69-8.98-10.92a1.54 1.54 0 0 1 2.6-1.63C13.95 7.04 17.24 11.02 21.31 14.37a1.53 1.53 0 0 1-1.96 2.35L17.8 15Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.82 3.14c.19 3.51.37 7.03.58 10.54a1.54 1.54 0 0 0 3.07-.16c-.22-3.5-.39-7.01-.58-10.52a1.54 1.54 0 0 0-3.07.14Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M28.73 3.85c-2.23 3.36-4.75 6.45-7.29 9.58a1.54 1.54 0 0 0 2.44 1.87c2.61-3.2 5.2-6.4 7.5-9.85a1.54 1.54 0 0 0-2.65-1.6Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M37.36 16.33c-6.04.27-12.44.28-18.48-.1a1.54 1.54 0 0 0-.22 3.08c6.16.38 12.7.37 18.85.1a1.54 1.54 0 0 0-.15-3.08Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.59 17.44c3.72 4.56 7.57 9.03 11.03 13.79a1.54 1.54 0 0 0 2.44-1.87c-3.5-4.82-7.39-9.34-11.16-13.95a1.54 1.54 0 0 0-2.44 1.87l.13.16Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.72 18.76c.97 4.75 1.24 9.29 1.31 14.1a1.54 1.54 0 0 0 3.07-.05c-.07-5.03-.36-9.77-1.37-14.75a1.54 1.54 0 0 0-3.01.7Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.87 18.38c-2.82 5.63-4.27 11.89-7.28 17.41a1.54 1.54 0 0 0 2.7 1.49c3.03-5.55 4.5-11.84 7.35-17.52a1.54 1.54 0 0 0-2.77-1.38Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.43 17.1c-5.61.99-11.21 1.44-16.85 2.11a1.54 1.54 0 0 0 .35 3.06c5.7-.67 11.37-1.14 17.05-2.14a1.54 1.54 0 0 0-.55-3.03Z' fill='%23D46B45'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.33 14.45c-1.16-.05-2.25-.13-3.39-.3a1.54 1.54 0 0 0-.47 3.05c1.25.18 2.46.27 3.73.32a1.54 1.54 0 0 0 .13-3.07Z' fill='%23D46B45'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
+    /* Colors */
     --deep-green: #2b3a2c;
     --foliage: #49584a;
     --sage: #b8c8b7;
@@ -22,26 +29,43 @@
     --granite: #61605c;
     --pebble: #7d7970;
     --white: #ffffff;
+
+    /* Font stacks */
+    --font-display: 'Epilogue', sans-serif;
+    --font-mono: 'Sometype Mono', monospace;
+
+    /* Type scale — letter-spacing is consistently -2% of font-size */
+    --text-h1: 60px;
+    --text-h2: 44px;
+    --text-h3: 32px;
+    --text-body-lg: 20px;
+    --text-body-sm: 16px;
+    --text-nav: 14px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Sometype Mono', monospace; color: var(--slate); background: var(--deep-green); -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-mono); color: var(--slate); background: var(--deep-green); -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
   a { color: inherit; }
   ul, li { list-style: none; }
 
+  :focus-visible { outline: 2px solid var(--sunwashed); outline-offset: 3px; border-radius: 4px; }
+
+  .skip-link { position: absolute; top: -100%; left: 16px; background: var(--sunwashed); color: var(--cream); padding: 12px 24px; border-radius: 8px; font-family: var(--font-mono); font-size: var(--text-nav); text-decoration: none; z-index: 10000; }
+  .skip-link:focus { top: 16px; }
+
   .page { display: flex; flex-direction: column; align-items: center; width: 100%; }
+  .page > main { width: 100%; display: flex; flex-direction: column; align-items: center; }
 
   /* ── Typography ── */
-  .h1 { font-family: 'Epilogue', sans-serif; font-weight: 400; font-size: 60px; line-height: 1.2; letter-spacing: -1.2px; }
-  .h2 { font-family: 'Epilogue', sans-serif; font-weight: 400; font-size: 44px; line-height: 1.2; letter-spacing: -0.88px; }
-  .h3 { font-family: 'Epilogue', sans-serif; font-weight: 400; font-size: 32px; line-height: 1.2; }
-  .subtitle { font-family: 'Sometype Mono', monospace; font-weight: 500; font-size: 32px; line-height: 1.4; letter-spacing: -0.64px; }
-  .body-lg { font-family: 'Sometype Mono', monospace; font-weight: 400; font-size: 20px; line-height: 1.4; letter-spacing: -0.4px; }
-  .body-lg-semi { font-family: 'Sometype Mono', monospace; font-weight: 600; font-size: 20px; line-height: 1.4; letter-spacing: -0.4px; }
-  .body-sm { font-family: 'Sometype Mono', monospace; font-weight: 400; font-size: 16px; line-height: 1.4; letter-spacing: -0.32px; }
-  .caption { font-family: 'Sometype Mono', monospace; font-weight: 400; font-size: 16px; line-height: 1.3; letter-spacing: -0.32px; }
+  .h1 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h1); line-height: 1.2; letter-spacing: -1.2px; }
+  .h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h2); line-height: 1.2; letter-spacing: -0.88px; }
+  .h3 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h3); line-height: 1.2; letter-spacing: -0.64px; }
+  .subtitle { font-family: var(--font-mono); font-weight: 500; font-size: var(--text-h3); line-height: 1.4; letter-spacing: -0.64px; }
+  .body-lg { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-lg); line-height: 1.4; letter-spacing: -0.4px; }
+  .body-lg-semi { font-family: var(--font-mono); font-weight: 600; font-size: var(--text-body-lg); line-height: 1.4; letter-spacing: -0.4px; }
+  .body-sm, .caption { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-sm); line-height: 1.4; letter-spacing: -0.32px; }
 
   /* ── Icon ── */
   .icon { width: 40px; height: 40px; flex-shrink: 0; }
@@ -50,9 +74,11 @@
   /* ── Header ── */
   .site-header { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1600px; padding: 32px 64px; }
   .site-logo img { height: 28px; width: auto; }
-  .site-nav { display: flex; gap: 32px; align-items: center; }
-  .site-nav a { color: var(--cream); font-size: 16px; line-height: 1.4; letter-spacing: -0.32px; text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.2s; }
-  .site-nav a:hover { opacity: 0.7; }
+  .site-nav { display: flex; gap: 12px; align-items: center; }
+  .site-nav a { color: var(--cream); font-size: var(--text-nav); line-height: 1; letter-spacing: -0.28px; text-decoration: none; padding: 10px 18px; border-radius: 100px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, color 0.3s; }
+  .site-nav a:hover { border-color: var(--foliage); }
+  .site-nav a.nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
+  .site-nav a.nav-cta:hover { filter: brightness(1.1); }
 
   /* ── Hero ── */
   .hero-wrap { width: 100%; max-width: 1600px; padding: 0 64px; position: relative; }
@@ -67,7 +93,8 @@
   /* ── Banner ── */
   .banner { background: var(--sunwashed); width: 100%; display: flex; justify-content: center; padding: 64px 120px; }
   .banner-inner { display: flex; align-items: center; gap: 24px; max-width: 1200px; width: 100%; }
-  .banner-inner .h3 { color: var(--cream); flex-shrink: 0; }
+  .banner-heading { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+  .banner-inner .h3 { color: var(--cream); }
   .banner-inner .body-lg { color: var(--cream); flex: 1; }
 
   /* ── Feature rows ── */
@@ -85,7 +112,8 @@
 
   /* ── Village quote ── */
   .village-quote { background: var(--sage); width: 100%; display: flex; justify-content: center; padding: 64px 240px; text-align: center; }
-  .village-quote .h3 { color: var(--deep-green); max-width: 960px; }
+  .village-quote-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; }
+  .village-quote .h3 { color: var(--deep-green); }
 
   /* ── Full-width image ── */
   .full-image { width: 100%; aspect-ratio: 1440 / 460; overflow: hidden; position: relative; }
@@ -97,9 +125,9 @@
   .why-left { flex: 1; display: flex; flex-direction: column; gap: 32px; }
   .why-left .h2 { color: var(--oat); }
   .why-left .h2 span { color: var(--sunwashed); }
-  .why-left .subtitle { color: var(--oat); }
-  .why-right { flex: 1; display: flex; flex-direction: column; gap: 40px; }
-  .why-item { border-bottom: 1px solid var(--foliage); padding-bottom: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .why-left .subtitle { color: var(--oat); font-size: 24px; letter-spacing: -0.48px; }
+  .why-right { flex: 1; display: flex; flex-direction: column; gap: 48px; }
+  .why-item { border-bottom: 1px solid var(--foliage); padding-bottom: 32px; display: flex; flex-direction: column; gap: 16px; }
   .why-item:last-child { border-bottom: none; }
   .why-item .heading-row { display: flex; align-items: center; gap: 16px; }
   .why-item .body-lg-semi { color: var(--cream); }
@@ -109,29 +137,45 @@
   .who-section { background: var(--oat); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 64px; padding: 120px; overflow: hidden; position: relative; }
   .who-header { text-align: center; max-width: 960px; display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
   .who-header .h2 { color: var(--sunwashed); }
-  .who-header .subtitle { color: var(--slate); }
+  .who-header .subtitle { color: var(--slate); font-size: 24px; letter-spacing: -0.48px; }
   .who-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; width: 100%; position: relative; z-index: 1; }
   .who-card { background: var(--cream); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px; min-height: 330px; }
-  .who-card .card-icon { height: 80px; display: flex; align-items: center; justify-content: center; }
-  .who-card .card-icon img { width: 48px; height: 48px; }
+  .who-card .card-icon { height: 80px; display: flex; align-items: center; justify-content: flex-start; }
+  .who-card .card-icon img { width: 100%; height: 100%; }
   .who-card .body-lg-semi { color: var(--granite); }
+
+  /* ── Inline CTA ── */
+  .inline-cta { background: var(--sunwashed); width: 100%; display: flex; justify-content: center; padding: 48px 120px; }
+  .inline-cta-inner { max-width: 1200px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .inline-cta-text { display: flex; align-items: center; gap: 16px; }
+  .inline-cta-text .icon-sm { filter: brightness(0) invert(1); }
+  .inline-cta-inner .body-lg { color: var(--cream); }
+  .inline-cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; background: var(--cream); border-radius: 8px; color: var(--sunwashed); font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.2; letter-spacing: -0.4px; text-decoration: none; transition: filter 0.2s; flex-shrink: 0; white-space: nowrap; }
+  .inline-cta-btn:hover { filter: brightness(0.95); }
 
   /* ── Ownership section ── */
   .ownership-section { background: var(--sage); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 64px; padding: 64px 120px; overflow: hidden; position: relative; }
   .ownership-header { text-align: center; max-width: 960px; display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
   .ownership-header .h2 { color: var(--slate); }
-  .ownership-header .subtitle { color: var(--slate); }
-  .ownership-tabs { background: var(--cream); border-radius: 40px; padding: 64px; display: flex; gap: 40px; max-width: 1200px; width: 100%; min-height: 580px; position: relative; z-index: 1; }
-  .tab-menu { display: flex; flex-direction: column; gap: 64px; justify-content: center; width: 483px; flex-shrink: 0; }
-  .tab-btn { background: none; border: none; cursor: pointer; font-family: 'Epilogue', sans-serif; font-weight: 400; font-size: 32px; line-height: 1.2; color: var(--slate); text-align: left; padding: 0; transition: color 0.3s; }
-  .tab-btn.active { color: var(--sunwashed); }
-  .tab-content { flex: 1; display: none; flex-direction: column; gap: 12px; justify-content: center; }
-  .tab-content.active { display: flex; }
-  .tab-plan { width: 200px; height: 200px; position: relative; }
-  .tab-plan-room { position: absolute; border: 2px solid var(--pebble); }
-  .tab-plan-room.left { left: 19%; right: 50%; top: 32%; bottom: 18%; }
-  .tab-plan-room.right { left: 50%; right: 19%; top: 18%; bottom: 32%; }
-  .tab-content .body-lg { color: var(--slate); }
+  .ownership-header .subtitle { color: var(--slate); font-size: 24px; letter-spacing: -0.48px; }
+  .accordion { background: var(--cream); border-radius: 40px; padding: 48px 56px; max-width: 1200px; width: 100%; position: relative; z-index: 1; }
+  .accordion-item { border-bottom: 1px solid var(--beige); }
+  .accordion-item:last-child { border-bottom: none; }
+  .accordion-trigger { background: none; border: none; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 0; font-family: var(--font-display); font-weight: 400; font-size: var(--text-h3); line-height: 1.2; letter-spacing: -0.64px; color: var(--slate); text-align: left; transition: color 0.3s; }
+  .accordion-trigger:hover { color: var(--sunwashed); }
+  .accordion-trigger.active { color: var(--sunwashed); }
+  .accordion-icon { width: 24px; height: 24px; flex-shrink: 0; position: relative; transition: transform 0.35s ease; }
+  .accordion-icon::before, .accordion-icon::after { content: ''; position: absolute; background: currentColor; border-radius: 1px; }
+  .accordion-icon::before { top: 50%; left: 4px; right: 4px; height: 2px; transform: translateY(-50%); }
+  .accordion-icon::after { left: 50%; top: 4px; bottom: 4px; width: 2px; transform: translateX(-50%); transition: transform 0.35s ease, opacity 0.35s ease; }
+  .accordion-trigger.active .accordion-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
+  .accordion-panel { overflow: hidden; max-height: 0; transition: max-height 0.4s ease; }
+  .accordion-panel.open { max-height: 500px; }
+  .accordion-panel-inner { display: flex; gap: 40px; align-items: flex-start; padding-bottom: 28px; }
+  .accordion-graphic { width: 120px; height: 120px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--oat); border-radius: 20px; }
+  .accordion-graphic img { width: 64px; height: 64px; }
+  .accordion-text { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .accordion-text .body-lg { color: var(--slate); }
   .ownership-quote { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; text-align: center; position: relative; z-index: 1; }
   .ownership-quote .h3 { color: var(--deep-green); }
 
@@ -139,11 +183,14 @@
   .timeline-section { background: var(--sunwashed); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 80px; padding: 120px 120px 60px; overflow: hidden; position: relative; }
   .timeline-inner { max-width: 1200px; width: 100%; display: flex; flex-direction: column; gap: 60px; position: relative; z-index: 1; }
   .timeline-inner .h2 { color: var(--cream); }
-  .timeline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-  .timeline-item { display: flex; flex-direction: column; justify-content: space-between; height: 272px; padding: 24px 24px 24px 0; border-right: 1px solid var(--oat); }
-  .timeline-item:last-child { border-right: none; }
-  .timeline-item .body-lg-semi { color: var(--cream); }
-  .timeline-item .body-lg { color: var(--cream); }
+  .tl { display: flex; justify-content: space-between; position: relative; padding: 0; }
+  .tl::before { content: ''; position: absolute; top: 3px; left: 6%; right: 6%; height: 2px; background: rgba(255,255,255,0.3); transform: scaleX(0); transform-origin: left; transition: transform 0.8s ease; }
+  .tl.animate::before { transform: scaleX(1); }
+  .tl-item { text-align: center; position: relative; z-index: 1; flex: 1; opacity: 0; transform: translateX(-20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .tl-item.visible { opacity: 1; transform: translateX(0); }
+  .tl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cream); margin: 0 auto 24px; }
+  .tl-date { font-family: var(--font-mono); font-weight: 600; font-size: var(--text-body-lg); color: var(--cream); margin-bottom: 8px; }
+  .tl-txt { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-sm); color: rgba(255,255,255,0.75); line-height: 1.45; max-width: 180px; margin: 0 auto; }
   .timeline-note { color: var(--cream); position: relative; z-index: 1; }
 
   /* ── Made for you section ── */
@@ -151,27 +198,27 @@
   .mfy-top { display: flex; gap: 120px; align-items: flex-start; max-width: 1200px; width: 100%; position: relative; z-index: 1; }
   .mfy-left { flex: 1; display: flex; flex-direction: column; gap: 32px; }
   .mfy-left .h2 { color: var(--cream); }
-  .mfy-left .subtitle { color: var(--oat); }
+  .mfy-left .subtitle { color: var(--oat); font-size: 24px; letter-spacing: -0.48px; }
   .mfy-right { flex: 1; display: flex; flex-direction: column; gap: 40px; }
   .mfy-item { border-bottom: 1px solid var(--foliage); padding-bottom: 24px; display: flex; align-items: center; gap: 16px; }
   .mfy-item:last-child { border-bottom: none; }
   .mfy-item .body-lg-semi { color: var(--cream); }
-  .mfy-card { background: var(--oat); border-radius: 40px; padding: 60px; max-width: 1200px; width: 100%; display: flex; flex-direction: column; gap: 48px; position: relative; z-index: 1; }
-  .mfy-card .subtitle { color: var(--slate); text-align: center; }
-  .mfy-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-  .mfy-benefit { display: flex; flex-direction: column; gap: 12px; padding-right: 24px; border-right: 1px solid var(--beige); }
+  .mfy-card { background: var(--oat); border-radius: 40px; padding: 48px; max-width: 1200px; width: 100%; display: flex; flex-direction: column; gap: 36px; position: relative; z-index: 1; }
+  .mfy-card .subtitle { color: var(--slate); text-align: center; font-size: 24px; letter-spacing: -0.48px; }
+  .mfy-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 32px; }
+  .mfy-benefit { display: flex; flex-direction: column; gap: 12px; padding-right: 0; border-right: 1px solid var(--beige); }
   .mfy-benefit:last-child { border-right: none; }
   .mfy-benefit .body-lg-semi { color: var(--slate); }
 
   /* ── CTA section ── */
-  .cta-section { background: var(--oat); width: 100%; display: flex; flex-direction: column; align-items: center; height: 960px; position: relative; }
-  .cta-image { width: 100%; height: 621px; overflow: hidden; position: relative; }
+  .cta-section { background: var(--oat); width: 100%; display: flex; flex-direction: column; align-items: center; }
+  .cta-image { width: 100%; height: 620px; overflow: hidden; }
   .cta-image img { width: 100%; height: 100%; object-fit: cover; }
-  .cta-card { background: var(--sunwashed); border-radius: 40px; padding: 40px; max-width: 1200px; width: calc(100% - 128px); display: flex; flex-direction: column; gap: 40px; position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%); z-index: 2; }
-  .cta-card .h2 { color: var(--cream); padding: 20px 20px 20px 20px; max-width: 647px; }
-  .cta-bar { background: var(--cream); border-radius: 12px; padding: 32px; display: flex; align-items: center; gap: 24px; }
+  .cta-card { background: var(--sunwashed); border-radius: 40px; padding: 40px; max-width: 1200px; width: calc(100% - 128px); display: flex; flex-direction: column; gap: 40px; margin: -160px auto 80px; position: relative; z-index: 2; }
+  .cta-card .h2 { color: var(--cream); max-width: 647px; }
+  .cta-bar { background: var(--cream); border-radius: 12px; padding: 24px 32px; display: flex; align-items: center; gap: 24px; }
   .cta-bar .body-lg-semi { color: var(--deep-green); flex: 1; }
-  .cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px; background: var(--sunwashed); border-radius: 8px; color: var(--cream); font-family: 'Sometype Mono', monospace; font-weight: 500; font-size: 20px; line-height: 1.2; letter-spacing: -0.4px; text-decoration: none; transition: filter 0.2s; flex-shrink: 0; }
+  .cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; background: var(--sunwashed); border-radius: 8px; color: var(--cream); font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.2; letter-spacing: -0.4px; text-decoration: none; transition: filter 0.2s; flex-shrink: 0; white-space: nowrap; }
   .cta-btn:hover { filter: brightness(1.1); }
 
   /* ── Footer ── */
@@ -190,13 +237,21 @@
   .env-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; position: relative; z-index: 1; }
   .env-dot-staging { background: #f59e0b; animation: env-pulse 2s infinite; }
   .env-dot-local { background: #3b82f6; animation: env-pulse 2s infinite; }
-  .env-label { position: absolute; left: 100%; margin-left: 6px; padding: 0 8px; height: 24px; line-height: 24px; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-family: 'Sometype Mono', monospace; font-size: 11px; color: #fff; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+  .env-label { position: absolute; left: 100%; margin-left: 6px; padding: 0 8px; height: 24px; line-height: 24px; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-family: var(--font-mono); font-size: 11px; color: #fff; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
   .env-badge:hover .env-label { opacity: 1; }
   @keyframes env-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
   /* ── Scroll animations ── */
   .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    .fade-up { opacity: 1; transform: none; }
+    .tl-item { opacity: 1; transform: none; }
+    .tl::before { transform: scaleX(1); }
+  }
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
@@ -207,7 +262,7 @@
     .hero-wrap { padding: 0 40px; }
     .banner { padding: 48px 40px; }
     .banner-inner { flex-direction: column; gap: 16px; }
-    .feature-row { flex-direction: column !important; padding: 48px 40px; gap: 40px; }
+    .feature-row, .feature-row.reversed { flex-direction: column; padding: 48px 40px; gap: 40px; }
     .feature-row:first-child { padding-top: 80px; }
     .feature-row:last-child { padding-bottom: 80px; }
     .village-quote { padding: 48px 40px; }
@@ -215,13 +270,10 @@
     .why-inner { flex-direction: column; gap: 60px; }
     .who-section { padding: 80px 40px; }
     .who-cards { grid-template-columns: repeat(2, 1fr); }
+    .inline-cta { padding: 40px; }
     .ownership-section { padding: 48px 40px; }
-    .ownership-tabs { flex-direction: column; padding: 40px; }
-    .tab-menu { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 24px; }
-    .tab-btn { font-size: 24px; }
+    .accordion { padding: 32px 40px; }
     .timeline-section { padding: 80px 40px 48px; }
-    .timeline-grid { grid-template-columns: repeat(2, 1fr); }
-    .timeline-item { height: auto; min-height: 180px; }
     .mfy-section { padding: 80px 40px; }
     .mfy-top { flex-direction: column; gap: 60px; }
     .mfy-benefits { grid-template-columns: 1fr; gap: 32px; }
@@ -232,14 +284,18 @@
   }
 
   @media (max-width: 640px) {
-    .h1 { font-size: 40px; }
-    .h2 { font-size: 32px; letter-spacing: -0.64px; }
-    .h3 { font-size: 24px; }
-    .subtitle { font-size: 24px; letter-spacing: -0.48px; }
-    .body-lg, .body-lg-semi { font-size: 16px; letter-spacing: -0.32px; }
+    :root {
+      --text-h1: 40px;
+      --text-h2: 32px;
+      --text-h3: 24px;
+      --text-body-lg: 16px;
+    }
+    .h1 { letter-spacing: -0.8px; }
+    .h2 { letter-spacing: -0.64px; }
+    .h3, .subtitle, .accordion-trigger { letter-spacing: -0.48px; }
+    .body-lg, .body-lg-semi { letter-spacing: -0.32px; }
     .site-header { padding: 20px 24px; }
     .site-nav { gap: 20px; }
-    .site-nav a { font-size: 14px; }
     .hero-wrap { padding: 0 24px; }
     .hero-content { padding-top: 40px; gap: 40px; }
     .hero-intro { gap: 24px; }
@@ -254,21 +310,29 @@
     .who-section { padding: 60px 24px; }
     .who-cards { grid-template-columns: 1fr; gap: 20px; }
     .who-card { min-height: auto; }
+    .inline-cta { padding: 32px 24px; }
+    .inline-cta-inner { flex-direction: column; text-align: center; gap: 20px; }
+    .inline-cta-text { justify-content: center; }
     .ownership-section { padding: 40px 24px; }
-    .ownership-tabs { padding: 24px; gap: 32px; }
-    .tab-menu { gap: 16px; }
-    .tab-btn { font-size: 20px; }
-    .tab-plan { width: 140px; height: 140px; }
+    .accordion { padding: 20px 24px; border-radius: 24px; }
+    .accordion-trigger { padding: 20px 0; }
+    .accordion-panel-inner { flex-direction: column; gap: 24px; }
+    .accordion-graphic { width: 80px; height: 80px; border-radius: 16px; }
+    .accordion-graphic img { width: 48px; height: 48px; }
     .timeline-section { padding: 60px 24px 40px; }
-    .timeline-grid { grid-template-columns: 1fr; }
-    .timeline-item { min-height: 140px; border-right: none; border-bottom: 1px solid var(--oat); }
-    .timeline-item:last-child { border-bottom: none; }
+    .tl { flex-direction: column; align-items: flex-start; padding-left: 32px; }
+    .tl::before { left: 3px; right: auto; top: 0; bottom: 0; height: auto; width: 2px; }
+    .tl-item { text-align: left; padding: 20px 0; }
+    .tl-item:first-child { padding-top: 0; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot { position: absolute; left: -32px; top: 24px; margin: 0; }
+    .tl-item:first-child .tl-dot { top: 4px; }
+    .tl-txt { margin: 0; max-width: none; }
     .mfy-section { padding: 60px 24px; gap: 60px; }
     .mfy-top { gap: 40px; }
-    .mfy-card { padding: 32px; gap: 32px; border-radius: 24px; }
-    .cta-section { height: auto; }
+    .mfy-card { padding: 28px; gap: 24px; border-radius: 24px; }
     .cta-image { height: 400px; }
-    .cta-card { position: relative; bottom: auto; left: auto; transform: none; width: calc(100% - 48px); margin: -80px auto 0; border-radius: 24px; padding: 24px; }
+    .cta-card { width: calc(100% - 48px); margin: -100px auto 60px; border-radius: 24px; padding: 24px; gap: 24px; }
     .cta-bar { flex-direction: column; }
     .site-footer { padding: 0 24px; }
     .footer-inner { padding: 20px 0 60px; flex-direction: column; gap: 20px; }
@@ -276,6 +340,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="page">
 
   <!-- Environment badge -->
@@ -288,10 +353,11 @@
   <header class="site-header">
     <a href="/" class="site-logo"><img src="assets/landing/logo.svg" alt="NāM"></a>
     <nav class="site-nav">
-      <a href="#">NāM Space</a>
-      <a href="pitch/">Casa NāM</a>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="nav-cta">Talk to us</a>
     </nav>
   </header>
+
+  <main id="main">
 
   <!-- Hero -->
   <div class="hero-wrap">
@@ -301,11 +367,11 @@
         <p class="subtitle hero-subtitle">Residential living,<br>designed for connection.</p>
         <div class="hero-location">
           <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-          <span class="body-lg" style="color:var(--oat);">Koh Phangan</span>
+          <span class="body-lg">Koh Phangan</span>
         </div>
       </div>
-      <div class="hero-image fade-up">
-        <video autoplay loop muted playsinline>
+      <div class="hero-image">
+        <video autoplay loop muted playsinline poster="assets/landing/hero-poster.png">
           <source src="assets/Exterior_Pan_Out_compressed.mp4" type="video/mp4">
         </video>
       </div>
@@ -313,18 +379,18 @@
   </div>
 
   <!-- What we're building banner -->
-  <div class="banner fade-up">
+  <section class="banner">
     <div class="banner-inner">
-      <div style="display:flex;align-items:center;gap:24px;flex-shrink:0;">
-        <p class="h3" style="color:var(--cream);">What we're building</p>
+      <div class="banner-heading">
+        <p class="h3">What we're building</p>
         <img src="assets/landing/icon-leaf.svg" alt="" class="icon">
       </div>
-      <p class="body-lg" style="color:var(--cream);flex:1;">Casa NāM is a small, design-led residential village on Koh Phangan, created for people who want to live well on the island over time.</p>
+      <p class="body-lg">Casa NāM is a small, design-led residential village on Koh Phangan, created for people who want to live well on the island over time.</p>
     </div>
-  </div>
+  </section>
 
   <!-- Feature rows -->
-  <div class="features">
+  <section class="features">
     <div class="feature-row fade-up">
       <div class="feature-text">
         <div class="heading-row">
@@ -334,7 +400,7 @@
         <p class="body-lg">Private homes and shared spaces arranged to support the natural rhythm of island living.</p>
       </div>
       <div class="feature-img">
-        <img src="assets/landing/feature-1.png" alt="Casa NāM residential homes">
+        <img src="assets/landing/feature-1.png" alt="Casa NāM residential homes" loading="lazy">
       </div>
     </div>
 
@@ -347,7 +413,7 @@
         <p class="body-lg">Informed by local Thai architecture, shaped by climate and natural landscape, and designed to endure.</p>
       </div>
       <div class="feature-img">
-        <img src="assets/landing/feature-2.png" alt="Thai-inspired architecture">
+        <img src="assets/landing/feature-2.png" alt="Thai-inspired architecture" loading="lazy">
       </div>
     </div>
 
@@ -360,22 +426,22 @@
         <p class="body-lg">Casa NāM's Common Area includes shared hangout spaces, a pool, and a communal kitchen — designed for relaxed, everyday use.</p>
       </div>
       <div class="feature-img">
-        <img src="assets/landing/feature-3.png" alt="Communal spaces">
+        <img src="assets/landing/feature-3.png" alt="Communal spaces" loading="lazy">
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Village quote -->
-  <div class="village-quote fade-up">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:24px;max-width:960px;">
+  <section class="village-quote">
+    <div class="village-quote-inner">
       <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-      <p class="h3" style="color:var(--deep-green);">The village is shaped to remain calm, coherent, and genuinely livable over time.</p>
+      <blockquote class="h3">The village is shaped to remain calm, coherent, and genuinely livable over time.</blockquote>
     </div>
-  </div>
+  </section>
 
   <!-- Full-width image -->
   <div class="full-image">
-    <img src="assets/landing/landscape.png" alt="Koh Phangan landscape">
+    <img src="assets/landing/landscape.png" alt="Koh Phangan landscape" loading="lazy">
   </div>
 
   <!-- Why we're building Casa NāM -->
@@ -383,7 +449,7 @@
     <div class="why-inner">
       <div class="why-left fade-up">
         <h2 class="h2"><span>Why we're building </span>Casa NāM</h2>
-        <p class="subtitle" style="color:var(--oat);">Casa NāM responds to how people increasingly want to live on Koh Phangan, with continuity, grounding, and a sense of belonging.</p>
+        <p class="subtitle">A response to how people increasingly want to live on Koh Phangan.</p>
       </div>
       <div class="why-right fade-up">
         <div class="why-item">
@@ -391,21 +457,21 @@
             <img src="assets/landing/icon-check.svg" alt="" class="icon-sm">
             <p class="body-lg-semi">Living beyond the villa model</p>
           </div>
-          <p class="body-lg" style="color:var(--oat);">It offers an alternative to isolated villa living and beyond yield-driven development, prioritising places designed for everyday use rather than short-term cycles.</p>
+          <p class="body-lg">An alternative to isolated villas and yield-driven development — designed for everyday use, not short-term cycles.</p>
         </div>
         <div class="why-item">
           <div class="heading-row">
             <img src="assets/landing/icon-check.svg" alt="" class="icon-sm">
             <p class="body-lg-semi">Human-scale by design</p>
           </div>
-          <p class="body-lg" style="color:var(--oat);">Built at a human scale, Casa NāM allows connection to emerge naturally, at one's own pace.</p>
+          <p class="body-lg">Small enough for connection to emerge naturally, at one's own pace.</p>
         </div>
         <div class="why-item">
           <div class="heading-row">
             <img src="assets/landing/icon-check.svg" alt="" class="icon-sm">
             <p class="body-lg-semi">One place, many rhythms</p>
           </div>
-          <p class="body-lg" style="color:var(--oat);">It supports a way of living where work, creativity, and daily life can coexist, making long-term presence on the island more viable.</p>
+          <p class="body-lg">Work, creativity, and daily life can coexist — making long-term island living viable.</p>
         </div>
       </div>
     </div>
@@ -414,8 +480,8 @@
   <!-- Who is Casa NāM for? -->
   <section class="who-section">
     <div class="who-header fade-up">
-      <h2 class="h2" style="color:var(--sunwashed);">Who is Casa NāM for?</h2>
-      <p class="subtitle" style="color:var(--slate);">Casa NāM is for people who want to live on the island with continuity, not just pass through.</p>
+      <h2 class="h2">Who is Casa NāM for?</h2>
+      <p class="subtitle">Casa NāM is for people who want to live on the island with continuity, not just pass through.</p>
     </div>
     <div class="who-cards fade-up">
       <div class="who-card">
@@ -437,6 +503,17 @@
     </div>
   </section>
 
+  <!-- Inline CTA -->
+  <section class="inline-cta">
+    <div class="inline-cta-inner fade-up">
+      <div class="inline-cta-text">
+        <img src="assets/landing/icon-asterisk.svg" alt="" class="icon-sm">
+        <p class="body-lg">Interested in learning more about Casa NāM?</p>
+      </div>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="inline-cta-btn">Talk to us</a>
+    </div>
+  </section>
+
   <!-- Ownership options -->
   <section class="ownership-section">
     <div class="ownership-header fade-up">
@@ -444,74 +521,119 @@
       <p class="subtitle">Casa NāM offers a simple and flexible ownership structure, designed for long-term living.</p>
     </div>
 
-    <div class="ownership-tabs fade-up" id="ownershipTabs">
-      <div class="tab-menu">
-        <button class="tab-btn active" data-tab="0">Two-bedroom homes</button>
-        <button class="tab-btn" data-tab="1">Full or shared ownership</button>
-        <button class="tab-btn" data-tab="2">Shared spaces, by choice</button>
-        <button class="tab-btn" data-tab="3">Accessible quality</button>
-      </div>
-
-      <div class="tab-content active" data-tab-content="0">
-        <div class="tab-plan">
-          <div class="tab-plan-room left"></div>
-          <div class="tab-plan-room right"></div>
+    <div class="accordion fade-up" id="ownershipAccordion">
+      <div class="accordion-item">
+        <button class="accordion-trigger active" aria-expanded="true">
+          <span>Two-bedroom homes</span>
+          <span class="accordion-icon"></span>
+        </button>
+        <div class="accordion-panel open">
+          <div class="accordion-panel-inner">
+            <div class="accordion-graphic">
+              <img src="assets/landing/icon-home.svg" alt="">
+            </div>
+            <div class="accordion-text">
+              <p class="body-lg">Each home is a two-bedroom residence with two private ensuite bedrooms and a shared living level that includes kitchen, dining, and everyday living space.</p>
+              <p class="body-lg">The layout supports living together while maintaining clear personal boundaries.</p>
+            </div>
+          </div>
         </div>
-        <p class="body-lg">Each home is a two-bedroom residence with two private ensuite bedrooms and a shared living level that includes kitchen, dining, and everyday living space.</p>
-        <p class="body-lg">The layout supports living together while maintaining clear personal boundaries.</p>
       </div>
 
-      <div class="tab-content" data-tab-content="1">
-        <p class="body-lg">Own your home outright, or share ownership with someone you choose. Each unit is designed for flexible, long-term arrangements that adapt to your situation over time.</p>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Full or shared ownership</span>
+          <span class="accordion-icon"></span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <div class="accordion-graphic">
+              <img src="assets/landing/icon-people.svg" alt="">
+            </div>
+            <div class="accordion-text">
+              <p class="body-lg">Own your home outright, or share ownership with someone you choose. Each unit is designed for flexible, long-term arrangements that adapt to your situation over time.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="tab-content" data-tab-content="2">
-        <p class="body-lg">Common areas — pool, kitchen, gathering spaces — are available to all residents. Use them as much or as little as you like. Community forms naturally, without obligation.</p>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Shared spaces, by choice</span>
+          <span class="accordion-icon"></span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <div class="accordion-graphic">
+              <img src="assets/landing/icon-heart.svg" alt="">
+            </div>
+            <div class="accordion-text">
+              <p class="body-lg">Common areas — pool, kitchen, gathering spaces — are available to all residents. Use them as much or as little as you like. Community forms naturally, without obligation.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="tab-content" data-tab-content="3">
-        <p class="body-lg">Thoughtful design and quality materials, priced to remain genuinely accessible. Casa NāM is built to offer long-term value without compromising on craft or care.</p>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Accessible quality</span>
+          <span class="accordion-icon"></span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <div class="accordion-graphic">
+              <img src="assets/landing/icon-asterisk.svg" alt="">
+            </div>
+            <div class="accordion-text">
+              <p class="body-lg">Thoughtful design and quality materials, priced to remain genuinely accessible. Casa NāM is built to offer long-term value without compromising on craft or care.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="ownership-quote fade-up">
       <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-      <p class="h3" style="color:var(--deep-green);">This is a place for people who are comfortable with independence and proximity existing at the same time.</p>
+      <p class="h3">This is a place for people who are comfortable with independence and proximity existing at the same time.</p>
     </div>
   </section>
 
   <!-- Timeline -->
   <section class="timeline-section">
-    <div class="timeline-inner fade-up">
-      <h2 class="h2" style="color:var(--cream);">Timeline</h2>
-      <div class="timeline-grid">
-        <div class="timeline-item">
-          <p class="body-lg-semi">Early commitments *</p>
-          <p class="body-lg">targeted by<br>15 March 2026</p>
+    <div class="timeline-inner">
+      <h2 class="h2 fade-up">Timeline</h2>
+      <div class="tl" id="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Q1 2026</div>
+          <div class="tl-txt">Early commitments *</div>
         </div>
-        <div class="timeline-item">
-          <p class="body-lg-semi">Concept finalisation &amp; preparation</p>
-          <p class="body-lg">Q2 2026</p>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Q2 2026</div>
+          <div class="tl-txt">Concept finalisation &amp; preparation</div>
         </div>
-        <div class="timeline-item">
-          <p class="body-lg-semi">Construction<br>start</p>
-          <p class="body-lg">Q3 2026</p>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Q3 2026</div>
+          <div class="tl-txt">Construction start</div>
         </div>
-        <div class="timeline-item">
-          <p class="body-lg-semi">Project<br>completion</p>
-          <p class="body-lg">Summer 2027</p>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Summer 2027</div>
+          <div class="tl-txt">Project completion</div>
         </div>
       </div>
     </div>
-    <p class="body-sm timeline-note">* Limited units offered at a special price</p>
+    <p class="body-sm timeline-note fade-up">* Limited units offered at a special price</p>
   </section>
 
   <!-- Why this might be right for you -->
   <section class="mfy-section">
     <div class="mfy-top">
       <div class="mfy-left fade-up">
-        <h2 class="h2" style="color:var(--cream);">Why this might be the right fit for you</h2>
-        <p class="subtitle" style="color:var(--oat);">Casa NāM may be right for you if you are looking for a long-term base that feels calm, considered, and genuinely livable.</p>
+        <h2 class="h2">Why this might be the right fit for you</h2>
+        <p class="subtitle">Casa NāM may be right for you if you are looking for a long-term base that feels calm, considered, and genuinely livable.</p>
       </div>
       <div class="mfy-right fade-up">
         <div class="mfy-item">
@@ -534,7 +656,7 @@
     </div>
 
     <div class="mfy-card fade-up">
-      <p class="subtitle" style="color:var(--slate);text-align:center;">As a founding member, you also gain access to:</p>
+      <p class="subtitle">As a founding member, you also gain access to:</p>
       <div class="mfy-benefits">
         <div class="mfy-benefit">
           <img src="assets/landing/icon-arrow.svg" alt="" class="icon-sm">
@@ -555,23 +677,23 @@
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-image">
-      <img src="assets/landing/cta-bg.png" alt="Casa NāM">
+      <img src="assets/landing/cta-bg.png" alt="Casa NāM" loading="lazy">
     </div>
     <div class="cta-card fade-up">
-      <div>
-        <h2 class="h2" style="color:var(--cream);padding:20px;">Early pricing now available for a limited number of units at 2.99M THB (~Euro 80k)</h2>
-      </div>
+      <h2 class="h2">Early pricing now available for a limited number of units at 2.99M THB (~Euro 80k)</h2>
       <div class="cta-bar">
-        <p class="body-lg-semi" style="color:var(--deep-green);">Request the project brief or talk with the founders.</p>
+        <p class="body-lg-semi">Request the project brief or talk with the founders.</p>
         <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="cta-btn">Talk to us</a>
       </div>
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="caption footer-copy">NāM Space<br><span>Copyright © 2026</span></p>
+      <p class="caption footer-copy">Casa NāM<br><span>Copyright © 2026</span></p>
       <div class="footer-logo"><img src="assets/landing/logo-footer.svg" alt="NāM"></div>
     </div>
   </footer>
@@ -580,18 +702,28 @@
 
 <script>
 (function() {
-  // Tab switching
-  var tabs = document.getElementById('ownershipTabs');
-  if (tabs) {
-    tabs.addEventListener('click', function(e) {
-      var btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-      var idx = btn.getAttribute('data-tab');
-      tabs.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-      tabs.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
-      btn.classList.add('active');
-      var content = tabs.querySelector('[data-tab-content="' + idx + '"]');
-      if (content) content.classList.add('active');
+  // Accordion
+  var accordion = document.getElementById('ownershipAccordion');
+  if (accordion) {
+    accordion.addEventListener('click', function(e) {
+      var trigger = e.target.closest('.accordion-trigger');
+      if (!trigger) return;
+      var panel = trigger.nextElementSibling;
+      var isOpen = trigger.classList.contains('active');
+
+      accordion.querySelectorAll('.accordion-trigger').forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-expanded', 'false');
+      });
+      accordion.querySelectorAll('.accordion-panel').forEach(function(p) {
+        p.classList.remove('open');
+      });
+
+      if (!isOpen) {
+        trigger.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.classList.add('open');
+      }
     });
   }
 
@@ -608,6 +740,24 @@
   document.querySelectorAll('.fade-up').forEach(function(el) {
     observer.observe(el);
   });
+
+  // Timeline: line draws left-to-right, then items stagger in
+  var tl = document.getElementById('timeline');
+  if (tl) {
+    var tlItems = tl.querySelectorAll('.tl-item');
+    var tlObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          tl.classList.add('animate');
+          tlItems.forEach(function(item, i) {
+            setTimeout(function() { item.classList.add('visible'); }, 400 + i * 250);
+          });
+          tlObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    tlObserver.observe(tl);
+  }
 
   // Environment badge
   var host = window.location.hostname;
