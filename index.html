@@ -87,6 +87,13 @@
   .site-nav a.nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
   .site-nav a.nav-cta:hover { filter: brightness(1.1); }
 
+  .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; }
+  .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .burger span + span { margin-top: 6px; }
+  .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
   /* ── Hero ── */
   .hero-wrap { width: 100%; max-width: 1600px; padding: 0 64px; position: relative; }
   .hero-content { border-top: 1px solid var(--foliage); padding-top: 80px; display: flex; flex-direction: column; gap: 80px; }
@@ -363,7 +370,15 @@
     .subtitle, .who-header .subtitle, .why-left .subtitle, .ownership-header .subtitle, .mfy-left .subtitle, .mfy-card .subtitle { font-size: 16px; }
     .body-lg, .body-lg-semi { letter-spacing: -0.32px; }
     .site-header { padding: 20px 24px; }
-    .site-nav { gap: 20px; }
+    .burger { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+    .site-nav { position: fixed; top: 0; right: 0; width: 260px; height: 100dvh; background: var(--deep-green); flex-direction: column; align-items: stretch; gap: 0; padding: 80px 32px 40px; transform: translateX(100%); transition: transform 0.35s ease; z-index: 100; box-shadow: -4px 0 24px rgba(0,0,0,0.3); }
+    .site-nav.open { transform: translateX(0); }
+    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
+    .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
+    .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
+    .site-nav a.nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+    .nav-overlay.open { display: block; }
     .hero-wrap { padding: 0 24px; }
     .hero-content { padding-top: 40px; gap: 40px; }
     .hero-intro { gap: 24px; }
@@ -438,6 +453,10 @@
   <!-- Header -->
   <header class="site-header">
     <a href="/" class="site-logo"><img src="assets/landing/logo.svg" alt="NāM"></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-overlay"></div>
     <nav class="site-nav">
       <a href="/">NāM Space</a>
       <a href="/casa-nam/" aria-current="page">Casa NāM</a>
@@ -862,6 +881,26 @@
 
 <script>
 (function() {
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.site-nav');
+  var overlay = document.querySelector('.nav-overlay');
+  if (burger && nav && overlay) {
+    function toggleMenu() {
+      var isOpen = nav.classList.toggle('open');
+      burger.classList.toggle('open');
+      overlay.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (nav.classList.contains('open')) toggleMenu();
+      });
+    });
+  }
+
   // Ownership tabs + SVG animation
   var tabWrap = document.getElementById('ownershipTabs');
   if (tabWrap) {
