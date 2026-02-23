@@ -81,6 +81,7 @@
   .site-nav { display: flex; gap: 12px; align-items: center; }
   .site-nav a { color: var(--cream); font-family: var(--font-mono); font-size: var(--text-nav); line-height: 1; letter-spacing: -0.28px; text-decoration: none; padding: 10px 18px; border-radius: 100px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, color 0.3s; }
   .site-nav a:hover { border-color: var(--foliage); }
+  .site-nav a[aria-current="page"] { border-color: var(--cream); opacity: 1; }
   .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
   .site-nav .nav-cta:hover { filter: brightness(1.1); }
 
@@ -479,10 +480,10 @@
 
   <!-- Header -->
   <header class="site-header">
-    <a href="/nam-space/" class="site-logo"><img src="assets/logo.svg" alt="NāM"></a>
+    <a href="/" class="site-logo"><img src="assets/logo.svg" alt="NāM"></a>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="/nam-space/">NāM Space</a>
-      <a href="https://casanam.com">Casa NāM</a>
+      <a href="/" aria-current="page">NāM Space</a>
+      <a href="/casa-nam/">Casa NāM</a>
       <a href="https://www.instagram.com/nam.space.kp/" target="_blank" class="nav-cta">Follow us</a>
     </nav>
   </header>
