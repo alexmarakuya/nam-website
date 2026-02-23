@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" fill="none">
+  <!-- Main river -->
+  <path d="M340 20 C320 40, 280 60, 260 100 C230 160, 310 200, 350 240 C400 290, 300 340, 340 400 C370 440, 420 460, 440 520 C460 580, 400 620, 380 680 C360 740, 400 780, 380 840 C360 900, 340 940, 360 1000 C370 1040, 350 1060, 340 1080"
+        stroke="#1a2e3a" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Secondary flowing trail 1 -->
+  <path d="M420 340 C460 360, 520 340, 560 370 C610 410, 560 460, 520 480 C470 500, 500 540, 540 520 C590 500, 640 520, 620 570 C600 620, 540 600, 500 580 C450 560, 430 590, 460 540"
+        stroke="#8a9a9e" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+  <!-- Secondary flowing trail 2 -->
+  <path d="M480 280 C530 300, 580 280, 600 320 C630 370, 580 400, 620 440 C660 480, 700 460, 680 510 C660 560, 600 540, 580 500 C560 460, 520 480, 500 450"
+        stroke="#8a9a9e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+  <!-- Secondary flowing trail 3 -->
+  <path d="M440 420 C470 450, 510 470, 480 520 C450 570, 490 600, 530 580 C570 560, 600 590, 570 630 C540 670, 490 650, 470 610"
+        stroke="#8a9a9e" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+  <!-- Thin branch at top -->
+  <path d="M310 80 C280 90, 250 70, 240 50 C230 30, 260 20, 280 40"
+        stroke="#1a2e3a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
