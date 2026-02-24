@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join NāM — Become a member</title>
+<meta name="description" content="Join the NāM community on Koh Phangan. Meet the members already shaping the space.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nam.space/join/">
+<meta property="og:title" content="Join NāM — Become a member">
+<meta property="og:description" content="Join the NāM community on Koh Phangan. Meet the members already shaping the space.">
+<meta property="og:image" content="https://nam.space/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Sometype+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-green: #2b3a2c;
+    --foliage: #49584a;
+    --sage: #b8c8b7;
+    --sapling: #a3b2a2;
+    --oat: #e7e2d6;
+    --cream: #f5f2e9;
+    --beige: #ccc4b5;
+    --sunwashed: #d56b45;
+    --slate: #393834;
+    --granite: #61605c;
+    --pebble: #7d7970;
+    --white: #ffffff;
+    --font-display: 'Epilogue', sans-serif;
+    --font-mono: 'Sometype Mono', monospace;
+    --text-h1: 60px;
+    --text-h2: 44px;
+    --text-h3: 32px;
+    --text-body-lg: 20px;
+    --text-body-sm: 16px;
+    --text-nav: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-mono); color: var(--slate); background: var(--deep-green); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  .page { display: flex; flex-direction: column; align-items: center; width: 100%; min-height: 100dvh; }
+
+  /* Typography */
+  .h1 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h1); line-height: 1.15; letter-spacing: -1.2px; }
+  .h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h2); line-height: 1.2; letter-spacing: -0.88px; }
+  .h3 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h3); line-height: 1.2; letter-spacing: -0.64px; }
+  .body-lg { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-lg); line-height: 1.4; letter-spacing: -0.4px; }
+  .body-lg-semi { font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.4; letter-spacing: -0.4px; }
+  .body-sm { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-sm); line-height: 1.4; letter-spacing: -0.32px; }
+  .caption { font-family: var(--font-mono); font-weight: 400; font-size: 14px; line-height: 1.4; letter-spacing: -0.28px; }
+
+  /* Header */
+  .site-header { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1600px; padding: 32px 64px; z-index: 10; position: relative; }
+  .site-header::after { content: ''; position: absolute; bottom: 0; left: 64px; right: 64px; height: 1px; background: rgba(255,255,255,0.12); }
+  .site-logo img { height: 28px; width: auto; }
+  .site-nav { display: flex; gap: 12px; align-items: center; }
+  .site-nav a { color: var(--cream); font-family: var(--font-mono); font-size: var(--text-nav); line-height: 1; letter-spacing: -0.28px; text-decoration: none; padding: 10px 18px; border-radius: 100px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, color 0.3s; }
+  .site-nav a:hover { border-color: var(--foliage); }
+  .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
+  .site-nav .nav-cta:hover { filter: brightness(1.1); }
+
+  .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; }
+  .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .burger span + span { margin-top: 6px; }
+  .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* Hero */
+  .hero { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 120px 64px 80px; text-align: center; }
+  .hero-inner { max-width: 720px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+  .hero .h1 { color: var(--cream); }
+  .hero .h1 span { color: var(--sunwashed); }
+  .hero .body-lg { color: var(--sapling); max-width: 520px; }
+
+  /* Member count */
+  .member-count { display: flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 100px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); margin-top: 8px; }
+  .count-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sunwashed); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .member-count .body-sm { color: var(--oat); }
+
+  /* Carousel */
+  .carousel-section { width: 100%; padding: 0 0 80px; overflow: hidden; position: relative; }
+  .carousel-section::before,
+  .carousel-section::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+  .carousel-section::before { left: 0; background: linear-gradient(to right, var(--deep-green), transparent); }
+  .carousel-section::after { right: 0; background: linear-gradient(to left, var(--deep-green), transparent); }
+
+  .carousel-track { display: flex; gap: 20px; width: max-content; animation: scroll 60s linear infinite; }
+  .carousel-track:hover { animation-play-state: paused; }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .member-card { flex-shrink: 0; width: 280px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 16px; pointer-events: none; user-select: none; }
+  .member-card-header { display: flex; align-items: center; gap: 16px; }
+  .member-avatar { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--foliage); display: flex; align-items: center; justify-content: center; }
+  .member-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .member-avatar .initials { font-family: var(--font-display); font-weight: 400; font-size: 20px; color: var(--sage); line-height: 1; }
+  .member-info { display: flex; flex-direction: column; gap: 2px; }
+  .member-name { font-family: var(--font-display); font-weight: 400; font-size: 18px; color: var(--cream); letter-spacing: -0.36px; line-height: 1.3; }
+  .member-role { font-family: var(--font-mono); font-weight: 400; font-size: 13px; color: var(--sapling); letter-spacing: -0.26px; line-height: 1.4; }
+  .member-joined { font-family: var(--font-mono); font-weight: 400; font-size: 12px; color: var(--pebble); letter-spacing: -0.24px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; }
+
+  /* CTA */
+  .cta-section { width: 100%; display: flex; justify-content: center; padding: 0 64px 120px; }
+  .cta-card { background: var(--sunwashed); border-radius: 32px; padding: 48px; max-width: 640px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center; }
+  .cta-card .h3 { color: var(--cream); }
+  .cta-card .body-lg { color: rgba(255,255,255,0.8); }
+  .cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 18px 40px; background: var(--cream); border-radius: 12px; color: var(--sunwashed); font-family: var(--font-mono); font-weight: 600; font-size: var(--text-body-lg); line-height: 1.2; letter-spacing: -0.4px; text-decoration: none; transition: filter 0.2s, transform 0.2s; }
+  .cta-btn:hover { filter: brightness(0.96); transform: translateY(-1px); }
+
+  /* Footer */
+  .site-footer { background: var(--deep-green); border-top: 1px solid rgba(255,255,255,0.06); width: 100%; display: flex; justify-content: center; padding: 0 64px; margin-top: auto; }
+  .footer-inner { max-width: 1200px; width: 100%; display: flex; align-items: flex-start; justify-content: space-between; padding: 20px 0 80px; }
+  .footer-copy { color: var(--sapling); font-size: 14px; }
+  .footer-copy span { color: var(--sunwashed); }
+  .footer-logo img { height: 20px; width: 54px; display: block; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track { animation: none; }
+    .count-dot { animation: none; }
+  }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .site-header { padding: 24px 40px; }
+    .hero { padding: 80px 40px 60px; }
+    .cta-section { padding: 0 40px 80px; }
+    .site-footer { padding: 0 40px; }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    :root {
+      --text-h1: 36px;
+      --text-h2: 28px;
+      --text-h3: 22px;
+      --text-body-lg: 16px;
+    }
+    .h1 { letter-spacing: -0.72px; }
+    .site-header { padding: 14px 20px; }
+    .site-header::after { left: 20px; right: 20px; }
+    .site-logo { min-height: 40px; display: flex; align-items: center; }
+    .site-logo img { height: 22px; }
+    .burger { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+    .site-nav { position: fixed; top: 0; right: 0; width: 260px; height: 100dvh; background: var(--deep-green); flex-direction: column; align-items: stretch; gap: 0; padding: 80px 32px 40px; transform: translateX(100%); transition: transform 0.35s ease; z-index: 100; box-shadow: -4px 0 24px rgba(0,0,0,0.3); }
+    .site-nav.open { transform: translateX(0); }
+    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
+    .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
+    .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+    .nav-overlay.open { display: block; }
+    .hero { padding: 64px 24px 48px; }
+    .carousel-section { padding-bottom: 48px; }
+    .carousel-section::before, .carousel-section::after { width: 40px; }
+    .member-card { width: 240px; padding: 22px; }
+    .member-avatar { width: 44px; height: 44px; }
+    .member-avatar .initials { font-size: 17px; }
+    .member-name { font-size: 16px; }
+    .cta-section { padding: 0 24px 60px; }
+    .cta-card { padding: 32px 24px; border-radius: 24px; }
+    .cta-btn { padding: 16px 32px; width: 100%; }
+    .site-footer { padding: 0 24px; }
+    .footer-inner { flex-direction: column; gap: 20px; padding: 20px 0 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <a href="/" class="site-logo"><img src="../assets/logo.svg" alt="NāM"></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-overlay"></div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">NāM Space</a>
+      <a href="/casa-nam/">Casa NāM</a>
+      <a href="https://members.nam.space" class="nav-cta">Sign up</a>
+    </nav>
+  </header>
+
+  <main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="h1">The community is <span>already forming</span></h1>
+      <p class="body-lg">Real people, building something together. Browse who's already in — then join if it resonates.</p>
+      <div class="member-count">
+        <span class="count-dot"></span>
+        <p class="body-sm" id="memberCountText"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="carousel-section" aria-label="Member profiles">
+    <div class="carousel-track" id="carouselTrack"></div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-card">
+      <h2 class="h3">Ready to be part of it?</h2>
+      <p class="body-lg">Create your profile and join the founding community shaping NāM.</p>
+      <a href="https://members.nam.space" class="cta-btn">Become a member</a>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="caption footer-copy">NāM Space<br><span>&copy; 2026</span></p>
+      <div class="footer-logo"><img src="../assets/footer-logo.svg" alt="NāM"></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  // Burger menu
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.site-nav');
+  var overlay = document.querySelector('.nav-overlay');
+  if (burger && nav && overlay) {
+    function toggleMenu() {
+      var isOpen = nav.classList.toggle('open');
+      burger.classList.toggle('open');
+      overlay.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (nav.classList.contains('open')) toggleMenu();
+      });
+    });
+  }
+
+  // Member data — replace with API fetch from members.nam.space when ready
+  var members = [
+    { name: 'Alex D.', role: 'Product designer', joined: '2025-06-10', initials: 'AD' },
+    { name: 'Mira K.', role: 'Writer & strategist', joined: '2025-07-22', initials: 'MK' },
+    { name: 'Jonas F.', role: 'Software engineer', joined: '2025-08-05', initials: 'JF' },
+    { name: 'Priya S.', role: 'Brand consultant', joined: '2025-09-14', initials: 'PS' },
+    { name: 'Tomás R.', role: 'Filmmaker', joined: '2025-10-01', initials: 'TR' },
+    { name: 'Suki L.', role: 'Illustrator', joined: '2025-10-20', initials: 'SL' },
+    { name: 'Daniel W.', role: 'Founder, AI startup', joined: '2025-11-08', initials: 'DW' },
+    { name: 'Lena H.', role: 'Architect', joined: '2025-11-28', initials: 'LH' },
+    { name: 'Marco B.', role: 'Music producer', joined: '2025-12-15', initials: 'MB' },
+    { name: 'Yuki T.', role: 'UX researcher', joined: '2026-01-03', initials: 'YT' },
+    { name: 'Chloé M.', role: 'Photographer', joined: '2026-01-18', initials: 'CM' },
+    { name: 'Raf A.', role: 'Developer & maker', joined: '2026-02-02', initials: 'RA' },
+    { name: 'Nina V.', role: 'Yoga teacher & coach', joined: '2026-02-10', initials: 'NV' },
+    { name: 'Sam P.', role: 'Content creator', joined: '2026-02-18', initials: 'SP' },
+  ];
+
+  function timeAgo(dateStr) {
+    var now = new Date();
+    var then = new Date(dateStr);
+    var diff = now - then;
+    var days = Math.floor(diff / 86400000);
+    if (days < 1) return 'Joined today';
+    if (days === 1) return 'Joined yesterday';
+    if (days < 7) return 'Joined ' + days + ' days ago';
+    var weeks = Math.floor(days / 7);
+    if (weeks === 1) return 'Joined 1 week ago';
+    if (days < 30) return 'Joined ' + weeks + ' weeks ago';
+    var months = Math.floor(days / 30);
+    if (months === 1) return 'Joined 1 month ago';
+    return 'Joined ' + months + ' months ago';
+  }
+
+  var colors = ['#49584a', '#5a6b5b', '#6b5a4a', '#4a5a6b', '#5b4a5a', '#6b6a4a', '#4a6b5a'];
+
+  function buildCard(m) {
+    var color = colors[Math.abs(m.initials.charCodeAt(0) + m.initials.charCodeAt(1)) % colors.length];
+    return '<div class="member-card">' +
+      '<div class="member-card-header">' +
+        '<div class="member-avatar" style="background:' + color + '"><span class="initials">' + m.initials + '</span></div>' +
+        '<div class="member-info">' +
+          '<p class="member-name">' + m.name + '</p>' +
+          '<p class="member-role">' + m.role + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<p class="member-joined">' + timeAgo(m.joined) + '</p>' +
+    '</div>';
+  }
+
+  var track = document.getElementById('carouselTrack');
+  var html = '';
+  for (var i = 0; i < 3; i++) {
+    members.forEach(function(m) { html += buildCard(m); });
+  }
+  track.innerHTML = html;
+
+  var countEl = document.getElementById('memberCountText');
+  if (countEl) countEl.textContent = members.length + ' members and counting';
+
+  // Adjust animation duration based on content width
+  requestAnimationFrame(function() {
+    var oneSet = 0;
+    members.forEach(function() { oneSet += 280 + 20; });
+    var speed = 40;
+    var duration = oneSet / speed;
+    track.style.animationDuration = duration + 's';
+  });
+})();
+</script>
+</body>
+</html>
