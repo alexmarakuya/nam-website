@@ -301,17 +301,15 @@
      CTA (original Figma)
      ============================================= */
   .cta-section { background: linear-gradient(to bottom, transparent 120px, var(--oat) 120px); width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; padding: 0 64px 80px; margin-top: -120px; z-index: 2; }
-  .cta-card { background: var(--sunwashed); border-radius: 40px; padding: 40px; max-width: 1120px; width: 100%; display: flex; flex-direction: column; gap: 32px; position: relative; z-index: 2; }
-  .cta-card-top { display: flex; gap: 40px; }
-  .cta-left { width: 380px; flex-shrink: 0; padding: 20px 0; display: flex; flex-direction: column; gap: 12px; }
-  .cta-left .h2 { color: var(--cream); }
-  .cta-left .subtitle { color: var(--cream); }
-  .cta-right { flex: 1; padding: 20px 0; display: flex; flex-direction: column; gap: 32px; }
-  .cta-right .body-lg { color: var(--cream); }
-  .cta-checklist { display: flex; flex-direction: column; gap: 12px; }
-  .cta-check { display: flex; align-items: center; gap: 12px; }
-  .cta-check .body-lg-semi { color: var(--cream); }
-  .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .cta-card { background: var(--sunwashed); border-radius: 40px; padding: 48px; max-width: 1120px; width: 100%; display: flex; flex-direction: column; gap: 36px; position: relative; z-index: 2; }
+  .cta-header { text-align: center; display: flex; flex-direction: column; gap: 8px; }
+  .cta-header .h2 { color: var(--cream); }
+  .cta-header .body-lg { color: rgba(255,255,255,0.8); }
+  .cta-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cta-benefit { display: flex; flex-direction: column; gap: 8px; padding: 24px; background: rgba(255,255,255,0.1); border-radius: 16px; }
+  .cta-benefit .body-lg-semi { color: var(--cream); font-size: 17px; }
+  .cta-benefit .body-sm { color: rgba(255,255,255,0.7); }
+  .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
   .cta-bar-inside .body-lg-semi { color: var(--deep-green); }
   .cta-btn-inside { background: var(--sunwashed); color: var(--cream); border-radius: 24px; padding: 14px 28px; font-size: 16px; }
 
@@ -387,8 +385,7 @@
     .mfu-section { padding: 60px 40px; }
     .mfu-inner { flex-direction: column; gap: 48px; }
     .cta-section { background: linear-gradient(to bottom, transparent 80px, var(--oat) 80px); padding: 0 40px 60px; margin-top: -80px; }
-    .cta-card-top { flex-direction: column; }
-    .cta-left { width: 100%; }
+    .cta-benefits { grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .cta-bar-inside { flex-direction: column; text-align: center; }
     .blog-section { padding: 48px 40px; }
     .site-footer { padding: 0 40px; }
@@ -473,8 +470,8 @@
     .mfu-inner { gap: 32px; }
     .cta-section { background: linear-gradient(to bottom, transparent 60px, var(--oat) 60px); padding: 0 24px 40px; margin-top: -60px; }
     .cta-card { padding: 24px; gap: 24px; border-radius: 24px; }
-    .cta-left { padding: 0; }
-    .cta-right { padding: 0; }
+    .cta-benefits { grid-template-columns: 1fr; gap: 12px; }
+    .cta-benefit { padding: 20px; }
     .cta-bar-inside { padding: 20px; gap: 16px; }
     .blog-section { padding: 40px 24px; }
     .site-footer { padding: 0 24px; }
@@ -930,35 +927,26 @@
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-card fade-up">
-      <div class="cta-card-top">
-        <div class="cta-left">
-          <h2 class="h2">Become a founding member</h2>
-          <p class="subtitle">NāM is taking shape — the community is forming now.</p>
+      <div class="cta-header">
+        <h2 class="h2">Become a founding member</h2>
+        <p class="body-lg">The community is forming now. Create your profile and join before the doors open.</p>
+      </div>
+      <div class="cta-benefits">
+        <div class="cta-benefit">
+          <p class="body-lg-semi">Publish your profile</p>
+          <p class="body-sm">Be visible in the member directory. Let others find and connect with you.</p>
         </div>
-        <div class="cta-right">
-          <p class="body-lg">Create your profile and join before the doors open. As a founding member you get:</p>
-          <div class="cta-checklist">
-            <div class="cta-check">
-              <img src="assets/icon-misc-cta.svg" alt="" class="icon-xs">
-              <p class="body-lg-semi">A profile in the member directory — be found by others who share your rhythm</p>
-            </div>
-            <div class="cta-check">
-              <img src="assets/icon-misc-cta.svg" alt="" class="icon-xs">
-              <p class="body-lg-semi">Direct updates as the project progresses — plans, timelines, behind the scenes</p>
-            </div>
-            <div class="cta-check">
-              <img src="assets/icon-misc-cta.svg" alt="" class="icon-xs">
-              <p class="body-lg-semi">Early access to connect with other founding members before NāM opens</p>
-            </div>
-            <div class="cta-check">
-              <img src="assets/icon-misc-cta.svg" alt="" class="icon-xs">
-              <p class="body-lg-semi">A voice in shaping the space — input on programming, spaces, and what gets built</p>
-            </div>
-          </div>
+        <div class="cta-benefit">
+          <p class="body-lg-semi">Get project updates</p>
+          <p class="body-sm">Follow the build as it happens. Plans, timelines, progress.</p>
+        </div>
+        <div class="cta-benefit">
+          <p class="body-lg-semi">Shape the space</p>
+          <p class="body-sm">Have a voice in what gets built. Input on programming and spaces.</p>
         </div>
       </div>
       <div class="cta-bar-inside">
-        <p class="body-lg-semi">Free to join. No commitment. Just people finding each other early.</p>
+        <p class="body-lg-semi">Free to join. No commitment.</p>
         <a href="https://members.nam.space" class="btn cta-btn-inside">Become a member</a>
       </div>
     </div>
