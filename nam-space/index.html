@@ -309,14 +309,6 @@
   .cta-benefit { display: flex; flex-direction: column; gap: 8px; padding: 24px; background: rgba(255,255,255,0.1); border-radius: 16px; }
   .cta-benefit .body-lg-semi { color: var(--cream); font-size: 17px; }
   .cta-benefit .body-sm { color: rgba(255,255,255,0.7); }
-  .cta-faces { overflow: hidden; position: relative; border-radius: 12px; }
-  .cta-faces::before, .cta-faces::after { content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 1; pointer-events: none; }
-  .cta-faces::before { left: 0; background: linear-gradient(to right, var(--sunwashed), transparent); }
-  .cta-faces::after { right: 0; background: linear-gradient(to left, var(--sunwashed), transparent); }
-  .cta-faces-track { display: flex; gap: 12px; width: max-content; animation: facesScroll 30s linear infinite; }
-  .cta-faces-track:hover { animation-play-state: paused; }
-  @keyframes facesScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .cta-face { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 400; font-size: 16px; color: rgba(255,255,255,0.8); pointer-events: none; user-select: none; }
   .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
   .cta-bar-inside .body-lg-semi { color: var(--deep-green); }
   .cta-btn-inside { background: var(--sunwashed); color: var(--cream); border-radius: 24px; padding: 14px 28px; font-size: 16px; }
@@ -953,9 +945,6 @@
           <p class="body-sm">Have a voice in what gets built. Input on programming and spaces.</p>
         </div>
       </div>
-      <div class="cta-faces" aria-hidden="true">
-        <div class="cta-faces-track" id="ctaFacesTrack"></div>
-      </div>
       <div class="cta-bar-inside">
         <p class="body-lg-semi">Free to join. No commitment.</p>
         <a href="https://members.nam.space" class="btn cta-btn-inside">Become a member</a>
@@ -1156,26 +1145,6 @@
       });
     });
   });
-
-  // Faces carousel
-  var facesTrack = document.getElementById('ctaFacesTrack');
-  if (facesTrack) {
-    var faces = [
-      { i: 'AD', c: '#49584a' }, { i: 'MK', c: '#5a6b5b' }, { i: 'JF', c: '#6b5a4a' },
-      { i: 'PS', c: '#4a5a6b' }, { i: 'TR', c: '#5b4a5a' }, { i: 'SL', c: '#6b6a4a' },
-      { i: 'DW', c: '#4a6b5a' }, { i: 'LH', c: '#5a4a6b' }, { i: 'MB', c: '#6b5b4a' },
-      { i: 'YT', c: '#4a6b6b' }, { i: 'CM', c: '#5b5a4a' }, { i: 'RA', c: '#4a5b5a' },
-      { i: 'NV', c: '#6a5b4a' }, { i: 'SP', c: '#4a6a5b' }, { i: 'EK', c: '#5a4a5b' },
-      { i: 'OL', c: '#6b4a5a' }, { i: 'TW', c: '#4a5a5b' }, { i: 'JR', c: '#5b6a4a' },
-    ];
-    var fHtml = '';
-    for (var r = 0; r < 3; r++) {
-      faces.forEach(function(f) {
-        fHtml += '<div class="cta-face" style="background:' + f.c + '">' + f.i + '</div>';
-      });
-    }
-    facesTrack.innerHTML = fHtml;
-  }
 
   var strip = document.querySelector('.category-strip');
   var wrapper = document.querySelector('.spaces-wrapper');
