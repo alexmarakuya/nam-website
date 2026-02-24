@@ -306,7 +306,8 @@
   .cta-header .h2 { color: var(--cream); }
   .cta-header .body-lg { color: rgba(255,255,255,0.8); }
   .cta-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .cta-benefit { display: flex; flex-direction: column; gap: 8px; padding: 24px; background: rgba(255,255,255,0.1); border-radius: 16px; }
+  .cta-benefit { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: rgba(255,255,255,0.1); border-radius: 16px; }
+  .cta-benefit-icon { width: 32px; height: 32px; flex-shrink: 0; margin-bottom: 2px; }
   .cta-benefit .body-lg-semi { color: var(--cream); font-size: 17px; }
   .cta-benefit .body-sm { color: rgba(255,255,255,0.7); }
   .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
@@ -933,14 +934,29 @@
       </div>
       <div class="cta-benefits">
         <div class="cta-benefit">
+          <svg class="cta-benefit-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="11" r="5" stroke="#f5f2e9" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M7 27c.5-5.5 4.2-9 9-9s8.5 3.5 9 9" stroke="#f5f2e9" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M24 8l2.5-2.5M24 14h3.5M24 8v-3.5" stroke="#f5f2e9" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+          </svg>
           <p class="body-lg-semi">Publish your profile</p>
           <p class="body-sm">Be visible in the member directory. Let others find and connect with you.</p>
         </div>
         <div class="cta-benefit">
+          <svg class="cta-benefit-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="4" width="20" height="24" rx="3" stroke="#f5f2e9" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M11 11h10M11 16h7M11 21h4" stroke="#f5f2e9" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+          </svg>
           <p class="body-lg-semi">Get project updates</p>
           <p class="body-sm">Follow the build as it happens. Plans, timelines, progress.</p>
         </div>
         <div class="cta-benefit">
+          <svg class="cta-benefit-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 27L19 13" stroke="#f5f2e9" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M19 13l4-8 4 4-8 4z" stroke="#f5f2e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 27c0 0-1 .5 0 0" stroke="#f5f2e9" stroke-width="3" stroke-linecap="round"/>
+            <path d="M10 17l5 5" stroke="#f5f2e9" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+          </svg>
           <p class="body-lg-semi">Shape the space</p>
           <p class="body-sm">Have a voice in what gets built. Input on programming and spaces.</p>
         </div>
