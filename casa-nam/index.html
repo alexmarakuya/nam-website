@@ -100,7 +100,10 @@
   .hero-intro { display: flex; align-items: center; gap: 120px; }
   .hero-title { color: var(--oat); }
   .hero-subtitle { color: var(--sapling); width: 440px; flex-shrink: 0; }
-  .hero-location { display: flex; align-items: center; gap: 12px; margin-left: auto; color: var(--oat); }
+  .hero-bottom { display: flex; align-items: center; gap: 24px; margin-left: auto; }
+  .hero-location { display: flex; align-items: center; gap: 12px; color: var(--oat); }
+  .hero-cta { display: inline-flex; align-items: center; padding: 12px 24px; border: 1px solid var(--sapling); border-radius: 100px; color: var(--oat); font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-sm); line-height: 1.2; letter-spacing: -0.32px; text-decoration: none; transition: background 0.3s, border-color 0.3s, color 0.3s; white-space: nowrap; }
+  .hero-cta:hover { background: var(--sunwashed); border-color: var(--sunwashed); color: var(--cream); }
   .hero-image { width: 100%; aspect-ratio: 1312 / 740; border-radius: 0; overflow: hidden; position: relative; }
   .hero-image video, .hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -241,6 +244,7 @@
   .ownership-quote-section { background: var(--sage); width: 100%; display: flex; justify-content: center; padding: 48px 120px 64px; }
   .ownership-quote { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; text-align: center; }
   .ownership-quote .h3 { color: var(--deep-green); }
+  .ownership-quote .inline-cta-btn { margin-top: 8px; }
 
   /* ── Timeline section ── */
   .timeline-section { background: var(--sunwashed); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 80px; padding: 120px 120px 60px; margin: 80px 0; overflow: hidden; position: relative; }
@@ -255,6 +259,8 @@
   .tl-date { font-family: var(--font-mono); font-weight: 600; font-size: var(--text-body-lg); color: var(--cream); margin-bottom: 8px; }
   .tl-txt { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-sm); color: rgba(255,255,255,0.75); line-height: 1.45; max-width: 180px; margin: 0 auto; }
   .timeline-note { color: var(--cream); position: relative; z-index: 1; }
+  .timeline-cta { display: inline-flex; align-items: center; padding: 14px 28px; background: var(--cream); border-radius: 8px; color: var(--sunwashed); font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.2; letter-spacing: -0.4px; text-decoration: none; transition: filter 0.2s; position: relative; z-index: 1; margin-top: 16px; }
+  .timeline-cta:hover { filter: brightness(0.95); }
 
   /* ── Made for you section ── */
   .mfy-section { background: var(--deep-green); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 120px; padding: 120px; overflow: hidden; position: relative; }
@@ -272,6 +278,8 @@
   .mfy-benefit { display: flex; flex-direction: column; gap: 12px; padding-right: 0; border-right: 1px solid var(--beige); }
   .mfy-benefit:last-child { border-right: none; }
   .mfy-benefit .body-lg-semi { color: var(--slate); }
+  .mfy-card-cta { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; background: var(--sunwashed); border-radius: 8px; color: var(--cream); font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.2; letter-spacing: -0.4px; text-decoration: none; transition: filter 0.2s; align-self: center; }
+  .mfy-card-cta:hover { filter: brightness(1.1); }
 
   /* ── CTA section ── */
   .cta-section { background: var(--oat); width: 100%; display: flex; flex-direction: column; align-items: center; }
@@ -320,6 +328,7 @@
   @media (max-width: 1024px) {
     .hero-intro { flex-direction: column; gap: 40px; align-items: flex-start; }
     .hero-subtitle { width: 100%; }
+    .hero-bottom { margin-left: 0; flex-direction: column; align-items: flex-start; gap: 16px; }
     .hero-location { margin-left: 0; }
     .site-header { padding: 24px 40px; }
     .hero-wrap { padding: 0 40px; }
@@ -473,9 +482,12 @@
       <div class="hero-intro fade-up">
         <h1 class="h1 hero-title">Casa NāM</h1>
         <p class="subtitle hero-subtitle">Residential living,<br>designed for connection.</p>
-        <div class="hero-location">
-          <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-          <span class="body-lg">Koh Phangan</span>
+        <div class="hero-bottom">
+          <div class="hero-location">
+            <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
+            <span class="body-lg">Koh Phangan</span>
+          </div>
+          <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="hero-cta">Talk to the founders</a>
         </div>
       </div>
       <div class="hero-image">
@@ -775,6 +787,7 @@
     <div class="ownership-quote">
       <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
       <p class="h3">This is a place for people who are comfortable with independence and proximity existing at the same time.</p>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="inline-cta-btn">Request the project brief</a>
     </div>
   </section>
 
@@ -806,6 +819,7 @@
       </div>
     </div>
     <p class="body-sm timeline-note fade-up">* Limited units offered at a special price</p>
+    <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="timeline-cta fade-up">Secure early pricing &rarr;</a>
   </section>
 
   <!-- Why this might be right for you -->
@@ -851,6 +865,7 @@
           <p class="body-lg-semi">Priority access to future NāM projects and collaborations</p>
         </div>
       </div>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="mfy-card-cta">Talk to us about founding membership</a>
     </div>
   </section>
 
