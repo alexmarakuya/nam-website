@@ -15,6 +15,7 @@
 | `nam.space` | `/var/www/nam-space/html/` | `nam-space/index.html` |
 | `nam.space/casa-nam/` | `/var/www/casa-nam/html/` | `casa-nam/index.html` |
 | `nam.space/casa-nam/pitch/` | `/var/www/casa-nam/html/pitch/` | `pitch/index.html` |
+| `nam.space/manifesto/` | `/var/www/nam-space/html/manifesto/` | `nam-space/manifesto/index.html` |
 | `casanam.com` | — (301 redirect) | Redirects to `nam.space/casa-nam` |
 | `members.nam.space` | — (reverse proxy) | Proxied to `127.0.0.1:3000` (separate app) |
 
@@ -86,7 +87,8 @@ When adding a new directory/page to the site:
 ├── nam-space/
 │   └── html/                  ← served at nam.space (root)
 │       ├── index.html
-│       └── assets/
+│       ├── assets/
+│       └── manifesto/
 ├── nam-platform/              ← members.nam.space app (separate)
 └── casa-nam-staging/
     └── html/                  ← staging at port 8080
