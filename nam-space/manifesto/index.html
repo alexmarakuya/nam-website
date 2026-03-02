@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/hero.jpg" as="image">
 <style>
   :root {
     --bg: #f4f2e8;
@@ -73,8 +74,8 @@
   }
   .slide-inner { max-width: 1200px; width: 100%; z-index: 2; }
 
-  .bg-cream { background: #faf9f5; }
-  .bg-warm { background: #f5f2eb; }
+  .bg-cream { background: var(--bg); }
+  .bg-warm { background: var(--bg-warm); }
   .bg-green { background: var(--green); color: var(--bg); }
   .bg-dark { background: #1a1a18; color: var(--bg); }
   .bg-terracotta { background: var(--terracotta); color: var(--bg); }
@@ -93,13 +94,15 @@
     background-size: 180px 180px;
     mix-blend-mode: overlay;
   }
+  /* Hero: lighter grain so text stays readable on dark green */
+  .hero-main.grain::after { opacity: 0.04; }
 
   .watermark::before {
     content: '';
     position: absolute;
     pointer-events: none;
     z-index: 0;
-    background-image: url('../assets/river-texture.svg');
+    background-image: url('/assets/river-texture.svg');
     background-repeat: no-repeat;
   }
   .watermark-light::before { opacity: 0.04; mix-blend-mode: multiply; }
@@ -177,19 +180,25 @@
     display: flex; flex-direction: column;
     position: relative; overflow: hidden;
     background: var(--green);
+    color: #f4f2e8;
   }
-  .hero-content { margin-top: auto; margin-bottom: auto; }
+  .hero-content {
+    margin-top: auto; margin-bottom: auto;
+    position: relative; z-index: 2;
+  }
   .hero-main h1 {
+    font-family: 'Epilogue', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: clamp(5rem, 10vw, 9rem);
     font-weight: 500;
-    color: var(--bg);
+    color: #f4f2e8;
     line-height: 0.95;
     letter-spacing: -0.04em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
   .hero-main .hero-sub {
-    font-family: 'Sometype Mono', monospace;
+    font-family: 'Sometype Mono', 'SF Mono', Consolas, 'Liberation Mono', monospace;
     font-size: clamp(1rem, 1.8vw, 1.35rem);
-    color: rgba(244,242,232,0.65);
+    color: rgba(244,242,232,0.9);
     font-weight: 400;
     margin-top: 2.5rem;
     line-height: 1.5;
@@ -198,6 +207,7 @@
     margin-top: auto; padding-top: 20px;
     border-top: 1px solid rgba(244,242,232,0.15);
     display: flex; flex-direction: column; align-items: flex-start; gap: 6px; width: 100%;
+    position: relative; z-index: 2;
   }
   .hero-main .hero-footer-line span {
     font-family: 'Sometype Mono', monospace;
@@ -211,6 +221,79 @@
   }
   .hero-accent-cream { flex: 1; background: var(--bg); }
   .hero-accent-terracotta { flex: 1; background: var(--terracotta); }
+  .hero-img-strip {
+    width: 33%;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Image hints (cropped teasers) */
+  .img-hint {
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+  }
+  .img-hint img {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    display: block;
+  }
+  .img-hint-accent { flex-shrink: 0; background: var(--terracotta); }
+  .img-hint-h {
+    width: 100%;
+    left: 0;
+    height: clamp(40px, 5.5vw, 75px);
+    flex-direction: row;
+  }
+  .img-hint-h .img-hint-accent {
+    width: clamp(180px, 24vw, 360px);
+    height: 100%;
+  }
+  .img-hint-v {
+    height: 100%;
+    top: 0;
+    width: clamp(40px, 5.5vw, 75px);
+    flex-direction: column;
+  }
+  .img-hint-v .img-hint-accent {
+    width: 100%;
+    height: clamp(180px, 24vw, 360px);
+  }
+
+  /* CTA with background image */
+  .cta-bg-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .cta-bg-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.4;
+  }
+  .cta-bg-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(212,107,68,0.92) 0%, rgba(212,107,68,0.6) 100%);
+    pointer-events: none;
+  }
 
   /* Essence */
   .essence-text {
@@ -273,6 +356,57 @@
   .value-name {
     font-family: 'Epilogue', sans-serif;
     font-size: 1.2rem; font-weight: 500; line-height: 1.35;
+  }
+
+  /* Value detail — one slide per value, full bg image */
+  .value-detail-slide {
+    position: relative;
+    background: var(--green);
+  }
+  .value-detail-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .value-detail-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.5;
+  }
+  .value-detail-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(42,58,43,0.95) 0%, rgba(42,58,43,0.7) 50%, rgba(42,58,43,0.5) 100%);
+    pointer-events: none;
+  }
+  .value-detail-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    padding: 80px 100px 40px;
+  }
+  .value-detail-content .value-num {
+    color: var(--terracotta-light);
+    margin-bottom: 0.5rem;
+  }
+  .value-detail-content .value-detail-name {
+    font-family: 'Epilogue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--bg);
+    margin-bottom: 1.5rem;
+  }
+  .value-detail-content .value-detail-desc {
+    font-family: 'Sometype Mono', monospace;
+    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+    line-height: 1.7;
+    color: rgba(244,242,232,0.85);
+    font-weight: 400;
   }
 
   /* Principles — Wispr style: subtle card treatment */
@@ -486,6 +620,8 @@
     .hero-accent-strip > div { flex: 1; }
     .hero-slide { flex-direction: column; }
     .hero-main { height: auto; flex: 1; }
+    .hero-img-strip { width: 100%; height: 35vh; flex-shrink: 0; }
+    .img-hint { display: none !important; }
     .sn { display: none !important; }
     .nav-bar { padding: 0 12px; }
     .slide-nav-dropdown { width: calc(100vw - 32px); }
@@ -495,6 +631,8 @@
     .share-btn { right: 12px; }
     .values-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     .value-card { padding: 1.5rem 1.25rem; }
+    .value-detail-content { padding: 24px 24px 40px; }
+    .value-detail-content .value-detail-desc { font-size: 1.05rem; }
     .essence-text { font-size: clamp(2rem, 7vw, 3.5rem); }
     .why-row { padding: 1.5rem 0; }
     .why-text { font-size: 1.1rem; }
@@ -504,8 +642,8 @@
     .water-text .water-close { font-size: 1.15rem; }
     .principle-desc { font-size: 0.95rem; }
     .cta-content p { font-size: 1rem; }
-    #s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9 { overflow-y: auto !important; }
-    #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9 { padding-top: 72px !important; }
+    #s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9, #s10, #s11, #s12, #s13, #s14, #s15 { overflow-y: auto !important; }
+    #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9, #s10, #s11, #s12, #s13, #s14, #s15 { padding-top: 72px !important; }
   }
 </style>
 </head>
@@ -522,7 +660,7 @@
     <div class="hero-content">
       <h1>What we<br>believe</h1>
       <div style="display:flex;align-items:center;gap:16px;margin-top:2.5rem;">
-        <img src="../assets/asterisk.svg" alt="" style="width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
+        <img src="/assets/asterisk.svg" alt="" style="width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
         <p class="hero-sub" style="margin-top:0;">The philosophy behind N&#x101;M</p>
       </div>
     </div>
@@ -534,12 +672,19 @@
     <div class="hero-accent-cream"></div>
     <div class="hero-accent-terracotta"></div>
   </div>
+  <div class="hero-img-strip">
+    <img src="/assets/hero.jpg" alt="" loading="eager">
+  </div>
 </section>
 
 <!-- 02 — Essence -->
 <section class="slide bg-cream grain watermark watermark-light wm-center" id="s2">
   <div class="slide-inner" style="display:flex;align-items:center;justify-content:center;">
     <p class="essence-text">A space to realise our full creative potential. <span>Together.</span></p>
+  </div>
+  <div class="img-hint img-hint-h" style="bottom:0;">
+    <div class="img-hint-accent"></div>
+    <img src="/assets/landscape.jpg" alt="" loading="lazy" style="object-position:center 65%;">
   </div>
   <div class="sn">02</div>
 </section>
@@ -562,14 +707,22 @@
       </div>
     </div>
   </div>
+  <div class="img-hint img-hint-h" style="bottom:0;">
+    <div class="img-hint-accent"></div>
+    <img src="/assets/palms.jpg" alt="" loading="lazy" style="object-position:center 40%;">
+  </div>
   <div class="sn">03</div>
 </section>
 
 <!-- 04 — Core values -->
 <section class="slide bg-cream grain" id="s4">
+  <div class="img-hint img-hint-h" style="bottom:0;">
+    <div class="img-hint-accent"></div>
+    <img src="/assets/cm-learning.jpg" alt="" loading="lazy" style="object-position:center 50%;">
+  </div>
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3rem;">
     <div style="text-align:center;">
-      <div class="label" style="justify-content:center;"><img src="../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Core values</div>
+      <div class="label" style="justify-content:center;"><img src="/assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Core values</div>
       <h2 style="margin-bottom:0;">What guides us</h2>
     </div>
     <div class="values-grid">
@@ -602,10 +755,88 @@
   <div class="sn">04</div>
 </section>
 
-<!-- 05 — Principles (Part 1) -->
-<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s5">
+<!-- 05 — Value 01: Move with intention -->
+<section class="slide value-detail-slide grain" id="s5">
+  <div class="value-detail-bg">
+    <img src="/assets/hero.jpg" alt="" loading="lazy" style="object-position:center 40%;">
+  </div>
+  <div class="value-detail-content">
+    <div class="value-num">01</div>
+    <h2 class="value-detail-name">Move with intention</h2>
+    <p class="value-detail-desc">Every action, every moment has purpose. We don&rsquo;t fill time &mdash; we use it. From the way we design spaces to the rhythm of our days, we choose deliberately rather than defaulting.</p>
+  </div>
+  <div class="sn">05</div>
+</section>
+
+<!-- 06 — Value 02: People are the real resource -->
+<section class="slide value-detail-slide grain" id="s6">
+  <div class="value-detail-bg">
+    <img src="/assets/cm-learning.jpg" alt="" loading="lazy" style="object-position:center 50%;">
+  </div>
+  <div class="value-detail-content">
+    <div class="value-num">02</div>
+    <h2 class="value-detail-name">People are the real resource</h2>
+    <p class="value-detail-desc">The community is not a backdrop. It&rsquo;s the main asset. We invest in people, in relationships, in the kind of proximity that makes learning and collaboration inevitable.</p>
+  </div>
+  <div class="sn">06</div>
+</section>
+
+<!-- 07 — Value 03: Do the real work -->
+<section class="slide value-detail-slide grain" id="s7">
+  <div class="value-detail-bg">
+    <img src="/assets/landscape.jpg" alt="" loading="lazy" style="object-position:center 65%;">
+  </div>
+  <div class="value-detail-content">
+    <div class="value-num">03</div>
+    <h2 class="value-detail-name">Do the real work</h2>
+    <p class="value-detail-desc">We favour substance over surface. The work that matters is often the work that&rsquo;s hardest to do &mdash; and we create the conditions for it to happen.</p>
+  </div>
+  <div class="sn">07</div>
+</section>
+
+<!-- 08 — Value 04: Experiment loudly -->
+<section class="slide value-detail-slide grain" id="s8">
+  <div class="value-detail-bg">
+    <img src="/assets/palms.jpg" alt="" loading="lazy" style="object-position:center 40%;">
+  </div>
+  <div class="value-detail-content">
+    <div class="value-num">04</div>
+    <h2 class="value-detail-name">Experiment loudly</h2>
+    <p class="value-detail-desc">Try things. Share openly. Fail in public. The best ideas come from people who aren&rsquo;t afraid to test, learn, and iterate in front of others.</p>
+  </div>
+  <div class="sn">08</div>
+</section>
+
+<!-- 09 — Value 05: Make space for depth -->
+<section class="slide value-detail-slide grain" id="s9">
+  <div class="value-detail-bg">
+    <img src="/assets/rw-nature.jpg" alt="" loading="lazy" style="object-position:center 30%;">
+  </div>
+  <div class="value-detail-content">
+    <div class="value-num">05</div>
+    <h2 class="value-detail-name">Make space for depth</h2>
+    <p class="value-detail-desc">Quiet corners. Unstructured hours. Room for reflection. Depth isn&rsquo;t a luxury &mdash; it&rsquo;s what allows creative work to emerge.</p>
+  </div>
+  <div class="sn">09</div>
+</section>
+
+<!-- 10 — Value 06: Stay human -->
+<section class="slide value-detail-slide grain" id="s10">
+  <div class="value-detail-bg">
+    <img src="/assets/cta-bg.jpg" alt="" loading="lazy">
+  </div>
+  <div class="value-detail-content">
+    <div class="value-num">06</div>
+    <h2 class="value-detail-name">Stay human</h2>
+    <p class="value-detail-desc">Technology serves connection. It doesn&rsquo;t replace it. We design for the messy, embodied, emotional reality of being human together.</p>
+  </div>
+  <div class="sn">10</div>
+</section>
+
+<!-- 11 — Principles (Part 1) -->
+<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s11">
   <div class="slide-inner" style="max-width:800px;">
-    <div class="label"><img src="../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Principles &middot; Part 1</div>
+    <div class="label"><img src="/assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Principles &middot; Part 1</div>
     <div>
       <div class="principle">
         <div class="principle-name"><span class="dot"></span> Place first</div>
@@ -621,13 +852,13 @@
       </div>
     </div>
   </div>
-  <div class="sn">05</div>
+  <div class="sn">11</div>
 </section>
 
-<!-- 06 — Principles (Part 2) -->
-<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s6">
+<!-- 12 — Principles (Part 2) -->
+<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s12">
   <div class="slide-inner" style="max-width:800px;">
-    <div class="label"><img src="../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Principles &middot; Part 2</div>
+    <div class="label"><img src="/assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Principles &middot; Part 2</div>
     <div>
       <div class="principle">
         <div class="principle-name"><span class="dot"></span> Care is infrastructure</div>
@@ -643,13 +874,13 @@
       </div>
     </div>
   </div>
-  <div class="sn">06</div>
+  <div class="sn">12</div>
 </section>
 
-<!-- 07 — Principles (Part 3) -->
-<section class="slide bg-green grain watermark watermark-dark wm-center" id="s7">
+<!-- 13 — Principles (Part 3) -->
+<section class="slide bg-green grain watermark watermark-dark wm-center" id="s13">
   <div class="slide-inner" style="max-width:800px;">
-    <div class="label"><img src="../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Principles &middot; Part 3</div>
+    <div class="label"><img src="/assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Principles &middot; Part 3</div>
     <div>
       <div class="principle">
         <div class="principle-name"><span class="dot"></span> Designed for change</div>
@@ -665,11 +896,15 @@
       </div>
     </div>
   </div>
-  <div class="sn">07</div>
+  <div class="sn">13</div>
 </section>
 
-<!-- 08 — Water -->
-<section class="slide bg-dark grain watermark watermark-dark wm-center" id="s8">
+<!-- 14 — Water -->
+<section class="slide bg-dark grain watermark watermark-dark wm-center" id="s14">
+  <div class="img-hint img-hint-v" style="right:0;">
+    <div class="img-hint-accent"></div>
+    <img src="/assets/rw-nature.jpg" alt="" loading="lazy" style="object-position:center 30%;">
+  </div>
   <div class="slide-inner" style="display:flex;align-items:center;justify-content:center;">
     <div class="water-text">
       <p class="water-open">Water as a force has always been underestimated.</p>
@@ -680,19 +915,22 @@
       <p class="water-close">A space where all of us can come together. To form a mighty river.</p>
     </div>
   </div>
-  <div class="sn">08</div>
+  <div class="sn">14</div>
 </section>
 
-<!-- 09 — CTA -->
-<section class="slide bg-terracotta grain" id="s9">
-  <div class="slide-inner" style="display:flex;align-items:center;justify-content:center;">
+<!-- 15 — CTA -->
+<section class="slide bg-terracotta grain" id="s15" style="position:relative;">
+  <div class="cta-bg-img">
+    <img src="/assets/cta-bg.jpg" alt="" loading="lazy">
+  </div>
+  <div class="slide-inner" style="display:flex;align-items:center;justify-content:center;position:relative;z-index:2;">
     <div class="cta-content">
       <h2>The community is forming.</h2>
       <p>N&#x101;M is building a space for visionaries, founders, and creators who believe the best work happens together.</p>
       <a href="https://members.nam.space" class="cta-btn" target="_blank">Join the community &rarr;</a>
     </div>
   </div>
-  <div class="sn">09</div>
+  <div class="sn">15</div>
 </section>
 
 </div>
@@ -729,6 +967,12 @@
     'Essence',
     'What / How / Why',
     'Core values',
+    'Move with intention',
+    'People are the real resource',
+    'Do the real work',
+    'Experiment loudly',
+    'Make space for depth',
+    'Stay human',
     'Principles \u00b7 Part 1',
     'Principles \u00b7 Part 2',
     'Principles \u00b7 Part 3',
