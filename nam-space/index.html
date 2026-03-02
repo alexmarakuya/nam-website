@@ -278,19 +278,21 @@
   .badge-planned { background: var(--sapling); color: var(--deep-green); }
   .badge-opens { background: var(--beige); color: var(--deep-green); }
 
-  .activities-carousel { overflow-x: auto; overflow-y: hidden; width: 100%; position: relative; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; }
+  .activities-carousel { overflow-x: auto; overflow-y: hidden; width: 100%; position: relative; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; padding: 8px 0; }
   .activities-carousel::-webkit-scrollbar { display: none; }
   .activities-carousel.dragging { cursor: grabbing; scroll-behavior: auto; }
-  .activities-track { display: flex; gap: 20px; width: max-content; }
+  .activities-track { display: flex; gap: 24px; width: max-content; padding: 0 64px; }
 
-  .act-card { flex-shrink: 0; width: 280px; height: 420px; border-radius: 20px; overflow: hidden; position: relative; }
+  .act-card { flex-shrink: 0; width: 280px; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: box-shadow 0.3s ease; }
+  .act-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .act-card-img-wrap { aspect-ratio: 1; overflow: hidden; border-radius: 16px 16px 0 0; margin: 12px 12px 0; }
   .act-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   .act-card:hover img { transform: scale(1.05); }
-  .act-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 40%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; gap: 12px; z-index: 1; }
-  .act-card-title { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.2; letter-spacing: -0.44px; color: #fff; }
-  .act-card-link { text-decoration: none; cursor: pointer; }
-  .act-card-join { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); letter-spacing: 0.3px; transition: color 0.3s; }
-  .act-card-link:hover .act-card-join { color: #fff; }
+  .act-card-caption { padding: 20px 20px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .act-card-title { font-family: var(--font-display); font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: -0.4px; color: var(--slate); }
+  .act-card-link { text-decoration: none; cursor: pointer; color: inherit; }
+  .act-card-link:hover .act-card-title { color: var(--deep-green); }
+  .act-card-join { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--sunwashed); letter-spacing: 0.3px; }
 
   .activities-cta { background: var(--oat); border-radius: 24px; padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; gap: 48px; max-width: 1200px; width: 100%; margin: 0 120px; }
   .activities-cta-text { display: flex; flex-direction: column; gap: 8px; }
@@ -404,7 +406,8 @@
     .card-section { padding: 48px 40px; }
     .activities-section { padding: 60px 0; }
     .activities-header { padding: 0 40px; }
-    .act-card { width: 240px; height: 360px; }
+    .activities-track { padding: 0 40px; gap: 20px; }
+    .act-card { width: 260px; }
     .activities-cta { margin: 0 40px; width: auto; }
     .full-image { aspect-ratio: 16 / 9; padding: 0 40px; }
     .mfu-section { padding: 60px 40px; }
@@ -490,9 +493,11 @@
     .full-image { padding: 0 24px; }
     .activities-section { padding: 48px 0; gap: 32px; }
     .activities-header { padding: 0 24px; }
-    .act-card { width: 220px; height: 330px; border-radius: 16px; }
-    .act-card-title { font-size: 18px; }
-    .act-card-overlay { padding: 20px; gap: 10px; }
+    .activities-track { padding: 0 24px; gap: 16px; }
+    .act-card { width: 220px; border-radius: 20px; }
+    .act-card-img-wrap { margin: 10px 10px 0; border-radius: 12px 12px 0 0; }
+    .act-card-title { font-size: 17px; }
+    .act-card-caption { padding: 16px 16px 20px; gap: 8px; }
     .activities-cta { margin: 0 24px; width: auto; flex-direction: column; padding: 24px; gap: 20px; }
     .btn-sm { min-height: 44px; padding: 12px 16px; }
     .mfu-section { padding: 48px 24px; }
@@ -581,8 +586,8 @@
         <div class="tl-sticky-images">
           <img src="/assets/tl-coffeehouse.jpg" alt="A 17th-century coffeehouse" class="tl-simg active" data-tl="0">
           <img src="/assets/tl-colony.jpg" alt="An artist colony studio" class="tl-simg" data-tl="1">
-          <img src="/assets/tl-hackerspace.jpg" alt="A hackerspace workshop" class="tl-simg" data-tl="2">
-          <img src="/assets/tl-internetcafe.jpg" alt="A 1990s internet cafe" class="tl-simg" data-tl="3">
+          <img src="/assets/tl-internetcafe.jpg" alt="A 1990s internet cafe" class="tl-simg" data-tl="2">
+          <img src="/assets/tl-hackerspace.jpg" alt="A hackerspace workshop" class="tl-simg" data-tl="3">
           <img src="/assets/tl-coworking.jpg" alt="A modern coworking space" class="tl-simg" data-tl="4">
         </div>
       </div>
@@ -609,19 +614,19 @@
         </div>
 
         <div class="tl-entry" data-tl="2">
+          <p class="tl-date">1990<span class="sc">s</span></p>
+          <h3 class="tl-name">The Internet Cafe</h3>
+          <p class="tl-essence">The cautionary tale</p>
+          <p class="tl-desc">Provided access to a tool, then became redundant when everyone had it at home. A reminder that spaces built around tools alone don't endure.</p>
+          <div class="tl-entry-img"><img src="/assets/tl-internetcafe.jpg" alt="A 1990s internet cafe" loading="lazy"></div>
+        </div>
+
+        <div class="tl-entry" data-tl="3">
           <p class="tl-date">1995</p>
           <h3 class="tl-name">The Hackerspace</h3>
           <p class="tl-essence">Open-source culture in physical form</p>
           <p class="tl-desc">Radical openness and collaborative making. Shared tools, shared knowledge, no gatekeepers. The movement that planted the seeds for the entire coworking era.</p>
           <div class="tl-entry-img"><img src="/assets/tl-hackerspace.jpg" alt="A hackerspace workshop" loading="lazy"></div>
-        </div>
-
-        <div class="tl-entry" data-tl="3">
-          <p class="tl-date">1990<span class="sc">s</span></p>
-          <h3 class="tl-name">The Internet Cafe</h3>
-          <p class="tl-essence">The cautionary tale</p>
-          <p class="tl-desc">Solved access to a tool, then became redundant when everyone had it at home. A reminder that spaces built around tools alone don't endure.</p>
-          <div class="tl-entry-img"><img src="/assets/tl-internetcafe.jpg" alt="A 1990s internet cafe" loading="lazy"></div>
         </div>
 
         <div class="tl-entry" data-tl="4">
@@ -840,80 +845,101 @@
     <div class="activities-carousel fade-up" role="region" aria-label="Activities carousel" tabindex="0">
       <div class="activities-track">
       <a href="https://wa.me/message/3RVKLOPKCTS2P1" target="_blank" class="act-card act-card-link">
-        <img src="/assets/ev-coworking.jpg" alt="Co-working events" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-coworking.jpg" alt="Co-working events" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-weekly">Happening weekly</span>
           <p class="act-card-title">Co-working events</p>
           <p class="act-card-join">Join WhatsApp group &rarr;</p>
         </div>
       </a>
-      <a href="https://chat.whatsapp.com/mastermind" target="_blank" class="act-card act-card-link">
-        <img src="/assets/ev-masterminds.jpg" alt="Masterminds" loading="lazy">
-        <div class="act-card-overlay">
+      <div class="act-card">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-masterminds.jpg" alt="Masterminds" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-weekly">Happening weekly</span>
           <p class="act-card-title">Masterminds and professional circles</p>
-          <p class="act-card-join">Join WhatsApp group &rarr;</p>
         </div>
-      </a>
+      </div>
       <div class="act-card">
-        <img src="/assets/ev-talks.jpg" alt="Talks and discussions" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-talks.jpg" alt="Talks and discussions" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-trial">Trial phase</span>
           <p class="act-card-title">Talks, discussions, and informal salons</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-workshops.jpg" alt="Workshops" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-workshops.jpg" alt="Workshops" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-planned">Planned</span>
           <p class="act-card-title">Small workshops and skill-sharing</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-residency.jpg" alt="Residency programs" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-residency.jpg" alt="Residency programs" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-planned">Planned</span>
           <p class="act-card-title">Residency programs</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-conferences.jpg" alt="Conferences" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-conferences.jpg" alt="Conferences" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-planned">Planned</span>
           <p class="act-card-title">Conferences</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-offsites.jpg" alt="Start-up off-sites" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-offsites.jpg" alt="Startup off-sites" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-planned">Planned</span>
-          <p class="act-card-title">Start-up off-sites</p>
+          <p class="act-card-title">Startup off-sites</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-retreats.jpg" alt="Founder retreats" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-retreats.jpg" alt="Founder retreats" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-planned">Planned</span>
           <p class="act-card-title">Founder retreats</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-standups.jpg" alt="Daily stand-ups" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-standups.jpg" alt="Daily stand-ups" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-opens">When NāM opens</span>
           <p class="act-card-title">Daily stand-ups and check-ins</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-mindfulness.jpg" alt="Mindfulness practices" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-mindfulness.jpg" alt="Mindfulness practices" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-opens">When NāM opens</span>
           <p class="act-card-title">Mindfulness practices</p>
         </div>
       </div>
       <div class="act-card">
-        <img src="/assets/ev-yoga.jpg" alt="Yoga and movement" loading="lazy">
-        <div class="act-card-overlay">
+        <div class="act-card-img-wrap">
+          <img src="/assets/ev-yoga.jpg" alt="Yoga and movement" loading="lazy">
+        </div>
+        <div class="act-card-caption">
           <span class="badge badge-opens">When NāM opens</span>
           <p class="act-card-title">Yoga and movement classes</p>
         </div>
