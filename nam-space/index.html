@@ -337,6 +337,16 @@
   .activities-cta .body-lg { color: var(--slate); }
 
   /* Full-width image */
+  .cream-card { background: var(--cream); border-radius: 40px; margin: 0 64px; overflow: hidden; }
+  .cream-card .full-image { padding: 0; }
+  .cream-card .full-image img { border-radius: 0; }
+  .cream-card .features-section { background: transparent; padding: 80px 120px; }
+  .cream-card .features-left .h2 { color: var(--deep-green); }
+  .cream-card .features-left .h2 span { color: var(--sunwashed); }
+  .cream-card .features-left .subtitle { color: var(--slate); }
+  .cream-card .feature-item { border-bottom-color: var(--border); }
+  .cream-card .feature-item .body-lg-semi { color: var(--slate); }
+
   .full-image { width: 100%; aspect-ratio: 1440 / 723; overflow: hidden; position: relative; padding: 0 64px; }
   .full-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; border-radius: 16px; }
   .full-image.full-bleed { padding: 0; }
@@ -438,6 +448,8 @@
     .ecosystem-section { padding: 80px 40px; }
     .ecosystem-inner { gap: 48px; }
     .ecosystem-left { position: static; }
+    .cream-card { margin: 0 40px; border-radius: 32px; }
+    .cream-card .features-section { padding: 60px 40px; }
     .features-section { padding: 60px 40px; }
     .features-inner { flex-direction: column; gap: 40px; }
     .features-right { width: 100%; }
@@ -449,6 +461,7 @@
     .activities-track { padding: 0 40px; gap: 20px; }
     .act-card { width: 260px; }
     .activities-cta { margin: 0 40px; width: auto; }
+    .cream-card .full-image { padding: 0; }
     .full-image { aspect-ratio: 16 / 9; padding: 0 40px; }
     .mfu-section { padding: 60px 40px; }
     .mfu-inner { flex-direction: column; gap: 48px; }
@@ -516,6 +529,8 @@
     .eco-item { padding-bottom: 32px; }
     .eco-item-title { font-size: 20px; }
     .eco-item-desc { font-size: 15px; }
+    .cream-card { margin: 0 24px; border-radius: 24px; }
+    .cream-card .features-section { padding: 48px 24px; gap: 24px; }
     .features-section { padding: 48px 24px; gap: 24px; }
     .features-left { gap: 16px; }
     .feature-item { padding: 16px 0; }
@@ -530,6 +545,7 @@
     .phase-pill { min-height: 44px; padding: 12px 16px; }
     .card-section { padding: 40px 24px; gap: 24px; }
     .card-grid { grid-template-columns: 1fr; gap: 32px; }
+    .cream-card .full-image { padding: 0; }
     .full-image { padding: 0 24px; }
     .activities-section { padding: 48px 0; gap: 32px; }
     .activities-header { padding: 0 24px; }
@@ -693,7 +709,8 @@
     </div>
   </section>
 
-  <!-- Hero image -->
+  <!-- Hero image + Features (cream card) -->
+  <div class="cream-card">
   <div class="full-image">
     <img src="/assets/hero.jpg" alt="NāM Space">
   </div>
@@ -737,6 +754,7 @@
       </div>
     </div>
   </section>
+  </div><!-- /cream-card -->
 
   <!-- Spaces wrapper for sticky strip -->
   <div class="spaces-wrapper">
