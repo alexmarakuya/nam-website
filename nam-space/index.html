@@ -267,25 +267,35 @@
      ACTIVITIES — carousel
      ============================================= */
   .activities-section { background: var(--cream); width: 100%; display: flex; flex-direction: column; align-items: center; padding: 120px 0; gap: 48px; position: relative; overflow: hidden; }
+  .activities-section::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(213,107,69,0.08) 0%, rgba(213,107,69,0.03) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: activities-glow 8s ease-in-out infinite;
+  }
+  .activities-section > * { position: relative; z-index: 1; }
+  @keyframes activities-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
   .activities-header { max-width: 1200px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; padding: 0 120px; }
   .activities-header .h2 { color: var(--slate); }
   .activities-header .h2 span { color: var(--sunwashed); }
   .activities-header .body-lg { color: var(--slate); }
 
-  .badge { display: inline-flex; padding: 8px 12px; border-radius: 8px; font-family: var(--font-mono); font-size: 14px; font-weight: 400; line-height: 1.4; letter-spacing: -0.28px; width: fit-content; }
-  .badge-weekly { background: var(--sunwashed); color: var(--cream); }
-  .badge-trial { background: var(--foliage); color: var(--cream); }
-  .badge-planned { background: var(--sapling); color: var(--deep-green); }
-  .badge-opens { background: var(--beige); color: var(--deep-green); }
+  .act-card-status { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--pebble); letter-spacing: 0.02em; text-transform: uppercase; }
 
   .activities-carousel { overflow-x: auto; overflow-y: hidden; width: 100%; position: relative; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; padding: 8px 0; }
   .activities-carousel::-webkit-scrollbar { display: none; }
   .activities-carousel.dragging { cursor: grabbing; scroll-behavior: auto; }
-  .activities-track { display: flex; gap: 24px; width: max-content; padding: 0 64px; }
+  .activities-track { display: flex; gap: 36px; width: max-content; padding: 0 64px; }
 
   .act-card { flex-shrink: 0; width: 280px; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: box-shadow 0.3s ease; }
   .act-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-  .act-card-img-wrap { aspect-ratio: 1; overflow: hidden; border-radius: 16px 16px 0 0; margin: 12px 12px 0; }
+  .act-card-img-wrap { aspect-ratio: 1; overflow: hidden; border-radius: 16px; margin: 6px 6px 0; }
   .act-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   .act-card:hover img { transform: scale(1.05); }
   .act-card-caption { padding: 20px 20px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
@@ -371,6 +381,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .fade-up, .m-reveal, .hero-el, .tl-entry { opacity: 1 !important; }
+    .activities-section::before { animation: none; }
   }
 
   /* =============================================
@@ -406,7 +417,7 @@
     .card-section { padding: 48px 40px; }
     .activities-section { padding: 60px 0; }
     .activities-header { padding: 0 40px; }
-    .activities-track { padding: 0 40px; gap: 20px; }
+    .activities-track { padding: 0 40px; gap: 28px; }
     .act-card { width: 260px; }
     .activities-cta { margin: 0 40px; width: auto; }
     .full-image { aspect-ratio: 16 / 9; padding: 0 40px; }
@@ -493,9 +504,9 @@
     .full-image { padding: 0 24px; }
     .activities-section { padding: 48px 0; gap: 32px; }
     .activities-header { padding: 0 24px; }
-    .activities-track { padding: 0 24px; gap: 16px; }
+    .activities-track { padding: 0 24px; gap: 24px; }
     .act-card { width: 220px; border-radius: 20px; }
-    .act-card-img-wrap { margin: 10px 10px 0; border-radius: 12px 12px 0 0; }
+    .act-card-img-wrap { margin: 5px 5px 0; border-radius: 12px; }
     .act-card-title { font-size: 17px; }
     .act-card-caption { padding: 16px 16px 20px; gap: 8px; }
     .activities-cta { margin: 0 24px; width: auto; flex-direction: column; padding: 24px; gap: 20px; }
@@ -849,7 +860,7 @@
           <img src="/assets/ev-coworking.jpg" alt="Co-working events" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-weekly">Happening weekly</span>
+          <span class="act-card-status">Weekly</span>
           <p class="act-card-title">Co-working events</p>
           <p class="act-card-join">Join WhatsApp group &rarr;</p>
         </div>
@@ -859,7 +870,7 @@
           <img src="/assets/ev-masterminds.jpg" alt="Masterminds" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-weekly">Happening weekly</span>
+          <span class="act-card-status">Weekly</span>
           <p class="act-card-title">Masterminds and professional circles</p>
         </div>
       </div>
@@ -868,7 +879,7 @@
           <img src="/assets/ev-talks.jpg" alt="Talks and discussions" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-trial">Trial phase</span>
+          <span class="act-card-status">Trial</span>
           <p class="act-card-title">Talks, discussions, and informal salons</p>
         </div>
       </div>
@@ -877,7 +888,7 @@
           <img src="/assets/ev-workshops.jpg" alt="Workshops" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-planned">Planned</span>
+          <span class="act-card-status">Planned</span>
           <p class="act-card-title">Small workshops and skill-sharing</p>
         </div>
       </div>
@@ -886,7 +897,7 @@
           <img src="/assets/ev-residency.jpg" alt="Residency programs" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-planned">Planned</span>
+          <span class="act-card-status">Planned</span>
           <p class="act-card-title">Residency programs</p>
         </div>
       </div>
@@ -895,7 +906,7 @@
           <img src="/assets/ev-conferences.jpg" alt="Conferences" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-planned">Planned</span>
+          <span class="act-card-status">Planned</span>
           <p class="act-card-title">Conferences</p>
         </div>
       </div>
@@ -904,7 +915,7 @@
           <img src="/assets/ev-offsites.jpg" alt="Startup off-sites" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-planned">Planned</span>
+          <span class="act-card-status">Planned</span>
           <p class="act-card-title">Startup off-sites</p>
         </div>
       </div>
@@ -913,7 +924,7 @@
           <img src="/assets/ev-retreats.jpg" alt="Founder retreats" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-planned">Planned</span>
+          <span class="act-card-status">Planned</span>
           <p class="act-card-title">Founder retreats</p>
         </div>
       </div>
@@ -922,7 +933,7 @@
           <img src="/assets/ev-standups.jpg" alt="Daily stand-ups" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-opens">When NāM opens</span>
+          <span class="act-card-status">Coming soon</span>
           <p class="act-card-title">Daily stand-ups and check-ins</p>
         </div>
       </div>
@@ -931,7 +942,7 @@
           <img src="/assets/ev-mindfulness.jpg" alt="Mindfulness practices" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-opens">When NāM opens</span>
+          <span class="act-card-status">Coming soon</span>
           <p class="act-card-title">Mindfulness practices</p>
         </div>
       </div>
@@ -940,7 +951,7 @@
           <img src="/assets/ev-yoga.jpg" alt="Yoga and movement" loading="lazy">
         </div>
         <div class="act-card-caption">
-          <span class="badge badge-opens">When NāM opens</span>
+          <span class="act-card-status">Coming soon</span>
           <p class="act-card-title">Yoga and movement classes</p>
         </div>
       </div>
