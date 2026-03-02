@@ -215,6 +215,11 @@
     color: rgba(244,242,232,0.5);
     letter-spacing: 0.08em;
   }
+  .hero-accent-img-wrap {
+    display: flex;
+    flex-shrink: 0;
+    height: 100%;
+  }
   .hero-accent-strip {
     width: 48px; flex-shrink: 0; height: 100%;
     display: flex; flex-direction: column;
@@ -222,7 +227,7 @@
   .hero-accent-cream { flex: 1; background: var(--bg); }
   .hero-accent-terracotta { flex: 1; background: var(--terracotta); }
   .hero-img-strip {
-    width: 33%;
+    width: 33vw;
     flex-shrink: 0;
     height: 100%;
     position: relative;
@@ -616,11 +621,12 @@
     .slide-inner { padding-top: 0; width: 100%; }
     .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
     .hero-main { padding: 12px 24px 16px; }
-    .hero-accent-strip { display: flex; flex-direction: row; width: 100%; height: 18px; }
+    .hero-accent-img-wrap { flex-direction: row; height: 35vh; flex-shrink: 0; }
+    .hero-accent-strip { width: 48px; flex-direction: column; height: 100%; }
     .hero-accent-strip > div { flex: 1; }
     .hero-slide { flex-direction: column; }
     .hero-main { height: auto; flex: 1; }
-    .hero-img-strip { width: 100%; height: 35vh; flex-shrink: 0; }
+    .hero-img-strip { width: auto; flex: 1; min-width: 0; height: 100%; }
     .img-hint { display: none !important; }
     .sn { display: none !important; }
     .nav-bar { padding: 0 12px; }
@@ -668,12 +674,14 @@
       <span>N&#x101;M Space &middot; Koh Phangan</span>
     </div>
   </div>
-  <div class="hero-accent-strip">
-    <div class="hero-accent-cream"></div>
-    <div class="hero-accent-terracotta"></div>
-  </div>
-  <div class="hero-img-strip">
-    <img src="/assets/hero.jpg" alt="" loading="eager">
+  <div class="hero-accent-img-wrap">
+    <div class="hero-accent-strip">
+      <div class="hero-accent-cream"></div>
+      <div class="hero-accent-terracotta"></div>
+    </div>
+    <div class="hero-img-strip">
+      <img src="/assets/hero.jpg" alt="" loading="eager">
+    </div>
   </div>
 </section>
 

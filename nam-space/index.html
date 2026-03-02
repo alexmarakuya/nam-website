@@ -85,6 +85,27 @@
   .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
   .site-nav .nav-cta:hover { filter: brightness(1.1); }
 
+  /* Top banner — Casa NāM */
+  .top-banner {
+    width: 100%;
+    background: var(--sunwashed);
+    padding: 12px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .top-banner a {
+    font-family: var(--font-mono);
+    font-size: var(--text-nav);
+    font-weight: 500;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: -0.28px;
+    line-height: 1.4;
+  }
+  .top-banner a:hover { text-decoration: underline; }
+
   .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; }
   .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
   .burger span + span { margin-top: 6px; }
@@ -354,6 +375,7 @@
      TABLET
      ============================================= */
   @media (max-width: 1024px) {
+    .top-banner { padding: 12px 40px; }
     .site-header { padding: 24px 40px; }
     .hero-section { padding: 100px 40px; min-height: 60vh; }
     .hero-title { font-size: 56px; }
@@ -399,6 +421,8 @@
      MOBILE
      ============================================= */
   @media (max-width: 640px) {
+    .top-banner { padding: 10px 20px; }
+    .top-banner a { font-size: 13px; }
     .h1 { font-size: 36px; letter-spacing: -0.72px; }
     .h2 { font-size: 28px; letter-spacing: -0.56px; }
     .h3 { font-size: 24px; letter-spacing: -0.48px; }
@@ -495,6 +519,11 @@
 <div class="page">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top banner -->
+  <div class="top-banner">
+    <a href="/casa-nam/">Introducing Casa NāM — our residential project on Koh Phangan. Private homes and shared spaces for living well. Explore →</a>
+  </div>
 
   <!-- Header -->
   <header class="site-header">
