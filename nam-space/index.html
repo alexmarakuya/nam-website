@@ -257,7 +257,7 @@
   .card-section-header .h3 { color: var(--deep-green); }
   .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; width: 100%; }
   .card { display: flex; flex-direction: column; gap: 12px; }
-  .card-img { aspect-ratio: 378 / 238; border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; }
+  .card-img { aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; }
   .card-img img { width: 100%; height: 100%; object-fit: cover; }
   .card-phase { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 6px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; line-height: 1.3; letter-spacing: 0.3px; background: #fff; color: var(--deep-green); }
 
@@ -323,7 +323,7 @@
 
   .act-card { flex-shrink: 0; width: 280px; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: box-shadow 0.3s ease; }
   .act-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-  .act-card-img-wrap { aspect-ratio: 1; overflow: hidden; border-radius: 16px; margin: 8px 8px 0; }
+  .act-card-img-wrap { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; margin: 8px 8px 0; }
   .act-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
   .act-card:hover img { transform: scale(1.05); }
   .act-card-caption { padding: 20px 20px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
@@ -338,7 +338,7 @@
 
   /* Full-width image */
   .cream-card { background: var(--cream); border-radius: 40px; margin: 0 64px 80px; overflow: hidden; }
-  .cream-card .full-image { padding: 40px; }
+  .cream-card .full-image { padding: 40px; overflow: hidden; border-radius: 24px; }
   .cream-card .full-image img { border-radius: 24px; }
   .cream-card .features-section { background: transparent; padding: 80px 120px; }
   .cream-card .features-left .h2 { color: var(--deep-green); }
@@ -453,7 +453,7 @@
     .ecosystem-inner { gap: 48px; }
     .ecosystem-left { position: static; }
     .cream-card { margin: 0 40px 64px; border-radius: 32px; }
-    .cream-card .full-image { padding: 32px; }
+    .cream-card .full-image { padding: 32px; border-radius: 20px; }
     .cream-card .features-section { padding: 60px 40px; }
     .features-section { padding: 60px 40px; }
     .features-inner { flex-direction: column; gap: 40px; }
@@ -535,7 +535,7 @@
     .eco-item-title { font-size: 20px; }
     .eco-item-desc { font-size: 15px; }
     .cream-card { margin: 0 24px 48px; border-radius: 24px; }
-    .cream-card .full-image { padding: 24px; }
+    .cream-card .full-image { padding: 24px; border-radius: 16px; }
     .cream-card .features-section { padding: 48px 24px; gap: 24px; }
     .features-section { padding: 48px 24px; gap: 24px; }
     .features-left { gap: 16px; }
@@ -720,7 +720,7 @@
   <!-- Hero image + Features (cream card) -->
   <div class="cream-card">
   <div class="full-image fade-up">
-    <img src="/assets/hero.jpg" alt="NāM Space">
+    <img src="/assets/hero.jpg" alt="NāM Space" srcset="/assets/hero.jpg 2880w" sizes="100vw" fetchpriority="high">
   </div>
 
   <!-- ==========================================
@@ -788,17 +788,17 @@
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/ws-shared.jpg" alt="Shared work areas" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/ws-shared.jpg" alt="Shared work areas" loading="lazy" srcset="/assets/ws-shared.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Shared work areas</p>
         <p class="body-sm card-desc">Calm, open spaces for working alone or alongside others.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/ws-focused.jpg" alt="Focused work spaces" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/ws-focused.jpg" alt="Focused work spaces" loading="lazy" srcset="/assets/ws-focused.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Focused work spaces</p>
         <p class="body-sm card-desc">Quiet desks for deep, independent work with minimal distraction.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/ws-pods.jpg" alt="Private work pods" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/ws-pods.jpg" alt="Private work pods" loading="lazy" srcset="/assets/ws-pods.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Private work pods</p>
         <p class="body-sm card-desc">Fully air-conditioned pods for focused immersion, with nature outside.</p>
       </div>
@@ -813,17 +813,17 @@
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/sp-recording.jpg" alt="Recording studio" loading="lazy"><span class="card-phase phase-2">Phase 2</span></div>
+        <div class="card-img"><img src="/assets/sp-recording.jpg" alt="Recording studio" loading="lazy" srcset="/assets/sp-recording.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
         <p class="body-lg-semi card-title">Recording studio</p>
         <p class="body-sm card-desc">Soundproofed studio for music, video, and podcast production.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/sp-maker.jpg" alt="Maker space" loading="lazy"><span class="card-phase phase-3">Phase 3</span></div>
+        <div class="card-img"><img src="/assets/sp-maker.jpg" alt="Maker space" loading="lazy" srcset="/assets/sp-maker.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-3">Phase 3</span></div>
         <p class="body-lg-semi card-title">Maker space</p>
         <p class="body-sm card-desc">Hands-on workspace for prototyping, building, and working with materials.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/sp-pottery.jpg" alt="Pottery studio" loading="lazy"><span class="card-phase phase-3">Phase 3</span></div>
+        <div class="card-img"><img src="/assets/sp-pottery.jpg" alt="Pottery studio" loading="lazy" srcset="/assets/sp-pottery.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-3">Phase 3</span></div>
         <p class="body-lg-semi card-title">Pottery studio</p>
         <p class="body-sm card-desc">A space for working with clay, independently or with guidance.</p>
       </div>
@@ -838,17 +838,17 @@
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/rw-napping.jpg" alt="Napping & quiet rooms" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/rw-napping.jpg" alt="Napping & quiet rooms" loading="lazy" srcset="/assets/rw-napping.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Napping & quiet rooms</p>
         <p class="body-sm card-desc">Dimly lit, quiet rooms for rest, short naps, and recovery from stimulation.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/rw-onsen.jpg" alt="Onsen and ice bath" loading="lazy"><span class="card-phase phase-2">Phase 2</span></div>
+        <div class="card-img"><img src="/assets/rw-onsen.jpg" alt="Onsen and ice bath" loading="lazy" srcset="/assets/rw-onsen.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
         <p class="body-lg-semi card-title">Onsen and ice bath</p>
         <p class="body-sm card-desc">Sauna, hot and cold pools integrated into stepped natural ponds.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/rw-nature.jpg" alt="Nature walks and gardens" loading="lazy"><span class="card-phase phase-2">Phase 2</span></div>
+        <div class="card-img"><img src="/assets/rw-nature.jpg" alt="Nature walks and gardens" loading="lazy" srcset="/assets/rw-nature.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
         <p class="body-lg-semi card-title">Nature walks and gardens</p>
         <p class="body-sm card-desc">Paths through nature for walking, resting, reading, or quiet reflection.</p>
       </div>
@@ -863,17 +863,17 @@
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/cm-kitchen.jpg" alt="Community kitchen" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/cm-kitchen.jpg" alt="Community kitchen" loading="lazy" srcset="/assets/cm-kitchen.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Community kitchen</p>
         <p class="body-sm card-desc">Shared kitchen for meals, quick bites, and time away from your desk.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/cm-learning.jpg" alt="Learning spaces" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/cm-learning.jpg" alt="Learning spaces" loading="lazy" srcset="/assets/cm-learning.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Learning spaces</p>
         <p class="body-sm card-desc">Flexible rooms for talks, skill-sharing, and group activities.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/cm-outdoor.jpg" alt="Outdoor gathering areas" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/cm-outdoor.jpg" alt="Outdoor gathering areas" loading="lazy" srcset="/assets/cm-outdoor.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Outdoor gathering areas</p>
         <p class="body-sm card-desc">Shaded outdoor spaces for informal meetings and shared moments.</p>
       </div>
@@ -888,17 +888,17 @@
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/ac-deluxe.jpg" alt="Deluxe Treehouse" loading="lazy"><span class="card-phase phase-2">Phase 2</span></div>
+        <div class="card-img"><img src="/assets/ac-deluxe.jpg" alt="Deluxe Treehouse" loading="lazy" srcset="/assets/ac-deluxe.jpg 720w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
         <p class="body-lg-semi card-title">Deluxe Treehouse</p>
         <p class="body-sm card-desc">Fully featured room with a private desk, for solo stays or couples.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/ac-flexi.jpg" alt="Flexi Treehouse" loading="lazy"><span class="card-phase phase-2">Phase 2</span></div>
+        <div class="card-img"><img src="/assets/ac-flexi.jpg" alt="Flexi Treehouse" loading="lazy" srcset="/assets/ac-flexi.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
         <p class="body-lg-semi card-title">Flexi Treehouse</p>
         <p class="body-sm card-desc">Compact room with stowable beds, designed for solo travelers.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/casa-nam.jpg" alt="Casa NāM" loading="lazy"><span class="card-phase phase-1">Phase 1</span></div>
+        <div class="card-img"><img src="/assets/casa-nam.jpg" alt="Casa NāM" loading="lazy" srcset="/assets/casa-nam.jpg 4096w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
         <p class="body-lg-semi card-title">Casa NāM</p>
         <p class="body-sm card-desc">Our residential village with private rooms, shared spaces, and garden views.</p>
       </div>
@@ -918,7 +918,7 @@
       <div class="activities-track">
       <a href="https://wa.me/message/3RVKLOPKCTS2P1" target="_blank" class="act-card act-card-link">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-coworking.jpg" alt="Co-working events" loading="lazy">
+          <img src="/assets/ev-coworking.jpg" alt="Co-working events" loading="lazy" srcset="/assets/ev-coworking.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Weekly</span>
@@ -928,7 +928,7 @@
       </a>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-masterminds.jpg" alt="Masterminds" loading="lazy">
+          <img src="/assets/ev-masterminds.jpg" alt="Masterminds" loading="lazy" srcset="/assets/ev-masterminds.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Weekly</span>
@@ -937,7 +937,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-talks.jpg" alt="Talks and discussions" loading="lazy">
+          <img src="/assets/ev-talks.jpg" alt="Talks and discussions" loading="lazy" srcset="/assets/ev-talks.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Trial</span>
@@ -946,7 +946,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-workshops.jpg" alt="Workshops" loading="lazy">
+          <img src="/assets/ev-workshops.jpg" alt="Workshops" loading="lazy" srcset="/assets/ev-workshops.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Planned</span>
@@ -955,7 +955,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-residency.jpg" alt="Residency programs" loading="lazy">
+          <img src="/assets/ev-residency.jpg" alt="Residency programs" loading="lazy" srcset="/assets/ev-residency.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Planned</span>
@@ -964,7 +964,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-conferences.jpg" alt="Conferences" loading="lazy">
+          <img src="/assets/ev-conferences.jpg" alt="Conferences" loading="lazy" srcset="/assets/ev-conferences.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Planned</span>
@@ -973,7 +973,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-offsites.jpg" alt="Startup off-sites" loading="lazy">
+          <img src="/assets/ev-offsites.jpg" alt="Startup off-sites" loading="lazy" srcset="/assets/ev-offsites.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Planned</span>
@@ -982,7 +982,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-retreats.jpg" alt="Founder retreats" loading="lazy">
+          <img src="/assets/ev-retreats.jpg" alt="Founder retreats" loading="lazy" srcset="/assets/ev-retreats.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Planned</span>
@@ -991,7 +991,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-standups.jpg" alt="Daily stand-ups" loading="lazy">
+          <img src="/assets/ev-standups.jpg" alt="Daily stand-ups" loading="lazy" srcset="/assets/ev-standups.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Coming soon</span>
@@ -1000,7 +1000,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-mindfulness.jpg" alt="Mindfulness practices" loading="lazy">
+          <img src="/assets/ev-mindfulness.jpg" alt="Mindfulness practices" loading="lazy" srcset="/assets/ev-mindfulness.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Coming soon</span>
@@ -1009,7 +1009,7 @@
       </div>
       <div class="act-card">
         <div class="act-card-img-wrap">
-          <img src="/assets/ev-yoga.jpg" alt="Yoga and movement" loading="lazy">
+          <img src="/assets/ev-yoga.jpg" alt="Yoga and movement" loading="lazy" srcset="/assets/ev-yoga.jpg 1376w" sizes="280px">
         </div>
         <div class="act-card-caption">
           <span class="act-card-status">Coming soon</span>
@@ -1019,13 +1019,6 @@
       </div>
     </div>
 
-    <div class="activities-cta fade-up">
-      <div class="activities-cta-text">
-        <p class="body-lg-semi" style="color: var(--deep-green);">The community is already forming.</p>
-        <p class="body-lg">While NāM takes shape, co-working sessions, masterminds, and gatherings happen weekly across the island. Join the WhatsApp group to find your people.</p>
-      </div>
-      <a href="https://wa.me/message/3RVKLOPKCTS2P1" target="_blank" class="btn">Join Co-work & Connect</a>
-    </div>
   </section>
 
   <!-- Made for us -->
@@ -1069,26 +1062,6 @@
       <div class="cta-header">
         <h2 class="h2">Join our journey</h2>
         <p class="body-lg">And be the first to know about what's happening as we build, grow and open our doors.</p>
-      </div>
-      <div class="cta-benefits">
-        <div class="cta-benefit">
-          <!-- Lucide: user -->
-          <svg class="cta-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#f5f2e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <p class="body-lg-semi">Publish your profile</p>
-          <p class="body-sm">Be visible in the member directory. Let others find and connect with you.</p>
-        </div>
-        <div class="cta-benefit">
-          <!-- Lucide: megaphone -->
-          <svg class="cta-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#f5f2e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg>
-          <p class="body-lg-semi">Get project updates</p>
-          <p class="body-sm">Follow the build as it happens. Plans, timelines, progress.</p>
-        </div>
-        <div class="cta-benefit">
-          <!-- Lucide: hammer -->
-          <svg class="cta-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#f5f2e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg>
-          <p class="body-lg-semi">Shape the space</p>
-          <p class="body-sm">Have a voice in what gets built. Input on programming and spaces.</p>
-        </div>
       </div>
       <div class="cta-bar-inside">
         <p class="body-lg-semi">Free to follow. No commitment.</p>
