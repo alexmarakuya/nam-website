@@ -258,15 +258,15 @@
   .card-section-header .h3 { color: var(--deep-green); }
   .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; width: 100%; }
   .card { display: flex; flex-direction: column; gap: 12px; }
-  .card-img { aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; }
-  .card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .card-img { aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; display: block; }
+  .card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .card-phase { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 6px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; line-height: 1.3; letter-spacing: 0.3px; background: #fff; color: var(--deep-green); }
 
   /* Space lightbox */
   .space-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
   .space-lightbox.open { display: flex; }
-  .space-lightbox-img { position: absolute; inset: 0; }
-  .space-lightbox-img img { width: 100%; height: 100%; object-fit: contain; }
+  .space-lightbox-img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(90vw, 1200px); aspect-ratio: 4 / 3; max-height: calc(100vh - 180px); overflow: hidden; }
+  .space-lightbox-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .space-lightbox-content { position: absolute; bottom: 0; left: 0; padding: 48px 64px 64px; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); color: var(--cream); z-index: 2; max-width: 90%; }
   .space-lightbox-phase { display: inline-block; padding: 6px 12px; border-radius: 6px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.3px; background: var(--cream); color: var(--deep-green); margin-bottom: 12px; }
   .space-lightbox-title { font-family: var(--font-display); font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
@@ -324,9 +324,9 @@
 
   .act-card { flex-shrink: 0; width: 280px; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: box-shadow 0.3s ease; }
   .act-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-  .act-card-img-wrap { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; margin: 8px 8px 0; }
-  .act-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-  .act-card:hover img { transform: scale(1.05); }
+  .act-card-img-wrap { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; margin: 8px 8px 0; position: relative; }
+  .act-card-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease; }
+  .act-card:hover .act-card-img-wrap img { transform: scale(1.05); }
   .act-card-caption { padding: 20px 20px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
   .act-card-title { font-family: var(--font-display); font-weight: 400; font-size: 20px; line-height: 1.25; letter-spacing: -0.4px; color: var(--slate); }
   .act-card-link { text-decoration: none; cursor: pointer; color: inherit; }
@@ -559,6 +559,7 @@
     .activities-track { padding: 0 24px; gap: 16px; }
     .act-card { width: 220px; border-radius: 20px; }
     .act-card-img-wrap { margin: 7px 7px 0; border-radius: 12px; }
+    .space-lightbox-img { width: min(95vw, 1200px); max-height: calc(100vh - 140px); }
     .space-lightbox-content { padding: 32px 24px 40px; }
     .space-lightbox-title { font-size: 24px; }
     .space-lightbox-desc { font-size: 14px; }
