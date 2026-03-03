@@ -339,7 +339,7 @@
   /* Full-width image */
   .cream-card { background: var(--cream); border-radius: 40px; margin: 0 64px 80px; overflow: hidden; }
   .cream-card .full-image { padding: 40px; }
-  .cream-card .full-image img { border-radius: 16px; }
+  .cream-card .full-image img { border-radius: 24px; }
   .cream-card .features-section { background: transparent; padding: 80px 120px; }
   .cream-card .features-left .h2 { color: var(--deep-green); }
   .cream-card .features-left .h2 span { color: var(--sunwashed); }
@@ -386,7 +386,10 @@
   .cta-benefit .body-sm { color: rgba(255,255,255,0.7); }
   .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
   .cta-bar-inside .body-lg-semi { color: var(--deep-green); }
+  .cta-bar-buttons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .cta-btn-inside { background: var(--sunwashed); color: var(--cream); border-radius: 24px; padding: 14px 28px; font-size: 16px; }
+  .cta-bar-secondary { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 500; font-size: 16px; color: var(--deep-green); text-decoration: none; padding: 14px 20px; border-radius: 24px; border: 1px solid rgba(57, 56, 52, 0.2); transition: border-color 0.2s, background 0.2s; }
+  .cta-bar-secondary:hover { border-color: var(--deep-green); background: rgba(57, 56, 52, 0.04); }
 
   /* Buttons */
   .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px; background: var(--sunwashed); border-radius: 8px; font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.2; letter-spacing: -0.4px; color: var(--cream); text-decoration: none; transition: filter 0.2s; flex-shrink: 0; white-space: nowrap; border: none; cursor: pointer; }
@@ -463,7 +466,7 @@
     .activities-track { padding: 0 40px; gap: 20px; }
     .act-card { width: 260px; }
     .activities-cta { margin: 0 40px; width: auto; }
-    .cream-card .full-image img { border-radius: 12px; }
+    .cream-card .full-image img { border-radius: 20px; }
     .full-image { aspect-ratio: 16 / 9; padding: 0 40px; }
     .mfu-section { padding: 60px 40px; }
     .mfu-inner { flex-direction: column; gap: 48px; }
@@ -548,7 +551,7 @@
     .phase-pill { min-height: 44px; padding: 12px 16px; }
     .card-section { padding: 40px 24px; gap: 24px; }
     .card-grid { grid-template-columns: 1fr; gap: 32px; }
-    .cream-card .full-image img { border-radius: 12px; }
+    .cream-card .full-image img { border-radius: 16px; }
     .full-image { padding: 0 24px; }
     .activities-section { padding: 48px 0; gap: 32px; }
     .activities-header { padding: 0 24px; }
@@ -572,6 +575,8 @@
     .cta-benefits { grid-template-columns: 1fr; gap: 12px; }
     .cta-benefit { padding: 20px; }
     .cta-bar-inside { padding: 20px; gap: 16px; }
+    .cta-bar-buttons { flex-direction: column; width: 100%; }
+    .cta-bar-buttons .btn, .cta-bar-buttons .cta-bar-secondary { width: 100%; justify-content: center; text-align: center; }
     .blog-section { padding: 40px 24px; }
     .site-footer { padding: 0 24px; }
     .footer-inner { flex-direction: column; gap: 20px; padding: 20px 0 48px; }
@@ -1062,8 +1067,8 @@
   <section class="cta-section">
     <div class="cta-card fade-up">
       <div class="cta-header">
-        <h2 class="h2">Become a founding member</h2>
-        <p class="body-lg">The community is forming now. Create your profile and join before the doors open.</p>
+        <h2 class="h2">Join our journey</h2>
+        <p class="body-lg">And be the first to know about what's happening as we build, grow and open our doors.</p>
       </div>
       <div class="cta-benefits">
         <div class="cta-benefit">
@@ -1086,8 +1091,8 @@
         </div>
       </div>
       <div class="cta-bar-inside">
-        <p class="body-lg-semi">Free to join. No commitment.</p>
-        <a href="https://members.nam.space" class="btn cta-btn-inside">Become a member</a>
+        <p class="body-lg-semi">Free to follow. No commitment.</p>
+        <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="btn cta-btn-inside">Follow our Instagram for updates</a>
       </div>
     </div>
   </section>
