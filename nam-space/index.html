@@ -267,7 +267,7 @@
   .space-lightbox.open { display: flex; }
   .space-lightbox-img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(90vw, 1200px); aspect-ratio: 4 / 3; max-height: calc(100vh - 180px); overflow: hidden; }
   .space-lightbox-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-  .space-lightbox-content { position: absolute; bottom: 0; left: 0; padding: 48px 64px 64px; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); color: var(--cream); z-index: 2; max-width: 90%; }
+  .space-lightbox-content { position: absolute; bottom: 0; left: 0; right: 0; width: 100%; padding: 48px 64px 64px; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); color: var(--cream); z-index: 2; }
   .space-lightbox-phase { display: inline-block; padding: 6px 12px; border-radius: 6px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.3px; background: var(--cream); color: var(--deep-green); margin-bottom: 12px; }
   .space-lightbox-title { font-family: var(--font-display); font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
   .space-lightbox-desc { font-family: var(--font-mono); font-size: 16px; line-height: 1.5; opacity: 0.9; max-width: 560px; }
@@ -339,8 +339,9 @@
 
   /* Full-width image */
   .cream-card { background: var(--cream); border-radius: 40px; margin: 0 64px 80px; overflow: hidden; }
-  .cream-card .full-image { padding: 40px; overflow: hidden; border-radius: 24px; }
-  .cream-card .full-image img { border-radius: 24px; }
+  .cream-card .full-image { padding: 40px; position: relative; }
+  .cream-card .full-image-inner { position: absolute; inset: 0; border-radius: 24px; overflow: hidden; }
+  .cream-card .full-image-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; display: block; }
   .cream-card .features-section { background: transparent; padding: 80px 120px; }
   .cream-card .features-left .h2 { color: var(--deep-green); }
   .cream-card .features-left .h2 span { color: var(--sunwashed); }
@@ -454,7 +455,8 @@
     .ecosystem-inner { gap: 48px; }
     .ecosystem-left { position: static; }
     .cream-card { margin: 0 40px 64px; border-radius: 32px; }
-    .cream-card .full-image { padding: 32px; border-radius: 20px; }
+    .cream-card .full-image { padding: 32px; }
+    .cream-card .full-image-inner { inset: 0; border-radius: 20px; }
     .cream-card .features-section { padding: 60px 40px; }
     .features-section { padding: 60px 40px; }
     .features-inner { flex-direction: column; gap: 40px; }
@@ -467,7 +469,6 @@
     .activities-track { padding: 0 40px; gap: 20px; }
     .act-card { width: 260px; }
     .activities-cta { margin: 0 40px; width: auto; }
-    .cream-card .full-image img { border-radius: 20px; }
     .full-image { aspect-ratio: 16 / 9; padding: 0 40px; }
     .mfu-section { padding: 60px 40px; }
     .mfu-inner { flex-direction: column; gap: 48px; }
@@ -536,7 +537,8 @@
     .eco-item-title { font-size: 20px; }
     .eco-item-desc { font-size: 15px; }
     .cream-card { margin: 0 24px 48px; border-radius: 24px; }
-    .cream-card .full-image { padding: 24px; border-radius: 16px; }
+    .cream-card .full-image { padding: 24px; }
+    .cream-card .full-image-inner { border-radius: 16px; }
     .cream-card .features-section { padding: 48px 24px; gap: 24px; }
     .features-section { padding: 48px 24px; gap: 24px; }
     .features-left { gap: 16px; }
@@ -552,7 +554,6 @@
     .phase-pill { min-height: 44px; padding: 12px 16px; }
     .card-section { padding: 40px 24px; gap: 24px; }
     .card-grid { grid-template-columns: 1fr; gap: 32px; }
-    .cream-card .full-image img { border-radius: 16px; }
     .full-image { padding: 0 24px; }
     .activities-section { padding: 48px 0; gap: 32px; }
     .activities-header { padding: 0 24px; }
@@ -722,7 +723,9 @@
   <!-- Hero image + Features (cream card) -->
   <div class="cream-card">
   <div class="full-image fade-up">
-    <img src="/assets/hero.jpg" alt="NāM Space" srcset="/assets/hero.jpg 2880w" sizes="100vw" fetchpriority="high">
+    <div class="full-image-inner">
+      <img src="/assets/hero.jpg" alt="NāM Space" srcset="/assets/hero.jpg 2880w" sizes="100vw" fetchpriority="high">
+    </div>
   </div>
 
   <!-- ==========================================
