@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The origin of NāM — A tale of land, spirits and AI</title>
+<meta name="description" content="The origin story of NāM Space — a personal essay by Alex Duffner about land, spirits, AI, and building a co-creation space on Koh Phangan.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nam.space/blog/the-origin-of-nam/">
+<meta property="og:title" content="The origin of NāM — A tale of land, spirits and AI">
+<meta property="og:description" content="The origin story of NāM Space — a personal essay by Alex Duffner about land, spirits, AI, and building a co-creation space on Koh Phangan.">
+<meta property="og:image" content="https://nam.space/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The origin of NāM — A tale of land, spirits and AI">
+<meta name="twitter:description" content="The origin story of NāM Space — a personal essay by Alex Duffner about land, spirits, AI, and building a co-creation space on Koh Phangan.">
+<meta name="twitter:image" content="https://nam.space/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vlm8vtw4kc");
+</script>
+<style>
+  :root {
+    --deep-green: #2b3a2c;
+    --foliage: #49584a;
+    --sage: #b8c8b7;
+    --sapling: #a3b2a2;
+    --oat: #e7e2d6;
+    --cream: #f5f2e9;
+    --beige: #ccc4b5;
+    --sunwashed: #d56b45;
+    --slate: #393834;
+    --granite: #61605c;
+    --pebble: #7d7970;
+    --white: #ffffff;
+    --font-display: 'Epilogue', sans-serif;
+    --font-mono: 'Sometype Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-mono);
+    color: var(--cream);
+    background: var(--deep-green);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 32px 64px;
+    z-index: 10;
+    position: relative;
+  }
+  .site-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 64px;
+    right: 64px;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+  .site-logo img { height: 18px; }
+  .site-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .site-nav a {
+    color: var(--cream);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .site-nav a:hover { border-color: rgba(245,242,233,0.3); }
+  .site-nav a[aria-current="page"] { border-color: var(--cream); }
+  .site-nav .nav-cta {
+    border-color: var(--sunwashed);
+    background: var(--sunwashed);
+    color: var(--cream);
+  }
+  .site-nav .nav-cta:hover { opacity: 0.9; border-color: var(--sunwashed); }
+  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--cream); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-overlay { display: none; }
+  .skip-link {
+    position: absolute; left: -9999px; top: auto;
+    background: var(--sunwashed); color: var(--cream);
+    padding: 8px 16px; z-index: 200; font-size: 14px;
+  }
+  .skip-link:focus { left: 16px; top: 16px; }
+
+  /* ── ESSAY ── */
+  .essay-article {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Hero */
+  .essay-hero {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 64px 0;
+    text-align: center;
+  }
+  .essay-hero .essay-meta {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--sapling);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .essay-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+  .essay-hero .essay-subtitle {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--sage);
+    margin-bottom: 48px;
+  }
+  .essay-hero-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .essay-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--foliage);
+  }
+
+  /* Content wrapper */
+  .essay-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  /* Typography */
+  .essay-content p {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .essay-content h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-top: 80px;
+    margin-bottom: 32px;
+  }
+  .essay-content h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--cream);
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  /* Captions */
+  .essay-caption {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--sapling);
+    font-style: italic;
+  }
+
+  /* Full-width image blocks */
+  .essay-image {
+    margin: 48px 0;
+  }
+  .essay-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: var(--foliage);
+  }
+  .essay-image figcaption {
+    margin-top: 12px;
+  }
+
+  /* Wide image — breaks out of content column */
+  .essay-image-wide {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 64px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+  .essay-image-wide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: var(--foliage);
+  }
+  .essay-image-wide figcaption {
+    margin-top: 12px;
+  }
+
+  /* Divider */
+  .essay-divider {
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    margin: 64px 0;
+  }
+
+  /* Pull quote */
+  .essay-pullquote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--cream);
+    margin: 48px 0;
+    padding: 0;
+  }
+
+  /* Blockquote */
+  .essay-blockquote {
+    border-left: 2px solid var(--sapling);
+    padding-left: 24px;
+    margin: 40px 0;
+  }
+  .essay-blockquote p {
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .essay-blockquote .essay-blockquote-cite {
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 14px;
+    color: var(--sapling);
+  }
+
+  /* Manifesto block */
+  .essay-manifesto {
+    border-left: 2px solid var(--sapling);
+    padding-left: 24px;
+    margin: 48px 0;
+  }
+  .essay-manifesto p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+  .essay-manifesto p:last-child { margin-bottom: 0; }
+
+  /* Manifesting poem (indented italic block, no border) */
+  .essay-poem {
+    margin: 40px 0;
+    padding-left: 24px;
+  }
+  .essay-poem p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  /* Two-column: text + image side by side */
+  .essay-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin: 48px 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 64px;
+  }
+  .essay-row .essay-row-text p {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .essay-row .essay-row-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    background: var(--foliage);
+  }
+  .essay-row .essay-row-image figcaption {
+    margin-top: 12px;
+  }
+
+  /* Closing section — text left, image right */
+  .essay-closing-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    max-width: 1000px;
+    margin: 48px auto;
+    padding: 0 64px;
+  }
+  .essay-closing-row .essay-row-text h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+  .essay-closing-row .essay-row-text p {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .essay-closing-row .essay-row-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    background: var(--foliage);
+  }
+  .essay-closing-row .essay-row-image figcaption {
+    margin-top: 12px;
+  }
+
+  /* Rebirth sub-sections — heading left, text right */
+  .essay-subsection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 64px;
+    margin-bottom: 0;
+  }
+  .essay-subsection-heading {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--sage);
+  }
+  .essay-subsection-body p {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .essay-subsection-body p:last-child { margin-bottom: 0; }
+
+  /* Subsection divider (within 1000px container) */
+  .essay-subdiv {
+    max-width: 1000px;
+    margin: 48px auto;
+    padding: 0 64px;
+  }
+  .essay-subdiv hr {
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* Archetype cards */
+  .essay-archetype {
+    border-left: 2px solid var(--sapling);
+    padding-left: 24px;
+    margin-bottom: 32px;
+  }
+  .essay-archetype-title {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--cream);
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .essay-archetype-desc {
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--sapling);
+  }
+
+  /* Motto */
+  .essay-motto {
+    border-left: 2px solid var(--sapling);
+    padding-left: 24px;
+    margin: 32px 0;
+  }
+  .essay-motto p {
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--cream);
+    margin-bottom: 0;
+  }
+
+  /* NāM leaf divider */
+  .essay-leaf {
+    text-align: center;
+    margin: 64px 0;
+  }
+  .essay-leaf svg {
+    width: 48px;
+    height: auto;
+    opacity: 0.5;
+  }
+
+  /* Fin */
+  .essay-fin {
+    text-align: center;
+    padding: 80px 0 40px;
+  }
+  .essay-fin span {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 40px;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 24px;
+  }
+  .essay-fin svg {
+    width: 48px;
+    height: auto;
+    opacity: 0.4;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--deep-green);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 64px;
+    margin-top: 40px;
+  }
+  .footer-inner {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 20px 0 80px;
+  }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .footer-copy span { color: var(--sapling); }
+  .footer-logo img { height: 20px; width: 54px; }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── TABLET ── */
+  @media (max-width: 1024px) {
+    .site-header { padding: 24px 40px; }
+    .site-header::after { left: 40px; right: 40px; }
+    .essay-hero { padding: 60px 40px 0; }
+    .essay-hero h1 { font-size: 44px; }
+    .essay-content { padding: 0 40px; }
+    .essay-image-wide { padding: 0 40px; }
+    .essay-row {
+      grid-template-columns: 1fr;
+      padding: 0 40px;
+      gap: 32px;
+    }
+    .essay-closing-row {
+      grid-template-columns: 1fr;
+      padding: 0 40px;
+      gap: 32px;
+    }
+    .essay-closing-row .essay-row-image { order: -1; }
+    .essay-closing-row .essay-row-image img {
+      aspect-ratio: 16 / 10;
+    }
+    .essay-subsection {
+      grid-template-columns: 1fr;
+      padding: 0 40px;
+      gap: 16px;
+    }
+    .essay-subdiv { padding: 0 40px; }
+    .site-footer { padding: 0 40px; }
+    .footer-inner { padding: 20px 0 60px; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 640px) {
+    .site-header { padding: 14px 20px; }
+    .site-header::after { left: 20px; right: 20px; }
+    .burger { display: flex; }
+    .site-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 260px;
+      height: 100dvh;
+      background: var(--deep-green);
+      flex-direction: column;
+      padding: 80px 32px 40px;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      z-index: 100;
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .site-nav.open { transform: translateX(0); }
+    .site-nav a {
+      padding: 16px 0;
+      font-size: 16px;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0;
+    }
+    .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .site-nav .nav-cta {
+      background: var(--sunwashed);
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .nav-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+
+    .essay-hero { padding: 40px 24px 0; }
+    .essay-hero h1 { font-size: 36px; }
+    .essay-hero .essay-subtitle { font-size: 18px; margin-bottom: 32px; }
+    .essay-content { padding: 0 24px; }
+    .essay-content h2 { font-size: 32px; margin-top: 56px; }
+    .essay-content h3 { font-size: 24px; }
+    .essay-content p { font-size: 15px; }
+    .essay-pullquote { font-size: 20px; }
+    .essay-image-wide { padding: 0 24px; }
+    .essay-row { padding: 0 24px; gap: 24px; }
+    .essay-row .essay-row-image img { aspect-ratio: 4 / 3; }
+    .essay-closing-row { padding: 0 24px; gap: 24px; }
+    .essay-closing-row .essay-row-image img { aspect-ratio: 4 / 3; }
+    .essay-subsection { padding: 0 24px; gap: 12px; }
+    .essay-subsection-heading { font-size: 24px; }
+    .essay-subdiv { padding: 0 24px; margin: 32px auto; }
+    .essay-manifesto p { font-size: 16px; }
+    .essay-poem p { font-size: 16px; }
+    .essay-fin span { font-size: 32px; }
+    .site-footer { padding: 0 24px; }
+    .footer-inner {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 0 48px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<a href="#essay-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <a href="/" class="site-logo"><img src="/assets/logo.svg" alt="NāM"></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-overlay"></div>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/">NāM Space</a>
+    <a href="/blog/" aria-current="page">Blog</a>
+    <a href="/casa-nam/">Casa NāM</a>
+    <a href="https://members.nam.space" class="nav-cta">Become a member</a>
+  </nav>
+</header>
+
+<main id="essay-content">
+<article class="essay-article">
+
+  <!-- ── HERO ── -->
+  <section class="essay-hero fade-in">
+    <p class="essay-meta">12.05.2025 &nbsp;·&nbsp; Written by Alex Duffner</p>
+    <h1>The origin of NāM</h1>
+    <p class="essay-subtitle">A tale of land, spirits and AI.</p>
+    <figure class="essay-hero-image">
+      <img src="/assets/blog/the-origin-of-nam/hero-collage.jpg" alt="Collage of butterfly, hand reaching through plants, fire and stone — the origins of NāM">
+    </figure>
+  </section>
+
+  <!-- ── OPENING NARRATIVE ── -->
+  <div class="essay-content">
+    <p class="fade-in">Ten years ago, I had just returned to my hometown, Bangkok, after an overland journey that took me through Russia, Mongolia, and China on the Trans-Siberian Railway. What had started as a gap year turned into something much bigger — a decade-long search for meaning, belonging, and a place I could call home.</p>
+
+    <p class="fade-in">Once I arrived back in Thailand, I had to rebuild everything from scratch. I had no savings, no clear career path, and no idea where I was heading. But I had one thing: a deep, almost irrational pull toward something I couldn't yet name.</p>
+  </div>
+
+  <!-- ── IMAGE: Meet the neighbors ── -->
+  <figure class="essay-image-wide fade-in">
+    <img src="/assets/blog/the-origin-of-nam/meet-neighbors.jpg" alt="Group photo with local community members on Koh Phangan">
+    <figcaption class="essay-caption">Meet the neighbors.</figcaption>
+  </figure>
+
+  <div class="essay-content">
+    <hr class="essay-divider">
+
+    <!-- ── EMBRACING TRAVEL ── -->
+    <h2 class="fade-in">Embracing travel</h2>
+
+    <p class="fade-in">People who know me know that I've always been afraid of flying — a fear I've carried since my teenage years. But that fear didn't stop me from wanting to see the world. It just meant I had to find other ways to move through it — by land, by sea, through discomfort and awe.</p>
+
+    <p class="fade-in">What was supposed to be a one-year trip turned into nearly a decade of continuous travel. From Southeast Asia to Europe, from hostels to house-sits, from solo walks through foreign cities to shared meals with strangers who became friends.</p>
+
+    <p class="fade-in">Eventually, I landed in Mexico — and something shifted. It wasn't just the warmth, the culture, or the people. It was a feeling of groundedness I hadn't experienced before. As if the land itself was saying: stay. Breathe. Listen.</p>
+
+    <p class="fade-in">It's also where I experienced one of the healthiest relationships I've ever had — one that showed me what emotional safety and mutual growth could actually look like. That period was formative. It softened me.</p>
+
+    <p class="fade-in">Even with all that grounding, the need to keep moving stayed with me. It wasn't wanderlust — it was something deeper. A restlessness born from years of not quite fitting in, of always being between worlds.</p>
+
+    <p class="fade-in">Eventually, I made it to Brazil. Sitting on Ipanema beach, I listened to The Girl from Ipanema on my headphones and thought: maybe this is it. But the feeling passed. And I kept going.</p>
+
+    <hr class="essay-divider">
+
+    <!-- ── MANIFESTING HOME ── -->
+    <h2 class="fade-in">Manifesting home</h2>
+
+    <p class="fade-in">Back in Thailand, I didn't know where I wanted to settle. I explored islands, mountains, coastal towns — always looking for a place that matched something I could feel but not describe.</p>
+
+    <p class="fade-in">Then a message came from my friend Kara to visit her on Koh Phangan. I'd been to the island before, briefly, but never stayed long enough to feel its deeper rhythm.</p>
+
+    <p class="fade-in">While I was on Phangan, I spent more time with Kara. She introduced me to a quieter side of the island — away from the party scene, into the hills, the jungles, the communities of people building something real.</p>
+
+    <p class="fade-in">Eventually, I found a piece of land with a giant boulder overlooking the ocean. I thought it was perfect. But the deal fell through — money, negotiations, timing — and I was devastated.</p>
+
+    <p class="fade-in">Frustrated and full of emotion, I wrote a message to a friend. Not a property listing, not a wish list — a manifesto of feeling:</p>
+  </div>
+
+  <!-- Manifesting poem -->
+  <div class="essay-content">
+    <div class="essay-poem fade-in">
+      <p>I am manifesting:</p>
+      <p>I am sitting on the ground, next to a large rock</p>
+      <p>I am surrounded by a mix of lush tropical trees</p>
+      <p>It is bright and airy and I can hear the birds sing</p>
+      <p>If I stand up and climb up the rock, I can see the ocean</p>
+      <p>Also, I didn't overpay for that sh*t.</p>
+      <p>I sit there knowing it is my land</p>
+    </div>
+
+    <p class="fade-in">Three days later, I found it. A piece of land that matched every word. Right down to the feeling.</p>
+  </div>
+
+  <!-- ── IMAGE: The land I finally manifested ── -->
+  <figure class="essay-image-wide fade-in">
+    <img src="/assets/blog/the-origin-of-nam/land-manifested.jpg" alt="Tropical landscape with boulders and lush vegetation on Koh Phangan">
+    <figcaption class="essay-caption">The land I finally manifested.</figcaption>
+  </figure>
+
+  <div class="essay-content">
+    <hr class="essay-divider">
+
+    <!-- ── RECONNECTING ── -->
+    <h2 class="fade-in">Reconnecting to my roots and inner world</h2>
+
+    <p class="fade-in">Once I bought the land with my entire life savings, things began to shift. Not just externally, but deep inside. Owning land for the first time felt like anchoring into something — not just soil, but lineage, purpose, responsibility.</p>
+
+    <p class="fade-in">I spoke to my neighbors. Listened to their stories. Began to understand that this land had a memory — and I was now part of it.</p>
+
+    <p class="fade-in">In the process of starting this new life, I returned to therapy. I started working with a therapist who specialized in somatic and depth work — and for the first time, I began exploring not just my thoughts but my body, my ancestry, my shadow.</p>
+
+    <p class="essay-pullquote fade-in">"This land," he said, "is another one of those doorways."</p>
+
+    <p class="fade-in">Not just a project. But a way to work through the deeper wound — the one that had kept me moving, searching, never quite settling.</p>
+
+    <p class="fade-in">Now, I was choosing to return. To create something lasting. Something rooted. And in doing so, I was also choosing to face everything I had been running from.</p>
+
+    <p class="fade-in">That began to shift my entire understanding of freedom. Freedom wasn't about endless movement. It was about having a center — and being able to expand from it.</p>
+  </div>
+
+  <!-- ── NāM LEAF DIVIDER ── -->
+  <div class="essay-leaf fade-in">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 4C24 4 8 16 8 28C8 36.84 15.16 44 24 44C32.84 44 40 36.84 40 28C40 16 24 4 24 4Z" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+      <line x1="24" y1="16" x2="24" y2="40" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+      <line x1="24" y1="24" x2="16" y2="20" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+      <line x1="24" y1="28" x2="32" y2="24" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+      <line x1="24" y1="32" x2="17" y2="30" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <!-- ── TWO-COLUMN: Text + Wooden house image ── -->
+  <div class="essay-row fade-in">
+    <div class="essay-row-text">
+      <p>His words stayed with me. The land wasn't just soil and trees — it was a mirror. Everything I hadn't yet resolved in myself began to surface the moment I committed to building on it.</p>
+
+      <p>He reminded me of who I used to be — a person who needed to explain everything through logic and science. A person who didn't trust anything he couldn't measure or prove.</p>
+
+      <p>But over time, I had opened up. Through travel, through relationships, through loss — I had learned to feel before I understood. To trust before I could explain.</p>
+
+      <p>I started learning to trust that inner voice. The one that had led me to the land. The one that whispered yes when my rational mind was still calculating risks.</p>
+
+      <p>But even that is part of the process. Trusting yourself doesn't mean being free of doubt. It means choosing to move forward despite it.</p>
+
+      <p>I found myself caught between opposites and polarities — structure and flow, logic and intuition, solitude and community. And slowly, I began to understand that the work wasn't to choose one side, but to hold both.</p>
+    </div>
+    <figure class="essay-row-image">
+      <img src="/assets/blog/the-origin-of-nam/wooden-house.jpg" alt="Construction of a wooden house in a tropical setting">
+      <figcaption class="essay-caption">My experiment building a wooden house.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ── GOING DEEP THROUGH CURIOSITY ── -->
+  <div class="essay-row fade-in">
+    <div class="essay-row-text">
+      <h2 style="margin-top: 0;">Going deep through Curiosity</h2>
+      <p>Around that time, I also found a playful way to explore my inner world — through AI. What had started as curiosity about technology became something much more personal. I began using AI not just as a tool, but as a thinking partner. A mirror for ideas I hadn't yet dared to speak out loud.</p>
+
+      <p>What emerged from this playful collaboration was unexpected: clarity. About who I am, what I value, and what I want to build. The AI didn't tell me who to be — it helped me hear what I already knew.</p>
+
+      <p>As I began to define, brand, and shape what this project was meant to be, something deeper started to emerge. NāM wasn't just a business idea. It was an expression of everything I'd been through — every journey, every relationship, every loss, every insight.</p>
+    </div>
+    <figure class="essay-row-image">
+      <img src="/assets/blog/the-origin-of-nam/shaman-blessing.jpg" alt="Local shaman performing a blessing ceremony on the land">
+      <figcaption class="essay-caption">The local shaman blessing the land.</figcaption>
+    </figure>
+  </div>
+
+  <div class="essay-content">
+    <hr class="essay-divider">
+
+    <!-- ── OUT OF SHADOW COMES CLARITY ── -->
+    <h2 class="fade-in">Out of shadow comes clarity</h2>
+
+    <p class="fade-in">The final breakthrough came during Songkran — the Thai New Year. In a quiet moment during the celebrations, a story came back to me. One I hadn't thought about in years: The Rainbow Fish.</p>
+
+    <p class="fade-in">I saw myself in him. I had spent much of my life giving away parts of my light — my creativity, my vision, my sensitivity — because I believed that was the price of belonging. That if I shone too brightly, I would be too much. So I dimmed.</p>
+
+    <p class="fade-in">That story had sunk so deep into my psyche that I hadn't even recognized its hold on me. But once I saw it, I couldn't unsee it. And something broke open.</p>
+
+    <p class="fade-in">In continued conversations with my friend and philosophical sidekick, Shai — and with AI as a thinking partner — I began to rewrite the narrative. Not a story of dimming, but of reclaiming. Not of giving away light to belong, but of building a place where light is welcomed.</p>
+
+    <p class="fade-in">True to form, I turned to AI again and asked: Was NāM meant to be a place for people like us? People who had dimmed their light to fit in — and were now ready to shine again?</p>
+
+    <p class="fade-in">What came back was the most moving piece of writing I've ever read — and co-created:</p>
+  </div>
+
+  <!-- ── IMAGE: Where NāM will be built ── -->
+  <figure class="essay-image-wide fade-in">
+    <img src="/assets/blog/the-origin-of-nam/nam-land.jpg" alt="Tropical landscape where NāM will be built">
+    <figcaption class="essay-caption">Where NāM will be built.</figcaption>
+  </figure>
+
+  <!-- ── MANIFESTO BLOCK ── -->
+  <div class="essay-content">
+    <div class="essay-manifesto fade-in">
+      <p>NāM is for the ones who were born radiant — visionaries, sensitives, builders, artists — whose light was too much for the spaces they grew up in.</p>
+      <p>The ones who learned to dim, to shape-shift, to be brilliant quietly. The ones who internalized that belonging required editing themselves.</p>
+      <p>NāM is not just a sanctuary. It's a place of restoration — of full-spectrum creative souls reclaiming their rhythm, their voice, their power.</p>
+      <p>It's for those who don't want to compete, but to co-create.</p>
+      <p>Who don't want to hustle, but to listen and channel.</p>
+      <p>Who don't need more noise — but more resonance.</p>
+      <p>And yes — it's for people like you, who were always meant to shine in your own frequency, and are now remembering how.</p>
+      <p>NāM is the place where no one has to ask: "Is it okay if I shine here?"</p>
+      <p>Because the land itself answers: "Yes. We've been waiting."</p>
+    </div>
+
+    <hr class="essay-divider">
+
+    <!-- ── REBIRTH ── -->
+    <h2 class="fade-in">Rebirth</h2>
+
+    <p class="fade-in">This past year wasn't just a turning point — it was a process of rebirth. One of the most important lessons was this: a project as big as NāM couldn't rise from old foundations. I had to rebuild myself first — to shed the patterns and beliefs that kept me small, afraid, and confined, while still honoring the parts of me that carried me this far.</p>
+
+    <p class="fade-in">Through this process, some core lessons and truths began to crystalize:</p>
+  </div>
+
+  <!-- ── SUB: Creativity is my spirituality ── -->
+  <div class="essay-subdiv"><hr></div>
+  <div class="essay-subsection fade-in">
+    <h3 class="essay-subsection-heading">Creativity is my spirituality</h3>
+    <div class="essay-subsection-body">
+      <p>Branding became a form of soul work. Design became a practice of awareness. I stopped treating creativity as a means to an end — and began living it as a path, as a way of being. One that integrates mind, body, and spirit.</p>
+    </div>
+  </div>
+
+  <!-- ── SUB: Let the work breathe ── -->
+  <div class="essay-subdiv"><hr></div>
+  <div class="essay-subsection fade-in">
+    <h3 class="essay-subsection-heading">Let the work breathe</h3>
+    <div class="essay-subsection-body">
+      <p>Instead of rushing to define NāM as a business, I gave it space to become what it wanted to be: a living collaboration between land, people, technology, and time. A process, not a product.</p>
+
+      <p>I learned that creativity is not linear. It's cyclical, intuitive, and alive. And sometimes, the most important thing you can do is let the work breathe. That's what allowed me to find my center — not in opposition, but in integration.</p>
+
+      <p>I was reminded and confirmed in this belief when I picked out a book at random and found this passage:</p>
+
+      <blockquote class="essay-blockquote">
+        <p>"Don't start with the business.<br>Start with the art.<br>Let the business catch up."</p>
+        <cite class="essay-blockquote-cite">— Rick Rubin, The Creative Act</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- ── SUB: Know who you are ── -->
+  <div class="essay-subdiv"><hr></div>
+  <div class="essay-subsection fade-in">
+    <h3 class="essay-subsection-heading">Know who you are</h3>
+    <div class="essay-subsection-body">
+      <p>I stepped into a leadership that is no longer fragmented, but grounded in the archetypes that already live within me:</p>
+
+      <div class="essay-archetype">
+        <p class="essay-archetype-title">The Queen of Fire</p>
+        <p class="essay-archetype-desc">Radiant creativity and magnetic presence; she teaches me to express myself boldly and unapologetically.</p>
+      </div>
+
+      <div class="essay-archetype">
+        <p class="essay-archetype-title">The King of Cups</p>
+        <p class="essay-archetype-desc">Emotional mastery and compassionate steadiness; he reminds me that true strength lies in emotional integrity and depth.</p>
+      </div>
+
+      <div class="essay-archetype">
+        <p class="essay-archetype-title">The Fool</p>
+        <p class="essay-archetype-desc">Sacred trust in the unknown; his spirit encourages me to leap before I know the outcome, guided by intuition and heart.</p>
+      </div>
+
+      <div class="essay-archetype">
+        <p class="essay-archetype-title">The Magician</p>
+        <p class="essay-archetype-desc">The alchemist of inner and outer worlds, who weaves together all the tools and energies within me to co-create with clarity.</p>
+      </div>
+
+      <p>These are no longer distant ideals I strive toward — they are living energies I return to, again and again, to guide how I lead, live, and build NāM.</p>
+    </div>
+  </div>
+
+  <!-- ── SUB: Structure to enable, not limit flow ── -->
+  <div class="essay-subdiv"><hr></div>
+  <div class="essay-subsection fade-in">
+    <h3 class="essay-subsection-heading">Structure to enable, not limit flow</h3>
+    <div class="essay-subsection-body">
+      <p>And from that center, structure emerged — not as a constraint, but as the architecture of freedom. With the right foundations, flow becomes possible. Whether in how we design spaces, shape businesses, or build community.</p>
+
+      <p>NāM is no longer something I'm chasing. It's something I'm tending — slowly, intentionally, like a forest. Its growth follows the wisdom of nature:</p>
+
+      <div class="essay-motto">
+        <p>Start small. Observe. Adapt.</p>
+      </div>
+
+      <p>These are no longer distant ideals I strive toward — they are living energies I return to, again and again, to guide how I lead, live, and build NāM.</p>
+    </div>
+  </div>
+
+  <!-- ── CLOSING WORDS ── -->
+  <div class="essay-closing-row fade-in">
+    <div class="essay-row-text">
+      <h2>Closing Words</h2>
+      <p>This is just the beginning — the first reflection in a series where I'll be sharing updates on both the physical unfolding of NāM and the inner journey it continues to shape. I hope these stories and insights offer something grounding, honest, and perhaps even useful along your own path. And when the time is right, I hope to welcome you at NāM.</p>
+
+      <p>In the meantime, I look forward to sharing a clearer vision of what NāM is becoming — and the path we're taking to get there — in the next update.</p>
+    </div>
+    <figure class="essay-row-image">
+      <img src="/assets/blog/the-origin-of-nam/honoring-spirits.jpg" alt="Person tying orange fabric around a tree, honoring the spirits of the land">
+      <figcaption class="essay-caption">Honoring the spirits of the land.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ── FIN ── -->
+  <div class="essay-fin fade-in">
+    <span>Fin.</span>
+    <svg viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 6C10 2 16 10 24 6C32 2 38 10 44 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+      <path d="M4 14C10 10 16 18 24 14C32 10 38 18 44 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+      <path d="M4 22C10 18 16 26 24 22C32 18 38 26 44 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    </svg>
+  </div>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="caption footer-copy">NāM Space<br><span>Copyright &copy; 2026</span></p>
+    <div class="footer-logo"><img src="/assets/footer-logo.svg" alt="NāM"></div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Burger menu
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.site-nav');
+  var overlay = document.querySelector('.nav-overlay');
+  if (burger && nav && overlay) {
+    function toggleMenu() {
+      var isOpen = nav.classList.toggle('open');
+      burger.classList.toggle('open');
+      overlay.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (nav.classList.contains('open')) toggleMenu();
+      });
+    });
+  }
+
+  // Fade-in on scroll
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window && fadeEls.length) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>

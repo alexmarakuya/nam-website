@@ -1,0 +1,238 @@
+{
+  "homepage": {
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "scrollHeight": 812
+    },
+    "overflow": [
+      {
+        "tag": "DIV",
+        "class": "ambient-glow absolute -left-[15%] -top-[10%] h-[70vh] w-[70vh] rounded-full opacity-[0.15]",
+        "width": 631,
+        "overflow": 256
+      },
+      {
+        "tag": "DIV",
+        "class": "ambient-glow absolute -bottom-[10%] -right-[10%] h-[60vh] w-[60vh] rounded-full opacity-[0.12]",
+        "width": 514,
+        "overflow": 139
+      },
+      {
+        "tag": "DIV",
+        "class": "carousel-track flex gap-5",
+        "width": 4660,
+        "overflow": 4285
+      }
+    ],
+    "smallText": [
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      },
+      {
+        "tag": "P",
+        "class": "font-mono text-[11px] text-pebble",
+        "fontSize": 11,
+        "text": "Joined today"
+      }
+    ],
+    "closeButtons": [],
+    "footer": {
+      "visible": true,
+      "height": 161,
+      "top": 635,
+      "hasLinks": 4
+    },
+    "carousel": {
+      "found": true,
+      "class": "carousel-track flex gap-5",
+      "hasButtons": false,
+      "hasDots": false
+    },
+    "horizontalOverflow": false
+  },
+  "join": {
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "scrollHeight": 812
+    },
+    "overflow": [],
+    "smallText": [],
+    "closeButtons": [],
+    "footer": {
+      "visible": true,
+      "height": 161,
+      "top": 600,
+      "hasLinks": 4
+    },
+    "carousel": null,
+    "horizontalOverflow": false
+  },
+  "directory": {
+    "viewport": {
+      "width": 563,
+      "height": 1220,
+      "scrollHeight": 821
+    },
+    "overflow": [],
+    "smallText": [
+      {
+        "tag": "SPAN",
+        "class": "rounded-full bg-sunwashed/10 px-2 py-0.5 font-mono text-[10px] font-medium text-sunwashed",
+        "fontSize": 10,
+        "text": "Member"
+      },
+      {
+        "tag": "SPAN",
+        "class": "rounded-full bg-sage/30 px-2 py-0.5 font-mono text-[10px] text-deep-green",
+        "fontSize": 10,
+        "text": "On Island"
+      },
+      {
+        "tag": "SPAN",
+        "class": "font-mono text-[10px] text-pebble",
+        "fontSize": 10,
+        "text": "📍 Koh Phangan, Thailand"
+      },
+      {
+        "tag": "SPAN",
+        "class": "rounded-full border border-beige px-2 py-0.5 font-mono text-[10px] text-pebble",
+        "fontSize": 10,
+        "text": "#design"
+      },
+      {
+        "tag": "SPAN",
+        "class": "rounded-full border border-beige px-2 py-0.5 font-mono text-[10px] text-pebble",
+        "fontSize": 10,
+        "text": "#branding"
+      },
+      {
+        "tag": "SPAN",
+        "class": "rounded-full border border-beige px-2 py-0.5 font-mono text-[10px] text-pebble",
+        "fontSize": 10,
+        "text": "#ai"
+      },
+      {
+        "tag": "SPAN",
+        "class": "rounded-full border border-beige px-2 py-0.5 font-mono text-[10px] text-pebble",
+        "fontSize": 10,
+        "text": "#art"
+      },
+      {
+        "tag": "SPAN",
+        "class": "font-mono text-[10px] text-beige",
+        "fontSize": 10,
+        "text": "+2"
+      }
+    ],
+    "closeButtons": [],
+    "footer": {
+      "visible": true,
+      "height": 161,
+      "top": 612,
+      "hasLinks": 4
+    },
+    "carousel": null,
+    "horizontalOverflow": false
+  }
+}

@@ -1,0 +1,1033 @@
+{
+  "content": {
+    "meta": {
+      "title": "Build NāM — Help us create the third place for the age of AI",
+      "description": "Help build NāM Space on Koh Phangan. Choose what to fund — from work pods to pottery studios — and watch it come to life.",
+      "ogTitle": "Build NāM — Help us create the third place for the age of AI",
+      "ogDescription": "Choose what to fund and watch NāM come to life. A co-creation space tycoon — for real.",
+      "ogImage": "https://nam.space/assets/og-image.jpg",
+      "url": "https://build.nam.space/"
+    },
+    "nav": {
+      "links": [
+        { "label": "NāM Space", "href": "https://nam.space" },
+        { "label": "Manifesto", "href": "https://nam.space/manifesto/" },
+        { "label": "Build", "href": "#spaces" }
+      ],
+      "cta": { "label": "Support NāM", "href": "#cta" }
+    },
+    "hero": {
+      "label": "Co-creation in progress",
+      "title": "Help us build NāM",
+      "subtitle": "Choose what to fund. Watch it come to life. A co-creation space on Koh Phangan — built together, from the ground up.",
+      "statLabels": {
+        "raised": "raised",
+        "goal": "goal",
+        "funded": "funded"
+      },
+      "barSegmentLabels": {
+        "infrastructure": "Infrastructure",
+        "spaces": "Spaces",
+        "operations": "Operations"
+      },
+      "raisedTemplate": "{raised} raised — {remaining} still to go",
+      "scrollPrompt": "Explore the spaces below"
+    },
+    "founder": {
+      "label": "Founder's pledge",
+      "cardTitles": {
+        "land": "The land",
+        "investment": "First investment",
+        "funding": "Multiple funding streams"
+      },
+      "fundingValue": "Not just one ask"
+    },
+    "operations": {
+      "label": "Operations",
+      "infoParagraph": "A building needs a business to breathe. This covers the legal setup, the team who'll bring NāM to life, and 12 months of operating costs while the space finds its rhythm.",
+      "statLabels": {
+        "totalNeeded": "total needed",
+        "monthlyBurn": "monthly burn",
+        "monthsRunway": "months runway",
+        "funded": "funded"
+      },
+      "toggleText": {
+        "show": "View full breakdown",
+        "hide": "Hide breakdown"
+      },
+      "columnTitles": {
+        "setup": "Business setup",
+        "monthly": "Monthly operating costs"
+      },
+      "columnSubtitles": {
+        "setup": "One-time costs to establish NāM as a legal, operational business.",
+        "monthly": "Staff, utilities, and everything it takes to keep the doors open."
+      },
+      "tableHeaders": {
+        "item": "Item",
+        "cost": "Cost",
+        "role": "Role",
+        "monthly": "Monthly"
+      },
+      "subheadings": {
+        "team": "Team",
+        "runningCosts": "Running costs"
+      },
+      "totals": {
+        "setup": "Total setup",
+        "staff": "Total staff",
+        "running": "Total running"
+      },
+      "runwayLabel": "12-month runway"
+    },
+    "spaces": {
+      "label": "Choose your spaces",
+      "title": "What should we build?",
+      "subtitle": "Every space starts as empty land. Your support decides what rises. Choose what resonates.",
+      "filters": [
+        { "key": "all", "label": "All spaces" },
+        { "key": "work", "label": "Work" },
+        { "key": "community", "label": "Community" },
+        { "key": "wellness", "label": "Wellness" },
+        { "key": "specialist", "label": "Specialist" },
+        { "key": "accommodation", "label": "Accommodation" }
+      ]
+    },
+    "detail": {
+      "milestones": "Milestones",
+      "costBreakdown": "Cost breakdown",
+      "ripple": "What this enables",
+      "supportBtn": "Support this space",
+      "sourceNote": "All construction costs from PO-D Architects estimate (Feb 2026), including structure and interior finishing."
+    },
+    "payForward": {
+      "label": "Transparency",
+      "fundingTitle": "How NāM gets funded",
+      "fundingSubtitle": "Four pillars, one shared vision.",
+      "givingBackTitle": "Where it goes back",
+      "givingBackSubtitle": "Once NāM generates revenue, contributions are paid forward into island community and environmental projects."
+    },
+    "community": {
+      "label": "Community",
+      "title": "Recent supporters",
+      "subtitle": "Every contribution moves us forward. Here's who's building NāM with us."
+    },
+    "cta": {
+      "title": "Ready to help build NāM?",
+      "subtitle": "Choose a space that resonates. Every contribution brings us closer to opening the doors.",
+      "primaryBtn": { "label": "Explore spaces", "href": "#spaces" },
+      "secondaryBtn": { "label": "Learn about NāM", "href": "https://nam.space" }
+    },
+    "footer": {
+      "name": "NāM Space",
+      "copyright": "Copyright © 2026"
+    }
+  },
+  "project": {
+    "name": "NāM Space",
+    "tagline": "Help us build NāM",
+    "totalGoal": 443000,
+    "totalRaised": 0,
+    "supporters": 0,
+    "launchDate": "2026-03-15",
+    "currency": "USD",
+    "exchangeRate": 31,
+    "exchangeNote": "Costs calculated at 31 THB per 1 USD",
+    "costNote": "Construction costs from PO-D Architects estimate (Feb 2026). Rates include both structure and interior finishing. Equipment, furnishing, landscape, and off-grid systems are separate stretch goals.",
+    "totalSqm": 665
+  },
+  "founder": {
+    "name": "Alex",
+    "title": "Founder's pledge",
+    "subtitle": "We're not asking for handouts. The land, the time, the vision, and the first investment are already in.",
+    "land": {
+      "description": "3+ rai of land on Koh Phangan, owned by the founder and leased to NāM under a 30-year contract at market rate. This provides the foundation for everything — and supports the founder to focus full-time on building NāM.",
+      "leaseTermYears": 30,
+      "leaseRate": "market rate",
+      "areaRai": 3
+    },
+    "personalInvestment": {
+      "amountThb": 2240000,
+      "amountUsd": 72258,
+      "description": "Personal funds covering land acquisition taxes, site prep, water infrastructure, worker facilities, topography, architecture, architecture & design fees (PO-D Architects), electrics, and planning permission — the groundwork before fundraising began.",
+      "allocated": "prep-work-and-architecture"
+    },
+    "fundingSources": {
+      "description": "NāM is funded through multiple channels — not just one ask. Fund Living Events, fundraising events and parties, direct contributions, and founder investment.",
+      "sources": [
+        {
+          "id": "founder",
+          "label": "Founder investment",
+          "amount": 48387,
+          "icon": "seed",
+          "color": "var(--sunwashed)"
+        },
+        {
+          "id": "contributions",
+          "label": "Direct contributions",
+          "amount": 0,
+          "icon": "heart",
+          "color": "var(--sage)"
+        },
+        {
+          "id": "events",
+          "label": "Fundraising events",
+          "amount": 0,
+          "icon": "spark",
+          "color": "var(--sapling)"
+        }
+      ]
+    }
+  },
+  "operations": {
+    "title": "Getting the doors open — and keeping them open",
+    "subtitle": "Business setup, team, and the first year of running NāM. Because a building without people isn't a space — it's just a structure.",
+    "totalGoal": 97000,
+    "totalRaised": 0,
+    "ownershipNote": "Thai-owned company (บริษัทจำกัด) — 100% ownership, direct land title, no foreign business restrictions.",
+    "setup": {
+      "title": "Business setup",
+      "subtitle": "One-time costs to establish NāM as a legal, operational business.",
+      "goal": 12000,
+      "raised": 0,
+      "items": [
+        {
+          "id": "company-registration",
+          "name": "Company registration",
+          "goal": 570,
+          "raised": 0,
+          "description": "Thai Co., Ltd. formation — DBD registration, company seal, registration agent.",
+          "icon": "stamp",
+          "thb": 20000
+        },
+        {
+          "id": "licenses-permits",
+          "name": "Business licenses & permits",
+          "goal": 430,
+          "raised": 0,
+          "description": "Operating license, food handling certificate, health certificate for café operations.",
+          "icon": "certificate",
+          "thb": 15000
+        },
+        {
+          "id": "environmental-permits",
+          "name": "Environmental permits",
+          "goal": 2300,
+          "raised": 0,
+          "description": "Environmental Impact Assessment if required for the Koh Phangan site — protecting the island we're building on.",
+          "icon": "leaf",
+          "thb": 80000
+        },
+        {
+          "id": "legal-fees",
+          "name": "Legal fees & contracts",
+          "goal": 3430,
+          "raised": 0,
+          "description": "Membership agreements, terms of service, employment contracts, liability waivers, and general legal counsel.",
+          "icon": "document",
+          "thb": 120000
+        },
+        {
+          "id": "insurance-year1",
+          "name": "Insurance (Year 1)",
+          "goal": 1570,
+          "raised": 0,
+          "description": "Property and fire insurance plus public liability coverage. Protecting the space and everyone in it.",
+          "icon": "shield",
+          "thb": 55000
+        },
+        {
+          "id": "accounting-setup",
+          "name": "Accounting setup",
+          "goal": 430,
+          "raised": 0,
+          "description": "Accounting software, bookkeeping system, VAT and tax registration — the financial backbone.",
+          "icon": "calculator",
+          "thb": 15000
+        },
+        {
+          "id": "pre-opening-marketing",
+          "name": "Pre-opening marketing",
+          "goal": 2300,
+          "raised": 0,
+          "description": "Signage, launch photography, initial marketing campaign — telling the world we're open.",
+          "icon": "megaphone",
+          "thb": 80000
+        },
+        {
+          "id": "recruitment-training",
+          "name": "Recruitment & training",
+          "goal": 860,
+          "raised": 0,
+          "description": "Hiring costs, staff onboarding, and initial training. Building the team that builds the culture.",
+          "icon": "people",
+          "thb": 30000
+        }
+      ]
+    },
+    "runway": {
+      "title": "12-month operating runway",
+      "subtitle": "Monthly costs to keep NāM alive and running while it finds its rhythm.",
+      "goal": 85000,
+      "raised": 0,
+      "monthlyBurn": 7060,
+      "monthlyBurnThb": 247000,
+      "months": 12,
+      "staffing": [
+        { "role": "Operations Manager", "monthlyThb": 40000, "monthlyUsd": 1140, "description": "Overall operations, finance, strategy" },
+        { "role": "Community Manager", "monthlyThb": 28000, "monthlyUsd": 800, "description": "Members, events, programming" },
+        { "role": "Café Manager / Barista", "monthlyThb": 18000, "monthlyUsd": 515, "description": "Food & beverage, daily café operations" },
+        { "role": "Café Assistant", "monthlyThb": 12000, "monthlyUsd": 345, "description": "Part-time café support" },
+        { "role": "Maintenance & Grounds", "monthlyThb": 15000, "monthlyUsd": 430, "description": "Building upkeep, gardens, repairs" },
+        { "role": "Cleaning (2 part-time)", "monthlyThb": 20000, "monthlyUsd": 570, "description": "Daily cleaning and upkeep" }
+      ],
+      "staffSubtotal": { "monthlyThb": 144650, "monthlyUsd": 4135, "note": "Includes 5% social security + benefits" },
+      "outsourced": [
+        { "role": "Bookkeeper / Accountant", "monthlyThb": 8000, "monthlyUsd": 230 },
+        { "role": "IT support (on-call)", "monthlyThb": 4000, "monthlyUsd": 115 }
+      ],
+      "operations": [
+        { "item": "Electricity", "monthlyThb": 20000, "monthlyUsd": 570 },
+        { "item": "Water", "monthlyThb": 7000, "monthlyUsd": 200 },
+        { "item": "Internet", "monthlyThb": 5000, "monthlyUsd": 145 },
+        { "item": "Insurance (monthly)", "monthlyThb": 4000, "monthlyUsd": 115 },
+        { "item": "Café supplies / COGS", "monthlyThb": 18000, "monthlyUsd": 515 },
+        { "item": "Cleaning & maintenance supplies", "monthlyThb": 7000, "monthlyUsd": 200 },
+        { "item": "Software & subscriptions", "monthlyThb": 5000, "monthlyUsd": 145 },
+        { "item": "Marketing & events", "monthlyThb": 12000, "monthlyUsd": 345 },
+        { "item": "Accounting & tax filing", "monthlyThb": 4000, "monthlyUsd": 115 },
+        { "item": "Miscellaneous", "monthlyThb": 8000, "monthlyUsd": 230 }
+      ],
+      "operationsSubtotal": { "monthlyThb": 90000, "monthlyUsd": 2580 }
+    }
+  },
+  "phases": [
+    {
+      "id": "base",
+      "name": "The build",
+      "subtitle": "Everything the architect designed",
+      "description": "Structure and interior finishing for every space at NāM — designed by PO-D Architects. This is what we're raising for.",
+      "unlockThreshold": 0,
+      "infrastructure": {
+        "title": "Shared infrastructure",
+        "subtitle": "Essential systems that connect everything — structure, services, and connectivity.",
+        "items": [
+          {
+            "id": "circulation",
+            "name": "Walkways & circulation",
+            "goal": 60000,
+            "raised": 0,
+            "thb": 1868400,
+            "icon": "path"
+          },
+          {
+            "id": "parking-courtyard",
+            "name": "Parking & arrival courtyard",
+            "goal": 32000,
+            "raised": 0,
+            "thb": 1000000,
+            "icon": "gate"
+          },
+          {
+            "id": "arrival-lounge",
+            "name": "Arrival lounge",
+            "goal": 8710,
+            "raised": 0,
+            "thb": 270000,
+            "icon": "door"
+          },
+          {
+            "id": "reception",
+            "name": "Reception",
+            "goal": 3484,
+            "raised": 0,
+            "thb": 108000,
+            "icon": "desk"
+          },
+          {
+            "id": "storage-room",
+            "name": "Storage room",
+            "goal": 4065,
+            "raised": 0,
+            "thb": 126000,
+            "icon": "box"
+          },
+          {
+            "id": "locker-room",
+            "name": "Locker room",
+            "goal": 5226,
+            "raised": 0,
+            "thb": 162000,
+            "icon": "locker"
+          },
+          {
+            "id": "utility-room",
+            "name": "Utility room",
+            "goal": 4065,
+            "raised": 0,
+            "thb": 126000,
+            "icon": "wrench"
+          },
+          {
+            "id": "toilets",
+            "name": "Toilets & washrooms",
+            "goal": 21000,
+            "raised": 0,
+            "thb": 640000,
+            "icon": "droplet"
+          },
+          {
+            "id": "internet-infrastructure",
+            "name": "Internet & networking",
+            "goal": 5000,
+            "raised": 0,
+            "thb": 155000,
+            "icon": "wifi"
+          }
+        ]
+      },
+      "zones": [
+        {
+          "id": "dedicated-workspaces",
+          "name": "Dedicated workspaces",
+          "category": "work",
+          "goal": 58000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "ws-focused.jpg",
+          "sqm": 100,
+          "description": "The main work floor — deep focus desks, quiet zones, and dedicated positions for members who need a real place to work.",
+          "story": "This is the engine room of NāM. Acoustically treated, naturally lit, and designed for the kind of focus that produces breakthroughs. Dedicated desks, quiet zones, and the kind of environment where you can do your best work every day. No hotdesking chaos — just a real workspace that respects the way people actually work.",
+          "costBreakdown": {
+            "construction": 58000
+          },
+          "costLabels": {
+            "construction": "Architect estimate (structure + interior)"
+          },
+          "source": "architect",
+          "thb": 1800000,
+          "milestones": [
+            { "percent": 25, "label": "Materials sourced", "reached": false },
+            { "percent": 50, "label": "Construction begins", "reached": false },
+            { "percent": 75, "label": "Furnishing & finishing", "reached": false },
+            { "percent": 100, "label": "Ready to open", "reached": false }
+          ],
+          "rippleEffects": ["Deep focus sessions", "Dedicated desks", "Writing retreats", "Solo creation time", "Side-by-side working"]
+        },
+        {
+          "id": "kitchen-common",
+          "name": "Kitchen, café & common space",
+          "category": "community",
+          "goal": 35000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "cm-kitchen.jpg",
+          "sqm": 60,
+          "description": "The social heart of NāM — shared kitchen, café counter, communal tables, and the space where everything begins.",
+          "story": "Every great third place has its anchor. The kitchen and café are where you arrive, where you decompress, where culture happens. A shared kitchen for communal meals, a café counter serving coffee and light food, and open tables where ideas collide. Not every moment needs deep focus — this is where the unexpected conversations happen, where projects find collaborators, and where the community actually feels like one. Not a cafeteria — a hearth.",
+          "costBreakdown": {
+            "construction": 35000
+          },
+          "costLabels": {
+            "construction": "Architect estimate (structure + interior)"
+          },
+          "source": "architect",
+          "thb": 1080000,
+          "milestones": [
+            { "percent": 25, "label": "Materials sourced", "reached": false },
+            { "percent": 50, "label": "Construction begins", "reached": false },
+            { "percent": 75, "label": "Equipment & furnishing", "reached": false },
+            { "percent": 100, "label": "Ready to gather", "reached": false }
+          ],
+          "rippleEffects": ["Daily coffee ritual", "Shared meals", "Collaborative work", "Cooking workshops", "Community energy", "Spontaneous connections"]
+        },
+        {
+          "id": "learning-spaces",
+          "name": "Learning & gathering space",
+          "category": "community",
+          "goal": 46000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "cm-learning.jpg",
+          "sqm": 80,
+          "description": "Flexible rooms for talks, workshops, skill-sharing, and group activities.",
+          "story": "Learning at NāM is not instructional — it's emergent. Adaptable space that transforms from classroom to gathering hall to presentation venue. These rooms hold the kind of skill-sharing that happens when curious people gather with intention.",
+          "costBreakdown": {
+            "construction": 46000
+          },
+          "costLabels": {
+            "construction": "Architect estimate (structure + interior)"
+          },
+          "source": "architect",
+          "thb": 1440000,
+          "milestones": [
+            { "percent": 25, "label": "Materials sourced", "reached": false },
+            { "percent": 50, "label": "Construction begins", "reached": false },
+            { "percent": 75, "label": "Equipment & AV setup", "reached": false },
+            { "percent": 100, "label": "Ready to open", "reached": false }
+          ],
+          "rippleEffects": ["Workshops & talks", "Skill-sharing sessions", "Group activities", "Community gatherings"]
+        },
+        {
+          "id": "work-pods",
+          "name": "Private work pods",
+          "category": "work",
+          "goal": 14000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "ws-pods.jpg",
+          "sqm": 24,
+          "description": "2 air-conditioned work pods for video calls, focused immersion, and private work.",
+          "story": "When you need total control of your environment — temperature, sound, light — the pods deliver. 2 pods, small enough to feel cozy, equipped enough to feel professional. Nature is right outside the glass.",
+          "costBreakdown": {
+            "construction": 14000
+          },
+          "costLabels": {
+            "construction": "Architect estimate (structure + interior)"
+          },
+          "source": "architect",
+          "thb": 432000,
+          "milestones": [
+            { "percent": 25, "label": "Materials sourced", "reached": false },
+            { "percent": 50, "label": "Construction begins", "reached": false },
+            { "percent": 75, "label": "AC & equipment installed", "reached": false },
+            { "percent": 100, "label": "Ready to use", "reached": false }
+          ],
+          "rippleEffects": ["Video calls", "Client meetings", "Climate-controlled focus", "Recording sessions"]
+        },
+        {
+          "id": "outdoor-gathering",
+          "name": "Veranda & outdoor area",
+          "category": "community",
+          "goal": 34000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "cm-outdoor.jpg",
+          "sqm": 80,
+          "description": "Covered veranda and shaded outdoor spaces for working, meeting, and shared moments.",
+          "story": "Some of the best conversations happen outside. Covered veranda space — under canopy, beside gardens — designed for the informal, the spontaneous, and the beautiful accidents of proximity. Work, meet, or just be.",
+          "costBreakdown": {
+            "construction": 34000
+          },
+          "costLabels": {
+            "construction": "Architect estimate (structure + interior)"
+          },
+          "source": "architect",
+          "thb": 1040000,
+          "milestones": [
+            { "percent": 25, "label": "Materials sourced", "reached": false },
+            { "percent": 50, "label": "Structure rising", "reached": false },
+            { "percent": 75, "label": "Furnishing installed", "reached": false },
+            { "percent": 100, "label": "Ready to gather", "reached": false }
+          ],
+          "rippleEffects": ["Outdoor working", "Informal meetings", "Sunset gatherings", "Morning coffee"]
+        },
+        {
+          "id": "napping-rooms",
+          "name": "Rest & nap rooms",
+          "category": "wellness",
+          "goal": 15000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-napping.jpg",
+          "sqm": 30,
+          "description": "Dimly lit, quiet rooms for rest, short naps, and recovery.",
+          "story": "Rest is not laziness. It's infrastructure. Designed for the 20-minute reset that makes the next four hours possible. Dim light, cool air, silence.",
+          "costBreakdown": {
+            "construction": 15000
+          },
+          "costLabels": {
+            "construction": "Architect estimate (structure + interior)"
+          },
+          "source": "architect",
+          "thb": 450000,
+          "milestones": [
+            { "percent": 25, "label": "Materials sourced", "reached": false },
+            { "percent": 50, "label": "Construction begins", "reached": false },
+            { "percent": 75, "label": "Furnishing & finishing", "reached": false },
+            { "percent": 100, "label": "Ready to rest", "reached": false }
+          ],
+          "rippleEffects": ["Power naps", "Meditation", "Sensory reset", "Recovery"]
+        }
+      ]
+    },
+    {
+      "id": "stretch",
+      "name": "Stretch goals",
+      "subtitle": "Beyond the architect's plan",
+      "description": "Additional spaces and systems we can build beyond the base scope. These are voted on by the community and funded as add-ons.",
+      "unlockThreshold": 100,
+      "zones": [
+        {
+          "id": "extra-work-pod",
+          "name": "Extra work pods",
+          "category": "work",
+          "goal": 7000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "ws-pods.jpg",
+          "description": "Additional air-conditioned work pods beyond the base 2. Each pod is a self-contained focus unit.",
+          "story": "The base build includes 2 pods. But if demand is high, more pods mean less waiting and more flexibility. Each additional pod is fully self-contained with AC, power, and acoustic treatment.",
+          "costBreakdown": {
+            "construction": 7000
+          },
+          "costLabels": {
+            "construction": "Per pod estimate"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Design confirmed", "reached": false },
+            { "percent": 50, "label": "Materials sourced", "reached": false },
+            { "percent": 75, "label": "Construction begins", "reached": false },
+            { "percent": 100, "label": "Pod ready", "reached": false }
+          ],
+          "rippleEffects": ["Extra privacy", "More availability", "Client calls", "Focus sessions"]
+        },
+        {
+          "id": "furnishing",
+          "name": "Furnishing fund",
+          "category": "work",
+          "goal": 30000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "ws-focused.jpg",
+          "description": "Desks, chairs, tables, shelving, sofas, and all the furniture that makes NāM feel like home.",
+          "story": "The architect's estimate covers the building — structure and interior finishing. But the furniture that fills every room — standing desks, ergonomic chairs, communal tables, kitchen counters, lounge sofas, shelving — that's a separate investment. This fund covers furnishing across every space in NāM.",
+          "costBreakdown": {
+            "construction": 30000
+          },
+          "costLabels": {
+            "construction": "Furnishing"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Needs assessment", "reached": false },
+            { "percent": 50, "label": "Sourcing begins", "reached": false },
+            { "percent": 75, "label": "Delivery & setup", "reached": false },
+            { "percent": 100, "label": "Fully furnished", "reached": false }
+          ],
+          "rippleEffects": ["Standing desks", "Ergonomic chairs", "Communal tables", "Lounge sofas", "Shelving"]
+        },
+        {
+          "id": "equipment",
+          "name": "Equipment fund",
+          "category": "work",
+          "goal": 30000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "ws-focused.jpg",
+          "description": "Monitors, projectors, kitchen appliances, AV gear, and all the tech and equipment that powers NāM.",
+          "story": "Beyond the building and the furniture, NāM needs equipment — monitors for the work floor, a projector and sound system for the learning space, commercial kitchen appliances, networking gear, and AV equipment for the recording studio. This fund covers it all.",
+          "costBreakdown": {
+            "construction": 30000
+          },
+          "costLabels": {
+            "construction": "Equipment"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Spec & sourcing", "reached": false },
+            { "percent": 50, "label": "Orders placed", "reached": false },
+            { "percent": 75, "label": "Installation", "reached": false },
+            { "percent": 100, "label": "Fully equipped", "reached": false }
+          ],
+          "rippleEffects": ["Monitors", "Projector & AV", "Kitchen appliances", "Sound system", "Networking gear"]
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar power system",
+          "category": "community",
+          "goal": 20000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-nature.jpg",
+          "description": "15–20kW solar array with battery storage. Reliable power when the island grid fails, and cleaner energy when it doesn't.",
+          "story": "The island grid is unreliable — outages are common, especially during storms. A solar array with battery storage keeps the internet on, the work uninterrupted, and the environmental impact lower. Not just a nice-to-have on Koh Phangan — a practical necessity.",
+          "costBreakdown": {
+            "construction": 5000,
+            "equipment": 12000,
+            "furnishing": 3000
+          },
+          "costLabels": {
+            "construction": "Installation",
+            "equipment": "Panels & batteries",
+            "furnishing": "Wiring & inverters"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "System designed", "reached": false },
+            { "percent": 50, "label": "Equipment ordered", "reached": false },
+            { "percent": 75, "label": "Installation begins", "reached": false },
+            { "percent": 100, "label": "Grid-independent", "reached": false }
+          ],
+          "rippleEffects": ["Reliable power", "Lower electricity costs", "Environmental impact", "Island resilience"]
+        },
+        {
+          "id": "water-system",
+          "name": "Water harvesting & storage",
+          "category": "community",
+          "goal": 16000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-nature.jpg",
+          "description": "Rainwater collection, 30,000+ liter storage, filtration, and distribution. A working model for the island's water crisis.",
+          "story": "Koh Phangan faces a water crisis — seasonal shortages, contaminated wells, and growing demand. This system captures rainwater, stores 30,000+ liters, filters it for use, and distributes it throughout NāM. A working demonstration of what sustainable water management can look like on the island.",
+          "costBreakdown": {
+            "construction": 6000,
+            "equipment": 7000,
+            "furnishing": 3000
+          },
+          "costLabels": {
+            "construction": "Tanks & plumbing",
+            "equipment": "Filtration system",
+            "furnishing": "Collection & guttering"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "System designed", "reached": false },
+            { "percent": 50, "label": "Tanks installed", "reached": false },
+            { "percent": 75, "label": "Filtration running", "reached": false },
+            { "percent": 100, "label": "Water independent", "reached": false }
+          ],
+          "rippleEffects": ["Sustainable water", "Island model", "Drought resilience", "Clean water"]
+        },
+        {
+          "id": "gardens-landscape",
+          "name": "Permaculture gardens & landscape",
+          "category": "wellness",
+          "goal": 64000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-nature.jpg",
+          "sqm": 1500,
+          "description": "Tropical planting, permaculture food forest, herb spirals, garden beds, walking trails, pathways, irrigation, and the living green layer that makes NāM feel like NāM.",
+          "story": "The land is not a backdrop — it's a participant. Professional landscape design transforms the grounds into native tropical gardens, a working permaculture food forest, herb spirals, companion planting beds, winding nature trails through wilder parts of the property, quiet benches and shade structures, and irrigation systems. The gardens feed the café, teach regenerative practices, give members a hands-on connection to the cycles of growth, and provide paths for walking meetings and mindful breaks. This is what makes NāM a place, not just a building.",
+          "costBreakdown": {
+            "construction": 2000,
+            "interior": 10100,
+            "equipment": 10700,
+            "furnishing": 41200
+          },
+          "costLabels": {
+            "interior": "Landscape & permaculture design",
+            "equipment": "Irrigation, tools & trails",
+            "furnishing": "Planting, soil & hardscaping"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Landscape designed", "reached": false },
+            { "percent": 50, "label": "Earthworks & beds built", "reached": false },
+            { "percent": 75, "label": "Planting begins", "reached": false },
+            { "percent": 100, "label": "Gardens alive", "reached": false }
+          ],
+          "rippleEffects": ["Farm-to-table food", "Permaculture workshops", "Walking meetings", "Reading spots", "Mindful breaks", "Community growing", "Nature trails", "Nature connection"]
+        },
+        {
+          "id": "contingency",
+          "name": "Contingency fund",
+          "category": "community",
+          "goal": 50000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-nature.jpg",
+          "description": "A buffer for the unexpected — material price changes, weather delays, unforeseen site conditions.",
+          "story": "Building on a tropical island means planning for surprises. This fund covers unexpected costs — material price fluctuations, weather delays, unforeseen site conditions, or anything else that life throws at us. Better to have it and not need it.",
+          "costBreakdown": {
+            "construction": 50000
+          },
+          "costLabels": {
+            "construction": "Contingency buffer"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "25% funded", "reached": false },
+            { "percent": 50, "label": "50% funded", "reached": false },
+            { "percent": 75, "label": "75% funded", "reached": false },
+            { "percent": 100, "label": "Fully funded", "reached": false }
+          ],
+          "rippleEffects": ["Peace of mind", "Weather buffer", "Material price protection", "Flexibility"]
+        },
+        {
+          "id": "recording-studio",
+          "name": "Recording & podcast rooms",
+          "category": "specialist",
+          "goal": 35000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "sp-recording.jpg",
+          "description": "Soundproofed studio for music, podcasting, video, and audio production.",
+          "story": "Creators need tools. This studio is soundproofed, acoustically treated, and equipped for music production, podcast recording, video content, and voiceover work. A dedicated podcast setup alongside full audio production gear. Professional quality, community access.",
+          "costBreakdown": {
+            "construction": 8000,
+            "interior": 8000,
+            "equipment": 14000,
+            "furnishing": 5000
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Acoustic design complete", "reached": false },
+            { "percent": 50, "label": "Soundproofing installed", "reached": false },
+            { "percent": 75, "label": "Equipment setup", "reached": false },
+            { "percent": 100, "label": "Ready to record", "reached": false }
+          ],
+          "rippleEffects": ["Podcast production", "Music recording", "Video content", "Voiceover work", "Sound healing"]
+        },
+        {
+          "id": "onsen",
+          "name": "Onsen and ice bath",
+          "category": "wellness",
+          "goal": 65000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-onsen.jpg",
+          "description": "Sauna, hot and cold pools integrated into stepped natural ponds.",
+          "story": "The body carries the work. These thermal facilities — sauna, hot pool, cold plunge — are integrated into the natural landscape. Not a spa. A practice. A daily reset that makes the creative work sustainable.",
+          "costBreakdown": {
+            "construction": 22000,
+            "interior": 8000,
+            "equipment": 22000,
+            "furnishing": 13000
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Site prepared", "reached": false },
+            { "percent": 50, "label": "Pools constructed", "reached": false },
+            { "percent": 75, "label": "Systems installed", "reached": false },
+            { "percent": 100, "label": "Ready to soak", "reached": false }
+          ],
+          "rippleEffects": ["Cold plunge practice", "Sauna sessions", "Recovery", "Community ritual"]
+        },
+        {
+          "id": "yoga-shala",
+          "name": "Yoga shala",
+          "category": "wellness",
+          "goal": 25000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-nature.jpg",
+          "description": "A dedicated open-air yoga and movement space — wood floors, natural ventilation, and room to breathe.",
+          "story": "A shala is a place of practice. This open-sided structure with hardwood floors sits among the trees — natural ventilation, dappled light, space for 15–20 mats. Morning yoga, breathwork, movement classes, meditation sits. The body is part of the work.",
+          "costBreakdown": {
+            "construction": 10000,
+            "interior": 5000,
+            "equipment": 3000,
+            "furnishing": 7000
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Platform designed", "reached": false },
+            { "percent": 50, "label": "Structure rising", "reached": false },
+            { "percent": 75, "label": "Floor & finishing", "reached": false },
+            { "percent": 100, "label": "Ready to practice", "reached": false }
+          ],
+          "rippleEffects": ["Morning yoga", "Breathwork sessions", "Movement classes", "Meditation", "Sound healing"]
+        },
+        {
+          "id": "calisthenics-area",
+          "name": "Calisthenics area",
+          "category": "wellness",
+          "goal": 12000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-nature.jpg",
+          "description": "Outdoor bodyweight training area with pull-up bars, parallel bars, rings, and shaded workout zones.",
+          "story": "Strength doesn't need a gym. An outdoor calisthenics area set among the trees — pull-up stations, dip bars, gymnastic rings, and flat training surfaces. Morning workouts in fresh air, functional movement, and the kind of physical practice that clears the mind for creative work.",
+          "costBreakdown": {
+            "construction": 4000,
+            "equipment": 5000,
+            "furnishing": 3000
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Area designed", "reached": false },
+            { "percent": 50, "label": "Equipment sourced", "reached": false },
+            { "percent": 75, "label": "Installation complete", "reached": false },
+            { "percent": 100, "label": "Ready to train", "reached": false }
+          ],
+          "rippleEffects": ["Morning workouts", "Bodyweight training", "Outdoor movement", "Functional fitness"]
+        },
+        {
+          "id": "capybara-pond",
+          "name": "Capybara pond",
+          "category": "wellness",
+          "goal": 15000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "rw-nature.jpg",
+          "description": "A natural pond ecosystem — home to capybaras and a place of calm on the property.",
+          "story": "Every great space has a soul animal. The capybara pond is a natural water feature, a wildlife habitat, and the most peaceful corner of the property. Watch the capybaras, sit by the water, let the nervous system settle. Nature's antidote to screens.",
+          "costBreakdown": {
+            "construction": 6000,
+            "equipment": 3000,
+            "furnishing": 6000
+          },
+          "costLabels": {
+            "construction": "Pond construction",
+            "equipment": "Filtration & planting",
+            "furnishing": "Landscaping & seating"
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Pond designed", "reached": false },
+            { "percent": 50, "label": "Pond excavated", "reached": false },
+            { "percent": 75, "label": "Ecosystem planted", "reached": false },
+            { "percent": 100, "label": "Capybaras arrive", "reached": false }
+          ],
+          "rippleEffects": ["Wildlife habitat", "Meditation spot", "Nature education", "The ultimate chill zone"]
+        },
+        {
+          "id": "photography-studio",
+          "name": "Photography studio",
+          "category": "specialist",
+          "goal": 20000,
+          "raised": 0,
+          "supporters": 0,
+          "image": "sp-maker.jpg",
+          "description": "A controlled-light studio for product photography, portraits, and visual content creation.",
+          "story": "Great images change how ideas travel. This studio provides controlled lighting, backdrops, and space for product shoots, portraits, brand content, and creative photography. Professional results without leaving the campus.",
+          "costBreakdown": {
+            "construction": 3000,
+            "interior": 3000,
+            "equipment": 10000,
+            "furnishing": 4000
+          },
+          "source": "estimate",
+          "milestones": [
+            { "percent": 25, "label": "Space designed", "reached": false },
+            { "percent": 50, "label": "Light control installed", "reached": false },
+            { "percent": 75, "label": "Equipment setup", "reached": false },
+            { "percent": 100, "label": "Ready to shoot", "reached": false }
+          ],
+          "rippleEffects": ["Product photography", "Portrait sessions", "Brand content", "Visual storytelling"]
+        }
+      ]
+    }
+  ],
+  "future": {
+    "title": "Future vision",
+    "subtitle": "Where NāM grows next",
+    "description": "These spaces represent the long-term vision for NāM. They're not actively fundraised yet — but they show where we're headed. Your support for the base and stretch goals brings these closer to reality.",
+    "zones": [
+      {
+        "id": "treehouse-accommodation",
+        "name": "Treehouse accommodation",
+        "category": "accommodation",
+        "goal": 126000,
+        "units": 3,
+        "unitCost": 42000,
+        "rooms": 6,
+        "image": "ac-deluxe.jpg",
+        "description": "Three treehouse buildings (฿1.3M each), each split into two rooms — 6 rooms total mixing deluxe suites and compact flexi rooms among the canopy."
+      },
+      {
+        "id": "maker-space",
+        "name": "Maker space",
+        "category": "specialist",
+        "goal": 80000,
+        "image": "sp-maker.jpg",
+        "description": "Fully equipped workshop for prototyping, woodworking, CNC, laser cutting, and working with materials."
+      },
+      {
+        "id": "pottery-studio",
+        "name": "Pottery studio",
+        "category": "specialist",
+        "goal": 50000,
+        "image": "sp-pottery.jpg",
+        "description": "A proper ceramics studio with kilns, wheels, glazing area, and clay storage."
+      },
+      {
+        "id": "art-studios",
+        "name": "Art Studios",
+        "category": "specialist",
+        "goal": 60000,
+        "units": 3,
+        "unitCost": 20000,
+        "image": "sp-maker.jpg",
+        "description": "Three private studios for painters, sculptors, textile artists, and any practice that needs dedicated space and natural light."
+      }
+    ]
+  },
+  "funding": {
+    "pillars": [
+      {
+        "id": "angel",
+        "name": "Angel investment",
+        "amount": 300000,
+        "icon": "🤝",
+        "description": "Strategic investors aligned with the NāM vision, structured as equity or revenue share."
+      },
+      {
+        "id": "payforward",
+        "name": "Pay-forward investment",
+        "amount": 200000,
+        "icon": "♻️",
+        "description": "Community-aligned backers who contribute and get paid forward — naming rights, lifetime access, and priority perks."
+      },
+      {
+        "id": "presales",
+        "name": "Pre-sales",
+        "amount": 100000,
+        "icon": "🎟️",
+        "description": "Founding memberships with credits, private booth reservations, and space naming packages."
+      },
+      {
+        "id": "fundraising",
+        "name": "Fundraising events",
+        "amount": 99000,
+        "icon": "🎪",
+        "description": "Benefit parties, wellness retreats, community dinners, and island events."
+      }
+    ]
+  },
+  "payForward": {
+    "title": "Where your contribution goes — and comes back",
+    "description": "NāM operates on radical transparency and circular generosity. Every donation is tracked. Once NāM generates revenue, contributions are paid forward — with interest — into island community and environmental projects.",
+    "landNote": "The land is provided by the founder under a 30-year lease at market rate — ensuring long-term stability for NāM while supporting the founder's ability to focus full-time on the project.",
+    "initiatives": [
+      {
+        "name": "Island water crisis intervention",
+        "description": "Supporting water harvesting and conservation projects across Koh Phangan."
+      },
+      {
+        "name": "Waste reduction programs",
+        "description": "Expanding composting and plastic reduction initiatives beyond NāM."
+      },
+      {
+        "name": "Local community support",
+        "description": "Funding aligned projects, local initiatives, and environmental protection on the island."
+      }
+    ]
+  },
+  "communityFeed": [
+    {
+      "name": "Alex (Founder)",
+      "amount": 72258,
+      "zone": "founders-pledge",
+      "zoneName": "Founder's pledge",
+      "message": "Land pledged. ฿2,240,000 invested in prep work, land taxes, architecture & design fees, and planning. Let's build this together.",
+      "date": "2026-03-05",
+      "type": "founder"
+    },
+    {
+      "name": "Alex",
+      "amount": 500,
+      "zone": "recording-studio",
+      "message": "Can't wait to record the first podcast here.",
+      "date": "2026-03-15"
+    },
+    {
+      "name": "Anonymous",
+      "amount": 100,
+      "zone": "pottery-studio",
+      "message": "Clay over code, sometimes.",
+      "date": "2026-03-14"
+    },
+    {
+      "name": "Maya",
+      "amount": 250,
+      "zone": "kitchen-common",
+      "message": "The kitchen is where the magic happens.",
+      "date": "2026-03-13"
+    }
+  ]
+}

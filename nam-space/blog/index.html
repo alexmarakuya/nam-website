@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — NāM Space</title>
+<meta name="description" content="Essays, reflections and updates from NāM Space — a co-creation sanctuary on Koh Phangan.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nam.space/blog/">
+<meta property="og:title" content="Blog — NāM Space">
+<meta property="og:description" content="Essays, reflections and updates from NāM Space — a co-creation sanctuary on Koh Phangan.">
+<meta property="og:image" content="https://nam.space/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — NāM Space">
+<meta name="twitter:description" content="Essays, reflections and updates from NāM Space — a co-creation sanctuary on Koh Phangan.">
+<meta name="twitter:image" content="https://nam.space/assets/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vlm8vtw4kc");
+</script>
+<style>
+  :root {
+    --deep-green: #2b3a2c;
+    --foliage: #49584a;
+    --sage: #b8c8b7;
+    --sapling: #a3b2a2;
+    --oat: #e7e2d6;
+    --cream: #f5f2e9;
+    --beige: #ccc4b5;
+    --sunwashed: #d56b45;
+    --slate: #393834;
+    --granite: #61605c;
+    --pebble: #7d7970;
+    --white: #ffffff;
+    --font-display: 'Epilogue', sans-serif;
+    --font-mono: 'Sometype Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-mono);
+    color: var(--cream);
+    background: var(--deep-green);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 32px 64px;
+    z-index: 10;
+    position: relative;
+  }
+  .site-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 64px;
+    right: 64px;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+  .site-logo img { height: 18px; }
+  .site-nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .site-nav a {
+    color: var(--cream);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .site-nav a:hover { border-color: rgba(245,242,233,0.3); }
+  .site-nav a[aria-current="page"] { border-color: var(--cream); }
+  .site-nav .nav-cta {
+    border-color: var(--sunwashed);
+    background: var(--sunwashed);
+    color: var(--cream);
+  }
+  .site-nav .nav-cta:hover { opacity: 0.9; border-color: var(--sunwashed); }
+  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--cream); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-overlay { display: none; }
+  .skip-link {
+    position: absolute; left: -9999px; top: auto;
+    background: var(--sunwashed); color: var(--cream);
+    padding: 8px 16px; z-index: 200; font-size: 14px;
+  }
+  .skip-link:focus { left: 16px; top: 16px; }
+
+  /* ── BLOG LISTING ── */
+  .blog-header {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 64px 0;
+  }
+  .blog-header h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+  .blog-header p {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--sapling);
+    max-width: 560px;
+    line-height: 1.65;
+  }
+
+  /* Card grid */
+  .blog-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 64px 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .blog-card {
+    text-decoration: none;
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    transition: background 0.25s, transform 0.25s;
+  }
+  .blog-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-4px);
+  }
+
+  .blog-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .blog-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: var(--foliage);
+    transition: transform 0.4s;
+  }
+  .blog-card:hover .blog-card-img img {
+    transform: scale(1.04);
+  }
+
+  .blog-card-body {
+    padding: 20px 20px 24px;
+  }
+  .blog-card-date {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--sapling);
+    margin-bottom: 8px;
+  }
+  .blog-card-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .blog-card-excerpt {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--sapling);
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--deep-green);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 64px;
+  }
+  .footer-inner {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 20px 0 80px;
+  }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .footer-copy span { color: var(--sapling); }
+  .footer-logo img { height: 20px; width: 54px; }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── TABLET ── */
+  @media (max-width: 1024px) {
+    .site-header { padding: 24px 40px; }
+    .site-header::after { left: 40px; right: 40px; }
+    .blog-header { padding: 60px 40px 0; }
+    .blog-header h1 { font-size: 44px; }
+    .blog-grid {
+      padding: 48px 40px 60px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .site-footer { padding: 0 40px; }
+    .footer-inner { padding: 20px 0 60px; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 640px) {
+    .site-header { padding: 14px 20px; }
+    .site-header::after { left: 20px; right: 20px; }
+    .burger { display: flex; }
+    .site-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 260px;
+      height: 100dvh;
+      background: var(--deep-green);
+      flex-direction: column;
+      padding: 80px 32px 40px;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      z-index: 100;
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .site-nav.open { transform: translateX(0); }
+    .site-nav a {
+      padding: 16px 0;
+      font-size: 16px;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0;
+    }
+    .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .site-nav .nav-cta {
+      background: var(--sunwashed);
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .nav-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+
+    .blog-header { padding: 40px 24px 0; }
+    .blog-header h1 { font-size: 36px; }
+    .blog-grid {
+      padding: 40px 24px 48px;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .site-footer { padding: 0 24px; }
+    .footer-inner {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 0 48px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<a href="#blog-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <a href="/" class="site-logo"><img src="/assets/logo.svg" alt="NāM"></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-overlay"></div>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/">NāM Space</a>
+    <a href="/blog/" aria-current="page">Blog</a>
+    <a href="/casa-nam/">Casa NāM</a>
+    <a href="https://members.nam.space" class="nav-cta">Become a member</a>
+  </nav>
+</header>
+
+<main id="blog-content">
+
+  <section class="blog-header fade-in">
+    <h1>Essays</h1>
+    <p>Reflections on building NāM — where land, creativity and community meet.</p>
+  </section>
+
+  <section class="blog-grid">
+
+    <a href="/blog/the-origin-of-nam/" class="blog-card fade-in">
+      <div class="blog-card-img">
+        <img src="/assets/blog/the-origin-of-nam/hero-collage.jpg" alt="Collage of butterfly, hand reaching through plants, fire and stone — the origins of NāM">
+      </div>
+      <div class="blog-card-body">
+        <p class="blog-card-date">12.05.2025</p>
+        <h2 class="blog-card-title">The origin of NāM</h2>
+        <p class="blog-card-excerpt">A tale of land, spirits and AI.</p>
+      </div>
+    </a>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="caption footer-copy">NāM Space<br><span>Copyright &copy; 2026</span></p>
+    <div class="footer-logo"><img src="/assets/footer-logo.svg" alt="NāM"></div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Burger menu
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.site-nav');
+  var overlay = document.querySelector('.nav-overlay');
+  if (burger && nav && overlay) {
+    function toggleMenu() {
+      var isOpen = nav.classList.toggle('open');
+      burger.classList.toggle('open');
+      overlay.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (nav.classList.contains('open')) toggleMenu();
+      });
+    });
+  }
+
+  // Fade-in on scroll
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window && fadeEls.length) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>

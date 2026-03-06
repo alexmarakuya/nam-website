@@ -12,3 +12,9 @@ assets/Site_1.jpeg
 # Large originals (compressed versions used instead)
 assets/Exterior.png
 assets/Exterior Pan Out.mp4
+
+# Dependencies
+node_modules/
+
+# Claude Code
+.claude/

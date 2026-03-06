@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build NāM — Help us create the third place for the age of AI</title>
+<meta name="description" content="Help build NāM Space on Koh Phangan. Choose what to fund — from work pods to pottery studios — and watch it come to life.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://build.nam.space/">
+<meta property="og:title" content="Build NāM — Help us create the third place for the age of AI">
+<meta property="og:description" content="Choose what to fund and watch NāM come to life. A co-creation space tycoon — for real.">
+<meta property="og:image" content="https://nam.space/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Sometype+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     DESIGN TOKENS (from nam.space)
+     ============================================= */
+  :root {
+    --deep-green: #2b3a2c;
+    --foliage: #49584a;
+    --sage: #b8c8b7;
+    --sapling: #a3b2a2;
+    --oat: #e7e2d6;
+    --cream: #f5f2e9;
+    --beige: #ccc4b5;
+    --sunwashed: #d56b45;
+    --slate: #393834;
+    --granite: #61605c;
+    --pebble: #7d7970;
+    --white: #ffffff;
+    --font-display: 'Epilogue', sans-serif;
+    --font-mono: 'Sometype Mono', monospace;
+    --text-h1: 60px;
+    --text-h2: 44px;
+    --text-h3: 32px;
+    --text-body-lg: 20px;
+    --text-body-sm: 16px;
+    --text-nav: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-mono); color: var(--slate); background: var(--deep-green); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  ul, li { list-style: none; }
+  :focus-visible { outline: 2px solid var(--sunwashed); outline-offset: 3px; border-radius: 4px; }
+
+  .page { display: flex; flex-direction: column; align-items: center; width: 100%; overflow: clip; }
+  .page > main { width: 100%; }
+
+  /* Typography */
+  .h1 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h1); line-height: 1.2; letter-spacing: -1.2px; }
+  .h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h2); line-height: 1.2; letter-spacing: -0.88px; }
+  .h3 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h3); line-height: 1.2; letter-spacing: -0.64px; }
+  .body-lg { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-lg); line-height: 1.4; letter-spacing: -0.4px; }
+  .body-sm { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-sm); line-height: 1.4; letter-spacing: -0.32px; }
+  .caption { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-nav); line-height: 1.4; letter-spacing: -0.28px; }
+
+  /* =============================================
+     HEADER
+     ============================================= */
+  .site-header { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1600px; padding: 32px 64px; z-index: 10; position: relative; margin: 0 auto; }
+  .site-header::after { content: ''; position: absolute; bottom: 0; left: 64px; right: 64px; height: 1px; background: rgba(255,255,255,0.12); }
+  .site-logo img { height: 28px; width: auto; }
+  .site-nav { display: flex; gap: 12px; align-items: center; }
+  .site-nav a { color: var(--cream); font-family: var(--font-mono); font-size: var(--text-nav); line-height: 1; letter-spacing: -0.28px; text-decoration: none; padding: 10px 18px; border-radius: 100px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, color 0.3s; }
+  .site-nav a:hover { border-color: var(--foliage); }
+  .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
+  .site-nav .nav-cta:hover { filter: brightness(1.1); }
+
+  /* Currency toggle */
+  .currency-toggle { display: flex; align-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 2px; cursor: pointer; gap: 0; font-family: var(--font-mono); }
+  .currency-opt { font-size: 12px; padding: 5px 10px; border-radius: 100px; color: var(--sage); transition: all 0.2s; line-height: 1; }
+  .currency-opt.active { background: var(--cream); color: var(--deep-green); font-weight: 500; }
+
+  .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; }
+  .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .burger span + span { margin-top: 6px; }
+  .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* =============================================
+     HERO
+     ============================================= */
+  .build-hero { width: 100%; background: var(--deep-green); display: flex; flex-direction: column; align-items: center; padding: 100px 64px 80px; text-align: center; }
+  .build-hero-inner { max-width: 800px; }
+  .build-hero-label { font-family: var(--font-mono); font-size: var(--text-nav); color: var(--sage); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .build-hero-title { font-family: var(--font-display); font-weight: 400; font-size: 56px; line-height: 1.15; letter-spacing: -1.4px; color: var(--cream); margin-bottom: 24px; }
+  .build-hero-subtitle { font-family: var(--font-mono); font-size: var(--text-body-lg); color: var(--sage); line-height: 1.5; margin-bottom: 56px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+  /* Hero stats row */
+  .hero-stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+  .hero-stat { display: flex; flex-direction: column; gap: 2px; text-align: center; }
+  .hero-stat-value { font-family: var(--font-display); font-size: 36px; color: var(--cream); letter-spacing: -0.8px; font-weight: 400; }
+  .hero-stat-label { font-family: var(--font-mono); font-size: 13px; color: var(--sage); }
+
+  /* Hero budget bar */
+  .hero-bar-wrap { width: 100%; max-width: 680px; margin: 0 auto; }
+  .hero-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--foliage); position: relative; }
+  .hero-bar-segment { position: relative; height: 100%; transition: width 0.8s ease; }
+  .hero-bar-segment:not(:last-child) { border-right: 2px solid var(--deep-green); }
+  .hero-bar-fill { position: absolute; inset: 0; border-radius: 0; transition: width 1s ease; }
+  .hero-bar-fill.filled { background: var(--sage); }
+
+  /* Segment labels below the bar */
+  .hero-bar-labels { display: flex; margin-top: 10px; }
+  .hero-bar-label { display: flex; flex-direction: column; gap: 2px; padding-top: 4px; position: relative; overflow: hidden; text-align: center; align-items: center; }
+  .hero-bar-label-name { font-family: var(--font-mono); font-size: 11px; color: var(--sage); letter-spacing: 0.3px; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hero-bar-label-amount { font-family: var(--font-mono); font-size: 12px; color: var(--sage); opacity: 0.6; }
+
+  /* Tick marks between segments */
+  .hero-bar-label::before { content: ''; position: absolute; top: 0; left: 0; width: 1px; height: 6px; background: var(--foliage); }
+  .hero-bar-label:first-child::before { display: none; }
+
+  /* Raised indicator */
+  .hero-bar-raised { position: relative; margin-top: 16px; display: flex; align-items: center; gap: 8px; justify-content: center; }
+  .hero-bar-raised-marker { width: 8px; height: 8px; border-radius: 50%; background: var(--sunwashed); flex-shrink: 0; }
+  .hero-bar-raised-text { font-family: var(--font-mono); font-size: 13px; color: var(--cream); }
+  .hero-bar-raised-text strong { font-weight: 500; }
+
+  .hero-scroll { margin-top: 56px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .hero-scroll span { font-family: var(--font-mono); font-size: 13px; color: var(--sage); }
+  .hero-scroll-arrow { width: 20px; height: 20px; border-right: 1.5px solid var(--sage); border-bottom: 1.5px solid var(--sage); transform: rotate(45deg); animation: scrollBounce 2s infinite; }
+  @keyframes scrollBounce { 0%, 100% { transform: translateY(0) rotate(45deg); } 50% { transform: translateY(6px) rotate(45deg); } }
+
+
+  /* =============================================
+     FOUNDER PLEDGE
+     ============================================= */
+  .founder-section { width: 100%; background: var(--deep-green); display: flex; justify-content: center; border-top: 1px solid rgba(255,255,255,0.06); }
+  .founder-inner { max-width: 1200px; width: 100%; padding: 64px 64px; }
+  .founder-label { font-family: var(--font-mono); font-size: var(--text-nav); color: var(--sage); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+  .founder-title { font-family: var(--font-display); font-weight: 400; font-size: 32px; color: var(--cream); letter-spacing: -0.64px; margin-bottom: 8px; }
+  .founder-subtitle { font-family: var(--font-mono); font-size: 16px; color: var(--sage); line-height: 1.5; margin-bottom: 40px; max-width: 600px; }
+
+  .founder-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .founder-card { padding: 24px; border-radius: 16px; border: 1px solid var(--foliage); background: rgba(255,255,255,0.03); }
+  .founder-card-icon { font-size: 24px; margin-bottom: 12px; }
+  .founder-card-title { font-family: var(--font-display); font-size: 18px; color: var(--cream); margin-bottom: 8px; letter-spacing: -0.3px; }
+  .founder-card-value { font-family: var(--font-mono); font-size: 14px; color: var(--sunwashed); margin-bottom: 8px; font-weight: 500; }
+  .founder-card-desc { font-family: var(--font-mono); font-size: 13px; color: var(--sage); line-height: 1.5; }
+
+  /* =============================================
+     SECTIONS (shared)
+     ============================================= */
+  .section { width: 100%; display: flex; justify-content: center; }
+  .section-cream { background: var(--cream); }
+  .section-oat { background: var(--oat); }
+  .section-deep { background: var(--deep-green); color: var(--cream); }
+  .section-inner { max-width: 1200px; width: 100%; padding: 80px 64px; }
+  .section-label { font-family: var(--font-mono); font-size: var(--text-nav); color: var(--pebble); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+  .section-deep .section-label { color: var(--sage); }
+  .section-title { margin-bottom: 12px; }
+  .section-subtitle { color: var(--granite); margin-bottom: 48px; max-width: 600px; }
+  .section-deep .section-subtitle { color: var(--sage); }
+
+  /* =============================================
+     OPERATIONS
+     ============================================= */
+  .ops-overview { display: flex; align-items: center; gap: 32px; margin-bottom: 40px; padding: 24px; background: var(--white); border-radius: 20px; border: 1px solid var(--oat); flex-wrap: wrap; }
+  .ops-overview-ring { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
+  .ops-overview-ring svg { transform: rotate(-90deg); }
+  .ops-ring-bg { fill: none; stroke: var(--oat); stroke-width: 6; }
+  .ops-ring-fill { fill: none; stroke: var(--sage); stroke-width: 6; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+  .ops-overview-ring .ring-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .ops-overview-ring .ring-pct { font-family: var(--font-display); font-size: 24px; color: var(--slate); letter-spacing: -0.5px; }
+  .ops-overview-ring .ring-label { font-size: 11px; color: var(--granite); }
+  .ops-overview-info { flex: 1; min-width: 200px; }
+  .ops-overview-info p { font-size: 14px; color: var(--granite); line-height: 1.55; }
+  .ops-overview-info .ops-thai-note { font-size: 12px; color: var(--sapling); background: rgba(184, 200, 183, 0.15); padding: 6px 12px; border-radius: 8px; margin-top: 12px; display: inline-block; }
+  .ops-overview-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+  .ops-stat { text-align: center; }
+  .ops-stat-value { font-family: var(--font-display); font-size: 20px; color: var(--slate); }
+  .ops-stat-label { font-size: 11px; color: var(--granite); margin-top: 2px; }
+
+  .ops-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.3s ease; opacity: 0; }
+  .ops-columns.open { max-height: 2000px; opacity: 1; margin-top: 24px; }
+  .ops-ownership-note { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 13px; color: var(--granite); background: var(--white); padding: 14px 18px; border-radius: 10px; border-left: 3px solid var(--sage); border: 1px solid var(--oat); border-left: 3px solid var(--sage); margin-bottom: 8px; }
+  .ops-column-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; letter-spacing: -0.4px; margin-bottom: 4px; }
+  .ops-column-subtitle { font-size: 13px; color: var(--granite); margin-bottom: 20px; }
+
+  .ops-table { width: 100%; border-collapse: collapse; }
+  .ops-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--pebble); padding: 8px 0; border-bottom: 1px solid var(--beige); font-weight: 500; }
+  .ops-table td { font-size: 13px; padding: 10px 0; border-bottom: 1px solid rgba(204, 196, 181, 0.3); color: var(--granite); }
+  .ops-table td:last-child { text-align: right; font-family: var(--font-mono); font-size: 12px; }
+  .ops-table tr.ops-total td { font-weight: 600; color: var(--slate); border-bottom: none; border-top: 1px solid var(--beige); padding-top: 12px; }
+  .ops-table tr.ops-total td:last-child { font-size: 14px; }
+
+  .ops-runway-visual { margin-top: 24px; }
+  .ops-runway-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--oat); margin-bottom: 8px; }
+  .ops-runway-filled { height: 100%; background: var(--sage); border-radius: 4px; transition: width 0.8s ease; }
+  .ops-runway-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--pebble); }
+  .ops-runway-months { display: flex; gap: 4px; margin-top: 8px; }
+  .ops-month-pip { width: 8px; height: 8px; border-radius: 50%; background: var(--oat); flex-shrink: 0; }
+  .ops-month-pip.funded { background: var(--sage); }
+
+  /* Collapsible operations detail */
+  .ops-toggle { display: flex; align-items: center; gap: 8px; margin-top: 24px; background: none; border: 1px solid var(--beige); padding: 10px 20px; border-radius: 100px; cursor: pointer; font-family: var(--font-mono); font-size: 13px; color: var(--granite); transition: all 0.2s; }
+  .ops-toggle:hover { border-color: var(--slate); color: var(--slate); }
+  .ops-toggle-arrow { transition: transform 0.3s ease; display: inline-block; }
+  .ops-toggle.open .ops-toggle-arrow { transform: rotate(180deg); }
+
+  /* Founder feed item */
+  .feed-item.feed-founder { border-left: 3px solid var(--sunwashed); }
+  .feed-item.feed-founder .feed-avatar { background: var(--sunwashed); color: var(--cream); }
+
+  /* =============================================
+     SPACE CARDS GRID
+     ============================================= */
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+  .filter-btn { font-family: var(--font-mono); font-size: 13px; padding: 8px 16px; border-radius: 100px; border: 1px solid var(--beige); background: transparent; color: var(--granite); cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover { border-color: var(--slate); color: var(--slate); }
+  .filter-btn.active { background: var(--deep-green); color: var(--cream); border-color: var(--deep-green); }
+
+  .phase-section { margin-bottom: 48px; }
+  .phase-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--beige); }
+  .phase-name { font-family: var(--font-display); font-size: 24px; letter-spacing: -0.5px; }
+  .phase-subtitle { font-family: var(--font-mono); font-size: 14px; color: var(--granite); }
+  .phase-budget { font-family: var(--font-mono); font-size: 13px; color: var(--granite); background: var(--oat); padding: 3px 10px; border-radius: 20px; }
+  .phase-lock { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--pebble); font-style: italic; }
+
+  /* Phase infrastructure block */
+  .phase-infra { background: var(--white); border: 1px solid var(--oat); border-radius: 16px; padding: 24px; margin-bottom: 24px; display: flex; flex-direction: column; }
+  .phase-infra-header { margin-bottom: 16px; }
+  .phase-infra-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 17px; font-weight: 500; margin-bottom: 4px; }
+  .phase-infra-icon { font-size: 18px; }
+  .phase-infra-subtitle { font-size: 13px; color: var(--granite); }
+  .phase-infra-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .phase-infra-bottom { margin-top: auto; padding-top: 20px; }
+  .phase-infra-bar { width: 100%; height: 6px; background: var(--oat); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
+  .phase-infra-fill { height: 100%; background: var(--sage); border-radius: 3px; transition: width 0.8s ease; }
+  .phase-infra-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--granite); font-family: var(--font-mono); }
+  .phase-infra-item { padding: 12px 16px; background: var(--cream); border-radius: 10px; display: flex; flex-direction: column; }
+  .phase-infra-item-info { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex: 1; }
+  .phase-infra-item-name { font-family: var(--font-mono); font-size: 13px; font-weight: 500; }
+  .phase-infra-item-amount { font-family: var(--font-mono); font-size: 12px; color: var(--granite); }
+  .phase-infra-item-bar { width: 100%; height: 3px; background: var(--oat); border-radius: 2px; overflow: hidden; }
+  .phase-infra-item-fill { height: 100%; background: var(--sage); border-radius: 2px; transition: width 0.8s ease; }
+
+  /* Future vision */
+  .future-section { border-top: 2px dashed var(--oat); padding-top: 48px; margin-top: 24px; }
+  .future-header .phase-name { color: var(--granite); }
+  .future-header .phase-budget { color: var(--granite); font-style: italic; }
+  .future-note { font-size: 15px; color: var(--granite); max-width: 640px; margin-bottom: 24px; line-height: 1.5; }
+  .future-card { opacity: 0.65; filter: grayscale(0.3); cursor: pointer; }
+  .future-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); opacity: 0.8; }
+  .future-card .space-card-phase { background: var(--oat); color: var(--granite); }
+  .future-meta { font-style: italic; color: var(--granite); }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .space-card { background: var(--white); border-radius: 20px; overflow: hidden; border: 1px solid var(--oat); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+  .space-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .space-card.locked { opacity: 0.65; filter: grayscale(0.25); cursor: pointer; }
+  .space-card-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .space-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .space-card-top { margin-bottom: 6px; }
+  .space-card-name { font-family: var(--font-display); font-size: 18px; letter-spacing: -0.36px; display: block; margin-bottom: 6px; }
+  .space-card-tags { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+  .space-card-phase { font-family: var(--font-mono); font-size: 11px; padding: 3px 9px; border-radius: 100px; background: var(--cream); color: var(--granite); white-space: nowrap; }
+  .space-card-cat-tag { font-family: var(--font-mono); font-size: 11px; padding: 3px 9px; border-radius: 100px; border: 1px solid var(--oat); color: var(--pebble); white-space: nowrap; text-transform: uppercase; letter-spacing: 0.3px; }
+  .space-card-desc { font-size: 13px; color: var(--granite); line-height: 1.45; margin-bottom: 16px; flex: 1; }
+  .space-card-bar { width: 100%; height: 4px; background: var(--oat); border-radius: 2px; overflow: hidden; margin-bottom: 8px; position: relative; }
+  .space-card-fill { height: 100%; border-radius: 2px; transition: width 0.8s ease; }
+  /* Segmented bar for multi-unit spaces */
+  .space-card-bar.segmented { display: flex; gap: 2px; background: none; }
+  .space-card-segment { flex: 1; height: 4px; background: var(--oat); border-radius: 2px; overflow: hidden; }
+  .space-card-segment-fill { height: 100%; border-radius: 2px; transition: width 0.8s ease; }
+  .space-card-fill.cat-work { background: var(--sage); }
+  .space-card-fill.cat-community { background: var(--sapling); }
+  .space-card-fill.cat-wellness { background: var(--sunwashed); }
+  .space-card-fill.cat-specialist { background: var(--foliage); }
+  .space-card-fill.cat-accommodation { background: var(--beige); }
+  .space-card-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--pebble); }
+  .space-card-supporters { display: flex; align-items: center; gap: 4px; }
+  .space-card-units { font-family: var(--font-mono); font-size: 12px; color: var(--granite); margin-bottom: 8px; }
+
+  .space-card-bar.pulse .space-card-fill { animation: barPulse 2s ease-in-out infinite; }
+  @keyframes barPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+  /* Most wanted badge */
+  .badge-popular { position: absolute; top: 12px; right: 12px; background: var(--sunwashed); color: var(--cream); font-family: var(--font-mono); font-size: 11px; font-weight: 500; padding: 5px 12px; border-radius: 100px; z-index: 2; }
+  .space-card { position: relative; }
+
+  /* =============================================
+     ZONE DETAIL PANEL
+     ============================================= */
+  .detail-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .detail-overlay.open { opacity: 1; pointer-events: auto; }
+
+  .detail-panel { position: fixed; top: 0; right: 0; width: 520px; max-width: 100%; height: 100dvh; background: var(--cream); z-index: 1000; transform: translateX(100%); transition: transform 0.35s ease; overflow-y: auto; display: flex; flex-direction: column; }
+  .detail-panel.open { transform: translateX(0); }
+  .detail-close { position: absolute; top: 20px; right: 20px; width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 1px solid var(--oat); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; z-index: 2; transition: background 0.2s; }
+  .detail-close:hover { background: var(--oat); }
+  .detail-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  .detail-content { padding: 32px; flex: 1; }
+  .detail-category { font-size: 11px; color: var(--pebble); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .detail-name { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.56px; margin-bottom: 4px; }
+  .detail-meta { font-size: 13px; color: var(--pebble); margin-bottom: 12px; font-family: var(--font-mono); }
+  .detail-story { font-size: 15px; color: var(--granite); line-height: 1.55; margin-bottom: 32px; }
+
+  /* Detail progress */
+  .detail-progress { margin-bottom: 32px; }
+  .detail-bar { width: 100%; height: 8px; background: var(--oat); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+  .detail-bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+  .detail-bar-meta { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px; }
+  .detail-bar-raised { font-weight: 500; }
+  .detail-bar-goal { color: var(--granite); }
+
+  /* Milestones */
+  .milestones { margin-bottom: 32px; }
+  .milestones-title { font-size: 14px; font-weight: 500; margin-bottom: 16px; }
+  .milestone-track { display: flex; align-items: center; gap: 0; position: relative; }
+  .milestone-line { flex: 1; height: 2px; background: var(--oat); }
+  .milestone-line.reached { background: var(--sage); }
+  .milestone-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--oat); border: 2px solid var(--cream); flex-shrink: 0; z-index: 1; }
+  .milestone-dot.reached { background: var(--sage); }
+  .milestone-labels { display: flex; justify-content: space-between; margin-top: 8px; }
+  .milestone-label { font-size: 11px; color: var(--pebble); text-align: center; width: 25%; }
+  .milestone-label.reached { color: var(--foliage); font-weight: 500; }
+
+  /* Cost breakdown */
+  .cost-breakdown { margin-bottom: 32px; }
+  .cost-title { font-size: 14px; font-weight: 500; margin-bottom: 12px; }
+  .cost-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--oat); font-size: 14px; }
+  .cost-row:last-child { border-bottom: none; font-weight: 500; }
+  .cost-label { color: var(--granite); }
+
+  /* Ripple effects */
+  .ripple-section { margin-bottom: 32px; }
+  .ripple-title { font-size: 14px; font-weight: 500; margin-bottom: 12px; }
+  .ripple-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ripple-tag { font-size: 12px; padding: 6px 14px; border-radius: 100px; background: var(--white); border: 1px solid var(--oat); color: var(--granite); }
+
+  /* Detail CTA */
+  .detail-cta { padding: 24px 32px; border-top: 1px solid var(--oat); background: var(--white); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-mono); font-size: var(--text-body-sm); font-weight: 500; padding: 14px 28px; border-radius: 100px; text-decoration: none; cursor: pointer; border: none; transition: filter 0.2s, transform 0.1s; }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--sunwashed); color: var(--cream); }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-secondary { background: transparent; color: var(--slate); border: 1px solid var(--beige); }
+  .btn-secondary:hover { border-color: var(--slate); }
+  .btn-full { width: 100%; }
+
+  /* =============================================
+     PAY IT FORWARD / FUNDING
+     ============================================= */
+  .payforward-sub-title { font-size: 22px; font-weight: 500; color: var(--cream); margin-bottom: 8px; }
+  .payforward-sub-desc { font-size: 15px; color: var(--sage); margin-bottom: 24px; max-width: 600px; }
+  .section-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 40px 0; }
+
+  /* Funding bar */
+  .funding-bar { display: flex; height: 14px; border-radius: 7px; overflow: hidden; margin-bottom: 24px; background: rgba(255,255,255,0.06); }
+  .funding-segment { height: 100%; transition: width 0.8s ease; position: relative; }
+  .funding-segment:not(:last-child) { border-right: 2px solid var(--deep-green); }
+  .funding-segment[data-pillar="angel"]       { background: var(--sunwashed); }
+  .funding-segment[data-pillar="payforward"]  { background: var(--sage); }
+  .funding-segment[data-pillar="presales"]    { background: var(--oat); }
+  .funding-segment[data-pillar="fundraising"] { background: var(--foliage); }
+
+  /* Pillar cards */
+  .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+  .pillar-card { padding: 20px 24px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); display: flex; gap: 16px; align-items: flex-start; }
+  .pillar-icon { font-size: 24px; flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .pillar-card[data-pillar="angel"]       .pillar-icon { background: var(--sunwashed); }
+  .pillar-card[data-pillar="payforward"]  .pillar-icon { background: rgba(183,195,150,0.2); }
+  .pillar-card[data-pillar="presales"]    .pillar-icon { background: rgba(227,218,201,0.15); }
+  .pillar-card[data-pillar="fundraising"] .pillar-icon { background: rgba(74,102,71,0.4); }
+  .pillar-info { flex: 1; }
+  .pillar-name { font-size: 15px; font-weight: 500; color: var(--cream); margin-bottom: 2px; }
+  .pillar-amount { font-family: var(--font-mono); font-size: 13px; color: var(--sage); margin-bottom: 6px; }
+  .pillar-desc { font-size: 13px; color: var(--sage); opacity: 0.7; line-height: 1.5; }
+
+  .initiatives-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .initiative-card { padding: 24px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+  .initiative-name { font-size: 16px; font-weight: 500; margin-bottom: 8px; color: var(--cream); }
+  .initiative-desc { font-size: 14px; color: var(--sage); line-height: 1.5; }
+
+  /* =============================================
+     COMMUNITY FEED
+     ============================================= */
+  .feed-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+  .feed-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: var(--white); border-radius: 16px; border: 1px solid var(--oat); }
+  .feed-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 16px; color: var(--deep-green); flex-shrink: 0; }
+  .feed-body { flex: 1; }
+  .feed-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .feed-name { font-size: 14px; font-weight: 500; }
+  .feed-date { font-size: 12px; color: var(--pebble); }
+  .feed-message { font-size: 14px; color: var(--granite); line-height: 1.45; }
+  .feed-zone { font-size: 12px; color: var(--sunwashed); margin-top: 4px; }
+
+  /* =============================================
+     CTA
+     ============================================= */
+  .cta-card { background: var(--deep-green); border-radius: 24px; padding: 48px; text-align: center; color: var(--cream); }
+  .cta-card .h3 { margin-bottom: 16px; }
+  .cta-card .body-lg { color: var(--sage); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* =============================================
+     FOOTER
+     ============================================= */
+  .site-footer { background: var(--oat); width: 100%; display: flex; justify-content: center; padding: 0 120px; }
+  .footer-inner { max-width: 1200px; width: 100%; display: flex; align-items: flex-start; justify-content: space-between; border-top: 1px solid var(--beige); padding: 20px 0 80px; }
+  .footer-copy { color: var(--slate); font-size: var(--text-nav); }
+  .footer-copy span { color: var(--sunwashed); }
+
+  /* =============================================
+     ANIMATIONS
+     ============================================= */
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .fade-up { opacity: 1; transform: none; } }
+
+  /* =============================================
+     TABLET
+     ============================================= */
+  @media (max-width: 1024px) {
+    .site-header { padding: 24px 40px; }
+    .site-header::after { left: 40px; right: 40px; }
+    .build-hero { padding: 80px 40px 60px; }
+    .build-hero-title { font-size: 48px; }
+    .section-inner { padding: 60px 40px; }
+    .cards-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .founder-inner { padding: 48px 40px; }
+    .founder-cards { gap: 16px; }
+    .ops-columns { gap: 24px; }
+    .detail-panel { width: 440px; }
+    .site-footer { padding: 0 40px; }
+  }
+
+  /* =============================================
+     MOBILE
+     ============================================= */
+  @media (max-width: 640px) {
+    .h1 { font-size: 36px; letter-spacing: -0.72px; }
+    .h2 { font-size: 28px; letter-spacing: -0.56px; }
+    .h3 { font-size: 24px; letter-spacing: -0.48px; }
+    .body-lg { font-size: 16px; letter-spacing: -0.32px; }
+
+    .site-header { padding: 14px 20px; }
+    .site-header::after { left: 20px; right: 20px; }
+    .site-logo img { height: 22px; }
+    .burger { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+    .site-nav { position: fixed; top: 0; right: 0; width: 260px; height: 100dvh; background: var(--deep-green); flex-direction: column; align-items: stretch; gap: 0; padding: 80px 32px 40px; transform: translateX(100%); transition: transform 0.35s ease; z-index: 100; box-shadow: -4px 0 24px rgba(0,0,0,0.3); }
+    .site-nav.open { transform: translateX(0); }
+    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
+    .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .currency-toggle { margin: 8px 0; align-self: flex-start; }
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+    .nav-overlay.open { display: block; }
+
+    .build-hero { padding: 60px 24px 48px; }
+    .build-hero-title { font-size: 36px; letter-spacing: -0.9px; }
+    .build-hero-subtitle { font-size: 16px; margin-bottom: 40px; }
+    .hero-stats { gap: 20px; }
+    .hero-stat-value { font-size: 28px; }
+    .hero-bar-label-name { font-size: 10px; letter-spacing: 0; }
+    .hero-bar-label-amount { font-size: 10px; }
+    .hero-bar-raised-text { font-size: 12px; }
+
+    .section-inner { padding: 48px 24px; }
+    .founder-inner { padding: 48px 24px; }
+    .founder-title { font-size: 24px; }
+    .founder-cards { grid-template-columns: 1fr; gap: 12px; }
+    .ops-columns { grid-template-columns: 1fr; gap: 32px; }
+    .ops-overview { flex-direction: column; text-align: center; gap: 20px; }
+    .ops-overview-stats { justify-content: center; }
+    .filter-bar { gap: 6px; }
+    .filter-btn { padding: 8px 12px; font-size: 12px; }
+    .cards-grid { grid-template-columns: 1fr; gap: 20px; }
+    .phase-header { flex-direction: column; gap: 4px; }
+
+    .detail-panel { width: 100%; top: auto; bottom: 0; height: 90dvh; transform: translateY(100%); border-radius: 20px 20px 0 0; }
+    .detail-panel.open { transform: translateY(0); }
+    .detail-content { padding: 24px; }
+    .detail-cta { padding: 20px 24px; }
+
+    .pillar-grid { grid-template-columns: 1fr; }
+
+    .cta-card { padding: 32px 24px; }
+    .cta-buttons { flex-direction: column; }
+    .cta-buttons .btn { width: 100%; }
+
+    .site-footer { padding: 0 24px; }
+    .footer-inner { flex-direction: column; gap: 20px; padding: 20px 0 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="https://nam.space" class="site-logo"><img src="https://nam.space/assets/logo.svg" alt="NāM"></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav">
+      <a href="https://nam.space">NāM Space</a>
+      <a href="https://nam.space/manifesto/">Manifesto</a>
+      <a href="#spaces" aria-current="page">Build</a>
+      <button class="currency-toggle" id="currencyToggle" aria-label="Switch currency">
+        <span class="currency-opt active" data-currency="usd">USD</span>
+        <span class="currency-opt" data-currency="thb">THB</span>
+      </button>
+      <a href="#cta" class="nav-cta">Support NāM</a>
+    </nav>
+    <div class="nav-overlay"></div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- HERO -->
+  <section class="build-hero fade-up">
+    <div class="build-hero-inner">
+      <p class="build-hero-label" id="heroLabel"></p>
+      <h1 class="build-hero-title" id="heroTitle"></h1>
+      <p class="build-hero-subtitle" id="heroSubtitle"></p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="heroRaised">$0</span>
+          <span class="hero-stat-label">raised</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="heroGoal">$0</span>
+          <span class="hero-stat-label">goal</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="heroPct">0%</span>
+          <span class="hero-stat-label">funded</span>
+        </div>
+      </div>
+
+      <div class="hero-bar-wrap">
+        <div class="hero-bar" id="heroBar"></div>
+        <div class="hero-bar-labels" id="heroBarLabels"></div>
+        <div class="hero-bar-raised" id="heroBarRaised"></div>
+      </div>
+
+      <div class="hero-scroll">
+        <span id="heroScrollPrompt"></span>
+        <div class="hero-scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER PLEDGE -->
+  <section class="founder-section fade-up" id="founderPledge">
+    <div class="founder-inner">
+      <p class="founder-label" id="founderLabel"></p>
+      <h3 class="founder-title" id="founderTitle"></h3>
+      <p class="founder-subtitle" id="founderSubtitle"></p>
+
+      <div class="founder-cards" id="founderCards">
+        <div class="founder-card">
+          <div class="founder-card-icon">🌿</div>
+          <h3 class="founder-card-title" id="founderCardTitleLand"></h3>
+          <div class="founder-card-value" id="founderLandValue">30-year lease</div>
+          <p class="founder-card-desc" id="founderLandDesc"></p>
+        </div>
+        <div class="founder-card">
+          <div class="founder-card-icon">🌱</div>
+          <h3 class="founder-card-title" id="founderCardTitleInvest"></h3>
+          <div class="founder-card-value" id="founderInvestValue"></div>
+          <p class="founder-card-desc" id="founderInvestDesc"></p>
+        </div>
+        <div class="founder-card">
+          <div class="founder-card-icon">🌊</div>
+          <h3 class="founder-card-title" id="founderCardTitleFunding"></h3>
+          <div class="founder-card-value" id="founderFundingValue"></div>
+          <p class="founder-card-desc" id="founderSourcesDesc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATIONS -->
+  <section class="section section-oat" id="operations">
+    <div class="section-inner fade-up">
+      <p class="section-label" id="opsLabel"></p>
+      <h2 class="h2 section-title" id="opsTitle"></h2>
+      <p class="body-sm section-subtitle" id="opsSubtitle"></p>
+
+      <div class="ops-overview" id="opsOverview">
+        <div class="ops-overview-ring">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle class="ops-ring-bg" cx="60" cy="60" r="52" />
+            <circle class="ops-ring-fill" id="opsRingFill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73" />
+          </svg>
+          <div class="ring-text">
+            <span class="ring-pct" id="opsRingPct">0%</span>
+            <span class="ring-label">funded</span>
+          </div>
+        </div>
+        <div class="ops-overview-info">
+          <p id="opsInfoText"></p>
+        </div>
+        <div class="ops-overview-stats">
+          <div class="ops-stat">
+            <div class="ops-stat-value" id="opsGoalDisplay">$97K</div>
+            <div class="ops-stat-label">total needed</div>
+          </div>
+          <div class="ops-stat">
+            <div class="ops-stat-value" id="opsMonthly">$7,060</div>
+            <div class="ops-stat-label">monthly burn</div>
+          </div>
+          <div class="ops-stat">
+            <div class="ops-stat-value">12</div>
+            <div class="ops-stat-label">months runway</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="ops-toggle" id="opsToggle" aria-expanded="false">
+        <span>View full breakdown</span>
+        <span class="ops-toggle-arrow">▾</span>
+      </button>
+
+      <div class="ops-columns" id="opsColumns">
+        <p class="ops-ownership-note" id="opsThai"></p>
+        <!-- Setup column -->
+        <div class="ops-column">
+          <h3 class="ops-column-title">Business setup</h3>
+          <p class="ops-column-subtitle">One-time costs to establish NāM as a legal, operational business.</p>
+          <table class="ops-table" id="opsSetupTable">
+            <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+            <tbody id="opsSetupBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Runway column -->
+        <div class="ops-column">
+          <h3 class="ops-column-title">Monthly operating costs</h3>
+          <p class="ops-column-subtitle">Staff, utilities, and everything it takes to keep the doors open.</p>
+
+          <h4 style="font-size: 13px; color: var(--pebble); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; margin-top: 4px;">Team</h4>
+          <table class="ops-table" id="opsStaffTable">
+            <thead><tr><th>Role</th><th>Monthly</th></tr></thead>
+            <tbody id="opsStaffBody"></tbody>
+          </table>
+
+          <h4 style="font-size: 13px; color: var(--pebble); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; margin-top: 24px;">Running costs</h4>
+          <table class="ops-table" id="opsRunningTable">
+            <thead><tr><th>Item</th><th>Monthly</th></tr></thead>
+            <tbody id="opsRunningBody"></tbody>
+          </table>
+
+          <div class="ops-runway-visual" id="opsRunway">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--granite); margin-bottom: 6px;">
+              <span>12-month runway</span>
+              <span id="opsRunwayAmount">$85,000</span>
+            </div>
+            <div class="ops-runway-bar">
+              <div class="ops-runway-filled" id="opsRunwayFill" style="width: 0%;"></div>
+            </div>
+            <div class="ops-runway-months" id="opsMonthPips"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACES -->
+  <section class="section section-cream" id="spaces">
+    <div class="section-inner fade-up">
+      <p class="section-label" id="spacesLabel"></p>
+      <h2 class="h2 section-title" id="spacesTitle"></h2>
+      <p class="body-sm section-subtitle" id="spacesSubtitle"></p>
+
+      <div class="filter-bar" id="filterBar"></div>
+
+      <div id="phaseSections"></div>
+    </div>
+  </section>
+
+  <!-- PAY IT FORWARD -->
+  <section class="section section-deep" id="payforward">
+    <div class="section-inner fade-up">
+      <p class="section-label" id="payforwardLabel"></p>
+
+      <!-- Funding pillars -->
+      <h3 class="payforward-sub-title" id="fundingTitle"></h3>
+      <p class="payforward-sub-desc" id="fundingSubtitle"></p>
+      <div class="funding-bar" id="fundingBar"></div>
+      <div class="pillar-grid" id="pillarGrid"></div>
+
+      <hr class="section-divider">
+
+      <!-- Giving back -->
+      <h3 class="payforward-sub-title" id="givingBackTitle"></h3>
+      <p class="payforward-sub-desc" id="givingBackSubtitle"></p>
+      <div class="initiatives-grid" id="initiativesGrid"></div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY FEED -->
+  <section class="section section-cream" id="community">
+    <div class="section-inner fade-up">
+      <p class="section-label" id="communityLabel"></p>
+      <h2 class="h2 section-title" id="communityTitle"></h2>
+      <p class="body-sm section-subtitle" id="communitySubtitle"></p>
+
+      <div class="feed-list" id="feedList"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-oat" id="cta">
+    <div class="section-inner fade-up">
+      <div class="cta-card">
+        <h2 class="h3" id="ctaTitle"></h2>
+        <p class="body-lg" id="ctaSubtitle"></p>
+        <div class="cta-buttons" id="ctaButtons"></div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="caption footer-copy" id="footerCopy"></p>
+    </div>
+  </footer>
+
+  <!-- ZONE DETAIL PANEL -->
+  <div class="detail-overlay" id="detailOverlay"></div>
+  <aside class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-label="Space details">
+    <button class="detail-close" id="detailClose" aria-label="Close">&times;</button>
+    <img class="detail-img" id="detailImg" src="" alt="">
+    <div class="detail-content">
+      <p class="detail-category" id="detailCategory"></p>
+      <h3 class="detail-name" id="detailName"></h3>
+      <p class="detail-meta" id="detailMeta"></p>
+      <p class="detail-story" id="detailStory"></p>
+
+      <div class="detail-progress">
+        <div class="detail-bar-meta">
+          <span class="detail-bar-raised" id="detailRaised">$0</span>
+          <span class="detail-bar-goal" id="detailGoal">of $0</span>
+        </div>
+        <div class="detail-bar">
+          <div class="detail-bar-fill" id="detailBarFill" style="width:0"></div>
+        </div>
+      </div>
+
+      <div class="milestones">
+        <p class="milestones-title" id="detailMilestonesTitle"></p>
+        <div class="milestone-track" id="milestoneTrack"></div>
+        <div class="milestone-labels" id="milestoneLabels"></div>
+      </div>
+
+      <div class="cost-breakdown">
+        <p class="cost-title" id="detailCostTitle"></p>
+        <div id="costRows"></div>
+      </div>
+
+      <div class="ripple-section">
+        <p class="ripple-title" id="detailRippleTitle"></p>
+        <div class="ripple-tags" id="rippleTags"></div>
+      </div>
+    </div>
+    <div class="detail-cta">
+      <a href="#cta" class="btn btn-primary btn-full" id="detailSupportBtn">Support this space</a>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+(function() {
+  // ─── Load Data ─────────────────────────────────────────
+  let DATA = null;
+  let currentCurrency = localStorage.getItem('nam-currency') || 'usd';
+
+  fetch('data/build.json')
+    .then(r => r.json())
+    .then(data => { DATA = data; init(); })
+    .catch(e => console.error('Load/init error:', e));
+
+  function init() {
+    renderContent();
+    setupCurrencyToggle();
+    renderAll();
+    setupOpsToggle();
+    setupFilters();
+    setupDetailPanel();
+    setupMobileNav();
+    setupScrollAnimations();
+  }
+
+  function renderAll() {
+    renderHero();
+    renderFounderPledge();
+    renderOperations();
+    renderSpaces();
+    renderFunding();
+    renderPayForward();
+    renderFeed();
+  }
+
+  // ─── Static Content (called once, not on currency toggle) ──
+  function renderContent() {
+    const c = DATA.content;
+
+    // Hero
+    $('#heroLabel').textContent = c.hero.label;
+    $('#heroTitle').textContent = c.hero.title;
+    $('#heroSubtitle').textContent = c.hero.subtitle;
+    $('#heroScrollPrompt').textContent = c.hero.scrollPrompt;
+
+    // Founder
+    $('#founderLabel').textContent = c.founder.label;
+    $('#founderCardTitleLand').textContent = c.founder.cardTitles.land;
+    $('#founderCardTitleInvest').textContent = c.founder.cardTitles.investment;
+    $('#founderCardTitleFunding').textContent = c.founder.cardTitles.funding;
+    $('#founderFundingValue').textContent = c.founder.fundingValue;
+
+    // Operations
+    $('#opsLabel').textContent = c.operations.label;
+    $('#opsInfoText').textContent = c.operations.infoParagraph;
+
+    // Spaces — generate filter buttons
+    $('#spacesLabel').textContent = c.spaces.label;
+    $('#spacesTitle').textContent = c.spaces.title;
+    $('#spacesSubtitle').textContent = c.spaces.subtitle;
+    const filterBar = $('#filterBar');
+    filterBar.innerHTML = '';
+    c.spaces.filters.forEach((f, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (i === 0 ? ' active' : '');
+      btn.dataset.filter = f.key;
+      btn.textContent = f.label;
+      filterBar.appendChild(btn);
+    });
+
+    // Pay Forward
+    $('#payforwardLabel').textContent = c.payForward.label;
+
+    // Community
+    $('#communityLabel').textContent = c.community.label;
+    $('#communityTitle').textContent = c.community.title;
+    $('#communitySubtitle').textContent = c.community.subtitle;
+
+    // CTA — generate buttons
+    $('#ctaTitle').textContent = c.cta.title;
+    $('#ctaSubtitle').textContent = c.cta.subtitle;
+    $('#ctaButtons').innerHTML = `
+      <a href="${c.cta.primaryBtn.href}" class="btn btn-primary">${c.cta.primaryBtn.label}</a>
+      <a href="${c.cta.secondaryBtn.href}" class="btn btn-secondary" style="color:var(--cream);border-color:var(--foliage)">${c.cta.secondaryBtn.label}</a>
+    `;
+
+    // Footer
+    $('#footerCopy').innerHTML = c.footer.name + ' <span>✦</span> ' + c.footer.copyright;
+
+    // Detail panel static labels
+    $('#detailMilestonesTitle').textContent = c.detail.milestones;
+    $('#detailCostTitle').textContent = c.detail.costBreakdown;
+    $('#detailRippleTitle').textContent = c.detail.ripple;
+    $('#detailSupportBtn').textContent = c.detail.supportBtn;
+  }
+
+  // ─── Helpers ───────────────────────────────────────────
+  function $(sel) { return document.querySelector(sel); }
+  function $$(sel) { return document.querySelectorAll(sel); }
+  function fmt(n) {
+    if (currentCurrency === 'thb') {
+      const thb = Math.round(n * DATA.project.exchangeRate);
+      return '฿' + thb.toLocaleString('en-US');
+    }
+    return '$' + n.toLocaleString('en-US');
+  }
+  function pct(raised, goal) { return goal > 0 ? Math.min(100, Math.round((raised / goal) * 100)) : 0; }
+
+  // ─── Currency Toggle ──────────────────────────────────
+  function setupCurrencyToggle() {
+    const toggle = $('#currencyToggle');
+    if (!toggle) return;
+
+    // Set initial state from localStorage
+    updateToggleUI();
+
+    toggle.addEventListener('click', () => {
+      currentCurrency = currentCurrency === 'usd' ? 'thb' : 'usd';
+      localStorage.setItem('nam-currency', currentCurrency);
+      updateToggleUI();
+      renderAll();
+    });
+  }
+
+  function updateToggleUI() {
+    const opts = $$('.currency-opt');
+    opts.forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.currency === currentCurrency);
+    });
+  }
+
+  // Collect all zones
+  function allZones() {
+    const zones = [];
+    DATA.phases.forEach(phase => {
+      phase.zones.forEach(z => zones.push({ ...z, phase: phase }));
+    });
+    return zones;
+  }
+
+  // Total raised across base (infrastructure + zones) + operations
+  function totalRaised() {
+    let sum = 0;
+    const base = DATA.phases.find(p => p.id === 'base');
+    if (base) {
+      if (base.infrastructure) base.infrastructure.items.forEach(i => sum += i.raised || 0);
+      base.zones.forEach(z => sum += z.raised || 0);
+    }
+    if (DATA.operations) sum += DATA.operations.totalRaised || 0;
+    return sum;
+  }
+
+  // Per-phase goal & raised (including infrastructure)
+  function phaseTotal(phase) {
+    let goal = 0, raised = 0;
+    if (phase.infrastructure) {
+      phase.infrastructure.items.forEach(i => { goal += i.goal || 0; raised += i.raised || 0; });
+    }
+    phase.zones.forEach(z => { goal += z.goal || 0; raised += z.raised || 0; });
+    return { goal, raised };
+  }
+
+  // Phase infrastructure total
+  function phaseInfraTotal(phase) {
+    if (!phase.infrastructure) return { goal: 0, raised: 0 };
+    let goal = 0, raised = 0;
+    phase.infrastructure.items.forEach(i => { goal += i.goal || 0; raised += i.raised || 0; });
+    return { goal, raised };
+  }
+
+  // Total supporters
+  function totalSupporters() {
+    let sum = DATA.project.supporters || 0;
+    DATA.phases.forEach(p => p.zones.forEach(z => sum += z.supporters || 0));
+    return sum;
+  }
+
+  // ─── Hero ──────────────────────────────────────────────
+  function renderHero() {
+    const raised = totalRaised();
+    const goal = DATA.project.totalGoal;
+    const zones = allZones();
+
+    $('#heroRaised').textContent = fmt(raised);
+    $('#heroGoal').textContent = fmt(goal);
+    $('#heroPct').textContent = pct(raised, goal) + '%';
+
+    // Build segmented bar: Infrastructure + Spaces + Operations
+    const base = DATA.phases.find(p => p.id === 'base');
+    const spacesGoal = base ? base.zones.reduce((s, z) => s + (z.goal || 0), 0) : 0;
+    const spacesRaised = base ? base.zones.reduce((s, z) => s + (z.raised || 0), 0) : 0;
+    const infraT = base ? phaseInfraTotal(base) : { goal: 0, raised: 0 };
+    const opsGoal = DATA.operations ? DATA.operations.totalGoal || 0 : 0;
+    const opsRaised = DATA.operations ? DATA.operations.totalRaised || 0 : 0;
+
+    const barLabels = DATA.content.hero.barSegmentLabels;
+    const segments = [
+      { id: 'infrastructure', label: barLabels.infrastructure, goal: infraT.goal, raised: infraT.raised },
+      { id: 'spaces', label: barLabels.spaces, goal: spacesGoal, raised: spacesRaised },
+      { id: 'operations', label: barLabels.operations, goal: opsGoal, raised: opsRaised }
+    ];
+
+    const bar = $('#heroBar');
+    const labels = $('#heroBarLabels');
+    bar.innerHTML = '';
+    labels.innerHTML = '';
+
+    segments.forEach(seg => {
+      const widthPct = (seg.goal / goal) * 100;
+      const fillPct = pct(seg.raised, seg.goal);
+
+      // Bar segment
+      const segEl = document.createElement('div');
+      segEl.className = 'hero-bar-segment';
+      segEl.style.width = widthPct + '%';
+      const fillEl = document.createElement('div');
+      fillEl.className = 'hero-bar-fill' + (seg.raised > 0 ? ' filled' : '');
+      fillEl.style.width = '0%';
+      segEl.appendChild(fillEl);
+      bar.appendChild(segEl);
+
+      // Label below
+      const labelEl = document.createElement('div');
+      labelEl.className = 'hero-bar-label';
+      labelEl.style.width = widthPct + '%';
+      labelEl.innerHTML = `
+        <span class="hero-bar-label-name">${seg.label}</span>
+        <span class="hero-bar-label-amount">${fmt(seg.goal)}</span>
+      `;
+      labels.appendChild(labelEl);
+
+      // Animate fill
+      requestAnimationFrame(() => {
+        setTimeout(() => { fillEl.style.width = fillPct + '%'; }, 300);
+      });
+    });
+
+    // Raised indicator
+    const raisedEl = $('#heroBarRaised');
+    const remaining = goal - raised;
+    raisedEl.innerHTML = `
+      <span class="hero-bar-raised-marker"></span>
+      <span class="hero-bar-raised-text"><strong>${fmt(raised)}</strong> raised — ${fmt(remaining)} still to go</span>
+    `;
+  }
+
+  // ─── Founder Pledge ──────────────────────────────────
+  function renderFounderPledge() {
+    const f = DATA.founder;
+    if (!f) return;
+
+    $('#founderTitle').textContent = f.title;
+    $('#founderSubtitle').textContent = f.subtitle;
+
+    const landDesc = $('#founderLandDesc');
+    if (landDesc) landDesc.textContent = f.land.description;
+
+    const investValue = $('#founderInvestValue');
+    if (investValue) {
+      if (currentCurrency === 'thb') {
+        investValue.textContent = '฿' + f.personalInvestment.amountThb.toLocaleString('en-US');
+      } else {
+        investValue.textContent = '฿' + f.personalInvestment.amountThb.toLocaleString('en-US') + ' (~' + fmt(f.personalInvestment.amountUsd) + ')';
+      }
+    }
+
+    const investDesc = $('#founderInvestDesc');
+    if (investDesc) investDesc.textContent = f.personalInvestment.description;
+
+    const sourcesDesc = $('#founderSourcesDesc');
+    if (sourcesDesc) sourcesDesc.textContent = f.fundingSources.description;
+  }
+
+  // ─── Ops Toggle ──────────────────────────────────────
+  function setupOpsToggle() {
+    const btn = $('#opsToggle');
+    const columns = $('#opsColumns');
+    if (!btn || !columns) return;
+    btn.addEventListener('click', () => {
+      const isOpen = columns.classList.toggle('open');
+      btn.classList.toggle('open');
+      const t = DATA.content.operations.toggleText;
+      btn.querySelector('span:first-child').textContent = isOpen ? t.hide : t.show;
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+  }
+
+  // ─── Operations ───────────────────────────────────────
+  function renderOperations() {
+    const ops = DATA.operations;
+    if (!ops) return;
+
+    $('#opsTitle').textContent = ops.title;
+    $('#opsSubtitle').textContent = ops.subtitle;
+
+    const setup = ops.setup;
+    const runway = ops.runway;
+    const totalGoal = ops.totalGoal;
+    const totalRaised = ops.totalRaised || 0;
+    const p = pct(totalRaised, totalGoal);
+
+    // Ring
+    const circumference = 2 * Math.PI * 52;
+    const offset = circumference - (p / 100) * circumference;
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const fill = $('#opsRingFill');
+        if (fill) fill.style.strokeDashoffset = offset;
+      }, 500);
+    });
+    const pctEl = $('#opsRingPct');
+    if (pctEl) pctEl.textContent = p + '%';
+
+    // Thai ownership note
+    const thaiEl = $('#opsThai');
+    if (thaiEl && ops.ownershipNote) thaiEl.textContent = ops.ownershipNote;
+
+    // Stats
+    const goalEl = $('#opsGoalDisplay');
+    if (goalEl) goalEl.textContent = fmt(totalGoal);
+    const monthlyEl = $('#opsMonthly');
+    if (monthlyEl) monthlyEl.textContent = fmt(runway.monthlyBurn);
+
+    // Setup table
+    const setupBody = $('#opsSetupBody');
+    if (setupBody && setup) {
+      setupBody.innerHTML = '';
+      let setupTotal = 0;
+      setup.items.forEach(item => {
+        setupTotal += item.goal;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${item.name}</td><td>${fmt(item.goal)}</td>`;
+        setupBody.appendChild(tr);
+      });
+      const totalRow = document.createElement('tr');
+      totalRow.className = 'ops-total';
+      totalRow.innerHTML = `<td>Total setup</td><td>${fmt(setupTotal)}</td>`;
+      setupBody.appendChild(totalRow);
+    }
+
+    // Staff table
+    const staffBody = $('#opsStaffBody');
+    if (staffBody && runway) {
+      staffBody.innerHTML = '';
+      runway.staffing.forEach(s => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${s.role}<br><span style="font-size:11px;color:var(--pebble)">${s.description}</span></td><td>${fmt(s.monthlyUsd)}</td>`;
+        staffBody.appendChild(tr);
+      });
+      runway.outsourced.forEach(s => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${s.role}</td><td>${fmt(s.monthlyUsd)}</td>`;
+        staffBody.appendChild(tr);
+      });
+      const staffTotal = document.createElement('tr');
+      staffTotal.className = 'ops-total';
+      const monthlyStaff = runway.staffSubtotal.monthlyUsd + runway.outsourced.reduce((a, b) => a + b.monthlyUsd, 0);
+      staffTotal.innerHTML = `<td>Total staff</td><td>${fmt(monthlyStaff)}/mo</td>`;
+      staffBody.appendChild(staffTotal);
+    }
+
+    // Running costs table
+    const runningBody = $('#opsRunningBody');
+    if (runningBody && runway) {
+      runningBody.innerHTML = '';
+      runway.operations.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${item.item}</td><td>${fmt(item.monthlyUsd)}</td>`;
+        runningBody.appendChild(tr);
+      });
+      const runTotal = document.createElement('tr');
+      runTotal.className = 'ops-total';
+      runTotal.innerHTML = `<td>Total running</td><td>${fmt(runway.operationsSubtotal.monthlyUsd)}/mo</td>`;
+      runningBody.appendChild(runTotal);
+    }
+
+    // Runway visual: month pips
+    const pipsEl = $('#opsMonthPips');
+    if (pipsEl && runway) {
+      pipsEl.innerHTML = '';
+      const monthsFunded = runway.goal > 0 ? Math.floor((runway.raised || 0) / runway.monthlyBurn) : 0;
+      for (let i = 0; i < runway.months; i++) {
+        const pip = document.createElement('div');
+        pip.className = 'ops-month-pip' + (i < monthsFunded ? ' funded' : '');
+        pip.title = 'Month ' + (i + 1);
+        pipsEl.appendChild(pip);
+      }
+    }
+
+    // Runway bar
+    const runwayFill = $('#opsRunwayFill');
+    if (runwayFill) {
+      const runwayPct = pct(runway.raised || 0, runway.goal);
+      requestAnimationFrame(() => {
+        setTimeout(() => { runwayFill.style.width = runwayPct + '%'; }, 600);
+      });
+    }
+
+    // Runway amount
+    const runwayAmtEl = $('#opsRunwayAmount');
+    if (runwayAmtEl) runwayAmtEl.textContent = fmt(runway.goal);
+  }
+
+  // ─── Spaces ────────────────────────────────────────────
+  function renderSpaces(filter) {
+    const container = $('#phaseSections');
+    container.innerHTML = '';
+    const activeFilter = filter || 'all';
+
+    DATA.phases.forEach(phase => {
+      const zones = phase.zones.filter(z => activeFilter === 'all' || z.category === activeFilter);
+      if (zones.length === 0) return;
+
+      const section = document.createElement('div');
+      section.className = 'phase-section';
+
+      const isLocked = phase.unlockThreshold > 0 && pct(totalRaised(), DATA.project.totalGoal) < phase.unlockThreshold;
+      const pt = phaseTotal(phase);
+
+      section.innerHTML = `
+        <div class="phase-header">
+          <span class="phase-name">${phase.name}</span>
+          <span class="phase-subtitle">${phase.subtitle}</span>
+          <span class="phase-budget">${fmt(pt.goal)} budget</span>
+          ${isLocked ? `<span class="phase-lock">🔒 Unlocks when base goal is reached</span>` : ''}
+        </div>
+      `;
+
+      // Phase infrastructure block
+      if (phase.infrastructure && phase.infrastructure.items.length > 0) {
+        const infra = phase.infrastructure;
+        const infraT = phaseInfraTotal(phase);
+        const infraP = pct(infraT.raised, infraT.goal);
+        const infraBlock = document.createElement('div');
+        infraBlock.className = 'phase-infra';
+        infraBlock.innerHTML = `
+          <div class="phase-infra-header">
+            <div class="phase-infra-title">
+              <span class="phase-infra-icon">🏗</span>
+              <span>${infra.title}</span>
+            </div>
+            <span class="phase-infra-subtitle">${infra.subtitle}</span>
+          </div>
+          <div class="phase-infra-items">
+            ${infra.items.map(item => {
+              const ip = pct(item.raised, item.goal);
+              return `
+                <div class="phase-infra-item">
+                  <div class="phase-infra-item-info">
+                    <span class="phase-infra-item-name">${item.name}</span>
+                    <span class="phase-infra-item-amount">${fmt(item.goal)}</span>
+                  </div>
+                  <div class="phase-infra-item-bar">
+                    <div class="phase-infra-item-fill" style="width:${ip}%"></div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+          <div class="phase-infra-bottom">
+            <div class="phase-infra-bar">
+              <div class="phase-infra-fill" style="width:${infraP}%"></div>
+            </div>
+            <div class="phase-infra-meta">
+              <span>${fmt(infraT.raised)} of ${fmt(infraT.goal)}</span>
+              <span>${Math.round(infraP)}% funded</span>
+            </div>
+          </div>
+        `;
+        section.appendChild(infraBlock);
+      }
+
+      const grid = document.createElement('div');
+      grid.className = 'cards-grid';
+
+      zones.forEach(zone => {
+        const p = pct(zone.raised, zone.goal);
+        const card = document.createElement('div');
+        card.className = 'space-card' + (isLocked ? ' locked' : '');
+        card.dataset.zone = zone.id;
+
+        // Choose image source — try local first, fallback to main site
+        const imgSrc = `https://nam.space/assets/${zone.image}`;
+
+        // Build progress bar — segmented for multi-unit spaces
+        let barHTML;
+        if (zone.units && zone.units > 1) {
+          const unitCost = zone.unitCost || (zone.goal / zone.units);
+          const segments = [];
+          let remaining = zone.raised || 0;
+          for (let i = 0; i < zone.units; i++) {
+            const segFill = Math.min(remaining, unitCost);
+            const segPct = pct(segFill, unitCost);
+            segments.push(`<div class="space-card-segment"><div class="space-card-segment-fill cat-${zone.category}" style="width:${segPct}%"></div></div>`);
+            remaining = Math.max(0, remaining - unitCost);
+          }
+          barHTML = `<div class="space-card-bar segmented">${segments.join('')}</div>`;
+        } else {
+          barHTML = `<div class="space-card-bar${p >= 75 ? ' pulse' : ''}"><div class="space-card-fill cat-${zone.category}" style="width:${p}%"></div></div>`;
+        }
+
+        card.innerHTML = `
+          <img class="space-card-img" src="${imgSrc}" alt="${zone.name}" loading="lazy">
+          <div class="space-card-body">
+            <div class="space-card-top">
+              <span class="space-card-name">${zone.name}</span>
+            </div>
+            <div class="space-card-tags">
+              <span class="space-card-cat-tag">${zone.category}</span>
+              <span class="space-card-phase">${phase.name}</span>
+            </div>
+            ${zone.units ? `<p class="space-card-units">${zone.units} studios · ${fmt(zone.unitCost || zone.goal / zone.units)} each</p>` : ''}
+            <p class="space-card-desc">${zone.description}</p>
+            ${barHTML}
+            <div class="space-card-meta">
+              <span>${fmt(zone.raised)} of ${fmt(zone.goal)}</span>
+              <span class="space-card-supporters">${zone.supporters} supporters</span>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => openDetail(zone, phase));
+        grid.appendChild(card);
+      });
+
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
+
+    // ── Future vision section ──
+    if (DATA.future && DATA.future.zones.length > 0 && activeFilter === 'all') {
+      const futureSection = document.createElement('div');
+      futureSection.className = 'phase-section future-section';
+
+      const futureTotal = DATA.future.zones.reduce((sum, z) => sum + (z.goal || 0), 0);
+
+      futureSection.innerHTML = `
+        <div class="phase-header future-header">
+          <span class="phase-name">${DATA.future.title}</span>
+          <span class="phase-subtitle">${DATA.future.subtitle}</span>
+          <span class="phase-budget">${fmt(futureTotal)} estimated</span>
+        </div>
+        <p class="future-note">${DATA.future.description}</p>
+      `;
+
+      const grid = document.createElement('div');
+      grid.className = 'cards-grid';
+
+      const futurePhase = { name: 'Stretch goals', id: 'future', subtitle: DATA.future.subtitle };
+      DATA.future.zones.forEach(zone => {
+        const card = document.createElement('div');
+        card.className = 'space-card future-card';
+        card.dataset.zone = zone.id;
+
+        const imgSrc = `https://nam.space/assets/${zone.image}`;
+
+        card.innerHTML = `
+          <img class="space-card-img" src="${imgSrc}" alt="${zone.name}" loading="lazy">
+          <div class="space-card-body">
+            <div class="space-card-top">
+              <span class="space-card-name">${zone.name}</span>
+            </div>
+            <div class="space-card-tags">
+              <span class="space-card-cat-tag">${zone.category}</span>
+              <span class="space-card-phase">Stretch goal 🔒</span>
+            </div>
+            ${zone.units ? `<p class="space-card-units">${zone.units} studios · ${fmt(zone.unitCost || zone.goal / zone.units)} each</p>` : ''}
+            <p class="space-card-desc">${zone.description}</p>
+            <div class="space-card-meta future-meta">
+              <span>${fmt(zone.goal)} estimated</span>
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => openDetail(zone, futurePhase));
+        grid.appendChild(card);
+      });
+
+      futureSection.appendChild(grid);
+      container.appendChild(futureSection);
+    }
+  }
+
+  // ─── Filters ───────────────────────────────────────────
+  function setupFilters() {
+    $$('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        $$('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderSpaces(btn.dataset.filter);
+      });
+    });
+  }
+
+  // ─── Detail Panel ──────────────────────────────────────
+  function setupDetailPanel() {
+    $('#detailClose').addEventListener('click', closeDetail);
+    $('#detailOverlay').addEventListener('click', closeDetail);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeDetail();
+    });
+  }
+
+  function openDetail(zone, phase) {
+    const panel = $('#detailPanel');
+    const overlay = $('#detailOverlay');
+    const p = pct(zone.raised, zone.goal);
+    const cb = zone.costBreakdown;
+    const labels = zone.costLabels || {};
+
+    $('#detailImg').src = `https://nam.space/assets/${zone.image}`;
+    $('#detailImg').alt = zone.name;
+    $('#detailCategory').textContent = zone.category.toUpperCase() + ' · ' + phase.name;
+    $('#detailName').textContent = zone.name;
+
+    // Meta line (goal + sqm side by side, then units/rooms)
+    const metaParts = [];
+    if (zone.sqm) metaParts.push(fmt(zone.goal) + ' · ' + zone.sqm + ' m²');
+    else metaParts.push(fmt(zone.goal));
+    if (zone.units) metaParts.push(zone.units + (zone.units === 1 ? ' building' : ' buildings'));
+    if (zone.rooms) metaParts.push(zone.rooms + (zone.rooms === 1 ? ' room' : ' rooms'));
+    $('#detailMeta').textContent = metaParts.join(' · ');
+    $('#detailMeta').style.display = metaParts.length ? '' : 'none';
+    $('#detailStory').textContent = zone.story;
+    $('#detailRaised').textContent = fmt(zone.raised);
+    $('#detailGoal').textContent = 'of ' + fmt(zone.goal);
+
+    const fill = $('#detailBarFill');
+    fill.style.width = '0';
+    fill.className = 'detail-bar-fill cat-' + zone.category;
+    requestAnimationFrame(() => {
+      setTimeout(() => { fill.style.width = p + '%'; }, 50);
+    });
+
+    // Milestones
+    const track = $('#milestoneTrack');
+    const labelsEl = $('#milestoneLabels');
+    track.innerHTML = '';
+    labelsEl.innerHTML = '';
+    zone.milestones.forEach((ms, i) => {
+      if (i > 0) {
+        const line = document.createElement('div');
+        line.className = 'milestone-line' + (zone.milestones[i-1].reached ? ' reached' : '');
+        track.appendChild(line);
+      }
+      const dot = document.createElement('div');
+      dot.className = 'milestone-dot' + (ms.reached ? ' reached' : '');
+      track.appendChild(dot);
+
+      const label = document.createElement('span');
+      label.className = 'milestone-label' + (ms.reached ? ' reached' : '');
+      label.textContent = ms.label;
+      labelsEl.appendChild(label);
+    });
+
+    // Cost breakdown
+    const costEl = $('#costRows');
+    costEl.innerHTML = '';
+    if (cb) {
+      const breakdownItems = [
+        [labels.construction || 'Construction', cb.construction],
+        [labels.interior || 'Interior finishing', cb.interior],
+        [labels.equipment || 'Equipment', cb.equipment],
+        [labels.furnishing || 'Furnishing', cb.furnishing],
+      ].filter(([_, val]) => val > 0);
+      const total = breakdownItems.reduce((s, [_, v]) => s + v, 0);
+
+      breakdownItems.forEach(([label, val]) => {
+        const row = document.createElement('div');
+        row.className = 'cost-row';
+        row.innerHTML = `<span class="cost-label">${label}</span><span>${fmt(val)}</span>`;
+        costEl.appendChild(row);
+      });
+
+      // Only show total row if there are multiple breakdown items
+      if (breakdownItems.length > 1) {
+        const totalRow = document.createElement('div');
+        totalRow.className = 'cost-row';
+        totalRow.innerHTML = `<span>Total</span><span>${fmt(total)}</span>`;
+        costEl.appendChild(totalRow);
+      }
+
+      // Source note
+      if (zone.source === 'architect') {
+        const note = document.createElement('p');
+        note.style.cssText = 'font-size:12px;color:var(--pebble);margin-top:8px;';
+        note.textContent = DATA.content.detail.sourceNote;
+        costEl.appendChild(note);
+      }
+    }
+
+    // Ripple effects
+    const tagsEl = $('#rippleTags');
+    tagsEl.innerHTML = '';
+    (zone.rippleEffects || []).forEach(tag => {
+      const el = document.createElement('span');
+      el.className = 'ripple-tag';
+      el.textContent = tag;
+      tagsEl.appendChild(el);
+    });
+
+    // Open
+    overlay.classList.add('open');
+    panel.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetail() {
+    $('#detailPanel').classList.remove('open');
+    $('#detailOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ─── Pay It Forward ────────────────────────────────────
+  function renderFunding() {
+    const pillars = DATA.funding.pillars;
+    const total = pillars.reduce((s, p) => s + p.amount, 0);
+    const c = DATA.content.payForward;
+
+    // Titles
+    $('#fundingTitle').textContent = c.fundingTitle;
+    $('#fundingSubtitle').textContent = c.fundingSubtitle;
+    $('#givingBackTitle').textContent = c.givingBackTitle;
+    $('#givingBackSubtitle').textContent = c.givingBackSubtitle;
+
+    // Funding bar
+    const bar = $('#fundingBar');
+    bar.innerHTML = '';
+    pillars.forEach(p => {
+      const seg = document.createElement('div');
+      seg.className = 'funding-segment';
+      seg.dataset.pillar = p.id;
+      seg.style.width = ((p.amount / total) * 100) + '%';
+      bar.appendChild(seg);
+    });
+
+    // Pillar cards
+    const grid = $('#pillarGrid');
+    grid.innerHTML = '';
+    pillars.forEach(p => {
+      const pctVal = Math.round((p.amount / total) * 100);
+      const card = document.createElement('div');
+      card.className = 'pillar-card';
+      card.dataset.pillar = p.id;
+      card.innerHTML = `
+        <div class="pillar-icon">${p.icon}</div>
+        <div class="pillar-info">
+          <p class="pillar-name">${p.name}</p>
+          <p class="pillar-amount">${fmt(p.amount)} · ${pctVal}%</p>
+          <p class="pillar-desc">${p.description}</p>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function renderPayForward() {
+    const pf = DATA.payForward;
+
+    // Land note
+    const existingNote = document.querySelector('.payforward-land-note');
+    if (existingNote) existingNote.remove();
+    if (pf.landNote) {
+      const noteEl = document.createElement('p');
+      noteEl.className = 'payforward-land-note';
+      noteEl.style.cssText = 'font-size:14px;color:var(--sage);line-height:1.55;margin-bottom:32px;padding:16px 20px;border-radius:12px;border:1px solid var(--foliage);background:rgba(255,255,255,0.03);';
+      noteEl.textContent = pf.landNote;
+      const grid = $('#initiativesGrid');
+      grid.parentNode.insertBefore(noteEl, grid);
+    }
+
+    const grid = $('#initiativesGrid');
+    grid.innerHTML = '';
+    pf.initiatives.forEach(init => {
+      const card = document.createElement('div');
+      card.className = 'initiative-card';
+      card.innerHTML = `
+        <p class="initiative-name">${init.name}</p>
+        <p class="initiative-desc">${init.description}</p>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // ─── Community Feed ────────────────────────────────────
+  function renderFeed() {
+    const list = $('#feedList');
+    list.innerHTML = '';
+    DATA.communityFeed.forEach(item => {
+      const zone = allZones().find(z => z.id === item.zone);
+      const base = DATA.phases.find(p => p.id === 'base');
+      const infraItem = base && base.infrastructure ? base.infrastructure.items.find(fi => fi.id === item.zone) : null;
+      const zoneName = item.zoneName ? item.zoneName : (zone ? zone.name : (infraItem ? infraItem.name : item.zone));
+      const isFounder = item.type === 'founder';
+      const div = document.createElement('div');
+      div.className = 'feed-item' + (isFounder ? ' feed-founder' : '');
+      div.innerHTML = `
+        <div class="feed-avatar">${item.name[0]}</div>
+        <div class="feed-body">
+          <div class="feed-header">
+            <span class="feed-name">${item.name}</span>
+            <span class="feed-date">${item.date}</span>
+          </div>
+          <p class="feed-message">${item.message}</p>
+          <p class="feed-zone">→ ${zoneName} · ${fmt(item.amount)}</p>
+        </div>
+      `;
+      list.appendChild(div);
+    });
+  }
+
+  // ─── Mobile Nav ────────────────────────────────────────
+  function setupMobileNav() {
+    const burger = $('.burger');
+    const nav = $('.site-nav');
+    const overlay = $('.nav-overlay');
+    if (!burger) return;
+
+    burger.addEventListener('click', () => {
+      const open = burger.classList.toggle('open');
+      nav.classList.toggle('open');
+      overlay.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+    overlay.addEventListener('click', () => {
+      burger.classList.remove('open');
+      nav.classList.remove('open');
+      overlay.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // ─── Scroll Animations ────────────────────────────────
+  function setupScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    $$('.fade-up').forEach(el => observer.observe(el));
+  }
+})();
+</script>
+</body>
+</html>

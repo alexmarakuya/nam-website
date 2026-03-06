@@ -14,7 +14,7 @@
 ### Resolution (srcset)
 - **Hero**: 2880w, `fetchpriority="high"`
 - **Space cards**: 720–760w (or 4096w for casa-nam)
-- **Activity cards**: 1376w
+- **Activity cards**: 560w thumbnails (`ev-*-thumb.jpg`), originals kept as backup
 
 ## Improving quality further
 
@@ -31,7 +31,33 @@
    ```
 
 4. **Source dimensions**  
-   Current: 760px for most cards, 1376px for activities, 2880px for hero. For 4:3 at 2x on 378px cards, aim for ~756px width minimum (already met).
+   Current: 760px for most cards, 560px for activity thumbnails, 2880px for hero. For 4:3 at 2x on 378px cards, aim for ~756px width minimum (already met).
+
+---
+
+## Activity card thumbnails (low-res for fast loading)
+
+Activity cards display at ~280px width but previously loaded 1376px images (~2MB each). Strategy:
+
+1. **Thumbnails** (`ev-*-thumb.jpg`): 560px width, ~350KB each — used in the carousel
+2. **Originals** (`ev-*.jpg`): Full resolution kept in `assets/` as backup (future lightbox, print, etc.)
+
+### Generate thumbnails
+
+When adding or replacing activity images:
+
+```bash
+./nam-space/scripts/generate-activity-thumbnails.sh
+```
+
+Requires `sips` (macOS) or ImageMagick (`convert`). Skips files whose thumb already exists and is newer.
+
+### File naming
+
+| Purpose | Filename | Size |
+|---------|----------|------|
+| Card display | `ev-coworking-thumb.jpg` | 560w, ~350KB |
+| Backup / archive | `ev-coworking.jpg` | 1376w, ~2MB |
 
 ---
 
