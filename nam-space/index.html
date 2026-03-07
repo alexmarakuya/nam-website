@@ -86,9 +86,16 @@
   .site-nav .nav-cta:hover { filter: brightness(1.1); }
 
   /* Language toggle */
-  .lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 2px; gap: 0; }
-  .lang-opt { font-family: var(--font-mono); font-size: 12px; padding: 5px 10px; border-radius: 100px; color: var(--sage); transition: all 0.2s; line-height: 1; background: none; border: none; cursor: pointer; }
-  .lang-opt.active { background: var(--cream); color: var(--deep-green); font-weight: 500; }
+  .lang-toggle { position: relative; }
+  .lang-trigger { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 12px; font-family: var(--font-mono); font-size: 12px; color: var(--sage); cursor: pointer; line-height: 1; transition: border-color 0.2s; }
+  .lang-trigger:hover { border-color: rgba(255,255,255,0.3); }
+  .lang-chevron { transition: transform 0.2s; }
+  .lang-toggle.open .lang-chevron { transform: rotate(180deg); }
+  .lang-menu { display: none; position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--deep-green); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 4px; min-width: 56px; z-index: 200; flex-direction: column; }
+  .lang-toggle.open .lang-menu { display: flex; }
+  .lang-opt { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 8px; color: var(--sage); transition: all 0.15s; line-height: 1; background: none; border: none; cursor: pointer; text-align: center; }
+  .lang-opt:hover { background: rgba(255,255,255,0.08); }
+  .lang-opt.active { color: var(--cream); font-weight: 500; }
 
   /* Top banner — Casa NāM */
   .top-banner {
@@ -526,6 +533,7 @@
     .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
     .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
     .lang-toggle { margin-top: 16px; align-self: flex-start; }
+    .lang-menu { left: 0; transform: none; }
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
     .nav-overlay.open { display: block; }
     .hero-section { padding: 80px 24px; min-height: 50vh; }
@@ -637,9 +645,15 @@
       <a href="/blog/" data-i18n="nav.blog">Blog</a>
       <a href="/casa-nam/" data-i18n="nav.casa">Casa NāM</a>
       <div class="lang-toggle" aria-label="Language">
-        <button class="lang-opt active" data-lang="en">EN</button>
-        <button class="lang-opt" data-lang="de">DE</button>
-        <button class="lang-opt" data-lang="th">TH</button>
+        <button class="lang-trigger" aria-expanded="false">
+          <span class="lang-current">EN</span>
+          <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-menu">
+          <button class="lang-opt active" data-lang="en">EN</button>
+          <button class="lang-opt" data-lang="de">DE</button>
+          <button class="lang-opt" data-lang="th">TH</button>
+        </div>
       </div>
       <a href="https://members.nam.space" class="nav-cta" data-i18n="nav.cta">Become a member</a>
     </nav>
