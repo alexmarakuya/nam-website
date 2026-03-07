@@ -401,11 +401,24 @@
   /* =============================================
      BLOG (original Figma)
      ============================================= */
-  .blog-section { background: var(--oat); width: 100%; display: flex; justify-content: center; padding: 64px 120px; }
-  .blog-article { border-top: 1px solid var(--beige); padding-top: 20px; display: flex; flex-direction: column; gap: 24px; max-width: 1200px; width: 100%; }
-  .blog-date { color: var(--foliage); }
-  .blog-title { color: var(--deep-green); }
-  .blog-subtitle { color: var(--deep-green); }
+  .blog-section { background: var(--oat); width: 100%; display: flex; justify-content: center; padding: 120px 64px 240px; }
+  .blog-section-inner { max-width: 1200px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  .blog-section-header { text-align: center; }
+  .blog-section-header .h2 { color: var(--deep-green); margin-bottom: 16px; }
+  .blog-section-header .body-lg { color: var(--foliage); }
+  .blog-section-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; width: 100%; }
+  .blog-section-link { color: var(--sunwashed); text-decoration: none; }
+  .blog-section-link:hover { text-decoration: underline; }
+
+  .blog-card { text-decoration: none; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.04); transition: background 0.25s, transform 0.25s; }
+  .blog-card:hover { background: rgba(0,0,0,0.07); transform: translateY(-4px); }
+  .blog-card-img { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; }
+  .blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--foliage); transition: transform 0.4s; }
+  .blog-card:hover .blog-card-img img { transform: scale(1.04); }
+  .blog-card-body { padding: 20px 20px 24px; }
+  .blog-card-date { font-family: var(--font-mono); font-size: 13px; color: var(--foliage); margin-bottom: 8px; }
+  .blog-card-title { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.3; color: var(--deep-green); margin-bottom: 8px; }
+  .blog-card-excerpt { font-family: var(--font-mono); font-size: 14px; line-height: 1.6; color: var(--foliage); }
 
   /* =============================================
      FOOTER
@@ -475,7 +488,8 @@
     .cta-section { background: linear-gradient(to bottom, transparent 80px, var(--oat) 80px); padding: 0 40px 60px; margin-top: -80px; }
     .cta-benefits { grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .cta-bar-inside { flex-direction: column; text-align: center; }
-    .blog-section { padding: 48px 40px; }
+    .blog-section { padding: 60px 40px 160px; }
+    .blog-section-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .site-footer { padding: 0 40px; }
     .footer-inner { padding: 20px 0 60px; }
   }
@@ -580,7 +594,9 @@
     .cta-bar-inside { padding: 20px; gap: 16px; }
     .cta-bar-buttons { flex-direction: column; width: 100%; }
     .cta-bar-buttons .btn, .cta-bar-buttons .cta-bar-secondary { width: 100%; justify-content: center; text-align: center; }
-    .blog-section { padding: 40px 24px; }
+    .blog-section { padding: 48px 24px 120px; }
+    .blog-section-inner { gap: 32px; }
+    .blog-section-grid { grid-template-columns: 1fr; }
     .site-footer { padding: 0 24px; }
     .footer-inner { flex-direction: column; gap: 20px; padding: 20px 0 48px; }
   }
@@ -1056,6 +1072,29 @@
   <div class="full-image full-bleed">
     <img src="/assets/cta-bg.jpg" alt="NāM Space" loading="lazy">
   </div>
+
+  <!-- Blog -->
+  <section class="blog-section">
+    <div class="blog-section-inner fade-up">
+      <div class="blog-section-header">
+        <h2 class="h2">From the journal</h2>
+        <p class="body-lg">Stories, updates and reflections from NāM.</p>
+      </div>
+      <div class="blog-section-grid">
+        <a href="/blog/the-origin-of-nam/" class="blog-card">
+          <div class="blog-card-img">
+            <img src="/assets/blog/the-origin-of-nam/nam-land.jpg" alt="Rocky hillside with palm trees on the NāM land" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">12.05.2025</p>
+            <h3 class="blog-card-title">The origin of NāM</h3>
+            <p class="blog-card-excerpt">A tale of land, spirits and AI.</p>
+          </div>
+        </a>
+      </div>
+      <a href="/blog/" class="blog-section-link body-lg-semi">Read all posts &rarr;</a>
+    </div>
+  </section>
 
 
   <!-- ==========================================

@@ -16,6 +16,7 @@
 | `nam.space/casa-nam/` | `/var/www/casa-nam/html/` | `casa-nam/index.html` |
 | `nam.space/casa-nam/pitch/` | `/var/www/casa-nam/html/pitch/` | `pitch/index.html` |
 | `nam.space/manifesto/` | `/var/www/nam-space/html/manifesto/` | `nam-space/manifesto/index.html` |
+| `nam.space/build/` | `/var/www/nam-space/html/build/` | `build-nam-space/index.html` |
 | `casanam.com` | — (301 redirect) | Redirects to `nam.space/casa-nam` |
 | `members.nam.space` | — (reverse proxy) | Proxied to `127.0.0.1:3000` (separate app) |
 
@@ -49,7 +50,11 @@ Location: `/var/www/casa-nam/deploy.sh`
 3. Copies NāM Space files to the root domain web root (`/var/www/nam-space/html/`):
    - `nam-space/index.html` → root `index.html`
    - `nam-space/assets/` → `assets/`
-   - Any subdirectories under `nam-space/` (if added later)
+   - `nam-space/manifesto/` → `manifesto/`
+   - `nam-space/blog/` → `blog/`
+4. Copies Build NāM page to `/var/www/nam-space/html/build/`:
+   - `build-nam-space/index.html` → `build/index.html`
+   - `build-nam-space/data/build.json` → `build/data/build.json`
 
 ## Adding a new page
 
@@ -88,7 +93,9 @@ When adding a new directory/page to the site:
 │   └── html/                  ← served at nam.space (root)
 │       ├── index.html
 │       ├── assets/
-│       └── manifesto/
+│       ├── manifesto/
+│       ├── blog/
+│       └── build/
 ├── nam-platform/              ← members.nam.space app (separate)
 └── casa-nam-staging/
     └── html/                  ← staging at port 8080
