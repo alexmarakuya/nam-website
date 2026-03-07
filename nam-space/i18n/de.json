@@ -3,7 +3,7 @@
     "space": "NāM Space",
     "blog": "Blog",
     "casa": "Casa NāM",
-    "cta": "Mitglied werden"
+    "cta": "Folge uns"
   },
   "banner": {
     "text": "Casa NāM — unser Wohnprojekt auf Koh Phangan. Private Häuser, gemeinsame Räume, gutes Leben. Mehr erfahren →"
@@ -77,15 +77,98 @@
     "spaces": {
       "phases_title": "Unsere Räume entstehen in Phasen — geformt durch euer Feedback",
       "all": "Alle",
+      "phase1": "Phase 1",
+      "phase2": "Phase 2",
+      "phase3": "Phase 3",
       "workspaces": "Arbeitsräume",
       "specialist": "Spezialräume",
       "rest": "Ruhe & Wellness",
       "community": "Gemeinschaft & Aktivitäten",
-      "accommodations": "Unterkünfte"
+      "accommodations": "Unterkünfte",
+      "s1": {
+        "title": "Offene Arbeitsbereiche",
+        "desc": "Ruhige, offene Räume zum Arbeiten — allein oder neben anderen."
+      },
+      "s2": {
+        "title": "Fokus-Arbeitsplätze",
+        "desc": "Stille Schreibtische für tiefes, konzentriertes Arbeiten ohne Ablenkung."
+      },
+      "s3": {
+        "title": "Private Work Pods",
+        "desc": "Klimatisierte Pods für konzentriertes Eintauchen — mit Natur direkt vor der Tür."
+      },
+      "s4": {
+        "title": "Tonstudio",
+        "desc": "Schallisoliertes Studio für Musik-, Video- und Podcast-Produktion."
+      },
+      "s5": {
+        "title": "Maker Space",
+        "desc": "Werkstatt zum Prototyping, Bauen und Arbeiten mit Materialien."
+      },
+      "s6": {
+        "title": "Keramikwerkstatt",
+        "desc": "Ein Raum zum Töpfern — eigenständig oder mit Anleitung."
+      },
+      "s7": {
+        "title": "Ruhe- und Schlafräume",
+        "desc": "Abgedunkelte, stille Räume zum Ausruhen, für kurze Nickerchen oder einfach zum Runterkommen."
+      },
+      "s8": {
+        "title": "Onsen und Eisbad",
+        "desc": "Sauna, warme und kalte Becken, eingebettet in natürliche Teichstufen."
+      },
+      "s9": {
+        "title": "Naturpfade und Gärten",
+        "desc": "Wege durch die Natur zum Spazieren, Lesen, Ausruhen oder stillen Nachdenken."
+      },
+      "s10": {
+        "title": "Gemeinschaftsküche",
+        "desc": "Offene Küche für gemeinsame Mahlzeiten, schnelle Snacks und Zeit weg vom Schreibtisch."
+      },
+      "s11": {
+        "title": "Lernräume",
+        "desc": "Flexible Räume für Vorträge, Skill-Sharing und Gruppenaktivitäten."
+      },
+      "s12": {
+        "title": "Treffpunkte im Freien",
+        "desc": "Schattige Plätze im Freien für lockere Treffen und gemeinsame Momente."
+      },
+      "s13": {
+        "title": "Deluxe Treehouse",
+        "desc": "Voll ausgestattetes Zimmer mit privatem Arbeitsplatz — für Alleinreisende oder Paare."
+      },
+      "s14": {
+        "title": "Flexi Treehouse",
+        "desc": "Kompaktes Zimmer mit verstaubarem Bett, ideal für Soloreisende."
+      },
+      "s15": {
+        "title": "Casa NāM",
+        "desc": "Unser Wohndorf mit privaten Zimmern, gemeinschaftlichen Räumen und Gartenblick."
+      }
     },
     "activities": {
       "title": "Aktivitäten, <span>Events & Programme</span>",
-      "subtitle": "Ein guter Raum allein reicht nicht. Deshalb organisieren wir Aktivitäten, Treffen und Programme, die zusammenbringen."
+      "subtitle": "Ein guter Raum allein reicht nicht. Deshalb organisieren wir Aktivitäten, Treffen und Programme, die zusammenbringen.",
+      "status": {
+        "weekly": "Wöchentlich",
+        "trial": "Testphase",
+        "planned": "Geplant",
+        "coming": "Demnächst"
+      },
+      "a1": {
+        "title": "Co-Working Events",
+        "join": "WhatsApp-Gruppe beitreten →"
+      },
+      "a2": { "title": "Masterminds & professionelle Zirkel" },
+      "a3": { "title": "Talks, Diskussionen und offene Salons" },
+      "a4": { "title": "Kleine Workshops und Skill-Sharing" },
+      "a5": { "title": "Residenzprogramme" },
+      "a6": { "title": "Konferenzen" },
+      "a7": { "title": "Startup Off-sites" },
+      "a8": { "title": "Founder Retreats" },
+      "a9": { "title": "Tägliche Stand-ups und Check-ins" },
+      "a10": { "title": "Achtsamkeitspraktiken" },
+      "a11": { "title": "Yoga und Bewegung" }
     },
     "mfu": {
       "i1": "Ein Raum für langfristigen Fokus und tiefes kreatives Arbeiten",
@@ -99,11 +182,11 @@
       "subtitle": "Geschichten, Neuigkeiten und Gedanken aus der Welt von NāM.",
       "readall": "Alle Beiträge lesen →",
       "card1": {
-        "title": "Announcing Casa NāM",
+        "title": "Wir stellen Casa NāM vor",
         "excerpt": "Vom Co-Creation Space zum gemeinsamen Wohnen."
       },
       "card2": {
-        "title": "The origin of NāM",
+        "title": "Die Entstehung von NāM",
         "excerpt": "Von Land, Geistern und künstlicher Intelligenz."
       }
     }
@@ -191,8 +274,27 @@
       "quote": "Für Menschen, die wissen: Eigenständigkeit und Nähe schließen sich nicht aus.",
       "quote_cta": "Projektbeschreibung anfordern"
     },
+    "villagequote": "Das Dorf ist so gestaltet, dass es über die Zeit ruhig, stimmig und wirklich bewohnbar bleibt.",
     "timeline": {
-      "title": "Zeitplan"
+      "title": "Zeitplan",
+      "t1": {
+        "date": "Q1 2026",
+        "text": "Erste Zusagen *"
+      },
+      "t2": {
+        "date": "Q2 2026",
+        "text": "Konzeptfinalisierung & Vorbereitung"
+      },
+      "t3": {
+        "date": "Q3 2026",
+        "text": "Baubeginn"
+      },
+      "t4": {
+        "date": "Sommer 2027",
+        "text": "Fertigstellung"
+      },
+      "note": "* Begrenzte Einheiten zu einem Sonderpreis",
+      "cta": "Frühbucherpreis sichern →"
     },
     "mfy": {
       "title": "Warum das zu dir passen könnte",
@@ -214,6 +316,123 @@
     },
     "footer": {
       "copy": "Casa NāM<br><span>Copyright © 2026</span>"
+    }
+  },
+  "blogpost": {
+    "casa": {
+      "meta": "07.03.2026 &nbsp;&middot;&nbsp; Geschrieben von Alex Duffner",
+      "title": "Wir stellen Casa NāM vor",
+      "subtitle": "Vom Co-Creation Space zum gemeinsamen Wohnen.",
+      "p1": "Als ich über NāM in der lokalen Build Better Phangan Gruppe gepostet habe, hat mich die Resonanz überrascht. Ein Thema kam in den Gesprächen immer wieder auf: Wo wohnst du eigentlich?",
+      "p2": "NāM ist — für alle, die es noch nicht kennen — ein Co-Creation Space für Kreative, Gründer und Macher. Ein Ort für sinnvolle Arbeit, persönliches Wachstum und die Nähe zu anderen, die an etwas Bedeutsamen bauen.",
+      "h1": "Mehr als ein Arbeitsplatz",
+      "p3": "Diese Gespräche haben mir gezeigt: Die Menschen suchten nicht nur einen Ort zum Arbeiten. Sie suchten einen Ort, der sich wie ein Zuhause anfühlt. Eine kleine Gemeinschaft — keine isolierte Villa, aber auch kein Durchgangsort, an dem man nie das gleiche Gesicht zweimal sieht.",
+      "pullquote": "Die Menschen suchten nicht nur einen Ort zum Arbeiten. Sie suchten einen Ort, der sich wie ein Zuhause anfühlt.",
+      "h2": "Eine Wohnversion von NāM",
+      "p4": "Deshalb beginne ich, eine kleine Wohnversion von NāM zu entwickeln. Kein Projekt von der Stange. Eine Gemeinschaft aus Häusern, getragen von denselben Werten. In die Natur eingebettet, mit einem komplett lokalen, thailändisch geführten Team gebaut, das traditionelle thailändische Holzarchitektur mit modernem Design und komfortablem Wohnen verbindet. Etwas, das sowohl Privatsphäre als auch leichten Zugang zur Gemeinschaft bietet. Etwas, das wirklich hierher gehört.",
+      "h3": "Frühes Stadium, klarer Plan",
+      "p5": "Wir sind noch am Anfang, aber mit einem klaren Plan. Ich arbeite außerdem mit einem lokalen Partner zusammen, der bereits ähnliche Projekte auf der Insel realisiert hat — das gibt mir viel Vertrauen in das, was wir gemeinsam schaffen können.",
+      "p6": "Woran ich noch arbeite, ist die Balance zwischen Standardisierung und der Möglichkeit zur Individualisierung, besonders in eine umweltbewusste Richtung. Wenn du konkrete Vorschläge für Upgrades hast oder Gedanken zum Projekt — ich freue mich, von dir zu hören.",
+      "cta_link": "Mehr über Casa NāM erfahren →"
+    },
+    "origin": {
+      "meta": "12.05.2025 &nbsp;&middot;&nbsp; Geschrieben von Alex Duffner",
+      "title": "Die Entstehung von NāM",
+      "subtitle": "Eine Geschichte über Land, Geister und KI.",
+      "caption1": "Die Nachbarn.",
+      "caption2": "Das Land, das ich manifestiert habe.",
+      "caption3": "Mein Experiment, ein Holzhaus zu bauen.",
+      "caption4": "Der lokale Schamane segnet das Land.",
+      "caption5": "Wo NāM gebaut wird.",
+      "caption6": "Die Geister des Landes ehren.",
+      "p1": "Vor zehn Jahren war ich gerade in meine Heimatstadt Bangkok zurückgekehrt, nach einer Überlandreise durch Russland, die Mongolei und China mit der Transsibirischen Eisenbahn. Was als Gap Year begonnen hatte, wurde zu etwas viel Größerem: einer jahrzehntelangen Suche nach Sinn, Zugehörigkeit und einem Ort, den ich Zuhause nennen konnte.",
+      "p2": "Zurück in Thailand musste ich alles von Grund auf neu aufbauen. Ich hatte keine Ersparnisse, keinen klaren Karriereweg und keine Ahnung, wohin es gehen sollte. Aber ich hatte eines: einen tiefen, fast irrationalen Drang zu etwas, das ich noch nicht benennen konnte.",
+      "embrace_title": "Reisen als Lebensform",
+      "embrace_p1": "Wer mich kennt, weiß, dass ich seit meiner Jugend Flugangst habe. Aber diese Angst hat mich nicht davon abgehalten, die Welt sehen zu wollen. Ich musste nur andere Wege finden. Über Land, über Wasser, durch Unbehagen und Staunen.",
+      "embrace_p2": "Was als einjährige Reise geplant war, wurde zu fast einem Jahrzehnt ununterbrochenen Unterwegsseins. Von Südostasien nach Europa, von Hostels zu House-Sits, von einsamen Spaziergängen durch fremde Städte zu gemeinsamen Mahlzeiten mit Fremden, die zu Freunden wurden.",
+      "embrace_p3": "Schließlich landete ich in Mexiko. Und etwas veränderte sich. Es war nicht nur die Wärme, die Kultur oder die Menschen. Es war ein Gefühl der Erdung, das ich vorher nie so erlebt hatte. Als ob das Land selbst sagte: Bleib. Atme. Hör zu.",
+      "embrace_p4": "Dort erlebte ich auch eine der gesündesten Beziehungen meines Lebens. Eine, die mir zeigte, wie emotionale Sicherheit und gegenseitiges Wachstum tatsächlich aussehen können. Diese Zeit hat mich geprägt. Sie hat mich weicher gemacht.",
+      "embrace_p5": "Trotz all dieser Erdung blieb der Drang weiterzuziehen. Es war kein Fernweh. Es war etwas Tieferes. Eine Unruhe, geboren aus Jahren des Nicht-ganz-Dazugehörens, des Immer-zwischen-Welten-Seins.",
+      "embrace_p6": "Am Ende kam ich nach Brasilien. Am Strand von Ipanema saß ich, hörte The Girl from Ipanema über Kopfhörer und dachte: Vielleicht ist es hier. Aber das Gefühl verging. Und ich zog weiter.",
+      "manifest_title": "Ein Zuhause manifestieren",
+      "manifest_p1": "Zurück in Thailand wusste ich nicht, wo ich mich niederlassen wollte. Ich erkundete Inseln, Berge, Küstenstädte. Immer auf der Suche nach einem Ort, der zu etwas passte, das ich fühlen, aber nicht beschreiben konnte.",
+      "manifest_p2": "Dann kam eine Nachricht von meiner Freundin Kara, sie auf Koh Phangan zu besuchen. Ich war schon mal auf der Insel gewesen, kurz, aber nie lang genug, um ihren tieferen Rhythmus zu spüren.",
+      "manifest_p3": "Während meiner Zeit auf Phangan verbrachte ich mehr Zeit mit Kara. Sie zeigte mir eine ruhigere Seite der Insel, abseits der Partyszene, in die Hügel, den Dschungel, die Gemeinschaften von Menschen, die etwas Echtes aufbauten.",
+      "manifest_p4": "Schließlich fand ich ein Stück Land mit einem riesigen Felsen und Meerblick. Ich dachte, es wäre perfekt. Aber der Deal platzte. Geld, Verhandlungen, Timing. Ich war am Boden zerstört.",
+      "manifest_p5": "Frustriert und voller Emotionen schrieb ich einer Freundin. Keine Immobilienanzeige, keine Wunschliste, sondern ein Manifest des Fühlens:",
+      "poem1": "Ich manifestiere:",
+      "poem2": "Ich sitze auf dem Boden, neben einem großen Felsen",
+      "poem3": "Ich bin umgeben von üppigen tropischen Bäumen",
+      "poem4": "Es ist hell und luftig und ich höre die Vögel singen",
+      "poem5": "Wenn ich aufstehe und auf den Felsen klettere, kann ich das Meer sehen",
+      "poem6": "Und ja, ich habe nicht zu viel dafür bezahlt.",
+      "poem7": "Ich sitze dort und weiß, es ist mein Land",
+      "manifest_p6": "Drei Tage später fand ich es. Ein Stück Land, das jedem Wort entsprach. Bis hin zum Gefühl.",
+      "roots_title": "Zurück zu den Wurzeln und der inneren Welt",
+      "roots_p1": "Nachdem ich das Land mit meinen gesamten Ersparnissen gekauft hatte, begann sich etwas zu verändern. Nicht nur äußerlich, sondern tief in mir. Zum ersten Mal Land zu besitzen fühlte sich an, als würde ich mich an etwas verankern. Nicht nur an Erde, sondern an Herkunft, Bestimmung, Verantwortung.",
+      "roots_p2": "Ich sprach mit meinen Nachbarn. Hörte ihre Geschichten. Und begann zu verstehen, dass dieses Land ein Gedächtnis hatte — und ich nun Teil davon war.",
+      "roots_p3": "Im Zuge dieses neuen Lebensabschnitts kehrte ich zur Therapie zurück. Ich begann mit einem Therapeuten zu arbeiten, der sich auf somatische und Tiefenarbeit spezialisiert hatte. Zum ersten Mal erforschte ich nicht nur meine Gedanken, sondern meinen Körper, meine Ahnen, meinen Schatten.",
+      "roots_pullquote": "„Dieses Land", sagte er, „ist eines dieser Tore."",
+      "roots_p4": "Nicht nur ein Projekt. Sondern ein Weg, die tiefere Wunde zu bearbeiten — die, die mich immer weitergetrieben, suchen, nie ganz ankommen lassen hatte.",
+      "roots_p5": "Jetzt entschied ich mich, zurückzukehren. Etwas Bleibendes zu schaffen. Etwas Verwurzeltes. Und dabei auch allem zu begegnen, wovor ich weggelaufen war.",
+      "roots_p6": "Das veränderte mein gesamtes Verständnis von Freiheit. Freiheit war nicht endlose Bewegung. Es war, ein Zentrum zu haben — und sich von dort aus auszudehnen.",
+      "row_p1": "Seine Worte blieben bei mir. Das Land war nicht nur Erde und Bäume. Es war ein Spiegel. Alles, was ich in mir selbst noch nicht gelöst hatte, kam an die Oberfläche, als ich mich zum Bauen entschloss.",
+      "row_p2": "Er erinnerte mich daran, wer ich gewesen war. Ein Mensch, der alles durch Logik und Wissenschaft erklären musste. Der nichts vertraute, was er nicht messen oder beweisen konnte.",
+      "row_p3": "Aber mit der Zeit hatte ich mich geöffnet. Durch Reisen, durch Beziehungen, durch Verlust hatte ich gelernt, zu fühlen, bevor ich verstand. Zu vertrauen, bevor ich erklären konnte.",
+      "row_p4": "Ich begann, dieser inneren Stimme zu vertrauen. Der, die mich zum Land geführt hatte. Der, die Ja flüsterte, während mein rationaler Verstand noch Risiken kalkulierte.",
+      "row_p5": "Aber selbst das ist Teil des Prozesses. Sich selbst zu vertrauen bedeutet nicht, frei von Zweifel zu sein. Es bedeutet, trotzdem weiterzugehen.",
+      "row_p6": "Ich fand mich zwischen Gegensätzen und Polaritäten: Struktur und Flow, Logik und Intuition, Einsamkeit und Gemeinschaft. Und langsam begann ich zu verstehen, dass die Aufgabe nicht war, eine Seite zu wählen — sondern beide zu halten.",
+      "curiosity_title": "Tiefgang durch Neugier",
+      "curiosity_p1": "Um diese Zeit fand ich auch einen spielerischen Weg, meine innere Welt zu erkunden — durch KI. Was als Neugier auf Technologie begann, wurde zu etwas viel Persönlicherem. Ich begann, KI nicht nur als Werkzeug zu nutzen, sondern als Denkpartner. Als Spiegel für Ideen, die ich noch nicht laut auszusprechen gewagt hatte.",
+      "curiosity_p2": "Was aus dieser spielerischen Zusammenarbeit entstand, war unerwartet: Klarheit. Darüber, wer ich bin, was mir wichtig ist und was ich aufbauen will. Die KI hat mir nicht gesagt, wer ich sein soll. Sie half mir, zu hören, was ich bereits wusste.",
+      "curiosity_p3": "Als ich begann, zu definieren, zu branden und zu formen, was dieses Projekt sein sollte, tauchte etwas Tieferes auf. NāM war nicht nur eine Geschäftsidee. Es war ein Ausdruck von allem, was ich durchlebt hatte. Jede Reise, jede Beziehung, jeder Verlust, jede Erkenntnis.",
+      "shadow_title": "Aus dem Schatten kommt Klarheit",
+      "shadow_p1": "Der letzte Durchbruch kam während Songkran, dem thailändischen Neujahrsfest. In einem stillen Moment während der Feierlichkeiten fiel mir eine Geschichte wieder ein. Eine, an die ich seit Jahren nicht mehr gedacht hatte: Der Regenbogenfisch.",
+      "shadow_p2": "Ich erkannte mich in ihm. Ich hatte einen Großteil meines Lebens damit verbracht, Teile meines Lichts wegzugeben — meine Kreativität, meine Vision, meine Sensibilität — weil ich glaubte, das sei der Preis für Zugehörigkeit. Dass ich, wenn ich zu hell strahlte, zu viel sein würde. Also dimmte ich.",
+      "shadow_p3": "Diese Geschichte hatte sich so tief in meine Psyche eingegraben, dass ich ihren Einfluss nicht einmal erkannt hatte. Aber als ich es sah, konnte ich es nicht mehr nicht sehen. Und etwas brach auf.",
+      "shadow_p4": "In weiteren Gesprächen mit meinem Freund und philosophischen Sidekick Shai, und mit KI als Denkpartner, begann ich, die Geschichte umzuschreiben. Nicht eine Geschichte des Dimmens, sondern des Zurückgewinnens. Nicht des Weggebens von Licht, um dazuzugehören, sondern des Bauens eines Ortes, an dem Licht willkommen ist.",
+      "shadow_p5": "Typisch für mich wandte ich mich wieder an die KI und fragte: War NāM dafür gedacht, ein Ort für Menschen wie uns zu sein? Menschen, die ihr Licht gedimmt hatten, um sich anzupassen — und jetzt bereit waren, wieder zu strahlen?",
+      "shadow_p6": "Was zurückkam, war der bewegendste Text, den ich je gelesen — und mitgeschaffen — habe:",
+      "manifesto_p1": "NāM ist für die, die strahlend geboren wurden. Visionäre, Feinfühlige, Macher, Künstler. Deren Licht zu viel war für die Räume, in denen sie aufgewachsen sind.",
+      "manifesto_p2": "Die gelernt haben zu dimmen, sich anzupassen, leise brillant zu sein. Die verinnerlicht haben, dass Zugehörigkeit bedeutet, sich selbst zu editieren.",
+      "manifesto_p3": "NāM ist nicht nur ein Zufluchtsort. Es ist ein Ort der Wiederherstellung. Für schöpferische Seelen in voller Bandbreite, die ihren Rhythmus, ihre Stimme, ihre Kraft zurückgewinnen.",
+      "manifesto_p4": "Es ist für die, die nicht konkurrieren wollen, sondern gemeinsam erschaffen.",
+      "manifesto_p5": "Die nicht hustlen wollen, sondern zuhören und kanalisieren.",
+      "manifesto_p6": "Die keinen Lärm brauchen, sondern Resonanz.",
+      "manifesto_p7": "Und ja, es ist für Menschen wie dich, die immer dazu bestimmt waren, in ihrer eigenen Frequenz zu strahlen — und sich jetzt daran erinnern, wie.",
+      "manifesto_p8": "NāM ist der Ort, an dem niemand fragen muss: „Ist es okay, wenn ich hier strahle?"",
+      "manifesto_p9": "Denn das Land selbst antwortet: „Ja. Wir haben gewartet."",
+      "rebirth_title": "Wiedergeburt",
+      "rebirth_p1": "Das vergangene Jahr war nicht nur ein Wendepunkt. Es war ein Prozess der Wiedergeburt. Eine der wichtigsten Lektionen war diese: Ein Projekt so groß wie NāM konnte nicht auf alten Fundamenten entstehen. Ich musste mich selbst zuerst neu aufbauen — die Muster und Überzeugungen ablegen, die mich klein, ängstlich und eingeengt hielten, und dabei die Teile von mir ehren, die mich bis hierher getragen hatten.",
+      "rebirth_p2": "Durch diesen Prozess begannen sich zentrale Einsichten und Wahrheiten herauszukristallisieren:",
+      "sub1_title": "Kreativität ist meine Spiritualität",
+      "sub1_p1": "Branding wurde zu einer Form von Seelenarbeit. Design wurde zur Achtsamkeitspraxis. Ich hörte auf, Kreativität als Mittel zum Zweck zu betrachten, und begann sie als Weg zu leben — als Seinsweise, die Geist, Körper und Seele verbindet.",
+      "sub2_title": "Die Arbeit atmen lassen",
+      "sub2_p1": "Statt NāM vorschnell als Business zu definieren, gab ich dem Projekt Raum, das zu werden, was es werden wollte: eine lebendige Zusammenarbeit zwischen Land, Menschen, Technologie und Zeit. Ein Prozess, kein Produkt.",
+      "sub2_p2": "Ich lernte, dass Kreativität nicht linear ist. Sie ist zyklisch, intuitiv und lebendig. Und manchmal ist das Wichtigste, was man tun kann, die Arbeit atmen zu lassen. Das hat mir erlaubt, mein Zentrum zu finden. Nicht im Widerspruch, sondern in der Integration.",
+      "sub2_p3": "Ich wurde in diesem Glauben bestärkt, als ich zufällig ein Buch aufschlug und diese Passage fand:",
+      "sub2_quote": "„Fang nicht mit dem Business an. Fang mit der Kunst an. Lass das Business nachkommen."",
+      "sub2_cite": "— Rick Rubin, The Creative Act",
+      "sub3_title": "Wissen, wer du bist",
+      "sub3_p1": "Ich trat in eine Führungsrolle ein, die nicht mehr fragmentiert war, sondern verankert in den Archetypen, die bereits in mir leben:",
+      "arch1_title": "The Queen of Fire",
+      "arch1_desc": "Strahlende Kreativität und magnetische Präsenz — sie lehrt mich, mich mutig und ohne Entschuldigung auszudrücken.",
+      "arch2_title": "The King of Cups",
+      "arch2_desc": "Emotionale Meisterschaft und mitfühlende Beständigkeit — er erinnert mich daran, dass wahre Stärke in emotionaler Integrität und Tiefe liegt.",
+      "arch3_title": "The Fool",
+      "arch3_desc": "Heiliges Vertrauen ins Unbekannte — sein Geist ermutigt mich, zu springen, bevor ich das Ergebnis kenne, geleitet von Intuition und Herz.",
+      "arch4_title": "The Magician",
+      "arch4_desc": "Der Alchemist der inneren und äußeren Welten, der alle Werkzeuge und Energien in mir zusammenwebt, um mit Klarheit zu gestalten.",
+      "sub3_p2": "Das sind keine fernen Ideale mehr, denen ich nachstrebe. Es sind lebendige Energien, zu denen ich immer wieder zurückkehre, um mich leiten zu lassen — beim Führen, beim Leben, beim Aufbau von NāM.",
+      "sub4_title": "Struktur, die ermöglicht — nicht einschränkt",
+      "sub4_p1": "Und aus diesem Zentrum heraus entstand Struktur. Nicht als Einschränkung, sondern als Architektur der Freiheit. Mit dem richtigen Fundament wird Flow möglich. Ob im Raumdesign, in der Geschäftsentwicklung oder im Gemeinschaftsaufbau.",
+      "sub4_p2": "NāM ist nichts mehr, dem ich hinterherjage. Es ist etwas, das ich pflege. Langsam, bewusst, wie einen Wald. Sein Wachstum folgt der Weisheit der Natur:",
+      "motto": "Klein anfangen. Beobachten. Anpassen.",
+      "sub4_p3": "Das sind keine fernen Ideale mehr. Es sind lebendige Energien, zu denen ich immer wieder zurückkehre, um mich leiten zu lassen.",
+      "closing_title": "Schlussworte",
+      "closing_p1": "Das ist erst der Anfang. Die erste Reflexion in einer Reihe, in der ich Updates teilen werde — über die physische Entstehung von NāM und die innere Reise, die es weiterhin formt. Ich hoffe, diese Geschichten und Einsichten bieten etwas Erdendes, Ehrliches und vielleicht sogar Nützliches auf deinem eigenen Weg. Und wenn die Zeit reif ist, hoffe ich, dich bei NāM willkommen zu heißen.",
+      "closing_p2": "In der Zwischenzeit freue ich mich darauf, im nächsten Update eine klarere Vision dessen zu teilen, was NāM wird — und den Weg, den wir dorthin nehmen.",
+      "fin": "Fin."
     }
   }
 }

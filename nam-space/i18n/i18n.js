@@ -4,6 +4,23 @@
   var translations = {};
   var originals = {};
 
+  function applyThaiFont() {
+    if (!document.getElementById('thai-font-link')) {
+      var link = document.createElement('link');
+      link.id = 'thai-font-link';
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap';
+      document.head.appendChild(link);
+    }
+    document.documentElement.style.setProperty('--font-display', "'Prompt', 'Sukhumvit Set', sans-serif");
+    document.documentElement.style.setProperty('--font-mono', "'Prompt', 'Sukhumvit Set', sans-serif");
+  }
+
+  function removeThaiFont() {
+    document.documentElement.style.removeProperty('--font-display');
+    document.documentElement.style.removeProperty('--font-mono');
+  }
+
   function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       var key = el.getAttribute('data-i18n');
@@ -61,6 +78,12 @@
     currentLang = lang;
     localStorage.setItem(LANG_KEY, lang);
     closeAllDropdowns();
+    // Apply or remove Thai font
+    if (lang === 'th') {
+      applyThaiFont();
+    } else {
+      removeThaiFont();
+    }
     if (lang === 'en') {
       restoreEnglish();
       updateToggleUI();
@@ -118,7 +141,10 @@
       closeAllDropdowns();
     });
 
-    // Load saved language
+    // Load saved language (and font if Thai)
+    if (currentLang === 'th') {
+      applyThaiFont();
+    }
     if (currentLang !== 'en') {
       setLang(currentLang);
     } else {
