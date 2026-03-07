@@ -66,6 +66,11 @@
   .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
   .site-nav .nav-cta:hover { filter: brightness(1.1); }
 
+  /* Language toggle */
+  .lang-toggle { display: flex; align-items: center; background: rgba(0,0,0,0.04); border: 1px solid var(--beige); border-radius: 100px; padding: 2px; gap: 0; }
+  .lang-opt { font-family: var(--font-mono); font-size: 12px; padding: 5px 10px; border-radius: 100px; color: var(--foliage); transition: all 0.2s; line-height: 1; background: none; border: none; cursor: pointer; }
+  .lang-opt.active { background: var(--deep-green); color: var(--cream); font-weight: 500; }
+
   /* Top banner — Casa NāM */
   .top-banner {
     width: 100%;
@@ -575,6 +580,9 @@
     .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
     .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
     .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .lang-toggle { margin-top: 16px; align-self: flex-start; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+    .lang-opt { color: var(--sage); }
+    .lang-opt.active { background: var(--cream); color: var(--deep-green); }
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
     .nav-overlay.open { display: block; }
 
@@ -616,7 +624,7 @@
 
 <!-- Top banner -->
 <div class="top-banner">
-  <a href="/casa-nam/">Introducing Casa NāM — our residential project on Koh Phangan. Private homes and shared spaces for living well. Explore →</a>
+  <a href="/casa-nam/" data-i18n="banner.text">Introducing Casa NāM — our residential project on Koh Phangan. Private homes and shared spaces for living well. Explore →</a>
 </div>
 
 <header class="site-header">
@@ -626,10 +634,15 @@
   </button>
   <div class="nav-overlay"></div>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="/">NāM Space</a>
-    <a href="/blog/" aria-current="page">Blog</a>
-    <a href="/casa-nam/">Casa NāM</a>
-    <a href="https://members.nam.space" class="nav-cta">Become a member</a>
+    <a href="/" data-i18n="nav.space">NāM Space</a>
+    <a href="/blog/" aria-current="page" data-i18n="nav.blog">Blog</a>
+    <a href="/casa-nam/" data-i18n="nav.casa">Casa NāM</a>
+    <div class="lang-toggle" aria-label="Language">
+      <button class="lang-opt active" data-lang="en">EN</button>
+      <button class="lang-opt" data-lang="de">DE</button>
+      <button class="lang-opt" data-lang="th">TH</button>
+    </div>
+    <a href="https://members.nam.space" class="nav-cta" data-i18n="nav.cta">Become a member</a>
   </nav>
 </header>
 
@@ -938,19 +951,19 @@
 <section class="cta-section">
   <div class="cta-card fade-in">
     <div class="cta-header">
-      <h2>Join our journey</h2>
-      <p>And be the first to know about what's happening as we build, grow and open our doors.</p>
+      <h2 data-i18n="cta.title">Join our journey</h2>
+      <p data-i18n="cta.subtitle">And be the first to know about what's happening as we build, grow and open our doors.</p>
     </div>
     <div class="cta-bar-inside">
-      <p>Follow our Instagram for updates</p>
-      <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="cta-btn">Go to Instagram</a>
+      <p data-i18n="cta.follow">Follow our Instagram for updates</p>
+      <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="cta-btn" data-i18n="cta.button">Go to Instagram</a>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="caption footer-copy">NāM Space<br><span>Copyright &copy; 2026</span></p>
+    <p class="caption footer-copy" data-i18n="footer.copy">NāM Space<br><span>Copyright &copy; 2026</span></p>
     <div class="footer-logo"><img src="/assets/footer-logo.svg" alt="NāM"></div>
   </div>
 </footer>
@@ -996,5 +1009,6 @@
 })();
 </script>
 
+<script src="/i18n/i18n.js"></script>
 </body>
 </html>

@@ -1,0 +1,219 @@
+{
+  "nav": {
+    "space": "NāM Space",
+    "blog": "Blog",
+    "casa": "Casa NāM",
+    "cta": "Mitglied werden"
+  },
+  "banner": {
+    "text": "Wir stellen Casa NāM vor — unser Wohnprojekt auf Koh Phangan. Private Häuser und gemeinschaftliche Räume zum guten Leben. Entdecken →"
+  },
+  "footer": {
+    "copy": "NāM Space<br><span>Copyright © 2026</span>"
+  },
+  "cta": {
+    "title": "Begleite uns auf dem Weg",
+    "subtitle": "Und erfahre als Erstes, was passiert, während wir bauen, wachsen und unsere Türen öffnen.",
+    "follow": "Folge uns auf Instagram für Updates",
+    "button": "Zu Instagram"
+  },
+  "home": {
+    "manifesto": {
+      "title": "Den dritten Ort neu definieren <span>für das Zeitalter der KI.</span>",
+      "p1": "Immer mehr Arbeit wird an Maschinen übergeben. Was bleibt, ist unser wertvollstes Geschenk. <span>Das Geschenk des wahren Schaffens.</span>",
+      "p2": "Die Welt gehört den Anpassungsfähigen. Wir werden Solopreneure, unabhängige Kreative, Erbauer aus eigenem Antrieb. Aber die beste Arbeit entsteht immer noch, wenn wir zusammenkommen. Um zusammenzuarbeiten. Um gemeinsam zu erschaffen. Um Dinge zu schaffen, die wichtig sind, <span>in der digitalen und physischen Welt.</span>",
+      "p3": "Keine Kreativität in Silos. Kreativität in Gemeinschaft. Ideenaustausch. Vielfalt der Köpfe. Ein Ort, um den vollen kreativen Impuls auszuleben und Dinge zu schaffen, die zählen.",
+      "d1": "<s>Wir sind ein Co-Working Space.</s>",
+      "d2": "<s>Wir sind ein Co-Living Space.</s>",
+      "d3": "<s>Wir sind ein Retreat-Ort.</s>",
+      "d4": "<s>Wir sind ein Event-Ort.</s>",
+      "d5": "<img src=\"/assets/asterisk.svg\" alt=\"\" class=\"manifesto-asterisk\">Wir sind ein <span style=\"color:var(--cream)\">Co-Creation Space.</span>"
+    },
+    "timeline": {
+      "title": "Die Entwicklung der <span>dritten Orte</span>",
+      "subtitle": "Die transformativsten Ideen der Geschichte entstanden nicht in Isolation. Sie kamen aus dritten Orten — den Räumen zwischen Zuhause und Arbeit, wo aus Fremden Mitstreiter wurden und Bewegungen entstanden.",
+      "coffeehouse": {
+        "name": "Das Kaffeehaus",
+        "essence": "Wo Revolutionen entstanden",
+        "desc": "Die wissenschaftliche Revolution wurde nicht in Laboren geboren, sondern in Kaffeehäusern, wo Denker, Händler und Erfinder frei und über Disziplinen hinweg Ideen austauschten."
+      },
+      "colony": {
+        "name": "Die Künstlerkolonie",
+        "essence": "Wo Bewegungen geschmiedet wurden",
+        "desc": "Von Montmartre bis zum Bauhaus — die einflussreichsten kreativen Bewegungen entstanden aus intentionalen Gemeinschaften, wo Nähe hervorbrachte, was Isolation nie konnte."
+      },
+      "internetcafe": {
+        "name": "Das Internetcafé",
+        "essence": "Die warnende Geschichte",
+        "desc": "Bot Zugang zu einem Werkzeug und wurde überflüssig, als jeder es zuhause hatte. Eine Erinnerung, dass Räume, die nur um Werkzeuge gebaut sind, nicht bestehen."
+      },
+      "hackerspace": {
+        "name": "Der Hackerspace",
+        "essence": "Open-Source-Kultur in physischer Form",
+        "desc": "Radikale Offenheit und kollaboratives Schaffen. Geteilte Werkzeuge, geteiltes Wissen, keine Torwächter. Die Bewegung, die die Saat für die gesamte Coworking-Ära legte."
+      },
+      "coworking": {
+        "name": "Der Coworking Space",
+        "essence": "Umgebung für die Freelancer-Ära",
+        "desc": "Gab unabhängigen Arbeitern ein Zuhause. Steht nun vor einem eigenen Wendepunkt, da KI neu definiert, was es bedeutet zu arbeiten und zusammenzuarbeiten."
+      },
+      "cocreation": {
+        "date": "Jetzt",
+        "name": "Der Co-Creation Space",
+        "essence": "Der dritte Ort für die Post-KI-Welt",
+        "desc": "Jede Ära hatte ihren dritten Ort — der Co-Creation Space ist unserer. Gebaut für die Arbeit, die nur entsteht, wenn Menschen zusammenkommen, um aus der Tiefe zu schaffen."
+      }
+    },
+    "features": {
+      "title": "Ein Raum, der sich an <span>deine Art zu arbeiten, lernen, leben und verbinden</span> anpasst",
+      "subtitle": "Bei NāM verlangen verschiedene Arbeitsweisen nach verschiedenen Räumen.",
+      "f1": "ruhiger Fokus",
+      "f2": "Zusammenarbeit",
+      "f3": "praktisches Schaffen",
+      "f4": "gemeinsames Lernen",
+      "f5": "achtsame Pausen",
+      "f6": "Tagträumen"
+    },
+    "spaces": {
+      "phases_title": "Räume werden in Phasen gebaut, geformt durch euer Feedback",
+      "all": "Alle",
+      "workspaces": "Arbeitsräume",
+      "specialist": "Spezialräume",
+      "rest": "Ruhe- und Wellnessbereiche",
+      "community": "Gemeinschafts- und Aktivitätsräume",
+      "accommodations": "Unterkünfte"
+    },
+    "activities": {
+      "title": "Aktivitäten, <span>Events und Programme</span>",
+      "subtitle": "Ein großartiger Raum reicht nicht. Deshalb veranstalten wir eine Reihe von Aktivitäten, Treffen und Programmen."
+    },
+    "mfu": {
+      "i1": "Ein Raum für langfristigen Fokus und tiefe kreative Arbeit",
+      "i2": "Eine Gemeinschaft, in der Zusammenarbeit natürlich entsteht",
+      "i3": "Ein Ökosystem, das Menschen, Ideen und Möglichkeiten verbindet",
+      "title": "Ein Zuhause für <span>Kreative, Visionäre, Denker und Gestalter des Wandels</span>",
+      "subtitle": "Die Magie ist hier. Die Werkzeuge sind hier. Was gefehlt hat, ist der richtige Rahmen. Die richtige Umgebung. Der richtige Raum."
+    },
+    "blog": {
+      "title": "Aus dem Journal",
+      "subtitle": "Geschichten, Updates und Reflexionen von NāM.",
+      "readall": "Alle Beiträge lesen →",
+      "card1": {
+        "title": "Announcing Casa NāM",
+        "excerpt": "Vom Co-Creation Space zum Gemeinschaftsleben."
+      },
+      "card2": {
+        "title": "The origin of NāM",
+        "excerpt": "Eine Geschichte über Land, Geister und KI."
+      }
+    }
+  },
+  "casa": {
+    "nav": {
+      "cta": "Kontaktiere uns"
+    },
+    "hero": {
+      "title": "Casa NāM",
+      "subtitle": "Wohnen,<br>gestaltet für Verbindung.",
+      "location": "Koh Phangan",
+      "cta": "Anfragen"
+    },
+    "banner": {
+      "label": "Was wir bauen",
+      "text": "Casa NāM ist ein kleines, design-orientiertes Wohndorf auf Koh Phangan, geschaffen für Menschen, die langfristig gut auf der Insel leben möchten.",
+      "cta": "Mit den Gründern sprechen"
+    },
+    "features": {
+      "f1": {
+        "title": "Ein Wohnrhythmus",
+        "text": "Private Häuser und gemeinschaftliche Räume, angeordnet, um den natürlichen Rhythmus des Insellebens zu unterstützen."
+      },
+      "f2": {
+        "title": "Lokal verwurzelte Architektur",
+        "text": "Inspiriert von lokaler thailändischer Architektur, geprägt von Klima und natürlicher Landschaft, und auf Beständigkeit ausgelegt."
+      },
+      "f3": {
+        "title": "Raum für den Alltag",
+        "text": "Der Gemeinschaftsbereich von Casa NāM umfasst gemeinsame Aufenthaltsbereiche, einen Pool und eine Gemeinschaftsküche — gestaltet für den entspannten, täglichen Gebrauch."
+      }
+    },
+    "why": {
+      "title": "<span>Warum wir </span>Casa NāM<span> bauen</span>",
+      "subtitle": "Eine Antwort auf die Art, wie Menschen zunehmend auf Koh Phangan leben wollen.",
+      "w1": {
+        "title": "Über das Villa-Modell hinaus",
+        "text": "Eine Alternative zu isolierten Villen und renditegetriebener Entwicklung — für den täglichen Gebrauch konzipiert, nicht für kurzfristige Zyklen."
+      },
+      "w2": {
+        "title": "Menschlich dimensioniert",
+        "text": "Klein genug, damit Verbindung natürlich entstehen kann, im eigenen Tempo."
+      },
+      "w3": {
+        "title": "Ein Ort, viele Rhythmen",
+        "text": "Arbeit, Kreativität und Alltag können koexistieren — das macht langfristiges Inselleben möglich."
+      }
+    },
+    "who": {
+      "title": "Für wen ist Casa NāM?",
+      "subtitle": "Casa NāM ist für Menschen, die auf der Insel mit Kontinuität leben wollen, nicht nur durchreisen.",
+      "w1": "Menschen, die viel Zeit auf Koh Phangan verbringen",
+      "w2": "Menschen, die ein durchdachtes Zweitdomizil oder eine langfristige Basis suchen",
+      "w3": "Einzelpersonen und Paare, die Design, Ruhe und Privatsphäre schätzen",
+      "w4": "Menschen, die gerne unter anderen sind, ohne aufgesetzte Gemeinschaft"
+    },
+    "inlinecta": {
+      "text": "Möchtest du mehr über Casa NāM erfahren?",
+      "button": "Kontaktiere uns"
+    },
+    "ownership": {
+      "title": "Eigentumsoptionen",
+      "subtitle": "Casa NāM bietet eine einfache und flexible Eigentumsstruktur, konzipiert für langfristiges Wohnen.",
+      "t1": {
+        "trigger": "Zwei-Zimmer-Häuser",
+        "p1": "Jedes Haus ist eine Zwei-Zimmer-Residenz mit zwei privaten Schlafzimmern mit eigenem Bad und einer gemeinsamen Wohnebene mit Küche, Essbereich und Wohnraum.",
+        "p2": "Das Layout unterstützt das Zusammenleben bei gleichzeitiger Wahrung klarer persönlicher Grenzen."
+      },
+      "t2": {
+        "trigger": "Voll- oder Teileigentum",
+        "p1": "Diese Struktur ermöglicht es, zusammen zu kaufen und unabhängig zu leben, ohne bei Designqualität, Komfort oder langfristiger Bewohnbarkeit Kompromisse einzugehen.",
+        "p2": "Ein praktischer Weg zu einem gut gestalteten Zuhause bei geteilter Verantwortung und Kosten."
+      },
+      "t3": {
+        "trigger": "Gemeinsame Räume, nach Wahl",
+        "p1": "Neben den Gemeinschaftsbereichen des Projekts — Pool, Aufenthaltsbereiche und Gemeinschaftsküche — verfügt jedes Haus über eine eigene gemeinsame Wohnebene für den täglichen Gebrauch.",
+        "p2": "Die Räume sind so gestaltet, dass sie sich im Laufe der Zeit anpassen lassen und bei Bedarf mehr Privatsphäre bieten."
+      },
+      "t4": {
+        "trigger": "Erreichbare Qualität",
+        "p1": "Durchdachtes Design und hochwertige Materialien zu einem wirklich erschwinglichen Preis. Durch den kompakten Grundriss gewinnt jedes Haus großzügigen Grünraum.",
+        "p2": "Ein praktischer Weg zu einem gut gestalteten Zuhause mit einem ausgewogenen und flexiblen Eigentumsansatz."
+      },
+      "quote": "Dies ist ein Ort für Menschen, die damit einverstanden sind, dass Unabhängigkeit und Nähe gleichzeitig existieren.",
+      "quote_cta": "Projektbeschreibung anfordern"
+    },
+    "timeline": {
+      "title": "Zeitplan"
+    },
+    "mfy": {
+      "title": "Warum das die richtige Wahl sein könnte",
+      "subtitle": "Casa NāM könnte das Richtige für dich sein, wenn du eine langfristige Basis suchst, die sich ruhig, durchdacht und wirklich lebenswert anfühlt.",
+      "m1": "Du willst ein Gefühl von Ort, nicht nur eine Immobilie",
+      "m2": "Du schätzt durchdachtes Design über kurzfristige Optimierung",
+      "m3": "Du willst Privatsphäre ohne Isolation",
+      "m4": "Du siehst deinen Wohnort als eine bewusste Lebensentscheidung",
+      "founding": "Als Gründungsmitglied erhältst du außerdem Zugang zu:",
+      "b1": "NāM Gemeinschaftsräume und Community Hub",
+      "b2": "Bis zu 10 Jahre Coworking-Mitgliedschaft",
+      "b3": "Bevorzugter Zugang zu zukünftigen NāM-Projekten und Kooperationen",
+      "founding_cta": "Sprich mit uns über die Gründungsmitgliedschaft"
+    },
+    "ctasection": {
+      "title": "Frühbucherpreise ab 2,99 Mio. THB (~80.000 €) pro Einheit",
+      "text": "Fordere die Projektbeschreibung an oder sprich mit den Gründern.",
+      "button": "Kontaktiere uns"
+    },
+    "footer": {
+      "copy": "Casa NāM<br><span>Copyright © 2026</span>"
+    }
+  }
+}

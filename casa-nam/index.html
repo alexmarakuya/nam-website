@@ -87,6 +87,11 @@
   .site-nav a.nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
   .site-nav a.nav-cta:hover { filter: brightness(1.1); }
 
+  /* Language toggle */
+  .lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 2px; gap: 0; }
+  .lang-opt { font-family: var(--font-mono); font-size: 12px; padding: 5px 10px; border-radius: 100px; color: var(--sage); transition: all 0.2s; line-height: 1; background: none; border: none; cursor: pointer; }
+  .lang-opt.active { background: var(--cream); color: var(--deep-green); font-weight: 500; }
+
   .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; }
   .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
   .burger span + span { margin-top: 6px; }
@@ -389,6 +394,7 @@
     .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
     .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
     .site-nav a.nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .lang-toggle { margin-top: 16px; align-self: flex-start; }
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
     .nav-overlay.open { display: block; }
     .hero-wrap { padding: 0 24px; }
@@ -470,9 +476,14 @@
     </button>
     <div class="nav-overlay"></div>
     <nav class="site-nav">
-      <a href="/">NāM Space</a>
-      <a href="/casa-nam/" aria-current="page">Casa NāM</a>
-      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="nav-cta">Talk to us</a>
+      <a href="/" data-i18n="nav.space">NāM Space</a>
+      <a href="/casa-nam/" aria-current="page" data-i18n="nav.casa">Casa NāM</a>
+      <div class="lang-toggle" aria-label="Language">
+        <button class="lang-opt active" data-lang="en">EN</button>
+        <button class="lang-opt" data-lang="de">DE</button>
+        <button class="lang-opt" data-lang="th">TH</button>
+      </div>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="nav-cta" data-i18n="casa.nav.cta">Talk to us</a>
     </nav>
   </header>
 
@@ -482,12 +493,12 @@
   <div class="hero-wrap">
     <div class="hero-content">
       <div class="hero-intro fade-up">
-        <h1 class="h1 hero-title">Casa NāM</h1>
-        <p class="subtitle hero-subtitle">Residential living,<br>designed for connection.</p>
+        <h1 class="h1 hero-title" data-i18n="casa.hero.title">Casa NāM</h1>
+        <p class="subtitle hero-subtitle" data-i18n="casa.hero.subtitle">Residential living,<br>designed for connection.</p>
         <div class="hero-bottom">
           <div class="hero-location">
             <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-            <span class="body-lg">Koh Phangan</span>
+            <span class="body-lg" data-i18n="casa.hero.location">Koh Phangan</span>
           </div>
         </div>
       </div>
@@ -503,11 +514,11 @@
   <section class="banner">
     <div class="banner-inner">
       <div class="banner-heading">
-        <p class="h3">What we're building</p>
+        <p class="h3" data-i18n="casa.banner.label">What we're building</p>
         <img src="assets/landing/icon-leaf.svg" alt="" class="icon">
       </div>
-      <p class="body-lg">Casa NāM is a small, design-led residential village on Koh Phangan, created for people who want to live well on the island over time.</p>
-      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="banner-cta">Talk to the founders</a>
+      <p class="body-lg" data-i18n="casa.banner.text">Casa NāM is a small, design-led residential village on Koh Phangan, created for people who want to live well on the island over time.</p>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="banner-cta" data-i18n="casa.banner.cta">Talk to the founders</a>
     </div>
   </section>
 
@@ -517,9 +528,9 @@
       <div class="feature-text">
         <div class="heading-row">
           <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-          <h3 class="h3">A residential rhythm</h3>
+          <h3 class="h3" data-i18n="casa.features.f1.title">A residential rhythm</h3>
         </div>
-        <p class="body-lg">Private homes and shared spaces arranged to support the natural rhythm of island living.</p>
+        <p class="body-lg" data-i18n="casa.features.f1.text">Private homes and shared spaces arranged to support the natural rhythm of island living.</p>
       </div>
       <div class="feature-img">
         <img src="assets/landing/feature-1.png" alt="Casa NāM residential homes" loading="lazy">
@@ -530,9 +541,9 @@
       <div class="feature-text">
         <div class="heading-row">
           <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-          <h3 class="h3">Locally grounded architecture</h3>
+          <h3 class="h3" data-i18n="casa.features.f2.title">Locally grounded architecture</h3>
         </div>
-        <p class="body-lg">Informed by local Thai architecture, shaped by climate and natural landscape, and designed to endure.</p>
+        <p class="body-lg" data-i18n="casa.features.f2.text">Informed by local Thai architecture, shaped by climate and natural landscape, and designed to endure.</p>
       </div>
       <div class="feature-img">
         <img src="assets/landing/feature-2.png" alt="Thai-inspired architecture" loading="lazy">
@@ -543,9 +554,9 @@
       <div class="feature-text">
         <div class="heading-row">
           <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-          <h3 class="h3">Space for everyday living</h3>
+          <h3 class="h3" data-i18n="casa.features.f3.title">Space for everyday living</h3>
         </div>
-        <p class="body-lg">Casa NāM's Common Area includes shared hangout spaces, a pool, and a communal kitchen — designed for relaxed, everyday use.</p>
+        <p class="body-lg" data-i18n="casa.features.f3.text">Casa NāM's Common Area includes shared hangout spaces, a pool, and a communal kitchen — designed for relaxed, everyday use.</p>
       </div>
       <div class="feature-img">
         <img src="assets/landing/feature-3.png" alt="Communal spaces" loading="lazy">
@@ -570,30 +581,30 @@
   <section class="why-section">
     <div class="why-inner">
       <div class="why-left fade-up">
-        <h2 class="h2"><span>Why we're building </span>Casa NāM</h2>
-        <p class="subtitle">A response to how people increasingly want to live on Koh Phangan.</p>
+        <h2 class="h2" data-i18n="casa.why.title"><span>Why we're building </span>Casa NāM</h2>
+        <p class="subtitle" data-i18n="casa.why.subtitle">A response to how people increasingly want to live on Koh Phangan.</p>
       </div>
       <div class="why-right fade-up">
         <div class="why-item">
           <div class="heading-row">
             <img src="assets/landing/icon-check.svg" alt="" class="icon-sm">
-            <p class="body-lg-semi">Living beyond the villa model</p>
+            <p class="body-lg-semi" data-i18n="casa.why.w1.title">Living beyond the villa model</p>
           </div>
-          <p class="body-lg">An alternative to isolated villas and yield-driven development — designed for everyday use, not short-term cycles.</p>
+          <p class="body-lg" data-i18n="casa.why.w1.text">An alternative to isolated villas and yield-driven development — designed for everyday use, not short-term cycles.</p>
         </div>
         <div class="why-item">
           <div class="heading-row">
             <img src="assets/landing/icon-check.svg" alt="" class="icon-sm">
-            <p class="body-lg-semi">Human-scale by design</p>
+            <p class="body-lg-semi" data-i18n="casa.why.w2.title">Human-scale by design</p>
           </div>
-          <p class="body-lg">Small enough for connection to emerge naturally, at one's own pace.</p>
+          <p class="body-lg" data-i18n="casa.why.w2.text">Small enough for connection to emerge naturally, at one's own pace.</p>
         </div>
         <div class="why-item">
           <div class="heading-row">
             <img src="assets/landing/icon-check.svg" alt="" class="icon-sm">
-            <p class="body-lg-semi">One place, many rhythms</p>
+            <p class="body-lg-semi" data-i18n="casa.why.w3.title">One place, many rhythms</p>
           </div>
-          <p class="body-lg">Work, creativity, and daily life can coexist — making long-term island living viable.</p>
+          <p class="body-lg" data-i18n="casa.why.w3.text">Work, creativity, and daily life can coexist — making long-term island living viable.</p>
         </div>
       </div>
     </div>
@@ -602,25 +613,25 @@
   <!-- Who is Casa NāM for? -->
   <section class="who-section">
     <div class="who-header fade-up">
-      <h2 class="h2">Who is Casa NāM for?</h2>
-      <p class="subtitle">Casa NāM is for people who want to live on the island with continuity, not just pass through.</p>
+      <h2 class="h2" data-i18n="casa.who.title">Who is Casa NāM for?</h2>
+      <p class="subtitle" data-i18n="casa.who.subtitle">Casa NāM is for people who want to live on the island with continuity, not just pass through.</p>
     </div>
     <div class="who-cards fade-up">
       <div class="who-card">
         <div class="card-icon"><img src="assets/landing/icon-person.svg" alt=""></div>
-        <p class="body-lg-semi">People who spend meaningful time on Koh Phangan</p>
+        <p class="body-lg-semi" data-i18n="casa.who.w1">People who spend meaningful time on Koh Phangan</p>
       </div>
       <div class="who-card">
         <div class="card-icon"><img src="assets/landing/icon-home.svg" alt=""></div>
-        <p class="body-lg-semi">Those seeking a considered second home or long-term base</p>
+        <p class="body-lg-semi" data-i18n="casa.who.w2">Those seeking a considered second home or long-term base</p>
       </div>
       <div class="who-card">
         <div class="card-icon"><img src="assets/landing/icon-heart.svg" alt=""></div>
-        <p class="body-lg-semi">Individuals and couples who value design, calm, and privacy</p>
+        <p class="body-lg-semi" data-i18n="casa.who.w3">Individuals and couples who value design, calm, and privacy</p>
       </div>
       <div class="who-card">
         <div class="card-icon"><img src="assets/landing/icon-people.svg" alt=""></div>
-        <p class="body-lg-semi">People who enjoy being around others without curated community</p>
+        <p class="body-lg-semi" data-i18n="casa.who.w4">People who enjoy being around others without curated community</p>
       </div>
     </div>
   </section>
@@ -630,54 +641,54 @@
     <div class="inline-cta-inner fade-up">
       <div class="inline-cta-text">
         <img src="assets/landing/icon-asterisk.svg" alt="" class="icon-sm">
-        <p class="body-lg">Interested in learning more about Casa NāM?</p>
+        <p class="body-lg" data-i18n="casa.inlinecta.text">Interested in learning more about Casa NāM?</p>
       </div>
-      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="inline-cta-btn">Talk to us</a>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="inline-cta-btn" data-i18n="casa.inlinecta.button">Talk to us</a>
     </div>
   </section>
 
   <!-- Ownership options -->
   <section class="ownership-section">
     <div class="ownership-header fade-up">
-      <h2 class="h2">Ownership options</h2>
-      <p class="subtitle">Casa NāM offers a simple and flexible ownership structure, designed for long-term living.</p>
+      <h2 class="h2" data-i18n="casa.ownership.title">Ownership options</h2>
+      <p class="subtitle" data-i18n="casa.ownership.subtitle">Casa NāM offers a simple and flexible ownership structure, designed for long-term living.</p>
     </div>
 
     <div class="ownership-tabs fade-up" id="ownershipTabs">
       <div class="tab-accordion">
         <div class="tab-item active" data-tab="0">
-          <button class="tab-item-trigger">Two-bedroom homes</button>
+          <button class="tab-item-trigger" data-i18n="casa.ownership.t1.trigger">Two-bedroom homes</button>
           <div class="tab-item-body">
             <div class="tab-item-body-inner">
-              <p class="body-lg">Each home is a two-bedroom residence with two private ensuite bedrooms and a shared living level that includes kitchen, dining, and everyday living space.</p>
-              <p class="body-lg">The layout supports living together while maintaining clear personal boundaries.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t1.p1">Each home is a two-bedroom residence with two private ensuite bedrooms and a shared living level that includes kitchen, dining, and everyday living space.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t1.p2">The layout supports living together while maintaining clear personal boundaries.</p>
             </div>
           </div>
         </div>
         <div class="tab-item" data-tab="1">
-          <button class="tab-item-trigger">Full or shared ownership</button>
+          <button class="tab-item-trigger" data-i18n="casa.ownership.t2.trigger">Full or shared ownership</button>
           <div class="tab-item-body">
             <div class="tab-item-body-inner">
-              <p class="body-lg">This structure makes it possible to buy together and live independently, without compromising design quality, comfort, or long-term livability.</p>
-              <p class="body-lg">It's a practical way to access a well-designed home while sharing responsibility and cost.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t2.p1">This structure makes it possible to buy together and live independently, without compromising design quality, comfort, or long-term livability.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t2.p2">It's a practical way to access a well-designed home while sharing responsibility and cost.</p>
             </div>
           </div>
         </div>
         <div class="tab-item" data-tab="2">
-          <button class="tab-item-trigger">Shared spaces, by choice</button>
+          <button class="tab-item-trigger" data-i18n="casa.ownership.t3.trigger">Shared spaces, by choice</button>
           <div class="tab-item-body">
             <div class="tab-item-body-inner">
-              <p class="body-lg">In addition to the project's common areas, including a pool, hangout spaces, and a communal kitchen, each home includes its own shared living level for daily use.</p>
-              <p class="body-lg">Spaces are designed to adapt over time, allowing for more privacy if needs change.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t3.p1">In addition to the project's common areas, including a pool, hangout spaces, and a communal kitchen, each home includes its own shared living level for daily use.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t3.p2">Spaces are designed to adapt over time, allowing for more privacy if needs change.</p>
             </div>
           </div>
         </div>
         <div class="tab-item" data-tab="3">
-          <button class="tab-item-trigger">Accessible quality</button>
+          <button class="tab-item-trigger" data-i18n="casa.ownership.t4.trigger">Accessible quality</button>
           <div class="tab-item-body">
             <div class="tab-item-body-inner">
-              <p class="body-lg">Thoughtful design and quality materials, priced to remain genuinely accessible. By keeping the footprint compact, each home gains generous green space around it.</p>
-              <p class="body-lg">It's a practical way to access a well-designed home, with a balanced and flexible approach to ownership.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t4.p1">Thoughtful design and quality materials, priced to remain genuinely accessible. By keeping the footprint compact, each home gains generous green space around it.</p>
+              <p class="body-lg" data-i18n="casa.ownership.t4.p2">It's a practical way to access a well-designed home, with a balanced and flexible approach to ownership.</p>
             </div>
           </div>
         </div>
@@ -788,15 +799,15 @@
   <section class="ownership-quote-section">
     <div class="ownership-quote">
       <img src="assets/landing/icon-asterisk.svg" alt="" class="icon">
-      <p class="h3">This is a place for people who are comfortable with independence and proximity existing at the same time.</p>
-      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="inline-cta-btn">Request the project brief</a>
+      <p class="h3" data-i18n="casa.ownership.quote">This is a place for people who are comfortable with independence and proximity existing at the same time.</p>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="inline-cta-btn" data-i18n="casa.ownership.quote_cta">Request the project brief</a>
     </div>
   </section>
 
   <!-- Timeline -->
   <section class="timeline-section">
     <div class="timeline-inner">
-      <h2 class="h2 fade-up">Timeline</h2>
+      <h2 class="h2 fade-up" data-i18n="casa.timeline.title">Timeline</h2>
       <div class="tl" id="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -828,46 +839,46 @@
   <section class="mfy-section">
     <div class="mfy-top">
       <div class="mfy-left fade-up">
-        <h2 class="h2">Why this might be the right fit for you</h2>
-        <p class="subtitle">Casa NāM may be right for you if you are looking for a long-term base that feels calm, considered, and genuinely livable.</p>
+        <h2 class="h2" data-i18n="casa.mfy.title">Why this might be the right fit for you</h2>
+        <p class="subtitle" data-i18n="casa.mfy.subtitle">Casa NāM may be right for you if you are looking for a long-term base that feels calm, considered, and genuinely livable.</p>
       </div>
       <div class="mfy-right fade-up">
         <div class="mfy-item">
           <img src="assets/landing/icon-place.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">You want a sense of place, not just a property</p>
+          <p class="body-lg-semi" data-i18n="casa.mfy.m1">You want a sense of place, not just a property</p>
         </div>
         <div class="mfy-item">
           <img src="assets/landing/icon-design.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">You value thoughtful design over short-term optimisation</p>
+          <p class="body-lg-semi" data-i18n="casa.mfy.m2">You value thoughtful design over short-term optimisation</p>
         </div>
         <div class="mfy-item">
           <img src="assets/landing/icon-community.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">You want privacy without isolation</p>
+          <p class="body-lg-semi" data-i18n="casa.mfy.m3">You want privacy without isolation</p>
         </div>
         <div class="mfy-item">
           <img src="assets/landing/icon-mindful.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">You see where you live as a mindful life decision</p>
+          <p class="body-lg-semi" data-i18n="casa.mfy.m4">You see where you live as a mindful life decision</p>
         </div>
       </div>
     </div>
 
     <div class="mfy-card fade-up">
-      <p class="subtitle">As a founding member, you also gain access to:</p>
+      <p class="subtitle" data-i18n="casa.mfy.founding">As a founding member, you also gain access to:</p>
       <div class="mfy-benefits">
         <div class="mfy-benefit">
           <img src="assets/landing/icon-arrow.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">NāM shared spaces and community hub</p>
+          <p class="body-lg-semi" data-i18n="casa.mfy.b1">NāM shared spaces and community hub</p>
         </div>
         <div class="mfy-benefit">
           <img src="assets/landing/icon-arrow.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">Up to 10 years of co-working membership</p>
+          <p class="body-lg-semi" data-i18n="casa.mfy.b2">Up to 10 years of co-working membership</p>
         </div>
         <div class="mfy-benefit">
           <img src="assets/landing/icon-check.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">Priority access to future NāM projects and collaborations</p>
+          <p class="body-lg-semi" data-i18n="casa.mfy.b3">Priority access to future NāM projects and collaborations</p>
         </div>
       </div>
-      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="mfy-card-cta">Talk to us about founding membership</a>
+      <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="mfy-card-cta" data-i18n="casa.mfy.founding_cta">Talk to us about founding membership</a>
     </div>
   </section>
 
@@ -877,10 +888,10 @@
       <img src="assets/landing/cta-bg.png" alt="Casa NāM" loading="lazy">
     </div>
     <div class="cta-card fade-up">
-      <h2 class="h2">Early pricing now available from 2.99M THB (~€80k) per unit</h2>
+      <h2 class="h2" data-i18n="casa.ctasection.title">Early pricing now available from 2.99M THB (~€80k) per unit</h2>
       <div class="cta-bar">
-        <p class="body-lg-semi">Request the project brief or talk with the founders.</p>
-        <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="cta-btn">Talk to us</a>
+        <p class="body-lg-semi" data-i18n="casa.ctasection.text">Request the project brief or talk with the founders.</p>
+        <a href="https://wa.me/message/3RVKLOPKCTS2P1" class="cta-btn" data-i18n="casa.ctasection.button">Talk to us</a>
       </div>
     </div>
   </section>
@@ -890,7 +901,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="caption footer-copy">Casa NāM<br><span>Copyright © 2026</span></p>
+      <p class="caption footer-copy" data-i18n="casa.footer.copy">Casa NāM<br><span>Copyright © 2026</span></p>
       <div class="footer-logo"><img src="assets/landing/logo-footer.svg" alt="NāM"></div>
     </div>
   </footer>
@@ -1010,5 +1021,6 @@
   }
 })();
 </script>
+<script src="/i18n/i18n.js"></script>
 </body>
 </html>

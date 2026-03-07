@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — NāM Space</title>
-<meta name="description" content="Essays, reflections and updates from NāM Space — a co-creation sanctuary on Koh Phangan.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://nam.space/blog/">
-<meta property="og:title" content="Blog — NāM Space">
-<meta property="og:description" content="Essays, reflections and updates from NāM Space — a co-creation sanctuary on Koh Phangan.">
+<title>Announcing Casa NāM — Community-first living on Koh Phangan</title>
+<meta name="description" content="Introducing Casa NāM — a small residential village on Koh Phangan where nature-integrated homes meet community living. Thai craftsmanship, modern design.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nam.space/blog/announcing-casa-nam/">
+<meta property="og:title" content="Announcing Casa NāM — Community-first living on Koh Phangan">
+<meta property="og:description" content="Introducing Casa NāM — a small residential village on Koh Phangan where nature-integrated homes meet community living.">
 <meta property="og:image" content="https://nam.space/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog — NāM Space">
-<meta name="twitter:description" content="Essays, reflections and updates from NāM Space — a co-creation sanctuary on Koh Phangan.">
+<meta name="twitter:title" content="Announcing Casa NāM — Community-first living on Koh Phangan">
+<meta name="twitter:description" content="Introducing Casa NāM — a small residential village on Koh Phangan where nature-integrated homes meet community living.">
 <meta name="twitter:image" content="https://nam.space/assets/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +71,7 @@
   .lang-opt { font-family: var(--font-mono); font-size: 12px; padding: 5px 10px; border-radius: 100px; color: var(--foliage); transition: all 0.2s; line-height: 1; background: none; border: none; cursor: pointer; }
   .lang-opt.active { background: var(--deep-green); color: var(--cream); font-weight: 500; }
 
-  /* Top banner — Casa NāM */
+  /* Top banner */
   .top-banner {
     width: 100%;
     background: var(--sunwashed);
@@ -102,13 +102,27 @@
   .skip-link { position: absolute; top: -100%; left: 16px; background: var(--sunwashed); color: var(--cream); padding: 12px 24px; border-radius: 8px; font-family: var(--font-mono); font-size: 14px; text-decoration: none; z-index: 10000; }
   .skip-link:focus { top: 16px; }
 
-  /* ── BLOG LISTING ── */
-  .blog-header {
+  /* ── ESSAY ── */
+  .essay-article {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Hero */
+  .essay-hero {
     max-width: 1000px;
     margin: 0 auto;
     padding: 80px 64px 0;
+    text-align: center;
   }
-  .blog-header h1 {
+  .essay-hero .essay-meta {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--foliage);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .essay-hero h1 {
     font-family: var(--font-display);
     font-weight: 300;
     font-size: 56px;
@@ -116,79 +130,188 @@
     color: var(--deep-green);
     margin-bottom: 16px;
   }
-  .blog-header p {
-    font-family: var(--font-mono);
-    font-size: 16px;
+  .essay-hero .essay-subtitle {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
     color: var(--foliage);
-    max-width: 560px;
-    line-height: 1.65;
+    margin-bottom: 48px;
   }
-
-  /* Card grid */
-  .blog-grid {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 64px 64px 80px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-
-  .blog-card {
-    text-decoration: none;
-    color: var(--deep-green);
-    display: flex;
-    flex-direction: column;
+  .essay-hero-image {
+    width: 100%;
     border-radius: 12px;
     overflow: hidden;
-    background: rgba(0,0,0,0.04);
-    transition: background 0.25s, transform 0.25s;
+    margin-bottom: 12px;
   }
-  .blog-card:hover {
-    background: rgba(0,0,0,0.07);
-    transform: translateY(-4px);
-  }
-
-  .blog-card-img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-  }
-  .blog-card-img img {
+  .essay-hero-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     display: block;
-    background: var(--foliage);
-    transition: transform 0.4s;
-  }
-  .blog-card:hover .blog-card-img img {
-    transform: scale(1.04);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: var(--beige);
   }
 
-  .blog-card-body {
-    padding: 20px 20px 24px;
+  /* Content wrapper */
+  .essay-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 64px;
   }
-  .blog-card-date {
+
+  /* Typography */
+  .essay-content p {
     font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--foliage);
-    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--deep-green);
+    margin-bottom: 24px;
   }
-  .blog-card-title {
+  .essay-content h2 {
     font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 22px;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.2;
+    color: var(--deep-green);
+    margin-top: 80px;
+    margin-bottom: 32px;
+  }
+  .essay-content h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 28px;
     line-height: 1.3;
+    color: var(--deep-green);
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  /* Captions */
+  .essay-caption {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--foliage);
+    font-style: italic;
+  }
+
+  /* Full-width image blocks */
+  .essay-image {
+    margin: 48px 0;
+  }
+  .essay-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: var(--beige);
+  }
+  .essay-image figcaption {
+    margin-top: 12px;
+  }
+
+  /* Wide image */
+  .essay-image-wide {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 64px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+  .essay-image-wide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: var(--beige);
+  }
+  .essay-image-wide figcaption {
+    margin-top: 12px;
+  }
+
+  /* Divider */
+  .essay-divider {
+    border: none;
+    height: 1px;
+    background: var(--beige);
+    margin: 64px 0;
+  }
+
+  /* Pull quote */
+  .essay-pullquote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--deep-green);
+    margin: 48px 0;
+    padding: 0;
+  }
+
+  /* Blockquote */
+  .essay-blockquote {
+    border-left: 2px solid var(--beige);
+    padding-left: 24px;
+    margin: 40px 0;
+  }
+  .essay-blockquote p {
+    font-family: var(--font-mono);
+    font-style: italic;
+    font-size: 16px;
     color: var(--deep-green);
     margin-bottom: 8px;
   }
-  .blog-card-excerpt {
+
+  /* Inline CTA link */
+  .essay-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-family: var(--font-mono);
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--foliage);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--sunwashed);
+    text-decoration: none;
+    margin-top: 16px;
+    transition: opacity 0.2s;
   }
+  .essay-cta-link:hover { opacity: 0.8; }
+
+  /* Fin */
+  .essay-fin {
+    text-align: center;
+    padding: 80px 0 40px;
+  }
+  .essay-fin span {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 40px;
+    color: var(--deep-green);
+    display: block;
+    margin-bottom: 24px;
+  }
+  .essay-fin svg {
+    width: 48px;
+    height: auto;
+    opacity: 0.4;
+  }
+
+  /* ── CTA ── */
+  .cta-section { background: var(--cream); width: 100%; display: flex; flex-direction: column; align-items: center; padding: 40px 64px 80px; }
+  .cta-card { background: var(--sunwashed); border-radius: 40px; padding: 48px; max-width: 1000px; width: 100%; display: flex; flex-direction: column; gap: 36px; }
+  .cta-header { text-align: center; display: flex; flex-direction: column; gap: 8px; }
+  .cta-header h2 { font-family: var(--font-display); font-weight: 300; font-size: 40px; line-height: 1.2; color: var(--cream); }
+  .cta-header p { font-family: var(--font-mono); font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.65; margin-bottom: 0; }
+  .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .cta-bar-inside p { font-family: var(--font-mono); font-weight: 600; font-size: 16px; color: var(--deep-green); margin-bottom: 0; }
+  .cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; background: var(--sunwashed); border-radius: 24px; font-family: var(--font-mono); font-weight: 500; font-size: 16px; color: var(--cream); text-decoration: none; transition: filter 0.2s; border: none; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+  .cta-btn:hover { filter: brightness(1.1); }
 
   /* ── FOOTER ── */
   .site-footer {
@@ -232,13 +355,12 @@
     .top-banner { padding: 12px 40px; }
     .site-header { padding: 24px 40px; }
     .site-header::after { left: 40px; right: 40px; }
-    .blog-header { padding: 60px 40px 0; }
-    .blog-header h1 { font-size: 44px; }
-    .blog-grid {
-      padding: 48px 40px 60px;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
+    .essay-hero { padding: 60px 40px 0; }
+    .essay-hero h1 { font-size: 44px; }
+    .essay-content { padding: 0 40px; }
+    .essay-image-wide { padding: 0 40px; }
+    .cta-section { padding: 40px 40px 60px; }
+    .cta-bar-inside { flex-direction: column; text-align: center; }
     .site-footer { padding: 0 40px; }
     .footer-inner { padding: 20px 0 60px; }
   }
@@ -254,7 +376,7 @@
     .burger { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
     .site-nav { position: fixed; top: 0; right: 0; width: 260px; height: 100dvh; background: var(--deep-green); flex-direction: column; align-items: stretch; gap: 0; padding: 80px 32px 40px; transform: translateX(100%); transition: transform 0.35s ease; z-index: 100; box-shadow: -4px 0 24px rgba(0,0,0,0.3); }
     .site-nav.open { transform: translateX(0); }
-    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
+    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; color: var(--cream); }
     .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
     .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
     .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
@@ -264,13 +386,19 @@
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
     .nav-overlay.open { display: block; }
 
-    .blog-header { padding: 40px 24px 0; }
-    .blog-header h1 { font-size: 36px; }
-    .blog-grid {
-      padding: 40px 24px 48px;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
+    .essay-hero { padding: 40px 24px 0; }
+    .essay-hero h1 { font-size: 36px; }
+    .essay-hero .essay-subtitle { font-size: 18px; margin-bottom: 32px; }
+    .essay-content { padding: 0 24px; }
+    .essay-content h2 { font-size: 32px; margin-top: 56px; }
+    .essay-content h3 { font-size: 24px; }
+    .essay-content p { font-size: 15px; }
+    .essay-pullquote { font-size: 20px; }
+    .essay-image-wide { padding: 0 24px; }
+    .cta-section { padding: 32px 24px 48px; }
+    .cta-card { padding: 32px; border-radius: 28px; gap: 28px; }
+    .cta-header h2 { font-size: 32px; }
+    .cta-bar-inside { padding: 20px 24px; flex-direction: column; text-align: center; }
     .site-footer { padding: 0 24px; }
     .footer-inner {
       flex-direction: column;
@@ -282,7 +410,7 @@
 </head>
 <body>
 
-<a href="#blog-content" class="skip-link">Skip to main content</a>
+<a href="#essay-content" class="skip-link">Skip to main content</a>
 
 <!-- Top banner -->
 <div class="top-banner">
@@ -308,40 +436,79 @@
   </nav>
 </header>
 
-<main id="blog-content">
+<main id="essay-content">
+<article class="essay-article">
 
-  <section class="blog-header fade-in">
-    <h1>Essays</h1>
-    <p>Reflections on building NāM — where land, creativity and community meet.</p>
+  <!-- ── HERO ── -->
+  <section class="essay-hero fade-in">
+    <p class="essay-meta">07.03.2026 &nbsp;&middot;&nbsp; Written by Alex Duffner</p>
+    <h1>Announcing Casa NāM</h1>
+    <p class="essay-subtitle">From co-creation space to community living.</p>
+    <figure class="essay-hero-image">
+      <img src="/assets/casa-nam.jpg" alt="View of the NāM land on Koh Phangan surrounded by tropical vegetation">
+    </figure>
   </section>
 
-  <section class="blog-grid">
+  <!-- ── CONTENT ── -->
+  <div class="essay-content fade-in">
 
-    <a href="/blog/announcing-casa-nam/" class="blog-card fade-in">
-      <div class="blog-card-img">
-        <img src="/assets/casa-nam.jpg" alt="Tropical landscape of the Casa NāM site on Koh Phangan">
-      </div>
-      <div class="blog-card-body">
-        <p class="blog-card-date">07.03.2026</p>
-        <h2 class="blog-card-title">Announcing Casa NāM</h2>
-        <p class="blog-card-excerpt">From co-creation space to community living.</p>
-      </div>
-    </a>
+    <p>A few weeks ago I posted about NāM and what I'm building on Koh Phangan. The response surprised me. One thing kept coming up in those conversations: where do I actually live?</p>
 
-    <a href="/blog/the-origin-of-nam/" class="blog-card fade-in">
-      <div class="blog-card-img">
-        <img src="/assets/blog/the-origin-of-nam/nam-land.jpg" alt="Rocky hillside with palm trees on the NāM land, Koh Phangan">
-      </div>
-      <div class="blog-card-body">
-        <p class="blog-card-date">12.05.2025</p>
-        <h2 class="blog-card-title">The origin of NāM</h2>
-        <p class="blog-card-excerpt">A tale of land, spirits and AI.</p>
-      </div>
-    </a>
+    <p>NāM, for those who don't know it, is a co-creation space for creatives, founders and builders. A place to do meaningful work, grow as a person, and be around others who are building something that matters.</p>
 
-  </section>
+    <hr class="essay-divider">
 
+    <h2>More than a place to work</h2>
+
+    <p>Those conversations made me realize that people weren't just looking for a place to work. They were looking for somewhere that actually feels like home. A small community — not an isolated villa, but also not a pass-through where you never see the same face twice.</p>
+
+    <p class="essay-pullquote">People weren't just looking for a place to work. They were looking for somewhere that actually feels like home.</p>
+
+    <h2>A residential version of NāM</h2>
+
+    <p>So I'm starting to explore a small residential version of NāM. Not a cookie-cutter development. A community of homes with the same values behind it. Nature-integrated, built with a fully local Thai-led team, blending Thai wooden architecture with modern design and comfortable living. Something that gives you both privacy and easy access to community. Something that actually belongs here.</p>
+
+    <hr class="essay-divider">
+
+    <h2>Early stages, clear plan</h2>
+
+    <p>We're in the early stages, but with a clear plan for how to get there. I'm also teaming up with a local partner who has already built similar projects here on the island, which gives me a lot of confidence in what we can create.</p>
+
+    <p>One thing I'm still working through is the balance between keeping things standardized and giving people the option to personalize, especially in an eco-conscious direction. If you have specific suggestions for upgrades, or thoughts on the project in general, I'd love to hear from you.</p>
+
+    <a href="/casa-nam/" class="essay-cta-link">Learn more about Casa NāM &rarr;</a>
+
+  </div>
+
+  <!-- Fin -->
+  <div class="essay-fin fade-in">
+    <span>&#10043;</span>
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="23" stroke="var(--beige)" stroke-width="1.5"/>
+      <g transform="translate(24,24)" stroke="var(--beige)" stroke-width="2" stroke-linecap="round">
+        <line x1="0" y1="-10" x2="0" y2="10"/>
+        <line x1="-8.66" y1="-5" x2="8.66" y2="5"/>
+        <line x1="-8.66" y1="5" x2="8.66" y2="-5"/>
+      </g>
+    </svg>
+  </div>
+
+</article>
 </main>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-card fade-in">
+    <div class="cta-header">
+      <h2 data-i18n="cta.title">Join our journey</h2>
+      <p data-i18n="cta.subtitle">And be the first to know about what's happening as we build, grow and open our doors.</p>
+    </div>
+    <div class="cta-bar-inside">
+      <p data-i18n="cta.follow">Follow our Instagram for updates</p>
+      <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="cta-btn" data-i18n="cta.button">Go to Instagram</a>
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="footer-inner">

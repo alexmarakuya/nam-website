@@ -85,6 +85,11 @@
   .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
   .site-nav .nav-cta:hover { filter: brightness(1.1); }
 
+  /* Language toggle */
+  .lang-toggle { display: flex; align-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 2px; gap: 0; }
+  .lang-opt { font-family: var(--font-mono); font-size: 12px; padding: 5px 10px; border-radius: 100px; color: var(--sage); transition: all 0.2s; line-height: 1; background: none; border: none; cursor: pointer; }
+  .lang-opt.active { background: var(--cream); color: var(--deep-green); font-weight: 500; }
+
   /* Top banner — Casa NāM */
   .top-banner {
     width: 100%;
@@ -520,6 +525,7 @@
     .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
     .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
     .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .lang-toggle { margin-top: 16px; align-self: flex-start; }
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
     .nav-overlay.open { display: block; }
     .hero-section { padding: 80px 24px; min-height: 50vh; }
@@ -616,7 +622,7 @@
 
   <!-- Top banner -->
   <div class="top-banner">
-    <a href="/casa-nam/">Introducing Casa NāM — our residential project on Koh Phangan. Private homes and shared spaces for living well. Explore →</a>
+    <a href="/casa-nam/" data-i18n="banner.text">Introducing Casa NāM — our residential project on Koh Phangan. Private homes and shared spaces for living well. Explore →</a>
   </div>
 
   <!-- Header -->
@@ -627,10 +633,15 @@
     </button>
     <div class="nav-overlay"></div>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="/" aria-current="page">NāM Space</a>
-      <a href="/blog/">Blog</a>
-      <a href="/casa-nam/">Casa NāM</a>
-      <a href="https://members.nam.space" class="nav-cta">Become a member</a>
+      <a href="/" aria-current="page" data-i18n="nav.space">NāM Space</a>
+      <a href="/blog/" data-i18n="nav.blog">Blog</a>
+      <a href="/casa-nam/" data-i18n="nav.casa">Casa NāM</a>
+      <div class="lang-toggle" aria-label="Language">
+        <button class="lang-opt active" data-lang="en">EN</button>
+        <button class="lang-opt" data-lang="de">DE</button>
+        <button class="lang-opt" data-lang="th">TH</button>
+      </div>
+      <a href="https://members.nam.space" class="nav-cta" data-i18n="nav.cta">Become a member</a>
     </nav>
   </header>
 
@@ -645,16 +656,16 @@
        ========================================== -->
   <section class="manifesto-section">
     <div class="manifesto-inner">
-      <h1 class="manifesto-title m-reveal">Redefining the third place <span>for the age of AI.</span></h1>
-      <p class="manifesto-text m-reveal">More and more work is being handed to machines. What's left is our most precious gift. <span>The gift of true creation.</span></p>
-      <p class="manifesto-text m-reveal">The world belongs to the adaptable. We are becoming solopreneurs, independent creators, builders of one. But the best work still happens when we come together. To collaborate. To co-create. To build things that matter, <span>in the digital and physical realms.</span></p>
-      <p class="manifesto-text m-reveal">Not creativity in silos. Creativity in community. Exchange of ideas. Diversity of minds. A place to live out the full creative impulse, and come up with things that matter.</p>
+      <h1 class="manifesto-title m-reveal" data-i18n="home.manifesto.title">Redefining the third place <span>for the age of AI.</span></h1>
+      <p class="manifesto-text m-reveal" data-i18n="home.manifesto.p1">More and more work is being handed to machines. What's left is our most precious gift. <span>The gift of true creation.</span></p>
+      <p class="manifesto-text m-reveal" data-i18n="home.manifesto.p2">The world belongs to the adaptable. We are becoming solopreneurs, independent creators, builders of one. But the best work still happens when we come together. To collaborate. To co-create. To build things that matter, <span>in the digital and physical realms.</span></p>
+      <p class="manifesto-text m-reveal" data-i18n="home.manifesto.p3">Not creativity in silos. Creativity in community. Exchange of ideas. Diversity of minds. A place to live out the full creative impulse, and come up with things that matter.</p>
       <div class="declaration">
-        <p class="m-reveal"><s>We are a co-working space.</s></p>
-        <p class="m-reveal"><s>We are a co-living space.</s></p>
-        <p class="m-reveal"><s>We are a retreat space.</s></p>
-        <p class="m-reveal"><s>We are an event space.</s></p>
-        <p class="m-reveal"><img src="/assets/asterisk.svg" alt="" class="manifesto-asterisk">We are a <span style="color:var(--cream)">co-creation space.</span></p>
+        <p class="m-reveal" data-i18n="home.manifesto.d1"><s>We are a co-working space.</s></p>
+        <p class="m-reveal" data-i18n="home.manifesto.d2"><s>We are a co-living space.</s></p>
+        <p class="m-reveal" data-i18n="home.manifesto.d3"><s>We are a retreat space.</s></p>
+        <p class="m-reveal" data-i18n="home.manifesto.d4"><s>We are an event space.</s></p>
+        <p class="m-reveal" data-i18n="home.manifesto.d5"><img src="/assets/asterisk.svg" alt="" class="manifesto-asterisk">We are a <span style="color:var(--cream)">co-creation space.</span></p>
       </div>
     </div>
   </section>
@@ -667,8 +678,8 @@
   <!-- Timeline -->
   <section class="timeline-section">
     <div class="timeline-header">
-      <h2 class="h2 fade-up">The evolution of <span>third places</span></h2>
-      <p class="body-lg fade-up">Throughout history, the most transformative ideas weren't born in isolation. They emerged from third places — the spaces between home and work where strangers became collaborators and movements took root.</p>
+      <h2 class="h2 fade-up" data-i18n="home.timeline.title">The evolution of <span>third places</span></h2>
+      <p class="body-lg fade-up" data-i18n="home.timeline.subtitle">Throughout history, the most transformative ideas weren't born in isolation. They emerged from third places — the spaces between home and work where strangers became collaborators and movements took root.</p>
     </div>
 
     <div class="tl-scroll">
@@ -689,49 +700,49 @@
       <div class="tl-text-col">
         <div class="tl-entry" data-tl="0">
           <p class="tl-date">1650</p>
-          <h3 class="tl-name">The Coffeehouse</h3>
-          <p class="tl-essence">Where revolutions were sparked</p>
-          <p class="tl-desc">The scientific revolution was born not in laboratories but in coffeehouses, where thinkers, merchants, and inventors exchanged ideas freely across disciplines.</p>
+          <h3 class="tl-name" data-i18n="home.timeline.coffeehouse.name">The Coffeehouse</h3>
+          <p class="tl-essence" data-i18n="home.timeline.coffeehouse.essence">Where revolutions were sparked</p>
+          <p class="tl-desc" data-i18n="home.timeline.coffeehouse.desc">The scientific revolution was born not in laboratories but in coffeehouses, where thinkers, merchants, and inventors exchanged ideas freely across disciplines.</p>
           <div class="tl-entry-img"><img src="/assets/tl-coffeehouse.jpg" alt="A 17th-century coffeehouse" loading="lazy"></div>
         </div>
 
         <div class="tl-entry" data-tl="1">
           <p class="tl-date">1880<span class="sc">s</span></p>
-          <h3 class="tl-name">The Artist Colony</h3>
-          <p class="tl-essence">Where movements were forged</p>
-          <p class="tl-desc">From Montmartre to the Bauhaus, the most influential creative movements emerged from intentional communities where proximity produced what isolation never could.</p>
+          <h3 class="tl-name" data-i18n="home.timeline.colony.name">The Artist Colony</h3>
+          <p class="tl-essence" data-i18n="home.timeline.colony.essence">Where movements were forged</p>
+          <p class="tl-desc" data-i18n="home.timeline.colony.desc">From Montmartre to the Bauhaus, the most influential creative movements emerged from intentional communities where proximity produced what isolation never could.</p>
           <div class="tl-entry-img"><img src="/assets/tl-colony.jpg" alt="An artist colony studio" loading="lazy"></div>
         </div>
 
         <div class="tl-entry" data-tl="2">
           <p class="tl-date">1990<span class="sc">s</span></p>
-          <h3 class="tl-name">The Internet Cafe</h3>
-          <p class="tl-essence">The cautionary tale</p>
-          <p class="tl-desc">Provided access to a tool, then became redundant when everyone had it at home. A reminder that spaces built around tools alone don't endure.</p>
+          <h3 class="tl-name" data-i18n="home.timeline.internetcafe.name">The Internet Cafe</h3>
+          <p class="tl-essence" data-i18n="home.timeline.internetcafe.essence">The cautionary tale</p>
+          <p class="tl-desc" data-i18n="home.timeline.internetcafe.desc">Provided access to a tool, then became redundant when everyone had it at home. A reminder that spaces built around tools alone don't endure.</p>
           <div class="tl-entry-img"><img src="/assets/tl-internetcafe.jpg" alt="A 1990s internet cafe" loading="lazy"></div>
         </div>
 
         <div class="tl-entry" data-tl="3">
           <p class="tl-date">1995</p>
-          <h3 class="tl-name">The Hackerspace</h3>
-          <p class="tl-essence">Open-source culture in physical form</p>
-          <p class="tl-desc">Radical openness and collaborative making. Shared tools, shared knowledge, no gatekeepers. The movement that planted the seeds for the entire coworking era.</p>
+          <h3 class="tl-name" data-i18n="home.timeline.hackerspace.name">The Hackerspace</h3>
+          <p class="tl-essence" data-i18n="home.timeline.hackerspace.essence">Open-source culture in physical form</p>
+          <p class="tl-desc" data-i18n="home.timeline.hackerspace.desc">Radical openness and collaborative making. Shared tools, shared knowledge, no gatekeepers. The movement that planted the seeds for the entire coworking era.</p>
           <div class="tl-entry-img"><img src="/assets/tl-hackerspace.jpg" alt="A hackerspace workshop" loading="lazy"></div>
         </div>
 
         <div class="tl-entry" data-tl="4">
           <p class="tl-date">2005</p>
-          <h3 class="tl-name">The Coworking Space</h3>
-          <p class="tl-essence">Environment for the freelance era</p>
-          <p class="tl-desc">Gave independent workers a home. Now facing its own inflection point as AI reshapes what it means to work, and what it means to work together.</p>
+          <h3 class="tl-name" data-i18n="home.timeline.coworking.name">The Coworking Space</h3>
+          <p class="tl-essence" data-i18n="home.timeline.coworking.essence">Environment for the freelance era</p>
+          <p class="tl-desc" data-i18n="home.timeline.coworking.desc">Gave independent workers a home. Now facing its own inflection point as AI reshapes what it means to work, and what it means to work together.</p>
           <div class="tl-entry-img"><img src="/assets/tl-coworking.jpg" alt="A modern coworking space" loading="lazy"></div>
         </div>
 
         <div class="tl-entry tl-arrival" data-tl="5">
-          <p class="tl-date">Now</p>
-          <h3 class="tl-name">The Co-creation Space</h3>
-          <p class="tl-essence">The third place for the post-AI world</p>
-          <p class="tl-desc">Every era had its third place — the co-creation space is ours. Built for the work that only happens when people come together to create from depth.</p>
+          <p class="tl-date" data-i18n="home.timeline.cocreation.date">Now</p>
+          <h3 class="tl-name" data-i18n="home.timeline.cocreation.name">The Co-creation Space</h3>
+          <p class="tl-essence" data-i18n="home.timeline.cocreation.essence">The third place for the post-AI world</p>
+          <p class="tl-desc" data-i18n="home.timeline.cocreation.desc">Every era had its third place — the co-creation space is ours. Built for the work that only happens when people come together to create from depth.</p>
         </div>
       </div>
     </div>
@@ -753,33 +764,33 @@
   <section class="features-section">
     <div class="features-inner fade-up">
       <div class="features-left">
-        <h2 class="h2">A space shaped around <span>the way you work, learn, live and connect</span></h2>
-        <p class="subtitle">At NāM, different ways of working call for different spaces.</p>
+        <h2 class="h2" data-i18n="home.features.title">A space shaped around <span>the way you work, learn, live and connect</span></h2>
+        <p class="subtitle" data-i18n="home.features.subtitle">At NāM, different ways of working call for different spaces.</p>
       </div>
       <div class="features-right">
         <div class="feature-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">quiet focus</p>
+          <p class="body-lg-semi" data-i18n="home.features.f1">quiet focus</p>
         </div>
         <div class="feature-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">collaboration</p>
+          <p class="body-lg-semi" data-i18n="home.features.f2">collaboration</p>
         </div>
         <div class="feature-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">hands-on making</p>
+          <p class="body-lg-semi" data-i18n="home.features.f3">hands-on making</p>
         </div>
         <div class="feature-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">shared learning</p>
+          <p class="body-lg-semi" data-i18n="home.features.f4">shared learning</p>
         </div>
         <div class="feature-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">mindful breaks</p>
+          <p class="body-lg-semi" data-i18n="home.features.f5">mindful breaks</p>
         </div>
         <div class="feature-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">daydreaming</p>
+          <p class="body-lg-semi" data-i18n="home.features.f6">daydreaming</p>
         </div>
       </div>
     </div>
@@ -792,9 +803,9 @@
   <!-- Category strip — phases -->
   <section class="category-strip">
     <div class="category-strip-inner">
-      <p class="h3">Spaces will be built in phases, shaped by your input</p>
+      <p class="h3" data-i18n="home.spaces.phases_title">Spaces will be built in phases, shaped by your input</p>
       <div class="phases-legend" role="group" aria-label="Filter by phase">
-        <button class="phase-pill active" data-phase="all" aria-pressed="true">All</button>
+        <button class="phase-pill active" data-phase="all" aria-pressed="true" data-i18n="home.spaces.all">All</button>
         <button class="phase-pill p1" data-phase="1" aria-pressed="false">Phase 1</button>
         <button class="phase-pill p2" data-phase="2" aria-pressed="false">Phase 2</button>
         <button class="phase-pill p3" data-phase="3" aria-pressed="false">Phase 3</button>
@@ -806,7 +817,7 @@
   <section class="card-section bg-oat">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3">Work spaces</h3>
+      <h3 class="h3" data-i18n="home.spaces.workspaces">Work spaces</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
@@ -831,7 +842,7 @@
   <section class="card-section bg-cream">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3">Specialist spaces</h3>
+      <h3 class="h3" data-i18n="home.spaces.specialist">Specialist spaces</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
@@ -856,7 +867,7 @@
   <section class="card-section bg-oat">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3">Rest and wellness areas</h3>
+      <h3 class="h3" data-i18n="home.spaces.rest">Rest and wellness areas</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
@@ -881,7 +892,7 @@
   <section class="card-section bg-cream">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3">Community and activity spaces</h3>
+      <h3 class="h3" data-i18n="home.spaces.community">Community and activity spaces</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
@@ -906,7 +917,7 @@
   <section class="card-section bg-oat">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3">Accommodations</h3>
+      <h3 class="h3" data-i18n="home.spaces.accommodations">Accommodations</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
@@ -932,8 +943,8 @@
   <!-- Activities, Events and Programs -->
   <section class="activities-section">
     <div class="activities-header fade-up">
-      <h2 class="h2">Activities, <span>events and programs</span></h2>
-      <p class="body-lg">A great space is not enough. That's why we host a range of activities, gatherings, and programs.</p>
+      <h2 class="h2" data-i18n="home.activities.title">Activities, <span>events and programs</span></h2>
+      <p class="body-lg" data-i18n="home.activities.subtitle">A great space is not enough. That's why we host a range of activities, gatherings, and programs.</p>
     </div>
 
     <div class="activities-carousel fade-up" role="region" aria-label="Activities carousel" tabindex="0">
@@ -1050,20 +1061,20 @@
       <div class="mfu-left">
         <div class="mfu-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">A space for long-term focus and deep creative work</p>
+          <p class="body-lg-semi" data-i18n="home.mfu.i1">A space for long-term focus and deep creative work</p>
         </div>
         <div class="mfu-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">A community where collaboration happens naturally</p>
+          <p class="body-lg-semi" data-i18n="home.mfu.i2">A community where collaboration happens naturally</p>
         </div>
         <div class="mfu-item">
           <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
-          <p class="body-lg-semi">An ecosystem that connects people, ideas, and opportunities</p>
+          <p class="body-lg-semi" data-i18n="home.mfu.i3">An ecosystem that connects people, ideas, and opportunities</p>
         </div>
       </div>
       <div class="mfu-right">
-        <h2 class="h2">A home for <span>creatives, visionaries, thinkers and change-makers</span></h2>
-        <p class="body-lg">The magic is here. The tools are here. What's been missing is the right container. The right environment. The right space.</p>
+        <h2 class="h2" data-i18n="home.mfu.title">A home for <span>creatives, visionaries, thinkers and change-makers</span></h2>
+        <p class="body-lg" data-i18n="home.mfu.subtitle">The magic is here. The tools are here. What's been missing is the right container. The right environment. The right space.</p>
       </div>
     </div>
   </section>
@@ -1077,22 +1088,32 @@
   <section class="blog-section">
     <div class="blog-section-inner fade-up">
       <div class="blog-section-header">
-        <h2 class="h2">From the journal</h2>
-        <p class="body-lg">Stories, updates and reflections from NāM.</p>
+        <h2 class="h2" data-i18n="home.blog.title">From the journal</h2>
+        <p class="body-lg" data-i18n="home.blog.subtitle">Stories, updates and reflections from NāM.</p>
       </div>
       <div class="blog-section-grid">
+        <a href="/blog/announcing-casa-nam/" class="blog-card">
+          <div class="blog-card-img">
+            <img src="/assets/casa-nam.jpg" alt="Tropical landscape of the Casa NāM site on Koh Phangan" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">07.03.2026</p>
+            <h3 class="blog-card-title" data-i18n="home.blog.card1.title">Announcing Casa NāM</h3>
+            <p class="blog-card-excerpt" data-i18n="home.blog.card1.excerpt">From co-creation space to community living.</p>
+          </div>
+        </a>
         <a href="/blog/the-origin-of-nam/" class="blog-card">
           <div class="blog-card-img">
             <img src="/assets/blog/the-origin-of-nam/nam-land.jpg" alt="Rocky hillside with palm trees on the NāM land" loading="lazy">
           </div>
           <div class="blog-card-body">
             <p class="blog-card-date">12.05.2025</p>
-            <h3 class="blog-card-title">The origin of NāM</h3>
-            <p class="blog-card-excerpt">A tale of land, spirits and AI.</p>
+            <h3 class="blog-card-title" data-i18n="home.blog.card2.title">The origin of NāM</h3>
+            <p class="blog-card-excerpt" data-i18n="home.blog.card2.excerpt">A tale of land, spirits and AI.</p>
           </div>
         </a>
       </div>
-      <a href="/blog/" class="blog-section-link body-lg-semi">Read all posts &rarr;</a>
+      <a href="/blog/" class="blog-section-link body-lg-semi" data-i18n="home.blog.readall">Read all posts &rarr;</a>
     </div>
   </section>
 
@@ -1105,12 +1126,12 @@
   <section class="cta-section">
     <div class="cta-card fade-up">
       <div class="cta-header">
-        <h2 class="h2">Join our journey</h2>
-        <p class="body-lg">And be the first to know about what's happening as we build, grow and open our doors.</p>
+        <h2 class="h2" data-i18n="cta.title">Join our journey</h2>
+        <p class="body-lg" data-i18n="cta.subtitle">And be the first to know about what's happening as we build, grow and open our doors.</p>
       </div>
       <div class="cta-bar-inside">
-        <p class="body-lg-semi">Follow our Instagram for updates</p>
-        <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="btn cta-btn-inside">Go to Instagram</a>
+        <p class="body-lg-semi" data-i18n="cta.follow">Follow our Instagram for updates</p>
+        <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="btn cta-btn-inside" data-i18n="cta.button">Go to Instagram</a>
       </div>
     </div>
   </section>
@@ -1120,7 +1141,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="caption footer-copy">NāM Space<br><span>Copyright &copy; 2026</span></p>
+      <p class="caption footer-copy" data-i18n="footer.copy">NāM Space<br><span>Copyright &copy; 2026</span></p>
       <div class="footer-logo"><img src="/assets/footer-logo.svg" alt="NāM"></div>
     </div>
   </footer>
@@ -1407,5 +1428,6 @@
   });
 })();
 </script>
+<script src="/i18n/i18n.js"></script>
 </body>
 </html>
