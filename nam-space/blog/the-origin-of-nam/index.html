@@ -49,20 +49,20 @@
   html { scroll-behavior: smooth; }
   body {
     font-family: var(--font-mono);
-    color: var(--cream);
-    background: var(--deep-green);
+    color: var(--deep-green);
+    background: var(--cream);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
   /* ── HEADER ── */
   .site-header { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1600px; margin: 0 auto; padding: 32px 64px; z-index: 10; position: relative; line-height: 1; }
-  .site-header::after { content: ''; position: absolute; bottom: 0; left: 64px; right: 64px; height: 1px; background: rgba(255,255,255,0.12); }
-  .site-logo img { height: 28px; width: auto; }
+  .site-header::after { content: ''; position: absolute; bottom: 0; left: 64px; right: 64px; height: 1px; background: var(--beige); }
+  .site-logo img { height: 28px; width: auto; filter: brightness(0) saturate(100%) invert(48%) sepia(49%) saturate(1000%) hue-rotate(350deg) brightness(95%) contrast(90%); }
   .site-nav { display: flex; gap: 12px; align-items: center; }
-  .site-nav a { color: var(--cream); font-family: var(--font-mono); font-size: 14px; line-height: 1; letter-spacing: -0.28px; text-decoration: none; padding: 10px 18px; border-radius: 100px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, color 0.3s; }
-  .site-nav a:hover { border-color: var(--foliage); }
-  .site-nav a[aria-current="page"] { border-color: var(--cream); opacity: 1; }
+  .site-nav a { color: var(--deep-green); font-family: var(--font-mono); font-size: 14px; line-height: 1; letter-spacing: -0.28px; text-decoration: none; padding: 10px 18px; border-radius: 100px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, color 0.3s; }
+  .site-nav a:hover { border-color: var(--beige); }
+  .site-nav a[aria-current="page"] { border-color: var(--deep-green); opacity: 1; }
   .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
   .site-nav .nav-cta:hover { filter: brightness(1.1); }
 
@@ -88,7 +88,7 @@
   .top-banner a:hover { text-decoration: underline; }
 
   .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; }
-  .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .burger span { display: block; width: 22px; height: 2px; background: var(--deep-green); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
   .burger span + span { margin-top: 6px; }
   .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .burger.open span:nth-child(2) { opacity: 0; }
@@ -113,7 +113,7 @@
   .essay-hero .essay-meta {
     font-family: var(--font-mono);
     font-size: 14px;
-    color: var(--sapling);
+    color: var(--foliage);
     margin-bottom: 24px;
     letter-spacing: 0.02em;
   }
@@ -122,7 +122,7 @@
     font-weight: 300;
     font-size: 56px;
     line-height: 1.15;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 16px;
   }
   .essay-hero .essay-subtitle {
@@ -130,7 +130,7 @@
     font-style: italic;
     font-weight: 300;
     font-size: 22px;
-    color: var(--sage);
+    color: var(--foliage);
     margin-bottom: 48px;
   }
   .essay-hero-image {
@@ -160,7 +160,7 @@
     font-family: var(--font-mono);
     font-size: 16px;
     line-height: 1.75;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 24px;
   }
   .essay-content h2 {
@@ -168,7 +168,7 @@
     font-weight: 300;
     font-size: 40px;
     line-height: 1.2;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-top: 80px;
     margin-bottom: 32px;
   }
@@ -177,7 +177,7 @@
     font-weight: 300;
     font-size: 28px;
     line-height: 1.3;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-top: 0;
     margin-bottom: 24px;
   }
@@ -186,7 +186,7 @@
   .essay-caption {
     font-family: var(--font-mono);
     font-size: 14px;
-    color: var(--sapling);
+    color: var(--foliage);
     font-style: italic;
   }
 
@@ -201,7 +201,7 @@
     border-radius: 8px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    background: var(--foliage);
+    background: var(--beige);
   }
   .essay-image figcaption {
     margin-top: 12px;
@@ -223,7 +223,7 @@
     border-radius: 8px;
     aspect-ratio: 16 / 10;
     object-fit: cover;
-    background: var(--foliage);
+    background: var(--beige);
   }
   .essay-image-wide figcaption {
     margin-top: 12px;
@@ -233,7 +233,7 @@
   .essay-divider {
     border: none;
     height: 1px;
-    background: rgba(255,255,255,0.12);
+    background: var(--beige);
     margin: 64px 0;
   }
 
@@ -244,14 +244,14 @@
     font-weight: 300;
     font-size: 24px;
     line-height: 1.5;
-    color: var(--cream);
+    color: var(--deep-green);
     margin: 48px 0;
     padding: 0;
   }
 
   /* Blockquote */
   .essay-blockquote {
-    border-left: 2px solid var(--sapling);
+    border-left: 2px solid var(--beige);
     padding-left: 24px;
     margin: 40px 0;
   }
@@ -259,19 +259,19 @@
     font-family: var(--font-mono);
     font-style: italic;
     font-size: 16px;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 8px;
   }
   .essay-blockquote .essay-blockquote-cite {
     font-family: var(--font-mono);
     font-style: normal;
     font-size: 14px;
-    color: var(--sapling);
+    color: var(--foliage);
   }
 
   /* Manifesto block */
   .essay-manifesto {
-    border-left: 2px solid var(--sapling);
+    border-left: 2px solid var(--beige);
     padding-left: 24px;
     margin: 48px 0;
   }
@@ -281,7 +281,7 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 1.65;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 20px;
   }
   .essay-manifesto p:last-child { margin-bottom: 0; }
@@ -297,7 +297,7 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 1.65;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 4px;
   }
 
@@ -317,7 +317,7 @@
     font-family: var(--font-mono);
     font-size: 16px;
     line-height: 1.75;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 24px;
   }
   .essay-row .essay-row-image img {
@@ -327,7 +327,7 @@
     border-radius: 8px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    background: var(--foliage);
+    background: var(--beige);
   }
   .essay-row .essay-row-image figcaption {
     margin-top: 12px;
@@ -348,7 +348,7 @@
     font-weight: 300;
     font-size: 40px;
     line-height: 1.2;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-top: 0;
     margin-bottom: 32px;
   }
@@ -356,7 +356,7 @@
     font-family: var(--font-mono);
     font-size: 16px;
     line-height: 1.75;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 24px;
   }
   .essay-closing-row .essay-row-image img {
@@ -366,7 +366,7 @@
     border-radius: 8px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    background: var(--foliage);
+    background: var(--beige);
   }
   .essay-closing-row .essay-row-image figcaption {
     margin-top: 12px;
@@ -388,13 +388,13 @@
     font-weight: 300;
     font-size: 28px;
     line-height: 1.3;
-    color: var(--sage);
+    color: var(--foliage);
   }
   .essay-subsection-body p {
     font-family: var(--font-mono);
     font-size: 16px;
     line-height: 1.75;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 24px;
   }
   .essay-subsection-body p:last-child { margin-bottom: 0; }
@@ -408,12 +408,12 @@
   .essay-subdiv hr {
     border: none;
     height: 1px;
-    background: rgba(255,255,255,0.12);
+    background: var(--beige);
   }
 
   /* Archetype cards */
   .essay-archetype {
-    border-left: 2px solid var(--sapling);
+    border-left: 2px solid var(--beige);
     padding-left: 24px;
     margin-bottom: 32px;
   }
@@ -421,7 +421,7 @@
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 16px;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 4px;
     font-style: italic;
   }
@@ -430,12 +430,12 @@
     font-style: italic;
     font-size: 16px;
     line-height: 1.65;
-    color: var(--sapling);
+    color: var(--foliage);
   }
 
   /* Motto */
   .essay-motto {
-    border-left: 2px solid var(--sapling);
+    border-left: 2px solid var(--beige);
     padding-left: 24px;
     margin: 32px 0;
   }
@@ -443,7 +443,7 @@
     font-family: var(--font-mono);
     font-style: italic;
     font-size: 16px;
-    color: var(--cream);
+    color: var(--deep-green);
     margin-bottom: 0;
   }
 
@@ -467,7 +467,7 @@
     font-family: var(--font-display);
     font-weight: 300;
     font-size: 40px;
-    color: var(--cream);
+    color: var(--deep-green);
     display: block;
     margin-bottom: 24px;
   }
@@ -477,14 +477,24 @@
     opacity: 0.4;
   }
 
+  /* ── CTA ── */
+  .cta-section { background: var(--cream); width: 100%; display: flex; flex-direction: column; align-items: center; padding: 40px 64px 80px; }
+  .cta-card { background: var(--sunwashed); border-radius: 40px; padding: 48px; max-width: 1000px; width: 100%; display: flex; flex-direction: column; gap: 36px; }
+  .cta-header { text-align: center; display: flex; flex-direction: column; gap: 8px; }
+  .cta-header h2 { font-family: var(--font-display); font-weight: 300; font-size: 40px; line-height: 1.2; color: var(--cream); }
+  .cta-header p { font-family: var(--font-mono); font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.65; margin-bottom: 0; }
+  .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .cta-bar-inside p { font-family: var(--font-mono); font-weight: 600; font-size: 16px; color: var(--deep-green); margin-bottom: 0; }
+  .cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; background: var(--sunwashed); border-radius: 24px; font-family: var(--font-mono); font-weight: 500; font-size: 16px; color: var(--cream); text-decoration: none; transition: filter 0.2s; border: none; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+  .cta-btn:hover { filter: brightness(1.1); }
+
   /* ── FOOTER ── */
   .site-footer {
-    background: var(--deep-green);
+    background: var(--cream);
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 0 64px;
-    margin-top: 40px;
   }
   .footer-inner {
     max-width: 1000px;
@@ -492,16 +502,16 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    border-top: 1px solid rgba(255,255,255,0.12);
+    border-top: 1px solid var(--beige);
     padding: 20px 0 80px;
   }
   .footer-copy {
     font-family: var(--font-mono);
     font-size: 14px;
-    color: var(--cream);
+    color: var(--slate);
     line-height: 1.5;
   }
-  .footer-copy span { color: var(--sapling); }
+  .footer-copy span { color: var(--sunwashed); }
   .footer-logo img { height: 20px; width: 54px; }
 
   /* ── ANIMATIONS ── */
@@ -544,6 +554,8 @@
       gap: 16px;
     }
     .essay-subdiv { padding: 0 40px; }
+    .cta-section { padding: 40px 40px 60px; }
+    .cta-bar-inside { flex-direction: column; text-align: center; }
     .site-footer { padding: 0 40px; }
     .footer-inner { padding: 20px 0 60px; }
   }
@@ -585,6 +597,10 @@
     .essay-manifesto p { font-size: 16px; }
     .essay-poem p { font-size: 16px; }
     .essay-fin span { font-size: 32px; }
+    .cta-section { padding: 32px 24px 48px; }
+    .cta-card { padding: 32px; border-radius: 28px; gap: 28px; }
+    .cta-header h2 { font-size: 32px; }
+    .cta-bar-inside { padding: 20px 24px; flex-direction: column; text-align: center; }
     .site-footer { padding: 0 24px; }
     .footer-inner {
       flex-direction: column;
@@ -917,6 +933,20 @@
 
 </article>
 </main>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-card fade-in">
+    <div class="cta-header">
+      <h2>Join our journey</h2>
+      <p>And be the first to know about what's happening as we build, grow and open our doors.</p>
+    </div>
+    <div class="cta-bar-inside">
+      <p>Follow our Instagram for updates</p>
+      <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="cta-btn">Go to Instagram</a>
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="footer-inner">
