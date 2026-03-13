@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NāM Space — A Design-Led Creative Campus</title>
-<meta name="description" content="NāM Space — a design-led co-working and co-living campus on Koh Phangan, Thailand. Work that matters, built by people who care.">
+<title>Invest in NāM Space — Build Something Real</title>
+<meta name="description" content="Invest in NāM Space — a design-led creative campus on Koh Phangan. Room investment, ecosystem partnerships, and founding memberships.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://nam.space/pitch/">
-<meta property="og:title" content="NāM Space — A Design-Led Creative Campus">
-<meta property="og:description" content="A design-led creative campus on Koh Phangan. Work that matters, built by people who care.">
+<meta property="og:url" content="https://nam.space/pitch/invest/">
+<meta property="og:title" content="Invest in NāM Space — Build Something Real">
+<meta property="og:description" content="Room investment, ecosystem partnerships, and founding memberships. A design-led creative campus on Koh Phangan.">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NāM Space — A Design-Led Creative Campus">
-<meta name="twitter:description" content="A design-led creative campus on Koh Phangan. Work that matters, built by people who care.">
+<meta name="twitter:title" content="Invest in NāM Space — Build Something Real">
+<meta name="twitter:description" content="Room investment, ecosystem partnerships, and founding memberships. A design-led creative campus on Koh Phangan.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,9 +37,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { height: 100%; overflow: hidden; }
-
   body {
     height: 100%; margin: 0; overflow: hidden;
     font-family: 'Epilogue', sans-serif;
@@ -112,16 +110,13 @@
   .bg-terracotta .card p { color: rgba(244,242,232,0.75); }
   .bg-terracotta .asterisk { filter: brightness(0) invert(1); }
 
-  /* Asterisk */
   .asterisk { display: inline-block; width: 40px; height: 40px; flex-shrink: 0; filter: brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%); }
   .asterisk-sm { width: 24px; height: 24px; }
   .asterisk-lg { width: 56px; height: 56px; }
 
-  /* Grain overlay */
   .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.28; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); background-size: 180px 180px; mix-blend-mode: overlay; }
 
-  /* Watermark */
-  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('../assets/River.png'); background-repeat: no-repeat; }
+  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('../../assets/River.png'); background-repeat: no-repeat; }
   .watermark-light::before { opacity: 0.04; mix-blend-mode: multiply; }
   .watermark-dark::before { opacity: 0.06; mix-blend-mode: soft-light; filter: invert(1); }
   .wm-tr::before { width: 70%; height: 110%; top: -15%; right: -10%; background-size: contain; background-position: top right; }
@@ -130,16 +125,6 @@
   .wm-tl::before { width: 65%; height: 110%; top: -10%; left: -10%; background-size: contain; background-position: top left; transform: scaleX(-1) rotate(180deg); }
   .wm-center::before { width: 90%; height: 120%; top: -10%; left: 5%; background-size: contain; background-position: center; transform: rotate(15deg); }
 
-  /* Image hints */
-  .img-hint { position: absolute; overflow: hidden; pointer-events: none; z-index: 0; display: flex; }
-  .img-hint img { flex: 1; min-width: 0; min-height: 0; object-fit: cover; display: block; }
-  .img-hint-accent { flex-shrink: 0; background: var(--terracotta); }
-  .img-hint-h { width: 100%; left: 0; height: clamp(40px, 5.5vw, 75px); flex-direction: row; }
-  .img-hint-h .img-hint-accent { width: clamp(180px, 24vw, 360px); height: 100%; }
-  .img-hint-v { height: 100%; top: 0; width: clamp(40px, 5.5vw, 75px); flex-direction: column; }
-  .img-hint-v .img-hint-accent { width: 100%; height: clamp(180px, 24vw, 360px); }
-
-  /* Typography */
   .label { font-family: 'Sometype Mono', monospace; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
   h1 { font-family: 'Epilogue', sans-serif; font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; }
   h2 { font-family: 'Epilogue', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
@@ -152,11 +137,9 @@
   .tc { color: var(--terracotta); }
   .big-num { font-family: 'Epilogue', sans-serif; font-size: clamp(3rem, 5vw, 5rem); font-weight: 600; color: var(--terracotta); line-height: 1; letter-spacing: -0.03em; }
 
-  /* Layout */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
 
-  /* Swiss split */
   .swiss-split { padding: 0; display: flex; height: 100%; }
   .swiss-split-img { width: 48%; flex-shrink: 0; align-self: stretch; position: relative; overflow: hidden; }
   .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -167,7 +150,6 @@
   .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 40px; min-width: 0; overflow-y: auto; scrollbar-width: none; }
   .swiss-split-content::-webkit-scrollbar { display: none; }
 
-  /* Hero */
   .hero-slide { padding: 0 !important; display: flex; height: 100%; width: 100vw; background: var(--green); }
   .hero-main { flex: 1; min-width: 0; height: 100%; align-self: stretch; padding: 80px 90px 40px; display: flex; flex-direction: column; position: relative; overflow: hidden; background: var(--green); }
   .hero-content { margin-top: auto; margin-bottom: auto; }
@@ -179,9 +161,8 @@
   .hero-accent-cream { flex: 1; background: var(--bg); }
   .hero-accent-terracotta { flex: 1; background: var(--terracotta); }
   .hero-img-strip { width: 33%; flex-shrink: 0; height: 100%; position: relative; overflow: hidden; }
-  .hero-img-strip img, .hero-img-strip video { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+  .hero-img-strip img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
 
-  /* Full-bleed image slide */
   .img-full { padding: 0; position: relative; }
   .img-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .img-full-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.92) 0%, rgba(26,26,24,0.55) 40%, rgba(26,26,24,0.15) 70%); pointer-events: none; }
@@ -190,26 +171,22 @@
   .img-full-caption h2 { color: #fff; margin-bottom: 0.75rem; font-size: clamp(2.5rem, 4vw, 3.5rem); }
   .img-full-caption p { font-family: 'Sometype Mono', monospace; color: rgba(255,255,255,0.8); font-weight: 400; max-width: 550px; font-size: 1.02rem; line-height: 1.7; }
 
-  /* Divider */
   .divider { text-align: center; }
   .divider h2 { font-size: clamp(3rem, 5.5vw, 5rem); margin-bottom: 1.25rem; }
   .divider p { font-family: 'Sometype Mono', monospace; font-size: 1.26rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto; font-weight: 400; line-height: 1.7; }
   .line-accent { width: 50px; height: 3px; background: var(--terracotta); margin: 0 auto 1.5rem; border-radius: 2px; }
 
-  /* Cards */
   .card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; }
   .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
   .card p { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
   .card .src { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: var(--text-muted); margin-top: 1.25rem; letter-spacing: 0.03em; }
 
-  /* List items */
   .list-item { padding: 2rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; align-items: flex-start; }
   .list-item:last-child { border-bottom: none; }
   .dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; background: var(--terracotta); margin-top: 0.5rem; }
   .list-item h4 { font-size: 1.1rem; font-weight: 500; }
   .list-item p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
 
-  /* Info table */
   .info-table { max-width: 750px; }
   .info-row { display: grid; grid-template-columns: 36px 180px 1fr; border-bottom: 1px solid var(--border); padding: 0.85rem 0; font-size: 1rem; align-items: center; gap: 0.5rem; }
   .info-icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--terracotta); flex-shrink: 0; }
@@ -218,26 +195,11 @@
   .info-value { color: var(--text); font-weight: 400; font-size: 1.26rem; }
   .info-note { font-family: 'Sometype Mono', monospace; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
 
-  /* Eco cards */
   .eco-card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; position: relative; }
   .eco-accent { position: absolute; top: -1px; left: 0; width: 40px; height: 3px; background: var(--terracotta); }
   .eco-card h4 { font-size: 1.1rem; color: var(--text); margin-bottom: 0.6rem; }
   .eco-card p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
 
-  /* Who cards */
-  .who-card { padding: 2.2rem 0; border-top: 1px solid var(--border); background: none; }
-  .who-card h4 { font-size: 1.1rem; margin-bottom: 0.6rem; }
-  .who-card p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
-
-  /* Concept cards with thumb */
-  .concept-card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; display: flex; gap: 2rem; align-items: flex-start; }
-  .concept-card-text { display: flex; flex-direction: column; justify-content: center; }
-  .concept-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
-  .concept-card p { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
-  .card-thumb { width: 180px; min-width: 180px; height: 130px; overflow: hidden; flex-shrink: 0; border-radius: 12px; }
-  .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* Projection table */
   .tbl { width: 100%; border-collapse: collapse; margin-top: 2rem; }
   .tbl th, .tbl td { padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 1.2rem; }
   .tbl th { font-family: 'Sometype Mono', monospace; color: var(--text-muted); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -245,33 +207,12 @@
   .hi { color: var(--terracotta) !important; font-weight: 600 !important; }
   .tbl-note { font-family: 'Sometype Mono', monospace; font-size: 0.84rem; color: var(--text-muted); margin-top: 1.5rem; line-height: 1.8; }
 
-  /* Proximity list */
-  .prox-list { list-style: none; }
-  .prox-list li { padding: 0.65rem 0; font-size: 1rem; color: var(--text-secondary); font-weight: 300; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; }
-  .prox-list li:last-child { border-bottom: none; }
-  .prox-time { font-family: 'Sometype Mono', monospace; color: var(--terracotta); font-weight: 600; min-width: 85px; font-size: 0.9rem; }
-
-  /* TOC */
-  .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-  .toc-section { padding: 2.5rem 2.5rem 2.5rem 0; border-left: 1px solid var(--border); padding-left: 2.5rem; }
-  .toc-section:first-child { border-left: none; padding-left: 0; }
-  .toc-num { font-family: 'Epilogue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--terracotta); font-weight: 500; line-height: 1; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
-  .toc-section h3 { font-size: 1.3rem; margin-bottom: 1.25rem; font-weight: 500; padding-bottom: 1rem; border-bottom: 1px solid var(--border); cursor: pointer; transition: color 0.2s; }
-  .toc-section h3:hover { color: var(--terracotta); }
-  .toc-section h3::after { content: ' \2192'; font-size: 0.85em; opacity: 0.4; margin-left: 0.3em; }
-  .toc-section ul { list-style: none; }
-  .toc-section ul li { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); padding: 0.4rem 0; font-weight: 400; cursor: pointer; transition: color 0.2s; }
-  .toc-section ul li:hover { color: var(--terracotta); }
-  .toc-section ul li::after { content: ' \2192'; font-size: 0.75em; opacity: 0.35; margin-left: 0.3em; }
-
-  /* CTA */
   .cta-content { max-width: 650px; }
   .cta-content h2 { margin-bottom: 1.75rem; }
   .cta-content p { font-family: 'Sometype Mono', monospace; font-size: 1.32rem; color: var(--text-secondary); font-weight: 400; line-height: 1.75; margin-bottom: 1.5rem; }
   .cta-btn { display: inline-block; font-family: 'Sometype Mono', monospace; background: var(--terracotta); color: var(--bg); padding: 1rem 2.5rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2rem; text-decoration: none; }
   .cta-btn:hover { filter: brightness(1.1); }
 
-  /* Currency Picker */
   .currency-picker { position: absolute; left: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; }
   .currency-trigger { font-family: 'Sometype Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; background: none; color: rgba(244,242,232,0.55); border: none; padding: 5px 2px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: color 0.2s; }
   .currency-trigger:hover { color: rgba(244,242,232,0.9); }
@@ -284,14 +225,12 @@
   .currency-opt:hover { color: var(--text); background: rgba(0,0,0,0.04); }
   .currency-opt.active { background: var(--terracotta); color: #fff; }
 
-  /* Slide Number */
   .sn { position: absolute; top: 32px; right: 44px; font-family: 'Sometype Mono', monospace; font-size: 0.92rem; color: var(--text-secondary); letter-spacing: 0.1em; }
   .bg-green .sn { color: rgba(244,242,232,0.5); }
   .bg-dark .sn { color: rgba(244,242,232,0.5); }
   .bg-terracotta .sn { color: rgba(244,242,232,0.55) !important; }
   .img-full .sn { color: rgba(255,255,255,0.5); z-index: 3; }
 
-  /* Navigation */
   .nav-bar { position: relative; flex-shrink: 0; z-index: 100; background: var(--green); display: flex; align-items: center; justify-content: center; padding: 0 30px; height: var(--nav-h); }
   .nav-center { display: flex; align-items: center; gap: 4px; z-index: 1; }
   .nav-arrow { background: none; border: none; color: rgba(244,242,232,0.7); width: 56px; height: 56px; border-radius: 6px; cursor: pointer; font-size: 1.65rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s, opacity 0.2s; font-family: 'Sometype Mono', monospace; flex-shrink: 0; margin-bottom: 4px; }
@@ -303,11 +242,9 @@
   .counter-num { font-family: 'Sometype Mono', monospace; font-size: 0.72rem; opacity: 0.7; font-weight: 500; margin-bottom: 2px; }
   .counter-name { font-weight: 500; letter-spacing: 0.01em; text-align: left; overflow: hidden; text-overflow: ellipsis; }
 
-  /* Share button */
   .share-btn { position: absolute; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; background: none; border: none; padding: 5px 2px; cursor: pointer; color: rgba(244,242,232,0.55); transition: color 0.2s; }
   .share-btn:hover { color: rgba(244,242,232,0.9); }
 
-  /* Slide navigator dropdown */
   .slide-nav-dropdown { display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.96); width: 33vw; max-height: 66vh; overflow-y: auto; background: var(--bg); border: 1px solid rgba(42,58,43,0.1); border-radius: 10px; z-index: 999; padding: 12px 0; scrollbar-width: thin; scrollbar-color: rgba(42,58,43,0.12) transparent; opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease; box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(42,58,43,0.05); }
   .slide-nav-dropdown.open { display: block; }
   .slide-nav-dropdown.visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
@@ -323,10 +260,8 @@
   .slide-nav-backdrop.open { display: block; }
   .slide-nav-backdrop.visible { opacity: 1; }
 
-  /* Progress bar */
   .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); z-index: 200; transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; }
 
-  /* Environment badge */
   .env-badge { position: fixed; top: 12px; left: 12px; z-index: 300; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; cursor: default; }
   .env-badge::before { content: ''; position: absolute; inset: 0; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); opacity: 0.45; transition: opacity 0.3s; }
   .env-badge:hover::before { opacity: 1; }
@@ -337,7 +272,6 @@
   .env-badge:hover .env-label { opacity: 1; }
   @keyframes env-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
-  /* Print */
   @media print {
     .nav-bar, .progress-bar, .slide-nav-dropdown, .slide-nav-backdrop { display: none !important; }
     .deck { display: block; width: auto; transform: none !important; }
@@ -346,13 +280,10 @@
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
-  /* Responsive */
   @media (max-width: 1024px) {
     .slide { padding: 50px 44px 30px; }
     .grid-2 { grid-template-columns: 1fr; gap: 2.5rem; }
     .grid-3 { grid-template-columns: 1fr; gap: 2rem; }
-    .toc { grid-template-columns: 1fr; }
-    .toc-section { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
     .img-full-caption { left: 44px; right: 44px; bottom: 28px; }
     .hero-main { padding: 50px 44px 30px; }
     .hero-img-strip { width: 30%; }
@@ -374,8 +305,6 @@
     .img-full-caption { left: 24px; right: 24px; bottom: 28px; }
     .hero-main { padding: 12px 24px 16px; }
     .hero-img-strip { width: 35%; }
-    .toc { grid-template-columns: 1fr; }
-    .toc-section { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
     .swiss-split { flex-direction: column; }
     .swiss-split-img { width: 100%; height: 40vh; }
     .swiss-split-bar { width: 100%; height: 4px; }
@@ -388,11 +317,8 @@
     .info-row { grid-template-columns: 28px 1fr; gap: 0.2rem; }
     .info-row .info-value { grid-column: 2; }
     .card { padding: 1.75rem 0 !important; }
-    .concept-card { flex-direction: column; gap: 1rem; padding: 1.5rem 0; }
-    .card-thumb { width: 100%; min-width: 100%; height: 160px; border-radius: 8px; }
     .tbl th, .tbl td { font-size: 0.72rem !important; padding: 0.55rem 0.4rem !important; }
     .tbl th { font-size: 0.62rem !important; }
-    .img-hint { display: none !important; }
   }
 </style>
 </head>
@@ -409,576 +335,396 @@
 
 <!-- 01 ─ Hero -->
 <section class="slide hero-slide" id="s1">
-  <div class="hero-main grain">
+  <div class="hero-main">
     <div class="hero-content">
-      <h1>N&#x101;M<br>Space</h1>
-      <div style="display:flex;align-items:center;gap:16px;margin-top:2.5rem;">
-        <img src="../assets/Asterix.svg" alt="" style="width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
-        <p class="hero-sub" style="margin-top:0;">Build something real.<br>Together.</p>
-      </div>
+      <h1>Invest in<br>N&#x101;M Space</h1>
+      <p class="hero-sub">Build something real. Own a piece of it.</p>
     </div>
     <div class="hero-footer-line">
-      <span>Koh Phangan, Thailand</span>
-      <span style="opacity:0.35;">Investment overview &mdash; March 2026</span>
+      <span>N&#x101;M Space &mdash; Koh Phangan, Thailand</span>
+      <span>Investment Deck &mdash; 2026</span>
     </div>
   </div>
-  <div class="hero-accent-strip">
-    <div class="hero-accent-cream"></div>
-    <div class="hero-accent-terracotta"></div>
-  </div>
-  <div class="hero-img-strip">
-    <video autoplay muted loop playsinline style="object-position:left center;">
-      <source src="../assets/Exterior_Pan_Out_compressed.mp4" type="video/mp4">
-    </video>
-  </div>
+  <div class="hero-accent-strip"><div class="hero-accent-cream"></div><div class="hero-accent-terracotta"></div></div>
+  <div class="hero-img-strip"><img src="../../assets/exterior-1.png" alt="NāM Space exterior render"></div>
 </section>
 
-<!-- 02 ─ Intro -->
+<!-- 02 ─ Quick Recap -->
 <section class="slide bg-cream grain watermark watermark-light wm-tr" id="s2">
-  <div class="slide-inner grid-2" style="align-items:center;">
-    <div>
-      <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> N&#x101;M Space</div>
-      <h2>A design-led creative campus on Koh Phangan</h2>
+  <div class="slide-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> What is N&#x101;M</div>
+      <h2>A design-led creative campus</h2>
+      <p class="sub-ep" style="margin-top:0.5rem;">If you&rsquo;ve already seen the <a href="/pitch/" style="color:var(--terracotta);">project deck</a>, you know the story. Here&rsquo;s a quick reminder.</p>
     </div>
-    <div>
-      <p class="sub-ep">N&#x101;M Space is a co-working, co-living, and wellness campus for creative professionals who want to do real work in a place that actually supports it.</p>
-      <p class="sub-ep" style="margin-top:1.5rem;">It combines focused workspace, restorative wellness, and genuine community &mdash; built from the ground up on one of Southeast Asia&rsquo;s most magnetic islands.</p>
+    <div class="grid-2">
+      <div>
+        <div class="list-item"><div class="dot"></div><div><h4>Eight private rooms</h4><p>Boutique accommodation for stays of a week to a month. Design-led, high-quality, direct bookings only.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Full co-working studio</h4><p>Open desks, private offices, AV, kitchen, outdoor working areas. Built for focused creative work.</p></div></div>
+      </div>
+      <div>
+        <div class="list-item"><div class="dot"></div><div><h4>Five ecosystem businesses</h4><p>Caf&eacute;, wellness, academy, fitness, events &mdash; each operated independently, each feeding the others.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Koh Phangan, Thailand</h4><p>A growing hub for remote workers and creatives, with no design-led co-working campus of this kind.</p></div></div>
+      </div>
     </div>
-  </div>
-  <div class="img-hint img-hint-h" style="bottom:0;">
-    <div class="img-hint-accent"></div>
-    <img src="../assets/exterior-1.png" alt="" style="object-position:center 65%;">
   </div>
   <div class="sn">02</div>
 </section>
 
-<!-- 03 ─ Contents -->
-<section class="slide bg-warm grain" id="s3">
+<!-- 03 ─ The Forest Model -->
+<section class="slide bg-green grain watermark watermark-dark wm-center" id="s3">
   <div class="slide-inner">
-    <div style="margin-bottom:3.5rem;">
-      <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Contents</div>
-      <h2>What&rsquo;s inside</h2>
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> The Thesis</div>
+      <h2>The forest model</h2>
+      <p class="sub" style="margin-top:0.5rem;">N&#x101;M is designed like a permaculture forest &mdash; every business feeds the others. Nothing is isolated. Every relationship is reciprocal.</p>
     </div>
-    <div class="toc">
-      <div class="toc-section">
-        <div class="toc-num">01</div>
-        <h3 onclick="goTo(3)">The Place</h3>
-        <ul><li onclick="goTo(4)">At a Glance</li><li onclick="goTo(5)">Why Koh Phangan</li><li onclick="goTo(9)">The Problem</li><li onclick="goTo(10)">The Solution</li></ul>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Rooms fill the campus</h3>
+        <p>Guests stay weekly or monthly. They eat at the caf&eacute;, use the co-working studio, attend programs. One booking activates multiple revenue streams.</p>
       </div>
-      <div class="toc-section">
-        <div class="toc-num">02</div>
-        <h3 onclick="goTo(11)">The Space</h3>
-        <ul><li onclick="goTo(12)">What We&rsquo;re Building</li><li onclick="goTo(17)">Who It&rsquo;s For</li><li onclick="goTo(19)">Development Phases</li></ul>
+      <div class="card">
+        <h3>The campus fills the rooms</h3>
+        <p>A design-led co-working space, wellness, community events &mdash; these are why people book. The rooms are not just rooms. They&rsquo;re the accommodation layer of a destination.</p>
       </div>
-      <div class="toc-section">
-        <div class="toc-num">03</div>
-        <h3 onclick="goTo(20)">Get Involved</h3>
-        <ul><li onclick="goTo(21)">Three Paths</li><li onclick="goTo(22)">Why Now</li><li onclick="goTo(24)">Contact</li></ul>
+      <div class="card">
+        <h3>Every business compounds</h3>
+        <p>Academy cohorts fill rooms. Retreats use every facility. Caf&eacute; traffic draws walk-ins who become members. The whole is worth dramatically more than the sum of its parts.</p>
       </div>
     </div>
   </div>
-  <img src="../assets/River.png" alt="" style="position:absolute;bottom:-80px;right:-60px;transform:rotate(-15deg);pointer-events:none;z-index:0;opacity:0.04;width:clamp(300px,40vw,600px);height:auto;mix-blend-mode:multiply;">
   <div class="sn">03</div>
 </section>
 
-<!-- 04 ─ Section: The Place -->
+<!-- 04 ─ Section: Room Investment -->
 <section class="slide hero-slide" id="s4">
-  <div class="hero-main grain">
+  <div class="hero-main">
     <div class="hero-content">
-      <div class="label" style="color:var(--terracotta-light);">Part one</div>
-      <div class="line-accent" style="margin:0 0 1.5rem;"></div>
-      <h2 style="color:var(--bg);font-size:clamp(3rem,5.5vw,5rem);">The Place</h2>
-      <p class="sub" style="color:rgba(244,242,232,0.55);margin-top:1.5rem;">The island, the opportunity, and the gap we&rsquo;re filling.</p>
-    </div>
-    <div class="hero-footer-line">
-      <span style="color:rgba(244,242,232,0.3);">04</span>
+      <div class="label" style="color:var(--terracotta);">Part 1</div>
+      <h1>Room<br>Investment</h1>
+      <p class="hero-sub">Fund one of eight rooms. Earn from it.</p>
     </div>
   </div>
-  <div class="hero-accent-strip">
-    <div class="hero-accent-cream"></div>
-    <div class="hero-accent-terracotta"></div>
-  </div>
-  <div class="hero-img-strip">
-    <img src="../assets/Site_1.jpg" alt="NāM Space site" style="object-position:center 50%;">
-  </div>
+  <div class="hero-accent-strip"><div class="hero-accent-cream"></div><div class="hero-accent-terracotta"></div></div>
+  <div class="hero-img-strip"><img src="../../assets/deep-work-1.png" alt="NāM private room render"></div>
 </section>
 
-<!-- 05 ─ At a Glance -->
+<!-- 05 ─ The Deal -->
 <section class="slide bg-cream grain watermark watermark-light wm-bl" id="s5">
-  <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
-    <div style="margin-bottom:3.5rem;">
-      <div class="label" style="justify-content:center;"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Overview</div>
-      <h2>N&#x101;M Space at a glance</h2>
-      <p class="sub-ep" style="margin-top:1rem;max-width:550px;margin-left:auto;margin-right:auto;">A creative campus combining workspace, accommodation, and wellness &mdash; built in phases, funded by people who believe in it.</p>
+  <div class="slide-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> The Deal</div>
+      <h2>Simple, defined, and fair</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;width:100%;max-width:900px;">
-      <div style="text-align:center;">
-        <div style="font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--green);line-height:1;">8</div>
-        <div style="width:30px;height:2px;background:var(--terracotta);margin:1rem auto;"></div>
-        <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Private<br>rooms</div>
+    <div class="grid-2">
+      <div class="info-table">
+        <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="info-label">Investment</div><div class="info-value"><span data-currency data-thb="2275000" data-format="compact">$65K</span> per room</div></div>
+        <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="info-label">Builds</div><div class="info-value"><span data-currency data-thb="1225000" data-format="compact">$35K</span> room + <span data-currency data-thb="1050000" data-format="compact">$30K</span> campus</div></div>
+        <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="info-label">Returned</div><div class="info-value"><span data-currency data-thb="2957500" data-format="compact">$84.5K</span> &mdash; capital + 30%</div></div>
+        <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg></div><div class="info-label">Revenue</div><div class="info-value">60% of room gross, paid monthly</div></div>
+        <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></div><div class="info-label">Payback</div><div class="info-value">~7 years at 70% occupancy</div></div>
+        <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div class="info-label">Structure</div><div class="info-value">Revenue sharing agreement</div></div>
+        <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="info-label">Rooms</div><div class="info-value">8 total &mdash; offered to our network first</div></div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--green);line-height:1;"><span data-currency data-thb="2275000" data-format="compact">$65K</span></div>
-        <div style="width:30px;height:2px;background:var(--terracotta);margin:1rem auto;"></div>
-        <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Per room<br>investment</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--terracotta);line-height:1;">~30%</div>
-        <div style="width:30px;height:2px;background:var(--terracotta);margin:1rem auto;"></div>
-        <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Total<br>return</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;color:var(--green);line-height:1;">5</div>
-        <div style="width:30px;height:2px;background:var(--terracotta);margin:1rem auto;"></div>
-        <div style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.5;">Ecosystem<br>businesses</div>
+      <div>
+        <p class="sub-ep" style="font-size:1.2rem;margin-bottom:2rem;">Your <span data-currency data-thb="2275000" data-format="compact">$65K</span> funds two things that work together: your private room (<span data-currency data-thb="1225000" data-format="compact">$35K</span>) and the co-working campus (<span data-currency data-thb="1050000" data-format="compact">$30K</span>) that makes the room worth premium rates.</p>
+        <p class="sub-ep" style="font-size:1.2rem;">The co-working space is not a cost. It is the demand engine. Without it, the rooms are just rooms. With it, they become the accommodation layer of a campus that people seek out specifically.</p>
+        <p class="info-note" style="margin-top:2rem;">Total raise across 8 rooms: <span data-currency data-thb="18200000" data-format="compact">$520K</span></p>
       </div>
     </div>
   </div>
   <div class="sn">05</div>
 </section>
 
-<!-- 06 ─ Why Koh Phangan -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s6">
+<!-- 06 ─ Room Rates & Revenue -->
+<section class="slide bg-warm grain watermark watermark-light wm-tr" id="s6">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
-      <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Why here</div>
-      <h2>Why Koh Phangan</h2>
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Revenue</div>
+      <h2>How the money flows</h2>
+      <p class="sub-ep" style="margin-top:0.5rem;">Direct bookings only. No OTA platforms. No 15&ndash;20% commission drain.</p>
     </div>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Growing demand</h3>
-        <p>Koh Phangan is pulling a new wave of creative professionals &mdash; founders, designers, developers &mdash; who stay for months, not days. The island lacks quality infrastructure to match the demand.</p>
+    <div class="grid-2">
+      <div>
+        <h3 style="margin-bottom:1.5rem;">Room rates</h3>
+        <table class="tbl">
+          <thead><tr><th>Stay type</th><th>Rate</th><th>/night</th></tr></thead>
+          <tbody>
+            <tr><td>Nightly</td><td><span data-currency data-thb="2500" data-format="full">THB 2,500</span></td><td><span data-currency data-thb="2500" data-format="full">THB 2,500</span></td></tr>
+            <tr><td>Weekly</td><td><span data-currency data-thb="16500" data-format="full">THB 16,500</span></td><td><span data-currency data-thb="2357" data-format="full">THB 2,357</span></td></tr>
+            <tr><td>Monthly</td><td><span data-currency data-thb="50000" data-format="full">THB 50,000</span></td><td><span data-currency data-thb="1667" data-format="full">THB 1,667</span></td></tr>
+          </tbody>
+        </table>
+        <p class="tbl-note">Booking mix target: 40% monthly / 35% weekly / 25% nightly</p>
       </div>
-      <div class="card">
-        <h3>Quality gap</h3>
-        <p>Most coworking on the island is improvised. Caf&eacute;s with wifi, noisy shared spaces. There&rsquo;s no dedicated, design-led workspace built for focused creative work.</p>
-      </div>
-      <div class="card">
-        <h3>Rising land values</h3>
-        <p>Land prices on Phangan have increased significantly year-on-year. Building now means locking in costs before the next wave of development drives prices further.</p>
+      <div>
+        <h3 style="margin-bottom:1.5rem;">Revenue split</h3>
+        <div style="margin-bottom:2rem;">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+            <div style="width:60%;height:32px;background:var(--terracotta);border-radius:4px;display:flex;align-items:center;padding-left:12px;"><span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:#fff;font-weight:600;">60% Investor</span></div>
+            <div style="width:40%;height:32px;background:var(--green);border-radius:4px;display:flex;align-items:center;padding-left:12px;"><span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--bg);font-weight:600;">40% N&#x101;M</span></div>
+          </div>
+          <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:var(--text-secondary);line-height:1.7;">60% of gross room revenue goes to you, paid monthly, until <span data-currency data-thb="2957500" data-format="compact">$84.5K</span> is fully returned. Then: clean break &mdash; 100% returns to N&#x101;M. No ongoing obligation.</p>
+        </div>
       </div>
     </div>
   </div>
   <div class="sn">06</div>
 </section>
 
-<!-- 07 ─ The Island -->
-<section class="slide bg-cream grain" id="s7">
+<!-- 07 ─ Projections -->
+<section class="slide bg-cream grain watermark watermark-light wm-tl" id="s7">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
-      <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The Island</div>
-      <h2>Koh Phangan</h2>
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Projections</div>
+      <h2>What this looks like</h2>
+      <p class="sub-ep" style="margin-top:0.5rem;">Based on 8 rooms, mixed booking model. Co-working at 60% utilization.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem 3.5rem;">
-      <div class="concept-card" style="flex-direction:column;gap:0.75rem;padding:2rem 0;">
-        <div class="card-thumb"><img src="../assets/koh-phangan-beach.jpg" alt="Beach"></div>
-        <h3>Hidden gem turning heads</h3>
-        <p>Beyond the full moon party reputation, Phangan is becoming one of Southeast Asia&rsquo;s most sought-after islands for long-stay creatives.</p>
-      </div>
-      <div class="concept-card" style="flex-direction:column;gap:0.75rem;padding:2rem 0;">
-        <div class="card-thumb"><img src="../assets/koh-phangan-boats.jpg" alt="Boats"></div>
-        <h3>Heart of Southeast Asia</h3>
-        <p>Direct flights to Bangkok, Samui airport 30 minutes by boat. Connected enough to feel accessible, far enough to feel like an escape.</p>
-      </div>
-      <div class="concept-card" style="flex-direction:column;gap:0.75rem;padding:2rem 0;">
-        <div class="card-thumb"><img src="../assets/koh-phangan-cafe.jpg" alt="Cafe"></div>
-        <h3>Growing infrastructure</h3>
-        <p>Fast fibre internet, international schools, quality healthcare. The island is maturing rapidly while keeping its character.</p>
-      </div>
-      <div class="concept-card" style="flex-direction:column;gap:0.75rem;padding:2rem 0;">
-        <div class="card-thumb"><img src="../assets/koh-phangan-sunset.jpg" alt="Sunset"></div>
-        <h3>Year-round tropical climate</h3>
-        <p>Warm days, ocean breezes. A climate that energises rather than drains &mdash; perfect for sustained creative output.</p>
-      </div>
-    </div>
+    <table class="tbl">
+      <thead><tr><th>Metric</th><th>During payback (~7 yrs)</th><th>After payback</th></tr></thead>
+      <tbody>
+        <tr><td>Room revenue &mdash; N&#x101;M&rsquo;s 40%</td><td>~<span data-currency data-thb="2240000" data-format="compact">$64K</span>/yr</td><td class="hi">~<span data-currency data-thb="5600000" data-format="compact">$160K</span>/yr (100%)</td></tr>
+        <tr><td>Co-working revenue (100% N&#x101;M)</td><td>~<span data-currency data-thb="3535000" data-format="compact">$101K</span>/yr</td><td>~<span data-currency data-thb="3535000" data-format="compact">$101K</span>/yr</td></tr>
+        <tr><td>Ecosystem SPV revenue shares</td><td>~<span data-currency data-thb="1015000" data-format="compact">$29K</span>/yr</td><td>~<span data-currency data-thb="1015000" data-format="compact">$29K</span>/yr</td></tr>
+        <tr><td>Space rental + events</td><td>~<span data-currency data-thb="525000" data-format="compact">$15K</span>/yr</td><td>~<span data-currency data-thb="525000" data-format="compact">$15K</span>/yr</td></tr>
+        <tr><td style="font-weight:600;color:var(--text);">Total to N&#x101;M</td><td class="hi">~<span data-currency data-thb="7315000" data-format="compact">$209K</span>/yr</td><td class="hi">~<span data-currency data-thb="10675000" data-format="compact">$305K</span>/yr</td></tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">Capital raised: <span data-currency data-thb="18200000" data-format="compact">$520K</span> across 8 rooms. Total owed to investors: <span data-currency data-thb="23660000" data-format="compact">$676K</span>. Investor payback: ~7.0 years at 70% occupancy.</p>
   </div>
   <div class="sn">07</div>
 </section>
 
-<!-- 08 ─ Landscape -->
-<section class="slide img-full" id="s8">
-  <img src="../assets/Site_2.jpg" alt="NāM Space landscape">
-  <div class="img-full-overlay"></div>
-  <div class="img-full-caption">
-    <div class="label">The site</div>
-    <h2>Surrounded by nature</h2>
-    <p>The N&#x101;M campus sits on secured land in Koh Phangan&rsquo;s creative heartland &mdash; close enough to the village, far enough to breathe.</p>
+<!-- 08 ─ Investor Perks & Fine Print -->
+<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s8">
+  <div class="slide-inner">
+    <div class="grid-2">
+      <div>
+        <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Perks</div>
+        <h2>What you get</h2>
+        <div class="list-item"><div class="dot"></div><div><h4>One month free stay per year</h4><p>In your room, for the full duration of the agreement. Stay yourself, invite someone, or coordinate timing with N&#x101;M.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Transparency dashboard</h4><p>Live at nam.space/transparency. Fund balance, monthly reports, open books. You see exactly how your investment performs.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Priority at future locations</h4><p>First right of refusal on equivalent room investment opportunities at any future N&#x101;M campus, at the same terms.</p></div></div>
+      </div>
+      <div>
+        <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> The Fine Print</div>
+        <h2>What this is not</h2>
+        <p class="sub" style="margin-bottom:2rem;">You will not own land, a room, or shares in a company. This is a <strong style="color:var(--bg);">revenue sharing agreement</strong> &mdash; clear, signed, and binding.</p>
+        <div class="list-item"><div class="dot"></div><div><p>Not equity, not property ownership, not a timeshare</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><p>Legal structure via N&#x101;M Space Co., Ltd. (Thai entity)</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><p>Offered to a small community &mdash; not the open market</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><p>Clean break after payback &mdash; no ongoing obligation either way</p></div></div>
+      </div>
+    </div>
   </div>
   <div class="sn">08</div>
 </section>
 
-<!-- 09 ─ The Problem -->
-<section class="slide bg-green grain watermark watermark-dark wm-center" id="s9">
-  <div class="slide-inner" style="max-width:800px;">
-    <div class="label">The gap</div>
-    <h2>Creative people need focus, flow, and connection</h2>
-    <p class="sub" style="margin-top:1.5rem;">Most spaces offer only one. A co-working space with no soul. A retreat with no work infrastructure. A community with no depth.</p>
-    <p class="sub" style="margin-top:1.5rem;">The people doing the most meaningful work &mdash; the founders, the artists, the builders &mdash; are making do with spaces that weren&rsquo;t designed for them.</p>
+<!-- 09 ─ Section: Ecosystem -->
+<section class="slide img-full" id="s9">
+  <img src="../../assets/nam-main.png" alt="NāM campus overview">
+  <div class="img-full-overlay"></div>
+  <div class="img-full-caption">
+    <div class="label">Part 2</div>
+    <h2>Ecosystem partnerships</h2>
+    <p>Each campus business is a separate, ring-fenced SPV. You bring the craft. N&#x101;M provides the platform.</p>
   </div>
   <div class="sn">09</div>
 </section>
 
-<!-- 10 ─ The Solution -->
-<section class="slide bg-terracotta grain" id="s10">
-  <div class="slide-inner" style="max-width:800px;">
-    <div class="label">The answer</div>
-    <h2>Live. Work. Restore.</h2>
-    <p class="sub" style="margin-top:1.5rem;color:rgba(244,242,232,0.75);">N&#x101;M offers all three in one cohesive system. Not a coworking space with yoga bolted on. Not a retreat with desks. A single environment designed from the ground up for creative professionals who want to build something that matters.</p>
-    <div style="display:flex;gap:3rem;margin-top:3rem;">
+<!-- 10 ─ The SPV Model -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s10">
+  <div class="slide-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Structure</div>
+      <h2>The SPV model</h2>
+      <p class="sub-ep" style="margin-top:0.5rem;">Each ecosystem business is a Single Purpose Vehicle &mdash; cleanly separated, independently funded, with clear terms.</p>
+    </div>
+    <div class="grid-2">
       <div>
-        <h4 style="color:var(--bg);font-size:1.3rem;">Work</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">Deep-focus pods, shared studios, maker spaces</p>
+        <h3 style="margin-bottom:1.5rem;">The operator-investor brings</h3>
+        <div class="list-item"><div class="dot"></div><div><p>Capital to build out and equip their space</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><p>Operational expertise to run the business</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><p>Minimum investment covering full build + 12 months runway</p></div></div>
       </div>
       <div>
-        <h4 style="color:var(--bg);font-size:1.3rem;">Live</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">Treehouses, modular villas, communal kitchen</p>
-      </div>
-      <div>
-        <h4 style="color:var(--bg);font-size:1.3rem;">Restore</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">Sauna, onsen, ice bath, nature trails</p>
+        <h3 style="margin-bottom:1.5rem;">N&#x101;M Space provides</h3>
+        <div class="list-item"><div class="dot"></div><div><p>Physical space, built and ready for fit-out</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><p>Thai legal partnership (majority stakeholder)</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><p>Brand, community, governance, and island knowledge</p></div></div>
       </div>
     </div>
+    <p class="info-note" style="margin-top:2.5rem;">N&#x101;M Space holds a 10&ndash;15% revenue share per SPV (negotiated per deal). Each business pays a monthly Community Contribution to the shared maintenance fund.</p>
   </div>
   <div class="sn">10</div>
 </section>
 
-<!-- 11 ─ Section: The Space -->
-<section class="slide hero-slide" id="s11">
-  <div class="hero-main grain">
-    <div class="hero-content">
-      <div class="label" style="color:var(--terracotta-light);">Part two</div>
-      <div class="line-accent" style="margin:0 0 1.5rem;"></div>
-      <h2 style="color:var(--bg);font-size:clamp(3rem,5.5vw,5rem);">The Space</h2>
-      <p class="sub" style="color:rgba(244,242,232,0.55);margin-top:1.5rem;">What we&rsquo;re building, who it serves, and how it grows.</p>
-    </div>
-    <div class="hero-footer-line">
-      <span style="color:rgba(244,242,232,0.3);">11</span>
-    </div>
-  </div>
-  <div class="hero-accent-strip">
-    <div class="hero-accent-cream"></div>
-    <div class="hero-accent-terracotta"></div>
-  </div>
-  <div class="hero-img-strip">
-    <img src="../assets/exterior-2.png" alt="NāM Space exterior">
-  </div>
-</section>
-
-<!-- 12 ─ What We're Building -->
-<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s12">
+<!-- 11 ─ Available SPVs -->
+<section class="slide bg-warm grain watermark watermark-light wm-tr" id="s11">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
-      <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Overview</div>
-      <h2>What we&rsquo;re building</h2>
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Opportunities</div>
+      <h2>Five ecosystem businesses</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      <div class="eco-card" style="padding:2.5rem 2.5rem 2.5rem 0;">
+        <div class="eco-accent"></div>
+        <h4>Caf&eacute; + F&amp;B</h4>
+        <p>The heartbeat of the campus. Open to all &mdash; members, residents, walk-ins. Catering for Academy programs, fuel for Wellness guests. Requires genuine hospitality DNA.</p>
+        <p class="src"><span data-currency data-thb="15000" data-format="full">THB 15,000</span>/month community contribution</p>
+      </div>
+      <div class="eco-card" style="padding:2.5rem 0 2.5rem 2.5rem;">
+        <div class="eco-accent"></div>
+        <h4>Wellness &mdash; Ice Bath, Sauna + Relaxation</h4>
+        <p>Cold therapy, heat, relaxation. Koh Phangan already attracts recovery seekers. Low footprint, high perceived value, strong daily return rate.</p>
+        <p class="src"><span data-currency data-thb="12000" data-format="full">THB 12,000</span>/month community contribution</p>
+      </div>
+      <div class="eco-card" style="padding:2.5rem 2.5rem 2.5rem 0;">
+        <div class="eco-accent"></div>
+        <h4>N&#x101;M Academy &mdash; Education + Programs</h4>
+        <p>In-person courses, bootcamps, retreats. One Academy cohort activates the entire ecosystem &mdash; rooms, co-working, caf&eacute;, wellness. Eventually online too.</p>
+        <p class="src"><span data-currency data-thb="10000" data-format="full">THB 10,000</span>/month community contribution</p>
+      </div>
+      <div class="eco-card" style="padding:2.5rem 0 2.5rem 2.5rem;">
+        <div class="eco-accent"></div>
+        <h4>Fitness + Gym</h4>
+        <p>Training facility with strong programming &mdash; bootcamps, outdoor circuits, retreat weeks. Revenue from memberships and fitness retreats that fill rooms.</p>
+        <p class="src"><span data-currency data-thb="12000" data-format="full">THB 12,000</span>/month community contribution</p>
+      </div>
+    </div>
+    <p class="info-note">Each SPV is ring-fenced &mdash; one business&rsquo;s problems cannot infect another. A caf&eacute; investor is not exposed to the gym&rsquo;s performance.</p>
+  </div>
+  <div class="sn">11</div>
+</section>
+
+<!-- 12 ─ Community Contribution & Transparency -->
+<section class="slide bg-terracotta grain" id="s12">
+  <div class="slide-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Governance</div>
+      <h2>Radical transparency</h2>
+      <p class="sub" style="color:rgba(244,242,232,0.75);">Every business contributes <span data-currency data-thb="49000" data-format="full">THB 49,000</span>/month to a ring-fenced community fund. Every baht is visible.</p>
     </div>
     <div class="grid-3">
-      <div class="eco-card">
-        <div class="eco-accent"></div>
-        <h4>Accommodation</h4>
-        <p>Treehouses and modular villas &mdash; designed for stays of weeks to months. Each unit is an investable asset.</p>
+      <div class="card">
+        <h3>Live dashboard</h3>
+        <p>nam.space/transparency &mdash; fund balance, month-to-date income vs expenditure, updated in real time.</p>
       </div>
-      <div class="eco-card">
-        <div class="eco-accent"></div>
-        <h4>Coworking</h4>
-        <p>Deep-focus pods, shared desks, recording studio. Workspace designed for flow, not just wifi.</p>
+      <div class="card">
+        <h3>Monthly reports</h3>
+        <p>Published on the 5th. Full income and expenditure breakdown, fund balance, plain language &mdash; no jargon.</p>
       </div>
-      <div class="eco-card">
-        <div class="eco-accent"></div>
-        <h4>Wellness</h4>
-        <p>Ice bath, traditional sauna, Japanese onsen. Recovery built into the daily rhythm, not a weekend add-on.</p>
-      </div>
-      <div class="eco-card">
-        <div class="eco-accent"></div>
-        <h4>Caf&eacute; &amp; Kitchen</h4>
-        <p>A shared kitchen for residents and a caf&eacute; that serves both the campus and the neighbourhood.</p>
-      </div>
-      <div class="eco-card">
-        <div class="eco-accent"></div>
-        <h4>Programs</h4>
-        <p>Workshops, residencies, and retreats. Curated programming that attracts high-quality guests and generates revenue.</p>
+      <div class="card">
+        <h3>Quarterly meetings</h3>
+        <p>Open to all operators and members. Financial review, open floor, any proposed changes to contribution rates.</p>
       </div>
     </div>
+    <p class="info-note" style="color:rgba(244,242,232,0.6);">The fund covers cleaning, pool, landscaping, internet, utilities, repairs, security, and community programming. Surplus rolls into capital reserve. Deficit is covered by N&#x101;M Core and reported openly.</p>
   </div>
   <div class="sn">12</div>
 </section>
 
-<!-- 13 ─ Accommodation -->
-<section class="slide swiss-split" id="s13">
-  <div class="swiss-split-img">
-    <img src="../assets/exterior-3.png" alt="NāM accommodation">
-    <div class="swiss-split-img-overlay"></div>
-    <div class="swiss-split-img-caption">
-      <h2>Stay for real</h2>
+<!-- 13 ─ Section: Founding Memberships -->
+<section class="slide hero-slide" id="s13">
+  <div class="hero-main">
+    <div class="hero-content">
+      <div class="label" style="color:var(--terracotta);">Part 3</div>
+      <h1>Founding<br>memberships</h1>
+      <p class="hero-sub">30 spots. Lock in your place before the doors open.</p>
     </div>
   </div>
-  <div class="swiss-split-bar"></div>
-  <div class="swiss-split-content">
-    <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Accommodation</div>
-    <h2>Treehouses &amp; villas</h2>
-    <p class="sub" style="margin-bottom:2rem;">Designed for creative professionals staying weeks to months. Each unit is independently investable &mdash; your capital builds something you can also enjoy.</p>
-    <div class="list-item">
-      <div class="dot"></div>
-      <div><h4>Phase 1: Treehouses</h4><p>3 elevated studio units nestled in the canopy. Compact, private, connected to nature.</p></div>
-    </div>
-    <div class="list-item">
-      <div class="dot"></div>
-      <div><h4>Phase 2: Modular villas</h4><p>Larger units with workspace built in. Designed for longer stays and small teams.</p></div>
-    </div>
-  </div>
+  <div class="hero-accent-strip"><div class="hero-accent-cream"></div><div class="hero-accent-terracotta"></div></div>
+  <div class="hero-img-strip"><img src="../../assets/ws-shared.jpg" alt="NāM co-working space"></div>
 </section>
 
-<!-- 14 ─ Work & Creation -->
-<section class="slide img-full" id="s14">
-  <img src="../assets/deep-work-1.png" alt="NāM workspace">
-  <div class="img-full-overlay"></div>
-  <div class="img-full-caption">
-    <div class="label">Work &amp; Creation</div>
-    <h2>Designed for deep work</h2>
-    <p>Focused pods for heads-down work. Shared studios for collaboration. A recording space for podcasts and content. Every zone tuned to how creative professionals actually work.</p>
+<!-- 14 ─ Founding Membership Tiers -->
+<section class="slide bg-cream grain watermark watermark-light wm-br" id="s14">
+  <div class="slide-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Memberships</div>
+      <h2>Pre-pay. Save 27&ndash;47%. Build from day one.</h2>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>Tier</th><th>Founding price</th><th>Regular price</th><th>Saving</th><th>Spots</th></tr></thead>
+      <tbody>
+        <tr><td>Day Access (12 months)</td><td class="hi"><span data-currency data-thb="35000" data-format="full">THB 35,000</span></td><td><span data-currency data-thb="66000" data-format="full">THB 66,000</span></td><td class="hi">47%</td><td>10</td></tr>
+        <tr><td>Hot Desk (12 months)</td><td class="hi"><span data-currency data-thb="60000" data-format="full">THB 60,000</span></td><td><span data-currency data-thb="90000" data-format="full">THB 90,000</span></td><td class="hi">33%</td><td>10</td></tr>
+        <tr><td>Private Office (12 months)</td><td class="hi"><span data-currency data-thb="200000" data-format="full">THB 200,000</span></td><td><span data-currency data-thb="300000" data-format="full">THB 300,000</span></td><td class="hi">33%</td><td>5</td></tr>
+        <tr><td>Remote Team (12 months)</td><td class="hi"><span data-currency data-thb="350000" data-format="full">THB 350,000</span></td><td><span data-currency data-thb="480000" data-format="full">THB 480,000</span></td><td class="hi">27%</td><td>3</td></tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">Full raise if all tiers filled: <span data-currency data-thb="3000000" data-format="compact">THB 3M</span> (~<span data-currency data-thb="3000000" data-format="short">$86K</span>). Conservative (Day + Hot Desk only): <span data-currency data-thb="950000" data-format="compact">THB 950K</span> (~<span data-currency data-thb="950000" data-format="short">$27K</span>).<br>Payment: 100% upfront. Activates on opening day. Full refund if N&#x101;M does not open within 18 months.</p>
   </div>
   <div class="sn">14</div>
 </section>
 
-<!-- 15 ─ Wellness -->
-<section class="slide img-full" id="s15">
-  <img src="../assets/commons-1.png" alt="NāM wellness and commons">
-  <div class="img-full-overlay"></div>
-  <div class="img-full-caption">
-    <div class="label">Wellness</div>
-    <h2>Recovery as ritual</h2>
-    <p>Ice bath, traditional sauna, Japanese onsen. Designed into the daily rhythm so restoration is habit, not holiday.</p>
+<!-- 15 ─ What Founding Members Get -->
+<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s15">
+  <div class="slide-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Benefits</div>
+      <h2>More than a discount</h2>
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="list-item"><div class="dot"></div><div><h4>Founding member status</h4><p>Named on the N&#x101;M wall and website permanently. You helped build this.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Priority renewal</h4><p>First right to renew at a preferred rate before public launch.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Community access</h4><p>Invited to all N&#x101;M events, dinners, and gatherings during construction and beyond.</p></div></div>
+      </div>
+      <div>
+        <div class="list-item"><div class="dot"></div><div><h4>Input rights</h4><p>Invited to give feedback on the space design, programming, and community guidelines before launch.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Early room access</h4><p>First to book rooms when they open, at member rates.</p></div></div>
+        <div class="list-item"><div class="dot"></div><div><h4>Transferable</h4><p>Plans change. Your membership can be transferred to a colleague or friend. No penalty.</p></div></div>
+      </div>
+    </div>
   </div>
   <div class="sn">15</div>
 </section>
 
-<!-- 16 ─ Community & Shared Spaces -->
-<section class="slide swiss-split" id="s16">
-  <div class="swiss-split-img">
-    <img src="../assets/cafe-1.png" alt="NāM café">
-    <div class="swiss-split-img-overlay"></div>
-    <div class="swiss-split-img-caption">
-      <h2>Where it all connects</h2>
+<!-- 16 ─ Why Now -->
+<section class="slide bg-terracotta grain" id="s16">
+  <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Timing</div>
+      <h2>Why now</h2>
     </div>
+    <div class="list-item"><div class="dot"></div><div><h4>The land is secured</h4><p>River-front plot on Koh Phangan, lease in place. The foundation exists.</p></div></div>
+    <div class="list-item"><div class="dot"></div><div><h4>The community already exists</h4><p>Kin Haus co-living, KPG AI Meetup, years of relationships. N&#x101;M is not starting from zero.</p></div></div>
+    <div class="list-item"><div class="dot"></div><div><h4>Phangan is pulling creatives</h4><p>The island is emerging as a serious base for remote workers and founders &mdash; but lacks quality infrastructure.</p></div></div>
+    <div class="list-item"><div class="dot"></div><div><h4>You invest at build cost</h4><p>No developer margin. No markup. <span data-currency data-thb="2275000" data-format="compact">$65K</span> is exactly what it costs to build. This is the moment before the value compounds.</p></div></div>
   </div>
-  <div class="swiss-split-bar"></div>
-  <div class="swiss-split-content">
-    <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Community</div>
-    <h2>Shared spaces</h2>
-    <p class="sub" style="margin-bottom:2rem;">The in-between moments matter as much as the work. Shared meals, spontaneous conversations, creative collisions.</p>
-    <div class="list-item">
-      <div class="dot"></div>
-      <div><h4>Caf&eacute;</h4><p>Open to campus residents and the wider community. A revenue stream and a social anchor.</p></div>
-    </div>
-    <div class="list-item">
-      <div class="dot"></div>
-      <div><h4>Shared kitchen</h4><p>Cook together, eat together. The simplest way to build belonging.</p></div>
-    </div>
-    <div class="list-item">
-      <div class="dot"></div>
-      <div><h4>Communal areas</h4><p>Informal gathering spots designed for connection without interrupting flow.</p></div>
-    </div>
-  </div>
+  <div class="sn">16</div>
 </section>
 
-<!-- 17 ─ Who It's For -->
-<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s17">
-  <div class="slide-inner">
-    <div style="margin-bottom:2rem;">
-      <div class="label">Audience</div>
-      <h2>Who it&rsquo;s for</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem 3.5rem;">
-      <div class="who-card">
-        <h4>Solopreneurs &amp; founders</h4>
-        <p>Self-directed builders who need focus, not distractions. Doing real work, not performing productivity.</p>
-      </div>
-      <div class="who-card">
-        <h4>Small remote teams</h4>
-        <p>Steering committees, co-founder retreats, project sprints. Come for a week, leave with momentum.</p>
-      </div>
-      <div class="who-card">
-        <h4>Local residents</h4>
-        <p>Creatives already on the island who lack quality workspace and community. N&#x101;M fills a gap that doesn&rsquo;t exist yet.</p>
-      </div>
-      <div class="who-card">
-        <h4>Learners &amp; makers</h4>
-        <p>People drawn to depth over noise. Workshops, residencies, and the N&#x101;M Academy (Phase 3) serve this audience.</p>
-      </div>
-    </div>
+<!-- 17 ─ Quote -->
+<section class="slide img-full" id="s17">
+  <img src="../../assets/landscape.jpg" alt="Koh Phangan landscape">
+  <div class="img-full-overlay"></div>
+  <div class="img-full-caption">
+    <h2 style="font-family:'Epilogue',sans-serif;font-weight:300;font-style:italic;line-height:1.3;font-size:clamp(1.8rem,3.5vw,2.8rem);max-width:700px;">&ldquo;The forest does not compete. It collaborates, circulates, and compounds. Every tree feeds the soil that feeds the next tree.&rdquo;</h2>
+    <p style="margin-top:1.5rem;font-size:0.9rem;">N&#x101;M Founding Document, 2026</p>
   </div>
   <div class="sn">17</div>
 </section>
 
-<!-- 18 ─ Location -->
+<!-- 18 ─ CTA -->
 <section class="slide swiss-split" id="s18">
-  <div class="swiss-split-img" style="background:var(--bg);">
-    <img src="../assets/Location Map.png" alt="Location map" style="object-fit:contain;padding:40px;">
-  </div>
-  <div class="swiss-split-bar"></div>
-  <div class="swiss-split-content">
-    <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Location</div>
-    <h2>Sri Thanu, Koh Phangan</h2>
-    <p class="sub" style="margin-bottom:2rem;">On the west coast &mdash; the island&rsquo;s creative corridor. Close to everything, away from the noise.</p>
-    <ul class="prox-list">
-      <li><span class="prox-time">2 min</span> Sri Thanu village</li>
-      <li><span class="prox-time">5 min</span> Sri Thanu beach</li>
-      <li><span class="prox-time">15 min</span> Thong Sala (main town)</li>
-      <li><span class="prox-time">20 min</span> Haad Rin</li>
-      <li><span class="prox-time">30 min</span> Samui airport (boat)</li>
-    </ul>
-  </div>
-</section>
-
-<!-- 19 ─ Development Phases -->
-<section class="slide bg-cream grain watermark watermark-light wm-br" id="s19">
-  <div class="slide-inner">
-    <div style="margin-bottom:2.5rem;">
-      <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Roadmap</div>
-      <h2>Three phases of growth</h2>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <h3 style="color:var(--terracotta);">Phase 1 &mdash; Foundation</h3>
-        <p>3 treehouses, wellness core (sauna, onsen, ice bath), early coworking. The seed &mdash; proving the model.</p>
-        <p class="src"><span data-currency data-thb="10000000" data-format="compact">THB 10M</span> &middot; 2026&ndash;2027</p>
-      </div>
-      <div class="card">
-        <h3 style="color:var(--terracotta);">Phase 2 &mdash; Expansion</h3>
-        <p>Coworking expansion, modular villas, caf&eacute;, shared kitchen. Revenue diversification and scale.</p>
-        <p class="src"><span data-currency data-thb="12000000" data-format="compact">THB 12M</span> &middot; 2027&ndash;2028</p>
-      </div>
-      <div class="card">
-        <h3 style="color:var(--terracotta);">Phase 3 &mdash; Maturity</h3>
-        <p>Makerspace, N&#x101;M Academy, off-site units. Full ecosystem. Self-sustaining creative campus.</p>
-        <p class="src"><span data-currency data-thb="13000000" data-format="compact">THB 13M</span> &middot; 2028&ndash;2029</p>
-      </div>
-    </div>
-    <p class="info-note" style="margin-top:2.5rem;">Total investment across all phases: <strong><span data-currency data-thb="35000000" data-format="compact">THB 35M</span></strong> <span data-currency data-thb="35000000" data-format="sub">(~&euro;972K)</span></p>
-  </div>
-  <div class="sn">19</div>
-</section>
-
-<!-- 20 ─ Quote -->
-<section class="slide img-full" id="s20">
-  <img src="../assets/Palms.jpeg" alt="Palms">
-  <div class="img-full-overlay" style="background:linear-gradient(to top, rgba(26,26,24,0.85) 0%, rgba(26,26,24,0.5) 50%, rgba(26,26,24,0.3) 100%);"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;padding:60px;">
-    <blockquote style="max-width:700px;text-align:center;color:var(--bg);">
-      <p style="font-family:'Epilogue',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.5;color:rgba(244,242,232,0.9);">&ldquo;We&rsquo;re not building a coworking space. We&rsquo;re building proof that another way of working is possible.&rdquo;</p>
-      <footer style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.5);margin-top:1.5rem;">Alex Duffner, Founder</footer>
-    </blockquote>
-  </div>
-  <div class="sn">20</div>
-</section>
-
-<!-- 21 ─ Section: Get Involved -->
-<section class="slide hero-slide" id="s21">
-  <div class="hero-main grain">
-    <div class="hero-content">
-      <div class="label" style="color:var(--terracotta-light);">Part three</div>
-      <div class="line-accent" style="margin:0 0 1.5rem;"></div>
-      <h2 style="color:var(--bg);font-size:clamp(3rem,5.5vw,5rem);">Get Involved</h2>
-      <p class="sub" style="color:rgba(244,242,232,0.55);margin-top:1.5rem;">Three ways to be part of what we&rsquo;re building.</p>
-    </div>
-    <div class="hero-footer-line">
-      <span style="color:rgba(244,242,232,0.3);">21</span>
-    </div>
-  </div>
-  <div class="hero-accent-strip">
-    <div class="hero-accent-cream"></div>
-    <div class="hero-accent-terracotta"></div>
-  </div>
-  <div class="hero-img-strip">
-    <img src="../assets/exterior-4.png" alt="NāM Space">
-  </div>
-</section>
-
-<!-- 22 ─ Three Paths -->
-<section class="slide bg-cream grain watermark watermark-light wm-tl" id="s22">
-  <div class="slide-inner">
-    <div style="margin-bottom:2rem;">
-      <div class="label"><img src="../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Opportunities</div>
-      <h2>Three paths into N&#x101;M</h2>
-      <p class="sub-ep" style="margin-top:0.5rem;">N&#x101;M is designed like a permaculture forest &mdash; every business feeds the others. There are three ways to be part of it.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Room Investment</h3>
-        <p>Fund one of 8 private rooms on campus. <span data-currency data-thb="2275000" data-format="compact">$65K</span> per room. Revenue sharing until you&rsquo;ve received a 30% total return. Your money builds something real &mdash; and earns from it.</p>
-      </div>
-      <div class="card">
-        <h3>Ecosystem Partnership</h3>
-        <p>Operate a campus business &mdash; caf&eacute;, wellness, academy, fitness, or events. Each runs as its own SPV within the N&#x101;M ecosystem. You bring the craft, we provide the platform.</p>
-      </div>
-      <div class="card">
-        <h3>Founding Membership</h3>
-        <p>30 spots. Pre-pay your co-working at 27&ndash;47% off charter rates. Transferable. 18-month refund guarantee. Lock in your place before the doors open.</p>
-      </div>
-    </div>
-    <p class="info-note">Each path is structured differently. For full details, terms, and projections &mdash; <a href="/pitch/invest/" style="color:var(--terracotta);text-decoration:underline;">see the investment deck</a>.</p>
-  </div>
-  <div class="sn">22</div>
-</section>
-
-<!-- 23 ─ Why Now -->
-<section class="slide bg-terracotta grain" id="s23">
-  <div class="slide-inner" style="max-width:800px;">
-    <div class="label">Momentum</div>
-    <h2>Why now</h2>
-    <div style="margin-top:2rem;">
-      <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Land is secured</h4><p style="color:rgba(244,242,232,0.65);">The site is locked in. Building can begin as soon as funding closes.</p></div>
-      </div>
-      <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Community already exists</h4><p style="color:rgba(244,242,232,0.65);">Kin Haus, our co-living space on Phangan, has been running for over a year. The first members of the N&#x101;M ecosystem are already here.</p></div>
-      </div>
-      <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Phangan is pulling creatives</h4><p style="color:rgba(244,242,232,0.65);">The island is at an inflection point. Quality infrastructure now means capturing the wave, not chasing it.</p></div>
-      </div>
-      <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Kin Haus as proof of concept</h4><p style="color:rgba(244,242,232,0.65);">It works. The model generates revenue, the community is real, and the demand is consistent. N&#x101;M is the next step.</p></div>
-      </div>
-    </div>
-  </div>
-  <div class="sn">23</div>
-</section>
-
-<!-- 24 ─ Quote -->
-<section class="slide img-full" id="s24">
-  <img src="../assets/landscape.jpg" alt="Landscape">
-  <div class="img-full-overlay" style="background:linear-gradient(to top, rgba(26,26,24,0.85) 0%, rgba(26,26,24,0.5) 50%, rgba(26,26,24,0.3) 100%);"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;padding:60px;">
-    <blockquote style="max-width:700px;text-align:center;color:var(--bg);">
-      <p style="font-family:'Epilogue',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.5;color:rgba(244,242,232,0.9);">&ldquo;This isn&rsquo;t speculation. It&rsquo;s an invitation to build something you can see, touch, and use &mdash; alongside people who care about the same things you do.&rdquo;</p>
-    </blockquote>
-  </div>
-  <div class="sn">24</div>
-</section>
-
-<!-- 25 ─ CTA -->
-<section class="slide swiss-split" id="s25">
   <div class="swiss-split-img">
-    <img src="../assets/nam-main.png" alt="NāM Space campus">
+    <img src="../../assets/exterior-2.png" alt="NāM campus render">
     <div class="swiss-split-img-overlay"></div>
-    <div class="swiss-split-img-caption">
-      <h2>N&#x101;M Space</h2>
-    </div>
   </div>
   <div class="swiss-split-bar"></div>
   <div class="swiss-split-content">
     <div class="cta-content">
-      <div class="label"><img src="../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Next step</div>
+      <div class="label"><img src="../../assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Next step</div>
       <h2>Start a quiet conversation</h2>
-      <p>This deck is an invitation, not a sales pitch. If something resonated &mdash; the vision, the model, the island &mdash; let&rsquo;s talk. No pressure, no rush.</p>
-      <p>We&rsquo;re looking for a small group of people who want to build something real together.</p>
+      <p>This is an invitation to a small group of people who want to build something real. No pressure, no rush. If something resonated &mdash; let&rsquo;s talk.</p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
-        <a href="https://wa.me/66612345678" class="cta-btn cta-desktop-btn" target="_blank" rel="noopener">Message on WhatsApp &rarr;</a>
-        <a href="/pitch/invest/" class="cta-btn cta-desktop-btn" style="background:transparent;border:1.5px solid var(--green);color:var(--green);">See the investment deck &rarr;</a>
+        <a href="https://wa.me/66612345678" class="cta-btn" target="_blank" rel="noopener">Message on WhatsApp &rarr;</a>
+        <a href="/pitch/" class="cta-btn" style="background:transparent;border:1.5px solid var(--green);color:var(--green);">See the project deck &rarr;</a>
       </div>
+      <p class="info-note" style="margin-top:2rem;">This document is for discussion purposes only. It does not constitute a financial offer or legal agreement. All structures are subject to formal legal documentation.</p>
     </div>
   </div>
 </section>
@@ -991,7 +737,7 @@
     <button onclick="prevSlide()" class="nav-arrow" id="prevBtn" title="Previous" disabled>&larr;</button>
     <div class="slide-counter" id="counter" onclick="toggleSlideNav()" title="Jump to slide">
       <span class="counter-num" id="counterNum">01</span>
-      <span class="counter-name" id="counterName">N&#x101;M Space</span>
+      <span class="counter-name" id="counterName">Invest in N&#x101;M</span>
     </div>
     <button onclick="nextSlide()" class="nav-arrow" id="nextBtn" title="Next">&rarr;</button>
   </div>
@@ -1066,37 +812,32 @@
 
   var slideData = [
     { section: 'Intro', items: [
-      { idx: 0, title: 'N\u0101M Space' },
-      { idx: 1, title: 'Introduction' },
-      { idx: 2, title: 'Contents' }
+      { idx: 0, title: 'Invest in N\u0101M' },
+      { idx: 1, title: 'What is N\u0101M' },
+      { idx: 2, title: 'The Forest Model' }
     ]},
-    { section: 'The Place', items: [
-      { idx: 3, title: 'The Place' },
-      { idx: 4, title: 'At a Glance' },
-      { idx: 5, title: 'Why Koh Phangan' },
-      { idx: 6, title: 'The Island' },
-      { idx: 7, title: 'Landscape' },
-      { idx: 8, title: 'The Gap' },
-      { idx: 9, title: 'The Solution' }
+    { section: 'Room Investment', items: [
+      { idx: 3, title: 'Room Investment' },
+      { idx: 4, title: 'The Deal' },
+      { idx: 5, title: 'Revenue & Rates' },
+      { idx: 6, title: 'Projections' },
+      { idx: 7, title: 'Perks & Fine Print' }
     ]},
-    { section: 'The Space', items: [
-      { idx: 10, title: 'The Space' },
-      { idx: 11, title: 'What We\u2019re Building' },
-      { idx: 12, title: 'Accommodation' },
-      { idx: 13, title: 'Work & Creation' },
-      { idx: 14, title: 'Wellness' },
-      { idx: 15, title: 'Community' },
-      { idx: 16, title: 'Who It\u2019s For' },
-      { idx: 17, title: 'Location' },
-      { idx: 18, title: 'Development Phases' },
-      { idx: 19, title: 'Quote' }
+    { section: 'Ecosystem', items: [
+      { idx: 8, title: 'Ecosystem Partnerships' },
+      { idx: 9, title: 'The SPV Model' },
+      { idx: 10, title: 'Five Businesses' },
+      { idx: 11, title: 'Radical Transparency' }
     ]},
-    { section: 'Get Involved', items: [
-      { idx: 20, title: 'Get Involved' },
-      { idx: 21, title: 'Three Paths' },
-      { idx: 22, title: 'Why Now' },
-      { idx: 23, title: 'Quote' },
-      { idx: 24, title: 'Contact' }
+    { section: 'Founding Memberships', items: [
+      { idx: 12, title: 'Founding Memberships' },
+      { idx: 13, title: 'Membership Tiers' },
+      { idx: 14, title: 'Member Benefits' }
+    ]},
+    { section: 'Close', items: [
+      { idx: 15, title: 'Why Now' },
+      { idx: 16, title: 'Quote' },
+      { idx: 17, title: 'Contact' }
     ]}
   ];
 
