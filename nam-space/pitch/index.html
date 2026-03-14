@@ -17,7 +17,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #f4f2e8;
@@ -778,35 +778,41 @@
 
 <!-- 16 ─ Culture: Values -->
 <section class="slide bg-cream grain watermark watermark-light wm-bl" id="s16">
-  <div class="slide-inner">
-    <div style="margin-bottom:2rem;">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:1.5rem;">
       <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Culture</div>
       <h2>How we show up</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
-      <div style="background:#e8d5a3;padding:1.5rem 1.25rem;transform:rotate(-1.5deg);box-shadow:2px 3px 8px rgba(0,0,0,0.1);min-height:160px;">
-        <h3 style="font-size:1.05rem;color:var(--green);margin-bottom:0.5rem;font-family:'Epilogue',sans-serif;">Move With Intention</h3>
-        <p style="color:rgba(42,58,43,0.7);line-height:1.55;font-size:0.92rem;">Slow down to speed up. Every decision &mdash; what we build, who we welcome, how we grow &mdash; is deliberate.</p>
+    <div style="position:relative;height:min(60vh,480px);font-family:'Caveat',cursive;">
+      <!-- note 1 -->
+      <div style="position:absolute;top:0;left:2%;width:180px;height:180px;background:#fbf0b0;padding:1.2rem;transform:rotate(-3deg);box-shadow:2px 4px 12px rgba(0,0,0,0.12);">
+        <h3 style="font-size:1.25rem;color:var(--green);margin-bottom:0.4rem;font-weight:700;">Move With Intention</h3>
+        <p style="color:rgba(42,58,43,0.75);line-height:1.45;font-size:1.05rem;">Slow down to speed up. Every decision is deliberate.</p>
       </div>
-      <div style="background:#d4e4d5;padding:1.5rem 1.25rem;transform:rotate(1deg);box-shadow:2px 3px 8px rgba(0,0,0,0.1);min-height:160px;">
-        <h3 style="font-size:1.05rem;color:var(--green);margin-bottom:0.5rem;font-family:'Epilogue',sans-serif;">People First</h3>
-        <p style="color:rgba(42,58,43,0.7);line-height:1.55;font-size:0.92rem;">The community is the real asset. We invest in relationships, trust, and the conditions for people to thrive.</p>
+      <!-- note 2 -->
+      <div style="position:absolute;top:-1rem;left:35%;width:185px;height:185px;background:#c8e6c9;padding:1.2rem;transform:rotate(2.5deg);box-shadow:2px 4px 12px rgba(0,0,0,0.12);">
+        <h3 style="font-size:1.25rem;color:var(--green);margin-bottom:0.4rem;font-weight:700;">People First</h3>
+        <p style="color:rgba(42,58,43,0.75);line-height:1.45;font-size:1.05rem;">The community is the real asset. Invest in trust.</p>
       </div>
-      <div style="background:#f0d9c4;padding:1.5rem 1.25rem;transform:rotate(-0.5deg);box-shadow:2px 3px 8px rgba(0,0,0,0.1);min-height:160px;">
-        <h3 style="font-size:1.05rem;color:var(--green);margin-bottom:0.5rem;font-family:'Epilogue',sans-serif;">Build What Matters</h3>
-        <p style="color:rgba(42,58,43,0.7);line-height:1.55;font-size:0.92rem;">Skip the vanity metrics. We care about work that&rsquo;s honest, useful, and made with conviction.</p>
+      <!-- note 3 -->
+      <div style="position:absolute;top:1rem;right:2%;width:175px;height:175px;background:#ffccbc;padding:1.2rem;transform:rotate(-1.5deg);box-shadow:2px 4px 12px rgba(0,0,0,0.12);">
+        <h3 style="font-size:1.25rem;color:var(--green);margin-bottom:0.4rem;font-weight:700;">Build What Matters</h3>
+        <p style="color:rgba(42,58,43,0.75);line-height:1.45;font-size:1.05rem;">Skip vanity metrics. Honest, useful, made with conviction.</p>
       </div>
-      <div style="background:#d4e4d5;padding:1.5rem 1.25rem;transform:rotate(2deg);box-shadow:2px 3px 8px rgba(0,0,0,0.1);min-height:160px;">
-        <h3 style="font-size:1.05rem;color:var(--green);margin-bottom:0.5rem;font-family:'Epilogue',sans-serif;">Experiment Loudly</h3>
-        <p style="color:rgba(42,58,43,0.7);line-height:1.55;font-size:0.92rem;">Try things. Show your work. Visible experiments, prototypes, unfinished ideas. Learning is the win.</p>
+      <!-- note 4 -->
+      <div style="position:absolute;bottom:4rem;left:5%;width:185px;height:185px;background:#b3e5fc;padding:1.2rem;transform:rotate(1.5deg);box-shadow:2px 4px 12px rgba(0,0,0,0.12);">
+        <h3 style="font-size:1.25rem;color:var(--green);margin-bottom:0.4rem;font-weight:700;">Experiment Loudly</h3>
+        <p style="color:rgba(42,58,43,0.75);line-height:1.45;font-size:1.05rem;">Try things. Show your work. Learning is the win.</p>
       </div>
-      <div style="background:#e8d5a3;padding:1.5rem 1.25rem;transform:rotate(-1deg);box-shadow:2px 3px 8px rgba(0,0,0,0.1);min-height:160px;">
-        <h3 style="font-size:1.05rem;color:var(--green);margin-bottom:0.5rem;font-family:'Epilogue',sans-serif;">Make Space for Depth</h3>
-        <p style="color:rgba(42,58,43,0.7);line-height:1.55;font-size:0.92rem;">Fewer things, done better. Protect the conditions for focus, reflection, and real breakthroughs.</p>
+      <!-- note 5 -->
+      <div style="position:absolute;bottom:2rem;left:38%;width:180px;height:180px;background:#fbf0b0;padding:1.2rem;transform:rotate(-2deg);box-shadow:2px 4px 12px rgba(0,0,0,0.12);">
+        <h3 style="font-size:1.25rem;color:var(--green);margin-bottom:0.4rem;font-weight:700;">Space for Depth</h3>
+        <p style="color:rgba(42,58,43,0.75);line-height:1.45;font-size:1.05rem;">Fewer things, done better. Protect focus and reflection.</p>
       </div>
-      <div style="background:#f0d9c4;padding:1.5rem 1.25rem;transform:rotate(1.5deg);box-shadow:2px 3px 8px rgba(0,0,0,0.1);min-height:160px;">
-        <h3 style="font-size:1.05rem;color:var(--green);margin-bottom:0.5rem;font-family:'Epilogue',sans-serif;">Stay Human</h3>
-        <p style="color:rgba(42,58,43,0.7);line-height:1.55;font-size:0.92rem;">Rest is productive. Laughter is welcome. We build tech, use AI, and still eat dinner together.</p>
+      <!-- note 6 -->
+      <div style="position:absolute;bottom:0;right:4%;width:180px;height:180px;background:#c8e6c9;padding:1.2rem;transform:rotate(3deg);box-shadow:2px 4px 12px rgba(0,0,0,0.12);">
+        <h3 style="font-size:1.25rem;color:var(--green);margin-bottom:0.4rem;font-weight:700;">Stay Human</h3>
+        <p style="color:rgba(42,58,43,0.75);line-height:1.45;font-size:1.05rem;">Rest is productive. We use AI and still eat dinner together.</p>
       </div>
     </div>
   </div>
