@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM Space — Co-working & Co-living on Koh Phangan</title>
+<meta name="description" content="NāM Space — a design-led co-working and co-living space on Koh Phangan, Thailand.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nam.space/pitch/core/">
+<meta property="og:title" content="NāM Space — Co-working & Co-living on Koh Phangan">
+<meta property="og:description" content="A design-led co-working and co-living space on Koh Phangan.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NāM Space — Co-working & Co-living on Koh Phangan">
+<meta name="twitter:description" content="A design-led co-working and co-living space on Koh Phangan.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2e8;
+    --bg-warm: #f0ebd8;
+    --nav-h: 52px;
+    --bg-tan: #e6e2d6;
+    --green: #2a3a2b;
+    --green-dark: #1e2d1f;
+    --gray: #383834;
+    --terracotta: #d46b44;
+    --terracotta-light: #e07a55;
+    --text: #2a3a2b;
+    --text-secondary: #5a6a5b;
+    --text-muted: #8a9a8b;
+    --border: #d4d0c4;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { height: 100%; overflow: hidden; }
+  body {
+    height: 100%; margin: 0; overflow: hidden;
+    font-family: 'Epilogue', sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.5; -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column;
+  }
+
+  .deck-wrapper { flex: 1 1 0; min-height: 0; overflow: hidden; }
+  .deck { display: flex; height: 100%; width: max-content; transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .slide { width: 100vw; height: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 70px 100px 40px; position: relative; overflow: hidden; }
+  .slide-inner { max-width: 1400px; width: 100%; max-height: 100%; overflow-y: auto; scrollbar-width: none; position: relative; z-index: 2; opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s; }
+  .slide.active .slide-inner { opacity: 1; transform: translateY(0); }
+  .slide-inner::-webkit-scrollbar { display: none; }
+
+  .slide .img-full-caption, .slide .hero-content, .slide .cta-content { opacity: 0; transform: translateY(16px); transition: opacity 0.65s ease 0.2s, transform 0.65s ease 0.2s; }
+  .slide.active .img-full-caption, .slide.active .hero-content, .slide.active .cta-content { opacity: 1; transform: translateY(0); }
+
+  .slide .list-item, .slide .info-row, .slide .eco-card { opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .slide.active .list-item, .slide.active .info-row, .slide.active .eco-card { opacity: 1; transform: translateY(0); }
+  .slide.active .list-item:nth-child(1), .slide.active .info-row:nth-child(1), .slide.active .eco-card:nth-child(1) { transition-delay: 0.15s; }
+  .slide.active .list-item:nth-child(2), .slide.active .info-row:nth-child(2), .slide.active .eco-card:nth-child(2) { transition-delay: 0.3s; }
+  .slide.active .list-item:nth-child(3), .slide.active .info-row:nth-child(3), .slide.active .eco-card:nth-child(3) { transition-delay: 0.45s; }
+  .slide.active .list-item:nth-child(4), .slide.active .info-row:nth-child(4), .slide.active .eco-card:nth-child(4) { transition-delay: 0.6s; }
+  .slide.active .list-item:nth-child(5), .slide.active .info-row:nth-child(5), .slide.active .eco-card:nth-child(5) { transition-delay: 0.75s; }
+  .slide.active .list-item:nth-child(6), .slide.active .info-row:nth-child(6), .slide.active .eco-card:nth-child(6) { transition-delay: 0.9s; }
+
+  .map-flyin { transform: scale(3); opacity: 0; transition: transform 2.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s, opacity 0.8s ease 0.1s; }
+  .slide.active .map-flyin { transform: scale(1); opacity: 1; }
+
+  .bg-cream { background: var(--bg); }
+  .bg-warm { background: var(--bg-warm); }
+  .bg-green { background: var(--green); color: var(--bg); }
+  .bg-tan { background: var(--bg-tan); }
+  .bg-dark { background: #1a1a18; color: var(--bg); }
+  .bg-terracotta { background: var(--terracotta); color: var(--bg); }
+
+  .bg-green .label { color: var(--terracotta); }
+  .bg-green .sub { color: rgba(244,242,232,0.65); }
+  .bg-green h2, .bg-green h3, .bg-green h4 { color: var(--bg); }
+  .bg-green .dot { background: var(--terracotta); }
+  .bg-green .line-accent { background: var(--terracotta); }
+  .bg-green .list-item { border-color: rgba(244,242,232,0.12); }
+  .bg-green .list-item p { color: rgba(244,242,232,0.65); }
+
+  .bg-terracotta .label { color: rgba(255,255,255,0.85); }
+  .bg-terracotta .sub { color: rgba(244,242,232,0.7); }
+  .bg-terracotta h2, .bg-terracotta h3, .bg-terracotta h4 { color: var(--bg); }
+  .bg-terracotta .dot { background: var(--bg); }
+  .bg-terracotta .line-accent { background: var(--bg); }
+  .bg-terracotta .asterisk { filter: brightness(0) invert(1); }
+
+  .asterisk { display: inline-block; width: 40px; height: 40px; flex-shrink: 0; filter: brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%); }
+  .asterisk-sm { width: 24px; height: 24px; }
+
+  .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.28; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); background-size: 180px 180px; mix-blend-mode: overlay; }
+
+  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('../../assets/River.png'); background-repeat: no-repeat; }
+  .watermark-light::before { opacity: 0.04; mix-blend-mode: multiply; }
+  .watermark-dark::before { opacity: 0.06; mix-blend-mode: soft-light; filter: invert(1); }
+  .wm-tr::before { width: 70%; height: 110%; top: -15%; right: -10%; background-size: contain; background-position: top right; }
+  .wm-bl::before { width: 65%; height: 110%; bottom: -15%; left: -8%; top: auto; background-size: contain; background-position: bottom left; transform: rotate(180deg); }
+  .wm-br::before { width: 60%; height: 100%; bottom: -10%; right: -5%; top: auto; background-size: contain; background-position: bottom right; transform: scaleX(-1); }
+
+  .img-hint { position: absolute; overflow: hidden; pointer-events: none; z-index: 0; display: flex; }
+  .img-hint img { flex: 1; min-width: 0; min-height: 0; object-fit: cover; display: block; }
+  .img-hint-accent { flex-shrink: 0; background: var(--terracotta); }
+  .img-hint-h { width: 100%; left: 0; height: clamp(40px, 5.5vw, 75px); flex-direction: row; }
+  .img-hint-h .img-hint-accent { width: clamp(180px, 24vw, 360px); height: 100%; }
+
+  .label { font-family: 'Sometype Mono', monospace; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+  h1 { font-family: 'Epilogue', sans-serif; font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; }
+  h2 { font-family: 'Epilogue', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  h3 { font-family: 'Epilogue', sans-serif; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.6rem; line-height: 1.3; }
+  h4 { font-family: 'Epilogue', sans-serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.4rem; line-height: 1.3; }
+  .sub { font-family: 'Sometype Mono', monospace; font-size: 1.34rem; color: var(--text-secondary); font-weight: 400; line-height: 1.7; max-width: 620px; }
+  .sub-ep { font-family: 'Epilogue', sans-serif; font-size: 1.44rem; color: var(--text-secondary); font-weight: 300; line-height: 1.7; max-width: 620px; }
+  .muted { color: var(--text-muted); }
+  .mono { font-family: 'Sometype Mono', monospace; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+  .swiss-split { padding: 0; display: flex; height: 100%; }
+  .swiss-split-img { width: 48%; flex-shrink: 0; align-self: stretch; position: relative; overflow: hidden; }
+  .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .swiss-split-img-caption { position: absolute; bottom: 32px; left: 60px; right: 60px; color: #fff; z-index: 2; }
+  .swiss-split-img-caption h2 { font-family: 'Sometype Mono', monospace; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; color: #fff; line-height: 1.25; }
+  .swiss-split-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.8) 0%, rgba(26,26,24,0.35) 50%, rgba(26,26,24,0.1) 100%); pointer-events: none; }
+  .swiss-split-bar { width: 6px; flex-shrink: 0; background: var(--terracotta); }
+  .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 40px; min-width: 0; overflow-y: auto; scrollbar-width: none; }
+  .swiss-split-content::-webkit-scrollbar { display: none; }
+
+  .hero-slide { padding: 0 !important; display: flex; height: 100%; width: 100vw; background: var(--green); }
+  .hero-main { flex: 1; min-width: 0; height: 100%; align-self: stretch; padding: 80px 90px 40px; display: flex; flex-direction: column; position: relative; overflow: hidden; background: var(--green); }
+  .hero-content { margin-top: auto; margin-bottom: auto; }
+  .hero-main h1 { font-family: 'Epilogue', sans-serif; font-size: clamp(5rem, 10vw, 9rem); font-weight: 500; color: var(--bg); line-height: 0.95; letter-spacing: -0.04em; }
+  .hero-main .hero-sub { font-family: 'Sometype Mono', monospace; font-size: clamp(1rem, 1.8vw, 1.35rem); color: rgba(244,242,232,0.65); font-weight: 400; margin-top: 2.5rem; line-height: 1.5; }
+  .hero-main .hero-footer-line { margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(244,242,232,0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 6px; width: 100%; }
+  .hero-main .hero-footer-line span { font-family: 'Sometype Mono', monospace; font-size: 0.96rem; color: rgba(244,242,232,0.5); letter-spacing: 0.08em; display: flex; align-items: center; gap: 8px; }
+  .hero-accent-strip { width: 48px; flex-shrink: 0; height: 100%; display: flex; flex-direction: column; }
+  .hero-accent-cream { flex: 1; background: var(--bg); }
+  .hero-accent-terracotta { flex: 1; background: var(--terracotta); }
+  .hero-img-strip { width: 33%; flex-shrink: 0; height: 100%; position: relative; overflow: hidden; }
+  .hero-img-strip img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+
+  .img-full { padding: 0; position: relative; }
+  .img-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-full-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.95) 0%, rgba(26,26,24,0.7) 40%, rgba(26,26,24,0.3) 70%, rgba(26,26,24,0.15) 100%); pointer-events: none; }
+  .img-full-caption { position: absolute; bottom: 96px; left: 100px; right: 100px; color: var(--bg); z-index: 2; }
+  .img-full-caption .label { color: var(--terracotta-light); }
+  .img-full-caption h2 { color: #fff; margin-bottom: 0.75rem; font-size: clamp(2.5rem, 4vw, 3.5rem); }
+  .img-full-caption p { font-family: 'Sometype Mono', monospace; color: rgba(255,255,255,0.8); font-weight: 400; max-width: 550px; font-size: 1.02rem; line-height: 1.7; }
+
+  .line-accent { width: 50px; height: 3px; background: var(--terracotta); margin: 0 auto 1.5rem; border-radius: 2px; }
+
+  .card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; }
+  .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+  .card p { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
+  .card .src { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: var(--text-muted); margin-top: 1.25rem; letter-spacing: 0.03em; }
+
+  .list-item { padding: 2rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; align-items: flex-start; }
+  .list-item:last-child { border-bottom: none; }
+  .dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; background: var(--terracotta); margin-top: 0.5rem; }
+  .list-item h4 { font-size: 1.1rem; font-weight: 500; }
+  .list-item p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
+
+  .eco-card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; position: relative; }
+  .eco-accent { position: absolute; top: -1px; left: 0; width: 40px; height: 3px; background: var(--terracotta); }
+  .eco-card h4 { font-size: 1.1rem; color: var(--text); margin-bottom: 0.6rem; }
+  .eco-card p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
+
+  .prox-list { list-style: none; }
+  .prox-list li { padding: 0.65rem 0; font-size: 1rem; color: var(--text-secondary); font-weight: 300; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; }
+  .prox-list li:last-child { border-bottom: none; }
+  .prox-time { font-family: 'Sometype Mono', monospace; color: var(--terracotta); font-weight: 600; min-width: 85px; font-size: 0.9rem; }
+
+  .cta-content { max-width: 650px; }
+  .cta-content h2 { margin-bottom: 1.75rem; }
+  .cta-content p { font-family: 'Sometype Mono', monospace; font-size: 1.32rem; color: var(--text-secondary); font-weight: 400; line-height: 1.75; margin-bottom: 1.5rem; }
+  .cta-btn { display: inline-block; font-family: 'Sometype Mono', monospace; background: var(--terracotta); color: var(--bg); padding: 1rem 2.5rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2rem; text-decoration: none; }
+  .cta-btn:hover { filter: brightness(1.1); }
+
+  .sn { position: absolute; top: 32px; right: 44px; font-family: 'Sometype Mono', monospace; font-size: 0.92rem; color: var(--text-secondary); letter-spacing: 0.1em; }
+  .bg-green .sn { color: rgba(244,242,232,0.5); }
+  .bg-dark .sn { color: rgba(244,242,232,0.5); }
+  .bg-terracotta .sn { color: rgba(244,242,232,0.55) !important; }
+  .img-full .sn { color: rgba(255,255,255,0.5); z-index: 3; }
+
+  .nav-bar { position: relative; flex-shrink: 0; z-index: 100; background: var(--green); display: flex; align-items: center; justify-content: center; padding: 0 30px; height: var(--nav-h); }
+  .nav-center { display: flex; align-items: center; gap: 4px; z-index: 1; }
+  .nav-arrow { background: none; border: none; color: rgba(244,242,232,0.7); width: 56px; height: 56px; border-radius: 6px; cursor: pointer; font-size: 1.65rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s, opacity 0.2s; font-family: 'Sometype Mono', monospace; flex-shrink: 0; margin-bottom: 4px; }
+  .nav-arrow:hover { color: var(--bg); }
+  .nav-arrow:disabled { opacity: 0.15; pointer-events: none; }
+  .slide-counter { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Epilogue', sans-serif; font-size: 0.82rem; color: rgba(244,242,232,0.85); text-align: center; cursor: pointer; padding: 4px 10px; border-radius: 6px; border: none; background: none; transition: color 0.2s; user-select: none; white-space: nowrap; width: 200px; }
+  .slide-counter:hover { color: var(--bg); }
+  .slide-counter.nav-active { color: var(--terracotta); }
+  .counter-num { font-family: 'Sometype Mono', monospace; font-size: 0.72rem; opacity: 0.7; font-weight: 500; margin-bottom: 2px; }
+  .counter-name { font-weight: 500; letter-spacing: 0.01em; text-align: left; overflow: hidden; text-overflow: ellipsis; }
+
+  .share-btn { position: absolute; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; background: none; border: none; padding: 5px 2px; cursor: pointer; color: rgba(244,242,232,0.55); transition: color 0.2s; }
+  .share-btn:hover { color: rgba(244,242,232,0.9); }
+
+  .slide-nav-dropdown { display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.96); width: 33vw; max-height: 66vh; overflow-y: auto; background: var(--bg); border: 1px solid rgba(42,58,43,0.1); border-radius: 10px; z-index: 999; padding: 12px 0; scrollbar-width: thin; scrollbar-color: rgba(42,58,43,0.12) transparent; opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease; box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(42,58,43,0.05); }
+  .slide-nav-dropdown.open { display: block; }
+  .slide-nav-dropdown.visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .slide-nav-section { font-family: 'Sometype Mono', monospace; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); padding: 14px 24px 8px; font-weight: 600; }
+  .slide-nav-section:first-child { padding-top: 4px; }
+  .slide-nav-item { display: flex; align-items: center; gap: 14px; padding: 9px 24px; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: 'Epilogue', sans-serif; font-size: 0.95rem; color: rgba(42,58,43,0.55); font-weight: 400; line-height: 1.3; }
+  .slide-nav-item:hover { background: rgba(42,58,43,0.05); color: var(--green); }
+  .slide-nav-item.current { color: var(--green); background: rgba(42,58,43,0.04); }
+  .slide-nav-item-num { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: rgba(42,58,43,0.35); min-width: 26px; text-align: right; flex-shrink: 0; }
+  .slide-nav-item.current .slide-nav-item-num { color: var(--terracotta); }
+  .slide-nav-divider { height: 1px; background: rgba(42,58,43,0.06); margin: 6px 24px; }
+  .slide-nav-backdrop { display: none; position: fixed; inset: 0; z-index: 998; background: rgba(0,0,0,0.3); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease; }
+  .slide-nav-backdrop.open { display: block; }
+  .slide-nav-backdrop.visible { opacity: 1; }
+
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); z-index: 200; transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; }
+
+  .env-badge { position: fixed; top: 12px; left: 12px; z-index: 300; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; cursor: default; }
+  .env-badge::before { content: ''; position: absolute; inset: 0; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); opacity: 0.45; transition: opacity 0.3s; }
+  .env-badge:hover::before { opacity: 1; }
+  .env-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; position: relative; z-index: 1; animation: env-pulse 2s ease-in-out infinite; }
+  .env-dot-staging { background: #f5a623; }
+  .env-dot-local { background: #4cd964; }
+  .env-label { font-family: 'Sometype Mono', monospace; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); white-space: nowrap; position: absolute; left: 100%; margin-left: 6px; padding: 0 8px; height: 24px; line-height: 24px; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .env-badge:hover .env-label { opacity: 1; }
+  @keyframes env-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+  @media print {
+    .nav-bar, .progress-bar, .slide-nav-dropdown, .slide-nav-backdrop { display: none !important; }
+    .deck { display: block; width: auto; transform: none !important; }
+    .slide { page-break-after: always; width: 100vw; height: 100vh; padding: 40px 60px; }
+    body, html { overflow: visible; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 1024px) {
+    .slide { padding: 50px 44px 30px; }
+    .grid-2 { grid-template-columns: 1fr; gap: 2.5rem; }
+    .img-full-caption { left: 44px; right: 44px; bottom: 28px; }
+    .hero-main { padding: 50px 44px 30px; }
+    .hero-img-strip { width: 30%; }
+    .swiss-split-img { width: 42%; }
+    .swiss-split-content { padding: 50px 44px 30px; }
+  }
+
+  @media (max-width: 768px) {
+    .slide { padding: 0 24px; justify-content: flex-start !important; align-items: flex-start !important; }
+    .slide-inner { padding-top: 0; width: 100%; }
+    .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
+    .sn { display: none !important; }
+    .slide.img-full { padding: 0 !important; }
+    .nav-bar { padding: 0 12px; }
+    .slide-nav-dropdown { width: calc(100vw - 32px); }
+    .slide-counter { width: 140px; }
+    .share-btn { right: 12px; }
+    .img-full-caption { left: 24px; right: 24px; bottom: 28px; }
+    .hero-main { padding: 12px 24px 16px; }
+    .hero-img-strip { width: 35%; }
+    .swiss-split { flex-direction: column; }
+    .swiss-split-img { width: 100%; height: 40vh; }
+    .swiss-split-bar { width: 100%; height: 4px; }
+    .swiss-split-content { padding: 12px 24px 16px; }
+    .hero-slide { flex-direction: column; }
+    .hero-main { height: auto; flex: 1; }
+    .hero-accent-strip { display: none; }
+    .sub { font-size: 1.1rem !important; }
+    .sub-ep { font-size: 1.15rem !important; }
+    .card { padding: 1.75rem 0 !important; }
+    .img-hint { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+<div class="env-badge" id="envBadge" style="display:none;">
+  <div class="env-dot" id="envDot"></div>
+  <span class="env-label" id="envLabel"></span>
+</div>
+
+<div class="deck-wrapper">
+<div class="deck" id="deck">
+
+<!-- 01 ─ Hero -->
+<section class="slide hero-slide" id="s1">
+  <div class="hero-main grain">
+    <div class="hero-content">
+      <h1>N&#x101;M<br>Space</h1>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:2.5rem;">
+        <img src="../../assets/Asterix.svg" alt="" style="width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
+        <p class="hero-sub" style="margin-top:0;">Co-working &amp; co-living<br>on Koh Phangan</p>
+      </div>
+    </div>
+    <div class="hero-footer-line">
+      <span>Koh Phangan, Thailand</span>
+      <span style="opacity:0.35;">2026</span>
+    </div>
+  </div>
+  <div class="hero-accent-strip">
+    <div class="hero-accent-cream"></div>
+    <div class="hero-accent-terracotta"></div>
+  </div>
+  <div class="hero-img-strip">
+    <img src="../../assets/exterior-1.jpg" alt="NāM Space exterior render" style="object-position:center center;">
+  </div>
+</section>
+
+<!-- 02 ─ What is NāM -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s2">
+  <div class="slide-inner grid-2" style="align-items:center;">
+    <div>
+      <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> N&#x101;M Space</div>
+      <h2>A design-led workspace and living space on Koh Phangan</h2>
+    </div>
+    <div>
+      <p class="sub-ep">N&#x101;M Space is a co-working and co-living space for creative professionals who want to do real work in a place that actually supports it.</p>
+      <p class="sub-ep" style="margin-top:1.5rem;">Focused workspace. Treehouse-style accommodation. A community that helps you do your best work.</p>
+    </div>
+  </div>
+  <div class="img-hint img-hint-h" style="bottom:0;">
+    <div class="img-hint-accent"></div>
+    <img src="../../assets/exterior-1.jpg" alt="" style="object-position:center 65%;">
+  </div>
+  <div class="sn">02</div>
+</section>
+
+<!-- 03 ─ The Problem -->
+<section class="slide bg-green grain watermark watermark-dark wm-br" id="s3">
+  <div class="slide-inner" style="max-width:800px;">
+    <div class="label">The problem</div>
+    <h2>Koh Phangan has no quality workspace</h2>
+    <p class="sub" style="margin-top:1.5rem;">The island is pulling a new wave of founders, designers, and developers who stay for months. But the infrastructure hasn&rsquo;t caught up.</p>
+    <p class="sub" style="margin-top:1.5rem;">Most co-working here is improvised &mdash; caf&eacute;s with wifi, noisy shared tables, no meeting rooms. There&rsquo;s nowhere designed for focused, professional work.</p>
+  </div>
+  <div class="sn">03</div>
+</section>
+
+<!-- 04 ─ The Solution -->
+<section class="slide bg-terracotta grain" id="s4">
+  <div class="slide-inner" style="max-width:800px;">
+    <div class="label">The answer</div>
+    <h2>Work. Live. Restore.</h2>
+    <p class="sub" style="margin-top:1.5rem;color:rgba(244,242,232,0.75);">N&#x101;M is a single space where you can do your best work, live comfortably, and take care of yourself &mdash; without driving across the island to piece it together.</p>
+    <div style="display:flex;gap:3rem;margin-top:3rem;">
+      <div>
+        <h4 style="color:var(--bg);font-size:1.3rem;">Work</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">Deep-focus zones, private pods, communal areas</p>
+      </div>
+      <div>
+        <h4 style="color:var(--bg);font-size:1.3rem;">Live</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">8 private rooms in treehouse-style accommodation</p>
+      </div>
+      <div>
+        <h4 style="color:var(--bg);font-size:1.3rem;">Restore</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">Yoga, sauna, ice bath, onsen (Phase 2)</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">04</div>
+</section>
+
+<!-- 05 ─ Landscape -->
+<section class="slide img-full" id="s5">
+  <img src="../../assets/site-landscape-palms-boulders.jpg" alt="NāM Space landscape">
+  <div class="img-full-overlay"></div>
+  <div class="img-full-caption">
+    <div class="label">The site</div>
+    <h2>Surrounded by nature</h2>
+    <p>The campus sits on secured land in Bantai &mdash; Koh Phangan&rsquo;s creative corridor. Five minutes from Thong Sala, five minutes from the beach.</p>
+  </div>
+  <div class="sn">05</div>
+</section>
+
+<!-- 06 ─ The Workspace -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s6">
+  <div class="slide-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The workspace</div>
+      <h2>Built for focus</h2>
+      <p class="sub-ep" style="margin-top:0.5rem;max-width:600px;">Not a caf&eacute; with wifi. A proper workspace designed for how people actually work.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;">
+      <div class="eco-card">
+        <div class="eco-accent"></div>
+        <h4>Deep work zone</h4>
+        <p>Quiet, focused area for heads-down work. No calls, no chatter. Just flow.</p>
+      </div>
+      <div class="eco-card">
+        <div class="eco-accent"></div>
+        <h4>Communal social area</h4>
+        <p>Open desks for collaborative work, video calls, and conversation. The energy side.</p>
+      </div>
+      <div class="eco-card">
+        <div class="eco-accent"></div>
+        <h4>2 private pods</h4>
+        <p>Bookable rooms that work as private offices or meeting rooms. Soundproofed.</p>
+      </div>
+      <div class="eco-card">
+        <div class="eco-accent"></div>
+        <h4>Kitchen &amp; mini caf&eacute;</h4>
+        <p>Communal kitchen and a small caf&eacute; on site. Coffee, food, and a social anchor.</p>
+      </div>
+      <div class="eco-card">
+        <div class="eco-accent"></div>
+        <h4>Napping spaces</h4>
+        <p>Dedicated rest areas. Because the afternoon dip is real and a 20-minute nap fixes everything.</p>
+      </div>
+      <div class="eco-card">
+        <div class="eco-accent"></div>
+        <h4>Activity spaces</h4>
+        <p>Multi-use rooms for yoga, workshops, pottery, and classes. Flex space that earns its keep.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">06</div>
+</section>
+
+<!-- 07 ─ Deep Work Photo -->
+<section class="slide img-full" id="s7">
+  <img src="../../assets/deep-work-1.jpg" alt="NāM workspace">
+  <div class="img-full-overlay"></div>
+  <div class="img-full-caption">
+    <div class="label">Work &amp; Creation</div>
+    <h2>Designed for deep work</h2>
+    <p>Every zone is tuned to how people actually work. Quiet when you need quiet. Social when you need energy. Private when you need a door.</p>
+  </div>
+  <div class="sn">07</div>
+</section>
+
+<!-- 08 ─ Accommodation -->
+<section class="slide swiss-split" id="s8">
+  <div class="swiss-split-img">
+    <img src="../../assets/exterior-3.jpg" alt="NāM accommodation">
+    <div class="swiss-split-img-overlay"></div>
+    <div class="swiss-split-img-caption">
+      <h2>Stay for real</h2>
+    </div>
+  </div>
+  <div class="swiss-split-bar"></div>
+  <div class="swiss-split-content">
+    <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Accommodation</div>
+    <h2>8 treehouse-style rooms</h2>
+    <p class="sub" style="margin-bottom:2rem;">Private rooms for stays of weeks to months. Compact, quiet, and connected to nature. Steps from the workspace.</p>
+    <div class="list-item">
+      <div class="dot"></div>
+      <div><h4>Private, not isolated</h4><p>Your own space to retreat to, with co-working and communal areas right downstairs.</p></div>
+    </div>
+    <div class="list-item">
+      <div class="dot"></div>
+      <div><h4>Designed for long stays</h4><p>Not a hotel room. Built for people who are here for weeks or months, not passing through.</p></div>
+    </div>
+    <div class="list-item">
+      <div class="dot"></div>
+      <div><h4>Long-term: <a href="https://casa.nam.space" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Casa N&#x101;M</a></h4><p>For permanent stays, we&rsquo;re building Casa N&#x101;M &mdash; design-led homes on the island.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 ─ Phases -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s9">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:2.5rem;">
+      <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Roadmap</div>
+      <h2>Two phases</h2>
+    </div>
+    <div class="grid-2" style="gap:3rem;">
+      <div>
+        <div style="padding-bottom:2rem;border-bottom:2px solid var(--terracotta);margin-bottom:2rem;">
+          <h3 style="color:var(--terracotta);font-size:1.4rem;margin-bottom:0.25rem;">Phase 1 &mdash; Foundation</h3>
+          <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--text-muted);">2026&ndash;2027</p>
+        </div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:1.05rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem;">The core co-working and co-living campus. Proving the model.</p>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Deep work zone</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Communal social area</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">2 private work pods / meeting rooms</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Kitchen &amp; mini caf&eacute;</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Napping spaces</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Activity spaces (yoga, pottery, workshops)</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">8 treehouse-style rooms</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="padding-bottom:2rem;border-bottom:2px solid var(--green);margin-bottom:2rem;">
+          <h3 style="color:var(--green);font-size:1.4rem;margin-bottom:0.25rem;">Phase 2 &mdash; Wellness</h3>
+          <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--text-muted);">2027&ndash;2028</p>
+        </div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:1.05rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem;">Expanding into dedicated wellness and recovery facilities.</p>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Japanese onsen</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Ice bath</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid var(--border);">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Dedicated yoga shala</span>
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;">
+            <div class="dot" style="margin-top:0.45rem;"></div>
+            <span style="font-size:1rem;">Traditional sauna</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">09</div>
+</section>
+
+<!-- 10 ─ Location -->
+<section class="slide swiss-split" id="s10">
+  <div class="swiss-split-img" style="background:#1a1a18;overflow:hidden;position:relative;">
+    <div class="map-flyin" style="width:100%;height:100%;position:relative;">
+      <iframe src="https://maps.google.com/maps?q=9.709964,100.019259&t=k&z=17&output=embed" width="100%" height="100%" style="border:0;position:absolute;inset:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="swiss-split-bar"></div>
+  <div class="swiss-split-content">
+    <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Location</div>
+    <h2>Bantai, Koh Phangan</h2>
+    <p class="sub" style="margin-bottom:2rem;">On the west coast &mdash; the island&rsquo;s creative corridor. Close to everything, away from the noise.</p>
+    <ul class="prox-list">
+      <li><span class="prox-time">5 min</span> Bantai beach</li>
+      <li><span class="prox-time">5 min</span> Thong Sala (main town)</li>
+      <li><span class="prox-time">20 min</span> Sri Thanu village</li>
+      <li><span class="prox-time">30 min</span> Samui airport (boat)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 11 ─ Already Happening -->
+<section class="slide bg-green grain" id="s11" style="padding:0;overflow:hidden;">
+  <div style="display:grid;grid-template-columns:0.8fr 1fr;height:100%;width:100%;">
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:60px 60px 60px 100px;">
+      <div class="label" style="opacity:0.5;">Proof</div>
+      <h2 style="color:var(--bg);font-size:clamp(2rem,3.2vw,2.8rem);line-height:1.15;margin-bottom:1.5rem;">Already happening</h2>
+      <p style="color:rgba(244,242,232,0.7);font-size:1.1rem;line-height:1.75;max-width:400px;">Tech meetups, yoga sessions, running clubs, co-working days, parties on the deck.</p>
+      <p style="color:rgba(244,242,232,0.4);font-size:0.92rem;line-height:1.7;margin-top:1.25rem;max-width:400px;">This isn&rsquo;t a plan &mdash; it&rsquo;s what we&rsquo;re already doing at Kin Haus, our co-living space on Koh Phangan.</p>
+    </div>
+    <div style="height:100%;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:5px;padding:5px 5px 5px 0;">
+      <div style="border-radius:5px;overflow:hidden;grid-row:1/3;">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="../../assets/Island_Connection_short.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="border-radius:5px;overflow:hidden;">
+        <img src="../../assets/AI Meetup.jpeg" alt="Tech meetup" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:5px;overflow:hidden;grid-row:1/3;">
+        <img src="../../assets/Island Connection.jpeg" alt="Island Connection" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:5px;overflow:hidden;">
+        <img src="../../assets/Yoga.jpeg" alt="Yoga session" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:5px;overflow:hidden;">
+        <img src="../../assets/Founders Running Club.jpg" alt="Running club" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:5px;overflow:hidden;">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+          <source src="../../assets/Party_2_short.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="border-radius:5px;overflow:hidden;">
+        <img src="../../assets/Party_Before.JPG" alt="Community gathering" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </div>
+  <div class="sn">11</div>
+</section>
+
+<!-- 12 ─ Why Now -->
+<section class="slide bg-terracotta grain" id="s12">
+  <div class="slide-inner" style="max-width:900px;">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <div class="label" style="justify-content:center;">Momentum</div>
+      <h2>Why now</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;">
+      <div style="text-align:center;">
+        <img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;filter:brightness(0) invert(1);opacity:0.5;margin-bottom:1rem;">
+        <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.5rem;">Land is secured</h4>
+        <p style="color:rgba(244,242,232,0.7);font-size:0.95rem;line-height:1.6;">The site is locked in. Construction is underway.</p>
+      </div>
+      <div style="text-align:center;">
+        <img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;filter:brightness(0) invert(1);opacity:0.5;margin-bottom:1rem;">
+        <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.5rem;">Community exists</h4>
+        <p style="color:rgba(244,242,232,0.7);font-size:0.95rem;line-height:1.6;">Kin Haus has been running for over a year. The first N&#x101;M members are already here.</p>
+      </div>
+      <div style="text-align:center;">
+        <img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;filter:brightness(0) invert(1);opacity:0.5;margin-bottom:1rem;">
+        <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.5rem;">No competition</h4>
+        <p style="color:rgba(244,242,232,0.7);font-size:0.95rem;line-height:1.6;">There is no design-led co-working space on Koh Phangan. We&rsquo;re the first.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">12</div>
+</section>
+
+<!-- 13 ─ CTA -->
+<section class="slide swiss-split" id="s13">
+  <div class="swiss-split-img">
+    <img src="../../assets/nam-main.jpg" alt="NāM Space campus">
+    <div class="swiss-split-img-overlay"></div>
+    <div class="swiss-split-img-caption">
+      <h2>N&#x101;M Space</h2>
+    </div>
+  </div>
+  <div class="swiss-split-bar"></div>
+  <div class="swiss-split-content">
+    <div class="cta-content">
+      <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Next step</div>
+      <h2>Let&rsquo;s talk</h2>
+      <p>If something resonated &mdash; the space, the island, the way we think about work &mdash; reach out. No pressure.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+        <a href="https://wa.me/66612345678" class="cta-btn" target="_blank" rel="noopener">Message on WhatsApp &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /deck -->
+</div><!-- /deck-wrapper -->
+
+<nav class="nav-bar">
+  <div class="nav-center">
+    <button onclick="prevSlide()" class="nav-arrow" id="prevBtn" title="Previous" disabled>&larr;</button>
+    <div class="slide-counter" id="counter" onclick="toggleSlideNav()" title="Jump to slide">
+      <span class="counter-num" id="counterNum">01</span>
+      <span class="counter-name" id="counterName">N&#x101;M Space</span>
+    </div>
+    <button onclick="nextSlide()" class="nav-arrow" id="nextBtn" title="Next">&rarr;</button>
+  </div>
+  <button class="share-btn" onclick="doShare()" title="Share">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+  </button>
+</nav>
+<div class="slide-nav-backdrop" id="slideNavBackdrop"></div>
+<div class="slide-nav-dropdown" id="slideNav"></div>
+
+<script>
+(function(){
+  let current = 0;
+  const deck = document.getElementById('deck');
+  const slides = deck.querySelectorAll('.slide');
+  const total = slides.length;
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+
+  function goTo(n) {
+    if (navOpen) closeSlideNav();
+    current = Math.max(0, Math.min(total - 1, n));
+    deck.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    document.getElementById('counterNum').textContent = String(current + 1).padStart(2, '0');
+    document.getElementById('counterName').textContent = slideNames[current] || '';
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    document.getElementById('prevBtn').disabled = (current === 0);
+    document.getElementById('nextBtn').disabled = (current === total - 1);
+    slides.forEach(function(s, i) {
+      if (i === current) s.classList.add('active');
+      else s.classList.remove('active');
+    });
+    if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
+  }
+
+  window.nextSlide = function() { goTo(current + 1); };
+  window.prevSlide = function() { goTo(current - 1); };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  window.goTo = goTo;
+
+  var slideNav = document.getElementById('slideNav');
+  var navOpen = false;
+
+  var slideData = [
+    { section: 'Overview', items: [
+      { idx: 0, title: 'N\u0101M Space' },
+      { idx: 1, title: 'What is N\u0101M' },
+      { idx: 2, title: 'The Problem' },
+      { idx: 3, title: 'The Solution' }
+    ]},
+    { section: 'The Space', items: [
+      { idx: 4, title: 'The Site' },
+      { idx: 5, title: 'The Workspace' },
+      { idx: 6, title: 'Deep Work' },
+      { idx: 7, title: 'Accommodation' },
+      { idx: 8, title: 'Phases' }
+    ]},
+    { section: 'Close', items: [
+      { idx: 9, title: 'Location' },
+      { idx: 10, title: 'Already Happening' },
+      { idx: 11, title: 'Why Now' },
+      { idx: 12, title: 'Contact' }
+    ]}
+  ];
+
+  var slideNames = [];
+  slideData.forEach(function(section) {
+    section.items.forEach(function(item) { slideNames[item.idx] = item.title; });
+  });
+
+  var navHtml = '';
+  slideData.forEach(function(section, si) {
+    if (si > 0) navHtml += '<div class="slide-nav-divider"></div>';
+    navHtml += '<div class="slide-nav-section">' + section.section + '</div>';
+    section.items.forEach(function(item) {
+      navHtml += '<div class="slide-nav-item" data-idx="' + item.idx + '">'
+        + '<span class="slide-nav-item-num">' + String(item.idx + 1).padStart(2, '0') + '</span>'
+        + '<span>' + item.title + '</span></div>';
+    });
+  });
+  slideNav.innerHTML = navHtml;
+
+  slideNav.querySelectorAll('.slide-nav-item').forEach(function(el) {
+    el.addEventListener('click', function() { goTo(parseInt(el.getAttribute('data-idx'))); });
+  });
+
+  var backdrop = document.getElementById('slideNavBackdrop');
+
+  function openSlideNav() {
+    slideNav.querySelectorAll('.slide-nav-item').forEach(function(el) {
+      el.classList.toggle('current', parseInt(el.getAttribute('data-idx')) === current);
+    });
+    slideNav.classList.add('open');
+    backdrop.classList.add('open');
+    counter.classList.add('nav-active');
+    var cur = slideNav.querySelector('.slide-nav-item.current');
+    if (cur) setTimeout(function() { cur.scrollIntoView({ block: 'center', behavior: 'instant' }); }, 10);
+    requestAnimationFrame(function() { slideNav.classList.add('visible'); backdrop.classList.add('visible'); });
+    navOpen = true;
+  }
+
+  function closeSlideNav() {
+    slideNav.classList.remove('visible'); backdrop.classList.remove('visible'); counter.classList.remove('nav-active');
+    setTimeout(function() { slideNav.classList.remove('open'); backdrop.classList.remove('open'); }, 250);
+    navOpen = false;
+  }
+
+  window.toggleSlideNav = function() { if (navOpen) closeSlideNav(); else openSlideNav(); };
+  backdrop.addEventListener('click', function() { closeSlideNav(); });
+  document.addEventListener('click', function(e) {
+    if (navOpen && !slideNav.contains(e.target) && !counter.contains(e.target) && e.target !== backdrop) closeSlideNav();
+  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && navOpen) { e.preventDefault(); closeSlideNav(); } });
+
+  window.doShare = function() {
+    var url = window.location.href;
+    if (navigator.share) { navigator.share({ title: document.title, url: url }).catch(function(){}); return; }
+    var done = function() {
+      var t = document.createElement('div');
+      t.textContent = 'Link copied \u2713';
+      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#2a3a2b;color:#f4f2e8;padding:10px 20px;border-radius:6px;font-size:0.85rem;z-index:9999;opacity:0;transition:opacity 0.3s';
+      document.body.appendChild(t);
+      requestAnimationFrame(function(){ t.style.opacity='1'; });
+      setTimeout(function(){ t.style.opacity='0'; setTimeout(function(){ t.remove(); }, 300); }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(function() { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); });
+    } else { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+  };
+
+  var startSlide = parseInt(window.location.hash.replace('#', ''), 10);
+  goTo((startSlide >= 1 && startSlide <= total) ? startSlide - 1 : 0);
+
+  window.addEventListener('hashchange', function() {
+    var h = parseInt(window.location.hash.replace('#', ''), 10);
+    if (h >= 1 && h <= total && h - 1 !== current) { goTo._skipHash = true; goTo(h - 1); goTo._skipHash = false; }
+  });
+
+  (function() {
+    var host = window.location.hostname;
+    var badge = document.getElementById('envBadge');
+    var dot = document.getElementById('envDot');
+    var label = document.getElementById('envLabel');
+    if (!badge) return;
+    var env = null;
+    if (host === 'localhost' || host === '127.0.0.1') env = 'local';
+    else if (/^\d+\.\d+\.\d+\.\d+$/.test(host)) env = 'staging';
+    if (!env) return;
+    dot.classList.add('env-dot-' + env);
+    label.textContent = env === 'local' ? 'Local' : 'Staging';
+    badge.style.display = 'flex';
+  })();
+})();
+</script>
+
+</body>
+</html>
