@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM Space — Investment Opportunity</title>
+<meta name="description" content="NāM Space — investment opportunity. 8 fully managed rooms on freehold land, Koh Phangan.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nam.space/pitch/core/invest/">
+<meta property="og:title" content="NāM Space — Investment Opportunity">
+<meta property="og:description" content="8 fully managed rooms on freehold land, Koh Phangan. 8% annual return, 30-year term.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2e8; --bg-warm: #f0ebd8; --nav-h: 52px; --bg-tan: #e6e2d6;
+    --green: #2a3a2b; --green-dark: #1e2d1f; --gray: #383834;
+    --terracotta: #d46b44; --terracotta-light: #e07a55;
+    --text: #2a3a2b; --text-secondary: #5a6a5b; --text-muted: #8a9a8b;
+    --border: #d4d0c4; --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { height: 100%; overflow: hidden; }
+  body { height: 100%; margin: 0; overflow: hidden; font-family: 'Epilogue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+
+  .deck-wrapper { flex: 1 1 0; min-height: 0; overflow: hidden; }
+  .deck { display: flex; height: 100%; width: max-content; transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .slide { width: 100vw; height: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 70px 100px 40px; position: relative; overflow: hidden; }
+  .slide-inner { max-width: 1400px; width: 100%; max-height: 100%; overflow-y: auto; scrollbar-width: none; position: relative; z-index: 2; opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s; }
+  .slide.active .slide-inner { opacity: 1; transform: translateY(0); }
+  .slide-inner::-webkit-scrollbar { display: none; }
+  .slide .hero-content, .slide .cta-content { opacity: 0; transform: translateY(16px); transition: opacity 0.65s ease 0.2s, transform 0.65s ease 0.2s; }
+  .slide.active .hero-content, .slide.active .cta-content { opacity: 1; transform: translateY(0); }
+  .slide .info-row { opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .slide.active .info-row { opacity: 1; transform: translateY(0); }
+  .slide.active .info-row:nth-child(1) { transition-delay: 0.1s; }
+  .slide.active .info-row:nth-child(2) { transition-delay: 0.15s; }
+  .slide.active .info-row:nth-child(3) { transition-delay: 0.2s; }
+  .slide.active .info-row:nth-child(4) { transition-delay: 0.25s; }
+  .slide.active .info-row:nth-child(5) { transition-delay: 0.3s; }
+  .slide.active .info-row:nth-child(6) { transition-delay: 0.35s; }
+  .slide.active .info-row:nth-child(7) { transition-delay: 0.4s; }
+  .slide.active .info-row:nth-child(8) { transition-delay: 0.45s; }
+  .slide.active .info-row:nth-child(9) { transition-delay: 0.5s; }
+
+  .bg-cream { background: var(--bg); }
+  .bg-green { background: var(--green); color: var(--bg); }
+  .bg-terracotta { background: var(--terracotta); color: var(--bg); }
+  .bg-green .label { color: var(--terracotta); }
+  .bg-green .sub { color: rgba(244,242,232,0.65); }
+  .bg-green h2, .bg-green h3, .bg-green h4 { color: var(--bg); }
+  .bg-terracotta .label { color: rgba(255,255,255,0.85); }
+  .bg-terracotta h2, .bg-terracotta h3, .bg-terracotta h4 { color: var(--bg); }
+  .bg-terracotta .asterisk { filter: brightness(0) invert(1); }
+
+  .asterisk { display: inline-block; width: 40px; height: 40px; flex-shrink: 0; filter: brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%); }
+  .asterisk-sm { width: 24px; height: 24px; }
+  .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.28; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); background-size: 180px 180px; mix-blend-mode: overlay; }
+  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('../../../assets/River.png'); background-repeat: no-repeat; }
+  .watermark-light::before { opacity: 0.04; mix-blend-mode: multiply; }
+  .watermark-dark::before { opacity: 0.06; mix-blend-mode: soft-light; filter: invert(1); }
+  .wm-tr::before { width: 70%; height: 110%; top: -15%; right: -10%; background-size: contain; background-position: top right; }
+  .wm-bl::before { width: 65%; height: 110%; bottom: -15%; left: -8%; top: auto; background-size: contain; background-position: bottom left; transform: rotate(180deg); }
+  .wm-br::before { width: 60%; height: 100%; bottom: -10%; right: -5%; top: auto; background-size: contain; background-position: bottom right; transform: scaleX(-1); }
+
+  .label { font-family: 'Sometype Mono', monospace; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+  h1 { font-family: 'Epilogue', sans-serif; font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; }
+  h2 { font-family: 'Epilogue', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  h3 { font-family: 'Epilogue', sans-serif; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.6rem; line-height: 1.3; }
+  h4 { font-family: 'Epilogue', sans-serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.4rem; line-height: 1.3; }
+  .sub { font-family: 'Sometype Mono', monospace; font-size: 1.34rem; color: var(--text-secondary); font-weight: 400; line-height: 1.7; max-width: 620px; }
+  .sub-ep { font-family: 'Epilogue', sans-serif; font-size: 1.44rem; color: var(--text-secondary); font-weight: 300; line-height: 1.7; max-width: 620px; }
+  .mono { font-family: 'Sometype Mono', monospace; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .line-accent { width: 50px; height: 3px; background: var(--terracotta); margin: 0 auto 1.5rem; border-radius: 2px; }
+
+  .hero-slide { padding: 0 !important; display: flex; height: 100%; width: 100vw; background: var(--green); }
+  .hero-main { flex: 1; min-width: 0; height: 100%; align-self: stretch; padding: 80px 90px 40px; display: flex; flex-direction: column; position: relative; overflow: hidden; background: var(--green); }
+  .hero-content { margin-top: auto; margin-bottom: auto; }
+  .hero-main h1 { font-size: clamp(5rem, 10vw, 9rem); font-weight: 500; color: var(--bg); line-height: 0.95; letter-spacing: -0.04em; }
+  .hero-main .hero-sub { font-family: 'Sometype Mono', monospace; font-size: clamp(1rem, 1.8vw, 1.35rem); color: rgba(244,242,232,0.65); font-weight: 400; margin-top: 2.5rem; line-height: 1.5; }
+  .hero-main .hero-footer-line { margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(244,242,232,0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 6px; width: 100%; }
+  .hero-main .hero-footer-line span { font-family: 'Sometype Mono', monospace; font-size: 0.96rem; color: rgba(244,242,232,0.5); letter-spacing: 0.08em; }
+  .hero-accent-strip { width: 48px; flex-shrink: 0; height: 100%; display: flex; flex-direction: column; }
+  .hero-accent-cream { flex: 1; background: var(--bg); }
+  .hero-accent-terracotta { flex: 1; background: var(--terracotta); }
+  .hero-img-strip { width: 33%; flex-shrink: 0; height: 100%; position: relative; overflow: hidden; }
+  .hero-img-strip img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+
+  .info-row { display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid var(--border); padding: 0.85rem 0; font-size: 1rem; align-items: center; gap: 0.5rem; }
+  .info-label { font-family: 'Sometype Mono', monospace; font-size: 0.88rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+  .info-value { color: var(--text); font-weight: 400; font-size: 1.26rem; }
+  .info-value.hi { color: var(--terracotta); font-weight: 600; }
+  .bg-green .info-row { border-color: rgba(244,242,232,0.12); }
+  .bg-green .info-label { color: rgba(244,242,232,0.5); }
+  .bg-green .info-value { color: var(--bg); }
+  .bg-green .info-value.hi { color: var(--terracotta-light); }
+
+  .cta-content { max-width: 650px; }
+  .cta-content h2 { margin-bottom: 1.75rem; }
+  .cta-content p { font-family: 'Sometype Mono', monospace; font-size: 1.32rem; color: var(--text-secondary); font-weight: 400; line-height: 1.75; margin-bottom: 1.5rem; }
+  .cta-btn { display: inline-block; font-family: 'Sometype Mono', monospace; background: var(--terracotta); color: var(--bg); padding: 1rem 2.5rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2rem; text-decoration: none; }
+  .cta-btn:hover { filter: brightness(1.1); }
+
+  .swiss-split { padding: 0; display: flex; height: 100%; }
+  .swiss-split-img { width: 48%; flex-shrink: 0; align-self: stretch; position: relative; overflow: hidden; }
+  .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .swiss-split-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.8) 0%, rgba(26,26,24,0.35) 50%, rgba(26,26,24,0.1) 100%); pointer-events: none; }
+  .swiss-split-img-caption { position: absolute; bottom: 32px; left: 60px; right: 60px; color: #fff; z-index: 2; }
+  .swiss-split-img-caption h2 { font-family: 'Sometype Mono', monospace; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; color: #fff; line-height: 1.25; }
+  .swiss-split-bar { width: 6px; flex-shrink: 0; background: var(--terracotta); }
+  .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 40px; min-width: 0; overflow-y: auto; scrollbar-width: none; }
+  .swiss-split-content::-webkit-scrollbar { display: none; }
+
+  .sn { position: absolute; top: 32px; right: 44px; font-family: 'Sometype Mono', monospace; font-size: 0.92rem; color: var(--text-secondary); letter-spacing: 0.1em; }
+  .bg-green .sn { color: rgba(244,242,232,0.5); }
+  .bg-terracotta .sn { color: rgba(244,242,232,0.55) !important; }
+
+  .nav-bar { position: relative; flex-shrink: 0; z-index: 100; background: var(--green); display: flex; align-items: center; justify-content: center; padding: 0 30px; height: var(--nav-h); }
+  .nav-center { display: flex; align-items: center; gap: 4px; z-index: 1; }
+  .nav-arrow { background: none; border: none; color: rgba(244,242,232,0.7); width: 56px; height: 56px; border-radius: 6px; cursor: pointer; font-size: 1.65rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s, opacity 0.2s; font-family: 'Sometype Mono', monospace; flex-shrink: 0; margin-bottom: 4px; }
+  .nav-arrow:hover { color: var(--bg); }
+  .nav-arrow:disabled { opacity: 0.15; pointer-events: none; }
+  .slide-counter { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Epilogue', sans-serif; font-size: 0.82rem; color: rgba(244,242,232,0.85); text-align: center; padding: 4px 10px; border-radius: 6px; border: none; background: none; user-select: none; white-space: nowrap; width: 200px; }
+  .counter-num { font-family: 'Sometype Mono', monospace; font-size: 0.72rem; opacity: 0.7; font-weight: 500; margin-bottom: 2px; }
+  .counter-name { font-weight: 500; letter-spacing: 0.01em; text-align: left; overflow: hidden; text-overflow: ellipsis; }
+  .share-btn { position: absolute; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; background: none; border: none; padding: 5px 2px; cursor: pointer; color: rgba(244,242,232,0.55); transition: color 0.2s; }
+  .share-btn:hover { color: rgba(244,242,232,0.9); }
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); z-index: 200; transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; }
+
+  @media (max-width: 1024px) {
+    .slide { padding: 50px 44px 30px; }
+    .grid-2 { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-main { padding: 50px 44px 30px; }
+    .hero-img-strip { width: 30%; }
+    .swiss-split-img { width: 42%; }
+    .swiss-split-content { padding: 50px 44px 30px; }
+  }
+  @media (max-width: 768px) {
+    .slide { padding: 0 24px; justify-content: flex-start !important; align-items: flex-start !important; }
+    .slide-inner { padding-top: 0; width: 100%; }
+    .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
+    .sn { display: none !important; }
+    .nav-bar { padding: 0 12px; }
+    .slide-counter { width: 140px; }
+    .share-btn { right: 12px; }
+    .hero-main { padding: 12px 24px 16px; }
+    .hero-img-strip { width: 35%; }
+    .swiss-split { flex-direction: column; }
+    .swiss-split-img { width: 100%; height: 40vh; }
+    .swiss-split-bar { width: 100%; height: 4px; }
+    .swiss-split-content { padding: 12px 24px 16px; }
+    .hero-slide { flex-direction: column; }
+    .hero-main { height: auto; flex: 1; }
+    .hero-accent-strip { display: none; }
+    .info-row { grid-template-columns: 1fr; gap: 0.2rem; }
+    .sub { font-size: 1.1rem !important; }
+    .sub-ep { font-size: 1.15rem !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<div class="deck-wrapper">
+<div class="deck" id="deck">
+
+<!-- 01 ─ Hero -->
+<section class="slide hero-slide" id="s1">
+  <div class="hero-main grain">
+    <div class="hero-content">
+      <h1>N&#x101;M<br>Space</h1>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:2.5rem;">
+        <img src="../../../assets/Asterix.svg" alt="" style="width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
+        <p class="hero-sub" style="margin-top:0;">Investment opportunity<br>Koh Phangan, Thailand</p>
+      </div>
+    </div>
+    <div class="hero-footer-line">
+      <span>8 fully managed rooms &middot; Freehold land</span>
+      <span style="opacity:0.35;">Confidential &mdash; 2026</span>
+    </div>
+  </div>
+  <div class="hero-accent-strip">
+    <div class="hero-accent-cream"></div>
+    <div class="hero-accent-terracotta"></div>
+  </div>
+  <div class="hero-img-strip">
+    <img src="../../../assets/exterior-1.jpg" alt="NāM Space exterior" style="object-position:center center;">
+  </div>
+</section>
+
+<!-- 02 ─ The Opportunity -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s2">
+  <div class="slide-inner grid-2" style="align-items:center;">
+    <div>
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The opportunity</div>
+      <h2>A boutique co-living &amp; co-working campus</h2>
+    </div>
+    <div>
+      <p class="sub-ep">N&#x101;M Space is a co-working and co-living space on Koh Phangan &mdash; 8 fully managed rooms plus a co-working space on freehold land owned by the developer.</p>
+      <p class="sub-ep" style="margin-top:1.5rem;">Developer: Alex Duffner (Thai national). Land is freehold. Construction is underway.</p>
+    </div>
+  </div>
+  <div class="sn">02</div>
+</section>
+
+<!-- 03 ─ The Deal -->
+<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s3">
+  <div class="slide-inner" style="max-width:800px;">
+    <div class="label">The deal</div>
+    <h2>Per-room investment</h2>
+    <p class="sub" style="margin-bottom:2.5rem;">Fixed annual return. Capital returned at end of term. Only 8 slots available.</p>
+    <div>
+      <div class="info-row">
+        <span class="info-label">Investment</span>
+        <span class="info-value hi">&#x0E3F;2,340,000</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Annual return</span>
+        <span class="info-value">8% &mdash; &#x0E3F;187,200/year</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Monthly return</span>
+        <span class="info-value">&#x0E3F;15,600/month</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Returns begin</span>
+        <span class="info-value">Month 13</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Term</span>
+        <span class="info-value">30 years</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Capital back</span>
+        <span class="info-value">&#x0E3F;2,340,000 at year 30</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Total received</span>
+        <span class="info-value hi">&#x0E3F;7,956,000</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">ROI</span>
+        <span class="info-value hi">240%</span>
+      </div>
+      <div class="info-row" style="border-bottom:none;">
+        <span class="info-label">Slots</span>
+        <span class="info-value">8 only</span>
+      </div>
+    </div>
+  </div>
+  <div class="sn">03</div>
+</section>
+
+<!-- 04 ─ Revenue Mix -->
+<section class="slide bg-cream grain watermark watermark-light wm-br" id="s4">
+  <div class="slide-inner" style="max-width:850px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Revenue</div>
+      <h2>How the money comes in</h2>
+      <p class="sub-ep" style="margin-top:0.5rem;max-width:640px;">Multiple revenue streams across accommodation types and co-working memberships.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 3rem;margin-top:2.5rem;">
+      <div style="padding:2rem 0;border-top:2px solid var(--terracotta);">
+        <h3 style="color:var(--terracotta);font-size:1.4rem;margin-bottom:0.5rem;">Nightly</h3>
+        <div style="font-family:'Sometype Mono',monospace;font-size:1.8rem;font-weight:600;color:var(--green);margin-bottom:0.5rem;">&#x0E3F;2,500<span style="font-size:1rem;font-weight:400;color:var(--text-muted);">/night</span></div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">at 60% occupancy</p>
+      </div>
+      <div style="padding:2rem 0;border-top:2px solid var(--terracotta);">
+        <h3 style="color:var(--terracotta);font-size:1.4rem;margin-bottom:0.5rem;">Weekly</h3>
+        <div style="font-family:'Sometype Mono',monospace;font-size:1.8rem;font-weight:600;color:var(--green);margin-bottom:0.5rem;">&#x0E3F;15,000<span style="font-size:1rem;font-weight:400;color:var(--text-muted);">/week</span></div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Discounted weekly rate</p>
+      </div>
+      <div style="padding:2rem 0;border-top:2px solid var(--green);">
+        <h3 style="color:var(--green);font-size:1.4rem;margin-bottom:0.5rem;">Monthly</h3>
+        <div style="font-family:'Sometype Mono',monospace;font-size:1.8rem;font-weight:600;color:var(--green);margin-bottom:0.5rem;">&#x0E3F;50,000<span style="font-size:1rem;font-weight:400;color:var(--text-muted);">/month</span></div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Long-stay residents</p>
+      </div>
+      <div style="padding:2rem 0;border-top:2px solid var(--green);">
+        <h3 style="color:var(--green);font-size:1.4rem;margin-bottom:0.5rem;">Co-working</h3>
+        <div style="font-family:'Sometype Mono',monospace;font-size:1.8rem;font-weight:600;color:var(--green);margin-bottom:0.5rem;">&#x0E3F;160,000<span style="font-size:1rem;font-weight:400;color:var(--text-muted);">/month</span></div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">20 members &times; &#x0E3F;8,000/month</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">04</div>
+</section>
+
+<!-- 05 ─ Monthly P&L -->
+<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s5">
+  <div class="slide-inner" style="max-width:750px;">
+    <div class="label">Unit economics</div>
+    <h2>Monthly P&amp;L</h2>
+    <p class="sub" style="margin-bottom:2.5rem;">How the campus operates month to month at steady state.</p>
+    <div>
+      <div class="info-row">
+        <span class="info-label">Gross revenue</span>
+        <span class="info-value hi">&#x0E3F;484,000</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Ops costs</span>
+        <span class="info-value">&minus;&#x0E3F;145,200</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Investor returns</span>
+        <span class="info-value">&minus;&#x0E3F;124,800</span>
+      </div>
+      <div class="info-row" style="border-bottom:none;padding-top:1.2rem;">
+        <span class="info-label" style="font-weight:700;color:rgba(244,242,232,0.8);">Developer net</span>
+        <span class="info-value hi" style="font-size:1.5rem;">&#x0E3F;214,000</span>
+      </div>
+    </div>
+    <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.35);margin-top:2rem;line-height:1.7;">Investor returns are paid regardless of occupancy. The developer absorbs the risk.</p>
+  </div>
+  <div class="sn">05</div>
+</section>
+
+<!-- 06 ─ The Raise -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s6">
+  <div class="slide-inner" style="max-width:800px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Capital</div>
+      <h2>The raise</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:0;margin-top:1rem;">
+      <div class="info-row" style="grid-template-columns:220px 1fr;">
+        <span class="info-label">Total raise</span>
+        <span class="info-value" style="font-size:1.5rem;font-weight:600;color:var(--terracotta);">&#x0E3F;18,720,000</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem;margin-top:3rem;">
+      <div style="padding:2rem 0;border-top:2px solid var(--terracotta);">
+        <h3 style="color:var(--terracotta);margin-bottom:0.5rem;">Build + fit-out</h3>
+        <div style="font-family:'Sometype Mono',monospace;font-size:1.6rem;font-weight:600;color:var(--green);">&#x0E3F;15,600,000</div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:var(--text-muted);margin-top:0.5rem;">83% of raise</p>
+      </div>
+      <div style="padding:2rem 0;border-top:2px solid var(--green);">
+        <h3 style="color:var(--green);margin-bottom:0.5rem;">Buffer + reserve</h3>
+        <div style="font-family:'Sometype Mono',monospace;font-size:1.6rem;font-weight:600;color:var(--green);">&#x0E3F;3,120,000</div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:var(--text-muted);margin-top:0.5rem;">17% of raise</p>
+      </div>
+    </div>
+    <p style="font-family:'Sometype Mono',monospace;font-size:0.88rem;color:var(--text-muted);margin-top:2.5rem;line-height:1.7;">8 rooms &times; &#x0E3F;2,340,000 per room = &#x0E3F;18,720,000 total raise.</p>
+  </div>
+  <div class="sn">06</div>
+</section>
+
+<!-- 07 ─ 30-Year Summary -->
+<section class="slide bg-terracotta grain" id="s7">
+  <div class="slide-inner" style="max-width:800px;text-align:center;">
+    <div class="label" style="justify-content:center;">30-year summary</div>
+    <h2>What you receive</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3rem;text-align:center;">
+      <div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;">Total payments</div>
+        <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:var(--bg);">&#x0E3F;5,616,000</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.5);margin-top:0.5rem;">29 years &times; &#x0E3F;187,200 + year 1 build</div>
+      </div>
+      <div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;">Capital returned</div>
+        <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:var(--bg);">&#x0E3F;2,340,000</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.5);margin-top:0.5rem;">Full principal at year 30</div>
+      </div>
+    </div>
+    <div style="margin-top:3rem;padding-top:2rem;border-top:2px solid rgba(244,242,232,0.2);">
+      <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;">Total received</div>
+      <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:600;color:var(--bg);">&#x0E3F;7,956,000</div>
+      <div style="font-family:'Sometype Mono',monospace;font-size:1.2rem;color:rgba(244,242,232,0.85);margin-top:0.75rem;font-weight:600;">240% ROI</div>
+    </div>
+  </div>
+  <div class="sn">07</div>
+</section>
+
+<!-- 08 ─ Contact -->
+<section class="slide swiss-split" id="s8">
+  <div class="swiss-split-img">
+    <img src="../../../assets/nam-main.jpg" alt="NāM Space campus">
+    <div class="swiss-split-img-overlay"></div>
+    <div class="swiss-split-img-caption">
+      <h2>N&#x101;M Space</h2>
+    </div>
+  </div>
+  <div class="swiss-split-bar"></div>
+  <div class="swiss-split-content">
+    <div class="cta-content">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Next step</div>
+      <h2>Interested?</h2>
+      <p>Only 8 slots available. If you&rsquo;d like to learn more or reserve a room, reach out directly.</p>
+      <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);">
+        <h4 style="margin-bottom:0.5rem;">Alex Duffner</h4>
+        <p style="font-size:1.1rem;margin-bottom:0.5rem;"><a href="mailto:alex@nam.space" style="color:var(--terracotta);text-decoration:none;">alex@nam.space</a></p>
+        <p style="font-size:0.95rem;color:var(--text-muted);">Developer &amp; Thai national</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+        <a href="mailto:alex@nam.space" class="cta-btn">Get in touch &rarr;</a>
+        <a href="/pitch/core/" class="cta-btn" style="background:transparent;border:1.5px solid var(--green);color:var(--green);">See the project deck &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /deck -->
+</div><!-- /deck-wrapper -->
+
+<nav class="nav-bar">
+  <div class="nav-center">
+    <button onclick="prevSlide()" class="nav-arrow" id="prevBtn" title="Previous" disabled>&larr;</button>
+    <div class="slide-counter" id="counter" title="Slide">
+      <span class="counter-num" id="counterNum">01</span>
+      <span class="counter-name" id="counterName">N&#x101;M Space</span>
+    </div>
+    <button onclick="nextSlide()" class="nav-arrow" id="nextBtn" title="Next">&rarr;</button>
+  </div>
+  <button class="share-btn" onclick="doShare()" title="Share">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+  </button>
+</nav>
+
+<script>
+(function(){
+  let current = 0;
+  const deck = document.getElementById('deck');
+  const slides = deck.querySelectorAll('.slide');
+  const total = slides.length;
+  const progress = document.getElementById('progress');
+
+  var slideNames = [
+    'N\u0101M Space', 'The Opportunity', 'The Deal', 'Revenue Mix',
+    'Monthly P&L', 'The Raise', '30-Year Summary', 'Contact'
+  ];
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    deck.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    document.getElementById('counterNum').textContent = String(current + 1).padStart(2, '0');
+    document.getElementById('counterName').textContent = slideNames[current] || '';
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    document.getElementById('prevBtn').disabled = (current === 0);
+    document.getElementById('nextBtn').disabled = (current === total - 1);
+    slides.forEach(function(s, i) {
+      if (i === current) s.classList.add('active');
+      else s.classList.remove('active');
+    });
+    if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
+  }
+
+  window.nextSlide = function() { goTo(current + 1); };
+  window.prevSlide = function() { goTo(current - 1); };
+  window.goTo = goTo;
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  window.doShare = function() {
+    var url = window.location.href;
+    if (navigator.share) { navigator.share({ title: document.title, url: url }).catch(function(){}); return; }
+    var done = function() {
+      var t = document.createElement('div');
+      t.textContent = 'Link copied \u2713';
+      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#2a3a2b;color:#f4f2e8;padding:10px 20px;border-radius:6px;font-size:0.85rem;z-index:9999;opacity:0;transition:opacity 0.3s';
+      document.body.appendChild(t);
+      requestAnimationFrame(function(){ t.style.opacity='1'; });
+      setTimeout(function(){ t.style.opacity='0'; setTimeout(function(){ t.remove(); }, 300); }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(function() { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); });
+    } else { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+  };
+
+  var startSlide = parseInt(window.location.hash.replace('#', ''), 10);
+  goTo((startSlide >= 1 && startSlide <= total) ? startSlide - 1 : 0);
+
+  window.addEventListener('hashchange', function() {
+    var h = parseInt(window.location.hash.replace('#', ''), 10);
+    if (h >= 1 && h <= total && h - 1 !== current) { goTo._skipHash = true; goTo(h - 1); goTo._skipHash = false; }
+  });
+})();
+</script>
+
+</body>
+</html>
