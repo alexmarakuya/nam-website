@@ -170,7 +170,7 @@
   .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .swiss-split-img-caption { position: absolute; bottom: 32px; left: 60px; right: 60px; color: #fff; z-index: 2; }
   .swiss-split-img-caption h2 { font-family: 'Sometype Mono', monospace; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; color: #fff; line-height: 1.25; }
-  .swiss-split-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.7) 0%, rgba(26,26,24,0.15) 50%, transparent 100%); pointer-events: none; }
+  .swiss-split-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.8) 0%, rgba(26,26,24,0.35) 50%, rgba(26,26,24,0.1) 100%); pointer-events: none; }
   .swiss-split-bar { width: 6px; flex-shrink: 0; background: var(--terracotta); }
   .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 40px; min-width: 0; overflow-y: auto; scrollbar-width: none; }
   .swiss-split-content::-webkit-scrollbar { display: none; }
@@ -192,7 +192,7 @@
   /* Full-bleed image slide */
   .img-full { padding: 0; position: relative; }
   .img-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .img-full-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.92) 0%, rgba(26,26,24,0.55) 40%, rgba(26,26,24,0.15) 70%); pointer-events: none; }
+  .img-full-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.95) 0%, rgba(26,26,24,0.7) 40%, rgba(26,26,24,0.3) 70%, rgba(26,26,24,0.15) 100%); pointer-events: none; }
   .img-full-caption { position: absolute; bottom: 96px; left: 100px; right: 100px; color: var(--bg); z-index: 2; }
   .img-full-caption .label { color: var(--terracotta-light); }
   .img-full-caption h2 { color: #fff; margin-bottom: 0.75rem; font-size: clamp(2.5rem, 4vw, 3.5rem); }
@@ -474,17 +474,17 @@
       <div class="toc-section">
         <div class="toc-num">02</div>
         <h3 onclick="goTo(10)">The Philosophy</h3>
-        <ul><li onclick="goTo(11)">Water</li><li onclick="goTo(12)">Rhythm</li><li onclick="goTo(13)">Mission</li><li onclick="goTo(14)">Culture</li><li onclick="goTo(15)">Roots</li></ul>
+        <ul><li onclick="goTo(11)">Water</li><li onclick="goTo(12)">Rhythm</li><li onclick="goTo(14)">Mission</li><li onclick="goTo(15)">Culture</li><li onclick="goTo(16)">Roots</li></ul>
       </div>
       <div class="toc-section">
         <div class="toc-num">03</div>
-        <h3 onclick="goTo(16)">The Space</h3>
-        <ul><li onclick="goTo(17)">What We&rsquo;re Building</li><li onclick="goTo(22)">The Ecosystem</li><li onclick="goTo(23)">Who It&rsquo;s For</li><li onclick="goTo(25)">Development Phases</li></ul>
+        <h3 onclick="goTo(17)">The Space</h3>
+        <ul><li onclick="goTo(18)">What We&rsquo;re Building</li><li onclick="goTo(24)">The Ecosystem</li><li onclick="goTo(25)">Who It&rsquo;s For</li><li onclick="goTo(27)">Development Phases</li></ul>
       </div>
       <div class="toc-section">
         <div class="toc-num">04</div>
-        <h3 onclick="goTo(26)">Why Now</h3>
-        <ul><li onclick="goTo(28)">Contact</li></ul>
+        <h3 onclick="goTo(28)">Why Now</h3>
+        <ul><li onclick="goTo(30)">Contact</li></ul>
       </div>
     </div>
   </div>
@@ -716,8 +716,44 @@
   <div class="sn">13</div>
 </section>
 
-<!-- 14 ─ Mission -->
-<section class="slide bg-terracotta grain" id="s14">
+<!-- 14 ─ A Day at NāM -->
+<section class="slide bg-green grain watermark watermark-dark wm-br" id="s14">
+  <div class="slide-inner" style="max-width:850px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label" style="opacity:0.5;">Example</div>
+      <h2>A day at N&#x101;M</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:0.6rem 2rem;align-items:baseline;">
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">06:30</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.8);font-size:1rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.08);margin:0;">Sunrise swim or yoga on the deck. No alarm &mdash; the light does it.</p>
+
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">07:30</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.8);font-size:1rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.08);margin:0;">Coffee at the caf&eacute;. A quiet conversation or just the sound of birds.</p>
+
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">08:30</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.85);font-size:1rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.08);margin:0;font-weight:500;">Deep work block. Focused pod, headphones on, flow state.</p>
+
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">12:00</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.8);font-size:1rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.08);margin:0;">Shared lunch in the commons. Meet someone building something interesting.</p>
+
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">13:30</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.85);font-size:1rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.08);margin:0;font-weight:500;">Afternoon work. Collaboration in the shared studio or heads-down solo.</p>
+
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">16:30</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.8);font-size:1rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.08);margin:0;">Movement break. Ice bath, sauna, or a walk through the garden.</p>
+
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">18:00</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.8);font-size:1rem;line-height:1.6;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.08);margin:0;">Sunset from the deck. The golden hour hits different here.</p>
+
+      <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--terracotta-light);white-space:nowrap;">19:30</span>
+      <p class="list-item" style="opacity:1;transform:none;color:rgba(244,242,232,0.8);font-size:1rem;line-height:1.6;padding:0.5rem 0;margin:0;">Communal dinner or a quiet night in your room. Tomorrow, do it again.</p>
+    </div>
+  </div>
+  <div class="sn">14</div>
+</section>
+
+<!-- 15 ─ Mission -->
+<section class="slide bg-terracotta grain" id="s15">
   <div class="slide-inner" style="max-width:800px;">
     <div class="label">The mission</div>
     <h2>Build environments where people do their best work</h2>
@@ -737,11 +773,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">14</div>
+  <div class="sn">15</div>
 </section>
 
-<!-- 15 ─ Culture: Values -->
-<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s15">
+<!-- 16 ─ Culture: Values -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s16">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Culture</div>
@@ -774,11 +810,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">15</div>
+  <div class="sn">16</div>
 </section>
 
-<!-- 16 ─ Roots: Ecology & Community -->
-<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s16">
+<!-- 17 ─ Roots: Ecology & Community -->
+<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s17">
   <div class="slide-inner" style="max-width:900px;">
     <div style="margin-bottom:2rem;">
       <div class="label">Roots</div>
@@ -796,11 +832,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">16</div>
+  <div class="sn">17</div>
 </section>
 
-<!-- 17 ─ Section: The Space -->
-<section class="slide hero-slide" id="s17">
+<!-- 18 ─ Section: The Space -->
+<section class="slide hero-slide" id="s18">
   <div class="hero-main grain">
     <div class="hero-content">
       <div class="label" style="color:var(--terracotta-light);">Part three</div>
@@ -809,7 +845,7 @@
       <p class="sub" style="color:rgba(244,242,232,0.55);margin-top:1.5rem;">What we&rsquo;re building, who it serves, and how it grows.</p>
     </div>
     <div class="hero-footer-line">
-      <span style="color:rgba(244,242,232,0.3);">17</span>
+      <span style="color:rgba(244,242,232,0.3);">18</span>
     </div>
   </div>
   <div class="hero-accent-strip">
@@ -821,8 +857,8 @@
   </div>
 </section>
 
-<!-- 18 ─ What We're Building -->
-<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s18">
+<!-- 19 ─ What We're Building -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s19">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Overview</div>
@@ -861,11 +897,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">18</div>
+  <div class="sn">19</div>
 </section>
 
-<!-- 19 ─ Accommodation -->
-<section class="slide swiss-split" id="s19">
+<!-- 20 ─ Accommodation -->
+<section class="slide swiss-split" id="s20">
   <div class="swiss-split-img">
     <img src="../assets/exterior-3.jpg" alt="NāM accommodation">
     <div class="swiss-split-img-overlay"></div>
@@ -880,17 +916,21 @@
     <p class="sub" style="margin-bottom:2rem;">8 private rooms designed for professionals staying weeks to months. Compact, private, and connected to nature &mdash; with the campus at your doorstep.</p>
     <div class="list-item">
       <div class="dot"></div>
-      <div><h4>Built for long stays</h4><p>Not hotel rooms. Each unit is designed for people who are here to work, not pass through. Thoughtful storage, good light, quiet surroundings.</p></div>
+      <div><h4>Short to medium stays</h4><p>The campus rooms are designed for stays of weeks to months. Thoughtful storage, good light, quiet surroundings &mdash; everything you need to settle in and do real work.</p></div>
     </div>
     <div class="list-item">
       <div class="dot"></div>
       <div><h4>Private, not isolated</h4><p>Your own space to retreat to, with shared kitchens, co-working, and communal areas steps away. Solitude when you need it, connection when you want it.</p></div>
     </div>
+    <div class="list-item">
+      <div class="dot"></div>
+      <div><h4>Long-term living: Casa N&#x101;M</h4><p>For those who want to stay permanently, we&rsquo;re building Casa N&#x101;M &mdash; a separate residential project nearby with design-led homes for long-term island life.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- 20 ─ Work & Creation -->
-<section class="slide img-full" id="s20">
+<!-- 21 ─ Work & Creation -->
+<section class="slide img-full" id="s21">
   <img src="../assets/deep-work-1.jpg" alt="NāM workspace">
   <div class="img-full-overlay"></div>
   <div class="img-full-caption">
@@ -898,11 +938,11 @@
     <h2>Designed for deep work</h2>
     <p>Focused pods for heads-down work. Shared studios for collaboration. A recording space for podcasts and content. Every zone tuned to how people actually work.</p>
   </div>
-  <div class="sn">20</div>
+  <div class="sn">21</div>
 </section>
 
-<!-- 21 ─ Wellness -->
-<section class="slide img-full" id="s21">
+<!-- 22 ─ Wellness -->
+<section class="slide img-full" id="s22">
   <img src="../assets/rw-onsen.jpg" alt="NāM onsen wellness" style="object-position:center 60%;">
   <div class="img-full-overlay"></div>
   <div class="img-full-caption">
@@ -910,11 +950,11 @@
     <h2>Recovery as ritual</h2>
     <p>Ice bath, traditional sauna, Japanese onsen. Designed into the daily rhythm so restoration is habit, not holiday.</p>
   </div>
-  <div class="sn">21</div>
+  <div class="sn">22</div>
 </section>
 
-<!-- 22 ─ Community & Shared Spaces -->
-<section class="slide swiss-split" id="s22">
+<!-- 23 ─ Community & Shared Spaces -->
+<section class="slide swiss-split" id="s23">
   <div class="swiss-split-img">
     <img src="../assets/cafe-1.jpg" alt="NāM café">
     <div class="swiss-split-img-overlay"></div>
@@ -942,8 +982,25 @@
   </div>
 </section>
 
-<!-- 23 ─ The Ecosystem -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s23">
+<!-- 24 ─ Already Happening -->
+<section class="slide bg-green grain" id="s24">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:2rem;text-align:center;">
+      <div class="label" style="opacity:0.5;justify-content:center;">Proof</div>
+      <h2>The community is already here</h2>
+      <p class="sub" style="margin-top:1rem;color:rgba(244,242,232,0.7);max-width:600px;margin-left:auto;margin-right:auto;">Tech meetups, yoga sessions, co-working days, shared meals. This isn&rsquo;t a plan &mdash; it&rsquo;s what&rsquo;s already happening at Kin Haus and across the island.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;">
+      <div style="border-radius:8px;overflow:hidden;aspect-ratio:4/3;"><img src="../assets/community-meetup.jpg" alt="Tech meetup at Kin Haus" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="border-radius:8px;overflow:hidden;aspect-ratio:4/3;"><img src="../assets/community-party.jpg" alt="Community gathering at Kin Haus" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="border-radius:8px;overflow:hidden;aspect-ratio:4/3;"><img src="../assets/community-yoga.jpg" alt="Yoga session" style="width:100%;height:100%;object-fit:cover;"></div>
+    </div>
+  </div>
+  <div class="sn">24</div>
+</section>
+
+<!-- 25 ─ The Ecosystem -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s25">
   <div class="slide-inner" style="max-width:950px;">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Ecosystem</div>
@@ -978,11 +1035,11 @@
     </div>
     <p style="font-family:'Sometype Mono',monospace;font-size:0.88rem;color:var(--text-muted);margin-top:2rem;line-height:1.7;">Each business is symbiotic &mdash; the caf&eacute; feeds foot traffic to co-working, wellness keeps residents longer, the academy draws new audiences. Nothing exists in isolation.</p>
   </div>
-  <div class="sn">23</div>
+  <div class="sn">25</div>
 </section>
 
-<!-- 24 ─ Who It's For -->
-<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s24">
+<!-- 26 ─ Who It's For -->
+<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s26">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
       <div class="label">Audience</div>
@@ -1007,11 +1064,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">24</div>
+  <div class="sn">26</div>
 </section>
 
-<!-- 25 ─ Location -->
-<section class="slide swiss-split" id="s25">
+<!-- 27 ─ Location -->
+<section class="slide swiss-split" id="s27">
   <div class="swiss-split-img" style="background:#1a1a18;overflow:hidden;position:relative;">
     <div class="map-flyin" style="width:100%;height:100%;position:relative;">
       <iframe src="https://maps.google.com/maps?q=9.709964,100.019259&t=k&z=17&output=embed" width="100%" height="100%" style="border:0;position:absolute;inset:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -1032,8 +1089,8 @@
   </div>
 </section>
 
-<!-- 26 ─ Development Phases -->
-<section class="slide bg-cream grain watermark watermark-light wm-br" id="s26">
+<!-- 28 ─ Development Phases -->
+<section class="slide bg-cream grain watermark watermark-light wm-br" id="s28">
   <div class="slide-inner">
     <div style="margin-bottom:2.5rem;">
       <div class="label"><img src="../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Roadmap</div>
@@ -1057,38 +1114,38 @@
       </div>
     </div>
   </div>
-  <div class="sn">26</div>
+  <div class="sn">28</div>
 </section>
 
-<!-- 27 ─ Why Now -->
-<section class="slide bg-terracotta grain" id="s27">
+<!-- 29 ─ Why Now -->
+<section class="slide bg-terracotta grain" id="s29">
   <div class="slide-inner" style="max-width:800px;">
     <div class="label">Momentum</div>
     <h2>Why now</h2>
     <div style="margin-top:2rem;">
       <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Land is secured</h4><p style="color:rgba(244,242,232,0.65);">The site is locked in. Building is underway.</p></div>
+        <img src="../assets/Asterix.svg" alt="" style="width:20px;height:20px;flex-shrink:0;margin-top:2px;filter:brightness(0) invert(1);opacity:0.6;">
+        <div><h4 style="color:var(--bg);font-size:1.15rem;">Land is secured</h4><p style="color:rgba(244,242,232,0.8);font-size:1.05rem;line-height:1.65;">The site is locked in. Building is underway.</p></div>
       </div>
       <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Community already exists</h4><p style="color:rgba(244,242,232,0.65);">Kin Haus, our co-living space on Phangan, has been running for over a year. The first members of the N&#x101;M ecosystem are already here.</p></div>
+        <img src="../assets/Asterix.svg" alt="" style="width:20px;height:20px;flex-shrink:0;margin-top:2px;filter:brightness(0) invert(1);opacity:0.6;">
+        <div><h4 style="color:var(--bg);font-size:1.15rem;">Community already exists</h4><p style="color:rgba(244,242,232,0.8);font-size:1.05rem;line-height:1.65;">Kin Haus, our co-living space on Phangan, has been running for over a year. The first members of the N&#x101;M ecosystem are already here.</p></div>
       </div>
       <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Phangan is pulling talent</h4><p style="color:rgba(244,242,232,0.65);">The island is at an inflection point. Quality infrastructure now means capturing the wave, not chasing it.</p></div>
+        <img src="../assets/Asterix.svg" alt="" style="width:20px;height:20px;flex-shrink:0;margin-top:2px;filter:brightness(0) invert(1);opacity:0.6;">
+        <div><h4 style="color:var(--bg);font-size:1.15rem;">Phangan is pulling talent</h4><p style="color:rgba(244,242,232,0.8);font-size:1.05rem;line-height:1.65;">The island is at an inflection point. Quality infrastructure now means capturing the wave, not chasing it.</p></div>
       </div>
       <div class="list-item" style="border-color:rgba(244,242,232,0.2);">
-        <div class="dot" style="background:var(--bg);"></div>
-        <div><h4 style="color:var(--bg);">Kin Haus as proof of concept</h4><p style="color:rgba(244,242,232,0.65);">It works. The model generates revenue, the community is real, and the demand is consistent. N&#x101;M is the next step.</p></div>
+        <img src="../assets/Asterix.svg" alt="" style="width:20px;height:20px;flex-shrink:0;margin-top:2px;filter:brightness(0) invert(1);opacity:0.6;">
+        <div><h4 style="color:var(--bg);font-size:1.15rem;">Kin Haus as proof of concept</h4><p style="color:rgba(244,242,232,0.8);font-size:1.05rem;line-height:1.65;">It works. The model generates revenue, the community is real, and the demand is consistent. N&#x101;M is the next step.</p></div>
       </div>
     </div>
   </div>
-  <div class="sn">27</div>
+  <div class="sn">29</div>
 </section>
 
-<!-- 28 ─ Quote -->
-<section class="slide img-full" id="s28">
+<!-- 30 ─ Quote -->
+<section class="slide img-full" id="s30">
   <img src="../assets/landscape.jpg" alt="Landscape">
   <div class="img-full-overlay" style="background:linear-gradient(to top, rgba(26,26,24,0.85) 0%, rgba(26,26,24,0.5) 50%, rgba(26,26,24,0.3) 100%);"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;padding:60px;">
@@ -1096,11 +1153,11 @@
       <p style="font-family:'Epilogue',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.5;color:rgba(244,242,232,0.9);">&ldquo;This isn&rsquo;t speculation. It&rsquo;s an invitation to build something you can see, touch, and use &mdash; alongside people who care about the same things you do.&rdquo;</p>
     </blockquote>
   </div>
-  <div class="sn">28</div>
+  <div class="sn">30</div>
 </section>
 
-<!-- 29 ─ CTA -->
-<section class="slide swiss-split" id="s29">
+<!-- 31 ─ CTA -->
+<section class="slide swiss-split" id="s31">
   <div class="swiss-split-img">
     <img src="../assets/nam-main.jpg" alt="NāM Space campus">
     <div class="swiss-split-img-overlay"></div>
@@ -1223,26 +1280,28 @@
       { idx: 10, title: 'The Philosophy' },
       { idx: 11, title: 'Water' },
       { idx: 12, title: 'Rhythm' },
-      { idx: 13, title: 'Mission' },
-      { idx: 14, title: 'Culture' },
-      { idx: 15, title: 'Roots' }
+      { idx: 13, title: 'A Day at N\u0101M' },
+      { idx: 14, title: 'Mission' },
+      { idx: 15, title: 'Culture' },
+      { idx: 16, title: 'Roots' }
     ]},
     { section: 'The Space', items: [
-      { idx: 16, title: 'The Space' },
-      { idx: 17, title: 'What We\u2019re Building' },
-      { idx: 18, title: 'Accommodation' },
-      { idx: 19, title: 'Work & Creation' },
-      { idx: 20, title: 'Wellness' },
-      { idx: 21, title: 'Community' },
-      { idx: 22, title: 'The Ecosystem' },
-      { idx: 23, title: 'Who It\u2019s For' },
-      { idx: 24, title: 'Location' },
-      { idx: 25, title: 'Development Phases' }
+      { idx: 17, title: 'The Space' },
+      { idx: 18, title: 'What We\u2019re Building' },
+      { idx: 19, title: 'Accommodation' },
+      { idx: 20, title: 'Work & Creation' },
+      { idx: 21, title: 'Wellness' },
+      { idx: 22, title: 'Community' },
+      { idx: 23, title: 'Already Happening' },
+      { idx: 24, title: 'The Ecosystem' },
+      { idx: 25, title: 'Who It\u2019s For' },
+      { idx: 26, title: 'Location' },
+      { idx: 27, title: 'Development Phases' }
     ]},
     { section: 'Close', items: [
-      { idx: 26, title: 'Why Now' },
-      { idx: 27, title: 'Quote' },
-      { idx: 28, title: 'Contact' }
+      { idx: 28, title: 'Why Now' },
+      { idx: 29, title: 'Quote' },
+      { idx: 30, title: 'Contact' }
     ]}
   ];
 
