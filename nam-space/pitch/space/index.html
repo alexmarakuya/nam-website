@@ -884,41 +884,47 @@
 
 <!-- 19 ─ Already Happening -->
 <section class="slide bg-green grain" id="s19" style="padding:0;overflow:hidden;">
-  <!-- Full-bleed mosaic background -->
-  <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:5px;padding:5px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:5px;padding:5px;width:100%;height:100%;">
+    <!-- Row 1-2, Col 1: video spanning 2 rows -->
     <div style="border-radius:5px;overflow:hidden;grid-row:1/3;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
         <source src="../../assets/Island_Connection_short.mp4" type="video/mp4">
       </video>
     </div>
+    <!-- Row 1, Col 2 -->
     <div style="border-radius:5px;overflow:hidden;">
       <img src="../../assets/AI Meetup.jpeg" alt="Tech meetup" style="width:100%;height:100%;object-fit:cover;">
     </div>
-    <div style="border-radius:5px;overflow:hidden;grid-row:1/3;">
-      <img src="../../assets/Island Connection.jpeg" alt="Island Connection" style="width:100%;height:100%;object-fit:cover;">
+    <!-- Row 1, Col 3 -->
+    <div style="border-radius:5px;overflow:hidden;">
+      <img src="../../assets/Island Connection.jpeg" alt="Island Connection" style="width:100%;height:100%;object-fit:cover;filter:saturate(0.75) contrast(0.9);">
     </div>
+    <!-- Row 2, Col 2: Terracotta card -->
+    <div style="border-radius:5px;overflow:hidden;background:var(--terracotta);display:flex;align-items:center;justify-content:center;padding:1.5rem;text-align:center;">
+      <div>
+        <div class="label" style="justify-content:center;color:rgba(244,242,232,0.6);margin-bottom:0.75rem;">Events &amp; Activities</div>
+        <h2 style="color:var(--bg);font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.2;margin-bottom:0.75rem;">Already happening</h2>
+        <p style="color:rgba(244,242,232,0.85);font-size:0.95rem;line-height:1.6;">Tech meetups, yoga sessions, running clubs, work sessions, parties on the deck.</p>
+        <p style="color:rgba(244,242,232,0.5);font-size:0.78rem;line-height:1.6;margin-top:0.6rem;">This isn&rsquo;t a plan &mdash; it&rsquo;s what we&rsquo;re already doing at Kin Haus.</p>
+      </div>
+    </div>
+    <!-- Row 2, Col 3 -->
     <div style="border-radius:5px;overflow:hidden;">
       <img src="../../assets/Yoga.jpeg" alt="Yoga session" style="width:100%;height:100%;object-fit:cover;">
     </div>
+    <!-- Row 3, Col 1 -->
     <div style="border-radius:5px;overflow:hidden;">
       <img src="../../assets/Founders Running Club.jpg" alt="Running club" style="width:100%;height:100%;object-fit:cover;">
     </div>
+    <!-- Row 3, Col 2 -->
     <div style="border-radius:5px;overflow:hidden;">
       <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
         <source src="../../assets/Party_2_short.mp4" type="video/mp4">
       </video>
     </div>
+    <!-- Row 3, Col 3 -->
     <div style="border-radius:5px;overflow:hidden;">
       <img src="../../assets/Party_Before.JPG" alt="Community gathering" style="width:100%;height:100%;object-fit:cover;">
-    </div>
-  </div>
-  <!-- Centered terracotta card -->
-  <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;height:100%;padding:60px;">
-    <div style="background:var(--terracotta);border-radius:16px;padding:3rem 3.5rem;max-width:520px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-      <div class="label" style="justify-content:center;color:rgba(244,242,232,0.6);">Events &amp; Activities</div>
-      <h2 style="color:var(--bg);font-size:clamp(2rem,3.5vw,2.8rem);line-height:1.15;margin-bottom:1.25rem;">Already happening</h2>
-      <p style="color:rgba(244,242,232,0.85);font-size:1.1rem;line-height:1.75;">Tech meetups, yoga sessions, running clubs, work sessions, parties on the deck.</p>
-      <p style="color:rgba(244,242,232,0.55);font-size:0.88rem;line-height:1.7;margin-top:1rem;">This isn&rsquo;t a plan &mdash; it&rsquo;s what we&rsquo;re already doing at Kin Haus, our co-living space on Koh Phangan.</p>
     </div>
   </div>
   <div class="sn">19</div>
