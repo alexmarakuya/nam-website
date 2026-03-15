@@ -1811,7 +1811,8 @@
           var rSym = sel === 'EUR' ? '\u20AC' : sel === 'USD' ? '$' : '';
           var rLbl = sel === 'THB' ? 'THB ' : '';
           var fK = function(v) { return Math.round(v / 1000) + 'K'; };
-          el.textContent = rLbl + rSym + fK(cLo) + '\u2013' + fK(cHi);
+          var loStr = fK(cLo), hiStr = fK(cHi);
+          el.textContent = loStr === hiStr ? rLbl + rSym + '~' + loStr : rLbl + rSym + loStr + '\u2013' + hiStr;
           break;
       }
     });
