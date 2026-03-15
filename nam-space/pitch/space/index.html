@@ -1208,17 +1208,24 @@
 <!-- ═══════════════════════════════════════════ -->
 
 <!-- 27 ─ Appendix Divider -->
-<section class="slide bg-green grain watermark watermark-dark wm-center" id="s27">
+<section class="slide bg-cream grain" id="s27" style="overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;width:500px;height:500px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(196,109,72,0.18) 0%,rgba(196,109,72,0.05) 50%,transparent 70%);animation:orbFloat 8s ease-in-out infinite;pointer-events:none;z-index:0;"></div>
+  <style>
+    @keyframes orbFloat {
+      0%,100% { transform:translate(-50%,-50%) scale(1); opacity:0.7; }
+      50% { transform:translate(-50%,-50%) scale(1.15); opacity:1; }
+    }
+  </style>
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
-    <div class="label" style="justify-content:center;">Appendix</div>
-    <h2 style="max-width:600px;">Financials</h2>
-    <p class="sub" style="margin-top:1rem;color:rgba(244,242,232,0.75);max-width:550px;">We need to raise <span data-currency data-thb="18720000" data-format="compact">THB 18.7M</span> to fully realise Phase 1.</p>
-    <div style="display:flex;gap:0;margin-top:2rem;border-radius:6px;overflow:hidden;border:1px solid rgba(244,242,232,0.2);">
-      <button onclick="selectCurrency('THB')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:rgba(244,242,232,0.15);color:var(--bg);border:none;cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="THB">THB</button>
-      <button onclick="selectCurrency('USD')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:rgba(244,242,232,0.5);border:none;border-left:1px solid rgba(244,242,232,0.2);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="USD">USD</button>
-      <button onclick="selectCurrency('EUR')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:rgba(244,242,232,0.5);border:none;border-left:1px solid rgba(244,242,232,0.2);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="EUR">EUR</button>
+    <div class="label" style="justify-content:center;color:var(--text-secondary);">Appendix</div>
+    <h2 style="max-width:600px;color:var(--green);">Financials</h2>
+    <p class="sub" style="margin-top:1rem;max-width:550px;">We need to raise <span data-currency data-thb="18720000" data-format="compact">THB 18.7M</span> to fully realise Phase 1.</p>
+    <div style="display:flex;gap:0;margin-top:2rem;border-radius:6px;overflow:hidden;border:1px solid rgba(42,58,43,0.15);">
+      <button onclick="selectCurrency('THB')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:rgba(42,58,43,0.08);color:var(--green);border:none;cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="THB">THB</button>
+      <button onclick="selectCurrency('USD')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:var(--text-secondary);border:none;border-left:1px solid rgba(42,58,43,0.15);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="USD">USD</button>
+      <button onclick="selectCurrency('EUR')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:var(--text-secondary);border:none;border-left:1px solid rgba(42,58,43,0.15);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="EUR">EUR</button>
     </div>
-    <p class="sub" style="margin-top:0.75rem;color:rgba(244,242,232,0.4);font-size:0.8rem;">Select your preferred currency. Rates update automatically.</p>
+    <p class="sub" style="margin-top:0.75rem;font-size:0.8rem;">Select your preferred currency. Rates update automatically.</p>
   </div>
   <div class="sn">27</div>
 </section>
@@ -1740,8 +1747,8 @@
     document.getElementById('currencyLabel').textContent = cur;
     document.querySelectorAll('.currency-opt').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.cur === cur); });
     document.querySelectorAll('.appendix-cur').forEach(function(btn) {
-      btn.style.background = btn.dataset.cur === cur ? 'rgba(244,242,232,0.15)' : 'transparent';
-      btn.style.color = btn.dataset.cur === cur ? 'var(--bg)' : 'rgba(244,242,232,0.5)';
+      btn.style.background = btn.dataset.cur === cur ? 'rgba(42,58,43,0.08)' : 'transparent';
+      btn.style.color = btn.dataset.cur === cur ? 'var(--green)' : 'var(--text-secondary)';
     });
     document.getElementById('currencyPicker').classList.remove('open');
     updateCurrency();
