@@ -211,7 +211,7 @@
   .card .src { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: var(--text-muted); margin-top: 1.25rem; letter-spacing: 0.03em; }
 
   /* List items */
-  .list-item { padding: 2rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; align-items: flex-start; }
+  .list-item { padding: var(--list-pad, 2rem) 0; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; align-items: flex-start; }
   .list-item:last-child { border-bottom: none; }
   .dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; background: var(--terracotta); margin-top: 0.5rem; }
   .list-item h4 { font-size: 1.1rem; font-weight: 500; }
@@ -810,10 +810,10 @@
     </div>
   </div>
   <div class="swiss-split-bar"></div>
-  <div class="swiss-split-content">
+  <div class="swiss-split-content" style="--list-pad:1.25rem;">
     <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Work &amp; Creation</div>
-    <h2>Designed for deep work and creative flow</h2>
-    <p class="sub" style="margin-bottom:2rem;">Every zone tuned to how people actually work &mdash; from deep focus to open collaboration.</p>
+    <h2 style="font-size:1.6rem;">Designed for deep work and creative flow</h2>
+    <p class="sub" style="margin-bottom:1.25rem;">Every zone tuned to how people actually work &mdash; from deep focus to open collaboration.</p>
     <div class="list-item">
       <div class="dot"></div>
       <div><h4>Deep-focus workspace</h4><p>Quiet, distraction-free zones designed for heads-down concentration.</p></div>
@@ -824,7 +824,7 @@
     </div>
     <div class="list-item">
       <div class="dot"></div>
-      <div><h4>Private offices</h4><p>Enclosed rooms for calls, meetings, and focused team work.</p></div>
+      <div><h4>Private work pods</h4><p>Enclosed rooms for calls, meetings, and focused team work.</p></div>
     </div>
     <div class="list-item">
       <div class="dot"></div>
@@ -900,7 +900,6 @@
     <img src="../../assets/cafe-1.jpg" alt="NāM community">
     <div class="swiss-split-img-overlay"></div>
     <div class="swiss-split-img-caption">
-      <h2>Where it all connects</h2>
     </div>
   </div>
   <div class="swiss-split-bar"></div>
