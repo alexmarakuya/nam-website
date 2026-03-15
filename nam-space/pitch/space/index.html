@@ -1212,7 +1212,12 @@
     <div class="label" style="justify-content:center;">Appendix</div>
     <h2 style="max-width:600px;">Financials</h2>
     <p class="sub" style="margin-top:1rem;color:rgba(244,242,232,0.75);max-width:550px;">We need to raise &#x0E3F;18.7 million to fully realise Phase 1. All figures in Thai Baht. USD/EUR equivalents are indicative only.</p>
-    <p class="sub" style="margin-top:0.75rem;color:rgba(244,242,232,0.5);font-size:0.85rem;max-width:550px;">Tip: Use the currency picker in the navigation bar to view all figures in THB, USD, or EUR.</p>
+    <div style="display:flex;gap:0;margin-top:2rem;border-radius:6px;overflow:hidden;border:1px solid rgba(244,242,232,0.2);">
+      <button onclick="selectCurrency('THB')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:rgba(244,242,232,0.15);color:var(--bg);border:none;cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="THB">THB</button>
+      <button onclick="selectCurrency('USD')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:rgba(244,242,232,0.5);border:none;border-left:1px solid rgba(244,242,232,0.2);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="USD">USD</button>
+      <button onclick="selectCurrency('EUR')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:rgba(244,242,232,0.5);border:none;border-left:1px solid rgba(244,242,232,0.2);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="EUR">EUR</button>
+    </div>
+    <p class="sub" style="margin-top:0.75rem;color:rgba(244,242,232,0.4);font-size:0.8rem;">Select your preferred currency. Rates update automatically.</p>
   </div>
   <div class="sn">27</div>
 </section>
@@ -1249,6 +1254,10 @@
           <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
             <span style="color:var(--text-secondary);font-size:0.95rem;">Term</span>
             <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);">30 years</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Buyout option</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);">Available</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:0.6rem 0;">
             <span style="color:var(--text-secondary);font-size:0.95rem;">Slots available</span>
@@ -1295,34 +1304,26 @@
       <h2 style="font-size:2rem;">More than a return</h2>
       <p class="sub" style="margin-top:0.75rem;color:rgba(244,242,232,0.7);">Every studio investor becomes part of the N&#x101;M ecosystem.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(244,242,232,0.2);">
-      <div style="display:flex;gap:1.2rem;padding:1.5rem 1.5rem 1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:0.15rem;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <div>
-          <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.35rem;">2 weeks free stay per year</h4>
-          <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.65);line-height:1.5;">Use your studio or any available room for 14 nights annually &mdash; on the house.</p>
-        </div>
+    <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(244,242,232,0.2);">
+      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
+        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">2 weeks free stay per year</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">14 nights annually in your studio or any available room &mdash; on the house.</p>
       </div>
-      <div style="display:flex;gap:1.2rem;padding:1.5rem 0 1.5rem 1.5rem;border-bottom:1px solid rgba(244,242,232,0.15);border-left:1px solid rgba(244,242,232,0.15);">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:0.15rem;"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
-        <div>
-          <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.35rem;">30 years full-access membership</h4>
-          <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.65);line-height:1.5;">Co-working, wellness, events, and community &mdash; lifetime access to the entire campus.</p>
-        </div>
+      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
+        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">30 years full-access membership</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">Co-working, wellness, events, and community access for the full term.</p>
       </div>
-      <div style="display:flex;gap:1.2rem;padding:1.5rem 1.5rem 1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:0.15rem;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        <div>
-          <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.35rem;">First dibs on new opportunities</h4>
-          <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.65);line-height:1.5;">Priority access to future investment rounds across the N&#x101;M ecosystem &mdash; Phase 2, 3, and beyond.</p>
-        </div>
+      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
+        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">Priority access to new opportunities</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">First dibs on future investment rounds across the N&#x101;M ecosystem.</p>
       </div>
-      <div style="display:flex;gap:1.2rem;padding:1.5rem 0 1.5rem 1.5rem;border-bottom:1px solid rgba(244,242,232,0.15);border-left:1px solid rgba(244,242,232,0.15);">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--bg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:0.15rem;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <div>
-          <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.35rem;">A vibrant, globally connected community</h4>
-          <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.65);line-height:1.5;">Join a network of founders, creatives, and builders from around the world. Your investment connects you to people, not just a property.</p>
-        </div>
+      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
+        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">Buyout option</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">Early exit available with structured buyout terms at predetermined intervals.</p>
+      </div>
+      <div style="padding:1.5rem 0;">
+        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">A vibrant, globally connected community</h4>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">Join a network of founders, creatives, and builders from around the world.</p>
       </div>
     </div>
   </div>
@@ -1728,6 +1729,10 @@
     activeCurrency = cur;
     document.getElementById('currencyLabel').textContent = cur;
     document.querySelectorAll('.currency-opt').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.cur === cur); });
+    document.querySelectorAll('.appendix-cur').forEach(function(btn) {
+      btn.style.background = btn.dataset.cur === cur ? 'rgba(244,242,232,0.15)' : 'transparent';
+      btn.style.color = btn.dataset.cur === cur ? 'var(--bg)' : 'rgba(244,242,232,0.5)';
+    });
     document.getElementById('currencyPicker').classList.remove('open');
     updateCurrency();
   };
