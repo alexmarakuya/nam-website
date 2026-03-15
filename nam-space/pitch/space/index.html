@@ -1196,9 +1196,7 @@
       <p>Whether you want to work from here, collaborate, or just stay connected &mdash; we&rsquo;d love to hear from you.</p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
         <a href="https://wa.me/66612345678" class="cta-btn cta-desktop-btn" target="_blank" rel="noopener">Message on WhatsApp &rarr;</a>
-      </div>
-      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(42,58,43,0.1);">
-        <button onclick="goTo(26)" style="background:none;border:1px solid var(--terracotta);color:var(--terracotta);font-family:'Sometype Mono',monospace;font-size:0.85rem;padding:0.75rem 1.5rem;cursor:pointer;letter-spacing:0.05em;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--terracotta)';this.style.color='var(--bg)'" onmouseout="this.style.background='none';this.style.color='var(--terracotta)'">Interested in investing? &rarr;</button>
+        <button onclick="goTo(26)" class="cta-btn" style="background:transparent;border:2px solid var(--green);color:var(--green);cursor:pointer;">Interested in investing? &rarr;</button>
       </div>
     </div>
   </div>
@@ -1588,8 +1586,7 @@
     if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
   }
 
-  var appendixWall = 25; /* idx 25 = s26 (CTA) — arrow/swipe stops here; financials require explicit click */
-  window.nextSlide = function() { if (current === appendixWall) return; goTo(current + 1); };
+  window.nextSlide = function() { goTo(current + 1); };
   window.prevSlide = function() { goTo(current - 1); };
 
   document.addEventListener('keydown', function(e) {
