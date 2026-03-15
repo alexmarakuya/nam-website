@@ -1197,6 +1197,9 @@
       <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
         <a href="https://wa.me/66612345678" class="cta-btn cta-desktop-btn" target="_blank" rel="noopener">Message on WhatsApp &rarr;</a>
       </div>
+      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(42,58,43,0.1);">
+        <button onclick="goTo(26)" style="background:none;border:1px solid var(--terracotta);color:var(--terracotta);font-family:'Sometype Mono',monospace;font-size:0.85rem;padding:0.75rem 1.5rem;cursor:pointer;letter-spacing:0.05em;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--terracotta)';this.style.color='var(--bg)'" onmouseout="this.style.background='none';this.style.color='var(--terracotta)'">Interested in investing? &rarr;</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1211,7 +1214,7 @@
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
     <div class="label" style="justify-content:center;">Appendix</div>
     <h2 style="max-width:600px;">Financials</h2>
-    <p class="sub" style="margin-top:1rem;color:rgba(244,242,232,0.75);max-width:550px;">We need to raise &#x0E3F;18.7 million to fully realise Phase 1. All figures in Thai Baht. USD/EUR equivalents are indicative only.</p>
+    <p class="sub" style="margin-top:1rem;color:rgba(244,242,232,0.75);max-width:550px;">We need to raise <span data-currency data-thb="18720000" data-format="compact">THB 18.7M</span> to fully realise Phase 1.</p>
     <div style="display:flex;gap:0;margin-top:2rem;border-radius:6px;overflow:hidden;border:1px solid rgba(244,242,232,0.2);">
       <button onclick="selectCurrency('THB')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:rgba(244,242,232,0.15);color:var(--bg);border:none;cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="THB">THB</button>
       <button onclick="selectCurrency('USD')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:rgba(244,242,232,0.5);border:none;border-left:1px solid rgba(244,242,232,0.2);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="USD">USD</button>
@@ -1298,32 +1301,40 @@
 
 <!-- 29 ─ Investor Benefits -->
 <section class="slide bg-terracotta grain" id="s29">
-  <div class="slide-inner" style="max-width:900px;">
+  <div class="slide-inner" style="max-width:1050px;">
     <div style="margin-bottom:2.5rem;">
       <div class="label" style="color:rgba(244,242,232,0.6);">Investor Benefits</div>
       <h2 style="font-size:2rem;">More than a return</h2>
-      <p class="sub" style="margin-top:0.75rem;color:rgba(244,242,232,0.7);">Every studio investor becomes part of the N&#x101;M ecosystem.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(244,242,232,0.2);">
-      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
-        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">2 weeks free stay per year</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">14 nights annually in your studio or any available room &mdash; on the house.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;">
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--bg);line-height:1;">14</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-top:0.35rem;">nights / year</div>
+        <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:1rem;">Free annual stay in your studio or any available room.</p>
       </div>
-      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
-        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">30 years full-access membership</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">Co-working, wellness, events, and community access for the full term.</p>
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;">
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--bg);line-height:1;">30</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-top:0.35rem;">years membership</div>
+        <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:1rem;">Full access to co-working, wellness, events, and community.</p>
       </div>
-      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
-        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">Priority access to new opportunities</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">First dibs on future investment rounds across the N&#x101;M ecosystem.</p>
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;">
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--bg);line-height:1;">1st</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-top:0.35rem;">priority access</div>
+        <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:1rem;">First dibs on future investment rounds across the ecosystem.</p>
       </div>
-      <div style="padding:1.5rem 0;border-bottom:1px solid rgba(244,242,232,0.15);">
-        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">Buyout option</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">Early exit available with structured buyout terms at predetermined intervals.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.25rem;">
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;display:flex;gap:1.5rem;align-items:center;">
+        <div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:1.6rem;font-weight:600;color:var(--bg);line-height:1;">Buyout option</div>
+          <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:0.6rem;">Early exit available with structured terms at predetermined intervals.</p>
+        </div>
       </div>
-      <div style="padding:1.5rem 0;">
-        <h4 style="color:var(--bg);font-size:1.3rem;margin-bottom:0.4rem;">A vibrant, globally connected community</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.5;">Join a network of founders, creatives, and builders from around the world.</p>
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;display:flex;gap:1.5rem;align-items:center;">
+        <div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:1.6rem;font-weight:600;color:var(--bg);line-height:1;">Global community</div>
+          <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:0.6rem;">Join a network of founders, creatives, and builders worldwide.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1363,9 +1374,18 @@
           <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">The founder is working with central government to position Thailand &mdash; and Koh Phangan specifically &mdash; as a premier digital nomad destination. The island is transitioning from party to wellness to entrepreneur hub, and N&#x101;M is designed to spearhead that shift.</p>
         </div>
       </div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <h4 style="color:var(--terracotta);font-size:1.05rem;">Island ecosystem</h4>
+        </div>
+        <div>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">We work closely with other projects on the island to co-organise community events and put Koh Phangan on the map for tech founders. Our goal is to attract conferences, hackathons, and pop-up cities like Edge City and Network State to use the island as a base &mdash; creating a flywheel that benefits everyone.</p>
+        </div>
+      </div>
       <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.5rem 0;">
         <div>
           <h4 style="color:var(--terracotta);font-size:1.05rem;">Execution</h4>
+          <img src="../../assets/Alex.jpg" alt="Alex — Founder" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-top:0.75rem;">
         </div>
         <div>
           <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">7&ndash;8 years as a full-time digital nomad. Worked with Fortune&nbsp;500 companies (American Express, VMware, Volkswagen) and impact-driven startups. Experienced in building online and in-person communities. Deep understanding of what this audience needs &mdash; because the founder is the audience.</p>
@@ -1576,7 +1596,8 @@
     if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
   }
 
-  window.nextSlide = function() { goTo(current + 1); };
+  var appendixWall = 25; /* idx 25 = s26 (CTA) — arrow/swipe stops here; financials require explicit click */
+  window.nextSlide = function() { if (current === appendixWall) return; goTo(current + 1); };
   window.prevSlide = function() { goTo(current - 1); };
 
   document.addEventListener('keydown', function(e) {
