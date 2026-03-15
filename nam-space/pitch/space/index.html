@@ -1209,11 +1209,20 @@
 
 <!-- 27 ─ Appendix Divider -->
 <section class="slide bg-cream grain" id="s27" style="overflow:hidden;">
-  <div style="position:absolute;top:50%;left:50%;width:500px;height:500px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(196,109,72,0.18) 0%,rgba(196,109,72,0.05) 50%,transparent 70%);animation:orbFloat 8s ease-in-out infinite;pointer-events:none;z-index:0;"></div>
+  <div style="position:absolute;top:50%;left:50%;width:900px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(196,109,72,0.2) 0%,rgba(196,109,72,0.06) 45%,transparent 65%);animation:orbMove 20s ease-in-out infinite,orbMorph 12s ease-in-out infinite;pointer-events:none;z-index:0;filter:blur(30px);"></div>
   <style>
-    @keyframes orbFloat {
-      0%,100% { transform:translate(-50%,-50%) scale(1); opacity:0.7; }
-      50% { transform:translate(-50%,-50%) scale(1.15); opacity:1; }
+    @keyframes orbMove {
+      0%   { transform:translate(-50%,-50%) translate(0,0); }
+      25%  { transform:translate(-50%,-50%) translate(80px,-60px); }
+      50%  { transform:translate(-50%,-50%) translate(-40px,70px); }
+      75%  { transform:translate(-50%,-50%) translate(-70px,-30px); }
+      100% { transform:translate(-50%,-50%) translate(0,0); }
+    }
+    @keyframes orbMorph {
+      0%,100% { border-radius:50% 40% 55% 45%; opacity:0.7; }
+      25%  { border-radius:40% 55% 45% 50%; opacity:0.9; }
+      50%  { border-radius:55% 45% 40% 55%; opacity:1; }
+      75%  { border-radius:45% 50% 55% 40%; opacity:0.8; }
     }
   </style>
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
