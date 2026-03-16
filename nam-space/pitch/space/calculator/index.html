@@ -947,12 +947,20 @@
             <span class="output-row-label">Investor returns (8 rooms)</span>
             <span class="output-row-value" id="out-pl-investor">—</span>
           </div>
-          <div class="output-row total" id="out-pl-net-row">
-            <span class="output-row-label">Developer Net</span>
-            <span class="output-row-value" id="out-pl-net">—</span>
+          <div class="output-row total" id="out-pl-pretax-row">
+            <span class="output-row-label">Pre-tax Net</span>
+            <span class="output-row-value" id="out-pl-pretax">—</span>
+          </div>
+          <div class="output-row negative">
+            <span class="output-row-label">Corporate tax (SME rates)</span>
+            <span class="output-row-value" id="out-pl-tax">—</span>
+          </div>
+          <div class="output-row total" id="out-pl-aftertax-row">
+            <span class="output-row-label">After-tax Net</span>
+            <span class="output-row-value" id="out-pl-aftertax">—</span>
           </div>
           <div class="output-row">
-            <span class="output-row-label">Margin</span>
+            <span class="output-row-label">After-tax margin</span>
             <span class="output-row-value" id="out-pl-margin">—</span>
           </div>
         </div>
@@ -972,8 +980,16 @@
             <span class="output-row-label">Annual investor payout</span>
             <span class="output-row-value" id="out-ann-investor">—</span>
           </div>
+          <div class="output-row">
+            <span class="output-row-label">Annual pre-tax net</span>
+            <span class="output-row-value" id="out-ann-pretax">—</span>
+          </div>
+          <div class="output-row negative">
+            <span class="output-row-label">Corporate tax</span>
+            <span class="output-row-value" id="out-ann-tax">—</span>
+          </div>
           <div class="output-row total" id="out-ann-dev-row">
-            <span class="output-row-label">Annual developer net</span>
+            <span class="output-row-label">Annual after-tax net</span>
             <span class="output-row-value" id="out-ann-dev">—</span>
           </div>
         </div>
@@ -1042,8 +1058,12 @@
           <span class="summary-row-label">Investor returns</span>
           <span class="summary-row-value negative" id="sum-investor">—</span>
         </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Corporate tax</span>
+          <span class="summary-row-value negative" id="sum-tax">—</span>
+        </div>
         <div class="summary-row" id="sum-net-row">
-          <span class="summary-row-label" style="font-weight:600;color:var(--text)">Developer Net</span>
+          <span class="summary-row-label" style="font-weight:600;color:var(--text)">After-tax Net</span>
           <span class="summary-row-value" style="font-weight:700;font-size:15px" id="sum-net">—</span>
         </div>
         <div class="summary-row">
@@ -1249,6 +1269,22 @@
   var INVESTOR_RETURNS = 124800;
   var INVESTMENT_PER_ROOM = 2340000;
 
+  // Thai SME corporate income tax (tiered rates on annual net profit)
+  function calcSmeTax(annualProfit) {
+    if (annualProfit <= 0) return 0;
+    var tax = 0;
+    // First 300,000: exempt
+    // 300,001 – 3,000,000: 15%
+    // Over 3,000,000: 20%
+    if (annualProfit > 3000000) {
+      tax += (annualProfit - 3000000) * 0.20;
+      tax += (3000000 - 300000) * 0.15;
+    } else if (annualProfit > 300000) {
+      tax += (annualProfit - 300000) * 0.15;
+    }
+    return tax;
+  }
+
   function calculate() {
     var occ = parseInt(sliders.occupancy.value) / 100;
     var members = parseInt(sliders.members.value);
@@ -1307,14 +1343,21 @@
 
     // Combined P&L
     var totalRevenue = coLivingRevenue + coWorkingRevenue;
-    var developerNet = totalRevenue - OPEX - INVESTOR_RETURNS;
-    var margin = totalRevenue > 0 ? (developerNet / totalRevenue * 100) : 0;
+    var preTaxNet = totalRevenue - OPEX - INVESTOR_RETURNS;
+    var margin = totalRevenue > 0 ? (preTaxNet / totalRevenue * 100) : 0;
+
+    // Thai SME corporate tax (annual, tiered)
+    var annualPreTax = preTaxNet * 12;
+    var annualTax = calcSmeTax(annualPreTax);
+    var monthlyTax = annualTax / 12;
+    var afterTaxNet = preTaxNet - monthlyTax;
+    var afterTaxMargin = totalRevenue > 0 ? (afterTaxNet / totalRevenue * 100) : 0;
 
     // Annual
     var annualRev = totalRevenue * 12;
     var annualOpex = OPEX * 12;
     var annualInvestor = INVESTOR_RETURNS * 12;
-    var annualDev = developerNet * 12;
+    var annualAfterTax = afterTaxNet * 12;
 
     // Investor metrics
     var annualPerInvestor = (INVESTOR_RETURNS / ROOMS) * 12;
@@ -1337,12 +1380,13 @@
     document.getElementById('sum-coworking').textContent = fmtCur(coWorkingRevenue);
     document.getElementById('sum-opex').textContent = '-' + fmtCur(OPEX);
     document.getElementById('sum-investor').textContent = '-' + fmtCur(INVESTOR_RETURNS);
-    document.getElementById('sum-net').textContent = fmtCur(developerNet);
-    document.getElementById('sum-margin').textContent = margin.toFixed(1) + '%';
+    document.getElementById('sum-tax').textContent = '-' + fmtCur(monthlyTax);
+    document.getElementById('sum-net').textContent = fmtCur(afterTaxNet);
+    document.getElementById('sum-margin').textContent = afterTaxMargin.toFixed(1) + '%';
 
     var sumNetRow = document.getElementById('sum-net-row');
     sumNetRow.classList.remove('positive', 'negative');
-    sumNetRow.classList.add(developerNet >= 0 ? 'positive' : 'negative');
+    sumNetRow.classList.add(afterTaxNet >= 0 ? 'positive' : 'negative');
 
     document.getElementById('sum-yield').textContent = yieldPct.toFixed(1) + '%';
     document.getElementById('sum-inv-monthly').textContent = fmtCur(monthlyPerInvestor);
@@ -1369,22 +1413,30 @@
     document.getElementById('out-pl-gross').textContent = fmtCur(totalRevenue);
     document.getElementById('out-pl-opex').textContent = '-' + fmtCur(OPEX);
     document.getElementById('out-pl-investor').textContent = '-' + fmtCur(INVESTOR_RETURNS);
-    document.getElementById('out-pl-net').textContent = fmtCur(developerNet);
-    document.getElementById('out-pl-margin').textContent = margin.toFixed(1) + '%';
+    document.getElementById('out-pl-pretax').textContent = fmtCur(preTaxNet);
+    document.getElementById('out-pl-tax').textContent = '-' + fmtCur(monthlyTax);
+    document.getElementById('out-pl-aftertax').textContent = fmtCur(afterTaxNet);
+    document.getElementById('out-pl-margin').textContent = afterTaxMargin.toFixed(1) + '%';
 
-    var netRow = document.getElementById('out-pl-net-row');
-    netRow.classList.remove('net-positive', 'net-negative');
-    netRow.classList.add(developerNet >= 0 ? 'net-positive' : 'net-negative');
+    var pretaxRow = document.getElementById('out-pl-pretax-row');
+    pretaxRow.classList.remove('net-positive', 'net-negative');
+    pretaxRow.classList.add(preTaxNet >= 0 ? 'net-positive' : 'net-negative');
+
+    var aftertaxRow = document.getElementById('out-pl-aftertax-row');
+    aftertaxRow.classList.remove('net-positive', 'net-negative');
+    aftertaxRow.classList.add(afterTaxNet >= 0 ? 'net-positive' : 'net-negative');
 
     // Card 3: Annual Summary
     document.getElementById('out-ann-rev').textContent = fmtCur(annualRev);
     document.getElementById('out-ann-opex').textContent = '-' + fmtCur(annualOpex);
     document.getElementById('out-ann-investor').textContent = '-' + fmtCur(annualInvestor);
-    document.getElementById('out-ann-dev').textContent = fmtCur(annualDev);
+    document.getElementById('out-ann-pretax').textContent = fmtCur(annualPreTax);
+    document.getElementById('out-ann-tax').textContent = '-' + fmtCur(annualTax);
+    document.getElementById('out-ann-dev').textContent = fmtCur(annualAfterTax);
 
     var annDevRow = document.getElementById('out-ann-dev-row');
     annDevRow.classList.remove('net-positive', 'net-negative');
-    annDevRow.classList.add(annualDev >= 0 ? 'net-positive' : 'net-negative');
+    annDevRow.classList.add(annualAfterTax >= 0 ? 'net-positive' : 'net-negative');
 
     // Card 4: Investor Metrics
     document.getElementById('out-inv-cost').textContent = fmtCur(INVESTMENT_PER_ROOM);
