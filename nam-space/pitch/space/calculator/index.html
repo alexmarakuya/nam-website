@@ -26,7 +26,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { height: 100%; }
 
   body {
@@ -99,10 +98,7 @@
   }
 
   /* Currency picker */
-  .currency-picker {
-    position: relative;
-    flex-shrink: 0;
-  }
+  .currency-picker { position: relative; flex-shrink: 0; }
 
   .currency-btn {
     display: flex;
@@ -153,9 +149,7 @@
   .currency-opt.active { color: var(--green); background: rgba(42,58,43,0.08); font-weight: 600; }
 
   /* Preset buttons */
-  .presets {
-    margin-bottom: 36px;
-  }
+  .presets { margin-bottom: 36px; }
 
   .presets h3 {
     font-size: 12px;
@@ -192,10 +186,56 @@
   /* Main grid */
   .main-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 380px;
     gap: 48px;
     padding-bottom: 60px;
+    align-items: start;
   }
+
+  /* ── Tab navigation ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .tab-btn {
+    padding: 12px 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    position: relative;
+    transition: color 0.2s;
+  }
+  .tab-btn:hover { color: var(--text-secondary); }
+
+  .tab-btn.active { color: var(--text); }
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--terracotta);
+  }
+
+  .tab-btn .tab-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
   /* Sections */
   .section-title {
@@ -217,13 +257,8 @@
     background: var(--white);
   }
 
-  .business-section.coliving {
-    border-left: 4px solid var(--terracotta);
-  }
-
-  .business-section.coworking {
-    border-left: 4px solid var(--green);
-  }
+  .business-section.coliving { border-left: 4px solid var(--terracotta); }
+  .business-section.coworking { border-left: 4px solid var(--green); }
 
   .business-section-header {
     font-size: 16px;
@@ -241,7 +276,6 @@
     display: inline-block;
     flex-shrink: 0;
   }
-
   .business-section-header .accent-dot.terracotta { background: var(--terracotta); }
   .business-section-header .accent-dot.green { background: var(--green); }
 
@@ -250,6 +284,28 @@
     color: var(--text-muted);
     margin-bottom: 20px;
     font-weight: 400;
+  }
+
+  /* Sub-group within co-working */
+  .input-subgroup {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .input-subgroup:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .input-subgroup-title {
+    font-size: 11px;
+    font-family: 'Sometype Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 500;
   }
 
   .fixed-display {
@@ -274,13 +330,8 @@
   }
 
   /* Sliders */
-  .slider-group {
-    margin-bottom: 24px;
-  }
-
-  .slider-group:last-child {
-    margin-bottom: 0;
-  }
+  .slider-group { margin-bottom: 24px; }
+  .slider-group:last-child { margin-bottom: 0; }
 
   .slider-header {
     display: flex;
@@ -349,7 +400,7 @@
     background: var(--bg-tan);
   }
 
-  /* Revenue mix special */
+  /* Revenue mix */
   .mix-group {
     margin-top: 20px;
     padding: 16px;
@@ -376,10 +427,7 @@
     background: var(--bg-tan);
   }
 
-  .mix-bar-seg {
-    height: 100%;
-    transition: width 0.2s;
-  }
+  .mix-bar-seg { height: 100%; transition: width 0.2s; }
   .mix-bar-seg.nightly { background: var(--terracotta); }
   .mix-bar-seg.weekly { background: var(--green); }
   .mix-bar-seg.monthly { background: var(--text-muted); }
@@ -406,12 +454,112 @@
     border-radius: 50%;
     flex-shrink: 0;
   }
-
   .mix-legend-dot.nightly { background: var(--terracotta); }
   .mix-legend-dot.weekly { background: var(--green); }
   .mix-legend-dot.monthly { background: var(--text-muted); }
 
-  /* Output cards */
+  /* ── Right column: Live summary ── */
+  .summary-col {
+    position: sticky;
+    top: 24px;
+  }
+
+  .summary-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .summary-card h3 {
+    font-size: 12px;
+    font-family: 'Sometype Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .summary-hero {
+    text-align: center;
+    padding: 20px 0 16px;
+  }
+
+  .summary-hero-label {
+    font-size: 12px;
+    font-family: 'Sometype Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .summary-hero-value {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--terracotta);
+    letter-spacing: -1px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(212,208,196,0.4);
+  }
+  .summary-row:last-child { border-bottom: none; }
+
+  .summary-row-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .summary-row-value {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .summary-row.positive .summary-row-value { color: #2a7a3b; }
+  .summary-row.negative .summary-row-value { color: #b54a2a; }
+
+  /* Revenue split bar */
+  .rev-split-bar {
+    display: flex;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 12px;
+    background: var(--bg-tan);
+  }
+
+  .rev-split-bar .seg-coliving {
+    height: 100%;
+    background: var(--terracotta);
+    transition: width 0.3s;
+  }
+
+  .rev-split-bar .seg-coworking {
+    height: 100%;
+    background: var(--green);
+    transition: width 0.3s;
+  }
+
+  .rev-split-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 11px;
+    font-family: 'Sometype Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  /* Output cards (Combined tab) */
   .output-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -451,9 +599,7 @@
     color: var(--text);
   }
 
-  .output-row + .output-row.total {
-    border-top: 2px solid var(--green);
-  }
+  .output-row:has(+ .output-row.total) { border-bottom: none; }
 
   .output-row.total {
     border-top: 2px solid var(--green);
@@ -462,68 +608,14 @@
     padding-top: 14px;
   }
 
-  /* Remove bottom border on the row just before a total row to prevent doubling */
-  .output-row:has(+ .output-row.total) {
-    border-bottom: none;
-  }
-
-  .output-row.total .output-row-label {
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .output-row.total .output-row-value {
-    font-size: 16px;
-    color: var(--terracotta);
-  }
+  .output-row.total .output-row-label { font-weight: 600; color: var(--text); }
+  .output-row.total .output-row-value { font-size: 16px; color: var(--terracotta); }
 
   .output-row.negative .output-row-value { color: #b54a2a; }
   .output-row.highlight .output-row-value { color: var(--terracotta); font-size: 16px; }
   .output-row.highlight .output-row-label { font-weight: 600; color: var(--text); }
-
   .output-row.net-positive .output-row-value { color: #2a7a3b; }
   .output-row.net-negative .output-row-value { color: #b54a2a; }
-
-  .output-row.sub .output-row-label {
-    padding-left: 12px;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-  .output-row.sub .output-row-value {
-    font-size: 13px;
-    color: var(--text-secondary);
-  }
-
-  /* Revenue split bar */
-  .rev-split-bar {
-    display: flex;
-    height: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 12px;
-    background: var(--bg-tan);
-  }
-
-  .rev-split-bar .seg-coliving {
-    height: 100%;
-    background: var(--terracotta);
-    transition: width 0.3s;
-  }
-
-  .rev-split-bar .seg-coworking {
-    height: 100%;
-    background: var(--green);
-    transition: width 0.3s;
-  }
-
-  .rev-split-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 6px;
-    font-size: 11px;
-    font-family: 'Sometype Mono', monospace;
-    color: var(--text-muted);
-  }
 
   /* Footer */
   footer {
@@ -532,24 +624,18 @@
     text-align: center;
   }
 
-  footer p {
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  footer a {
-    color: var(--terracotta);
-    text-decoration: none;
-  }
+  footer p { font-size: 13px; color: var(--text-muted); }
+  footer a { color: var(--terracotta); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
   /* Responsive */
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
     .container { padding: 0 24px; }
     .main-grid {
       grid-template-columns: 1fr;
       gap: 32px;
     }
+    .summary-col { position: static; }
     header { padding: 28px 0 24px; margin-bottom: 28px; }
     .header-left h1 { font-size: 22px; }
   }
@@ -560,6 +646,8 @@
     .preset-btns { flex-direction: column; }
     .preset-btn { width: 100%; text-align: center; }
     .business-section { padding: 18px; }
+    .tab-btn { padding: 10px 14px; font-size: 13px; }
+    .summary-hero-value { font-size: 26px; }
   }
 </style>
 </head>
@@ -597,297 +685,389 @@
   </div>
 
   <div class="main-grid">
-    <!-- LEFT COLUMN — Inputs -->
+    <!-- LEFT COLUMN — Tabbed inputs + Combined results -->
     <div class="inputs-col">
 
-      <!-- Co-Living Section -->
-      <div class="business-section coliving">
-        <div class="business-section-header">
-          <span class="accent-dot terracotta"></span>
-          Co-Living
-        </div>
-        <p class="business-section-sub">Accommodation revenue</p>
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="coliving" onclick="switchTab('coliving')">
+          <span class="tab-dot" style="background:var(--terracotta)"></span>Co-Living
+        </button>
+        <button class="tab-btn" data-tab="coworking" onclick="switchTab('coworking')">
+          <span class="tab-dot" style="background:var(--green)"></span>Co-Working
+        </button>
+        <button class="tab-btn" data-tab="combined" onclick="switchTab('combined')">
+          Combined
+        </button>
+      </div>
 
-        <div class="fixed-display">
-          <span class="fixed-display-label">Rooms</span>
-          <span class="fixed-display-value">8</span>
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Occupancy Rate</span>
-            <span class="slider-value" id="val-occupancy">60%</span>
+      <!-- ═══ TAB 1: Co-Living ═══ -->
+      <div class="tab-panel active" id="panel-coliving">
+        <div class="business-section coliving">
+          <div class="business-section-header">
+            <span class="accent-dot terracotta"></span>
+            Co-Living
           </div>
-          <input type="range" id="sl-occupancy" min="30" max="95" step="5" value="60">
-        </div>
+          <p class="business-section-sub">Accommodation revenue — 8 rooms</p>
 
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Nightly Rate</span>
-            <span class="slider-value" id="val-nightly">฿3,000</span>
-          </div>
-          <input type="range" id="sl-nightly" min="1500" max="5000" step="100" value="3000">
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Weekly Rate</span>
-            <span class="slider-value" id="val-weekly">฿18,000</span>
-          </div>
-          <input type="range" id="sl-weekly" min="10000" max="30000" step="1000" value="18000">
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Monthly Rate</span>
-            <span class="slider-value" id="val-monthly">฿50,000</span>
-          </div>
-          <input type="range" id="sl-monthly" min="30000" max="80000" step="1000" value="50000">
-        </div>
-
-        <div class="mix-group">
-          <p class="mix-title">Revenue Mix</p>
-          <div class="mix-bar">
-            <div class="mix-bar-seg nightly" id="mix-bar-nightly" style="width:30%"></div>
-            <div class="mix-bar-seg weekly" id="mix-bar-weekly" style="width:20%"></div>
-            <div class="mix-bar-seg monthly" id="mix-bar-monthly" style="width:50%"></div>
-          </div>
-          <div class="mix-legend">
-            <span class="mix-legend-item"><span class="mix-legend-dot nightly"></span>Nightly</span>
-            <span class="mix-legend-item"><span class="mix-legend-dot weekly"></span>Weekly</span>
-            <span class="mix-legend-item"><span class="mix-legend-dot monthly"></span>Monthly</span>
+          <div class="fixed-display">
+            <span class="fixed-display-label">Rooms</span>
+            <span class="fixed-display-value">8</span>
           </div>
 
           <div class="slider-group">
             <div class="slider-header">
-              <span class="slider-label" style="color:var(--terracotta)">Nightly %</span>
-              <span class="slider-value" id="val-mix-nightly">30%</span>
+              <span class="slider-label">Occupancy Rate</span>
+              <span class="slider-value" id="val-occupancy">60%</span>
             </div>
-            <input type="range" id="sl-mix-nightly" min="0" max="100" step="5" value="30">
+            <input type="range" id="sl-occupancy" min="30" max="95" step="5" value="60">
           </div>
 
           <div class="slider-group">
             <div class="slider-header">
-              <span class="slider-label" style="color:var(--green)">Weekly %</span>
-              <span class="slider-value" id="val-mix-weekly">20%</span>
+              <span class="slider-label">Nightly Rate</span>
+              <span class="slider-value" id="val-nightly">฿3,000</span>
             </div>
-            <input type="range" id="sl-mix-weekly" min="0" max="100" step="5" value="20">
+            <input type="range" id="sl-nightly" min="1500" max="5000" step="100" value="3000">
           </div>
 
           <div class="slider-group">
             <div class="slider-header">
-              <span class="slider-label" style="color:var(--text-muted)">Monthly %</span>
-              <span class="slider-value" id="val-mix-monthly">50%</span>
+              <span class="slider-label">Weekly Rate</span>
+              <span class="slider-value" id="val-weekly">฿18,000</span>
             </div>
-            <input type="range" id="sl-mix-monthly" min="0" max="100" step="5" value="50">
+            <input type="range" id="sl-weekly" min="10000" max="30000" step="1000" value="18000">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-label">Monthly Rate</span>
+              <span class="slider-value" id="val-monthly">฿50,000</span>
+            </div>
+            <input type="range" id="sl-monthly" min="30000" max="80000" step="1000" value="50000">
+          </div>
+
+          <div class="mix-group">
+            <p class="mix-title">Revenue Mix</p>
+            <div class="mix-bar">
+              <div class="mix-bar-seg nightly" id="mix-bar-nightly" style="width:30%"></div>
+              <div class="mix-bar-seg weekly" id="mix-bar-weekly" style="width:20%"></div>
+              <div class="mix-bar-seg monthly" id="mix-bar-monthly" style="width:50%"></div>
+            </div>
+            <div class="mix-legend">
+              <span class="mix-legend-item"><span class="mix-legend-dot nightly"></span>Nightly</span>
+              <span class="mix-legend-item"><span class="mix-legend-dot weekly"></span>Weekly</span>
+              <span class="mix-legend-item"><span class="mix-legend-dot monthly"></span>Monthly</span>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label" style="color:var(--terracotta)">Nightly %</span>
+                <span class="slider-value" id="val-mix-nightly">30%</span>
+              </div>
+              <input type="range" id="sl-mix-nightly" min="0" max="100" step="5" value="30">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label" style="color:var(--green)">Weekly %</span>
+                <span class="slider-value" id="val-mix-weekly">20%</span>
+              </div>
+              <input type="range" id="sl-mix-weekly" min="0" max="100" step="5" value="20">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label" style="color:var(--text-muted)">Monthly %</span>
+                <span class="slider-value" id="val-mix-monthly">50%</span>
+              </div>
+              <input type="range" id="sl-mix-monthly" min="0" max="100" step="5" value="50">
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Co-Working Section -->
-      <div class="business-section coworking">
-        <div class="business-section-header">
-          <span class="accent-dot green"></span>
-          Co-Working
-        </div>
-        <p class="business-section-sub">Memberships, passes &amp; private offices</p>
-
-        <div class="fixed-display">
-          <span class="fixed-display-label">Total Seats</span>
-          <span class="fixed-display-value">50</span>
-        </div>
-
-        <div class="fixed-display">
-          <span class="fixed-display-label">Private Offices</span>
-          <span class="fixed-display-value">2</span>
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Monthly Members</span>
-            <span class="slider-value" id="val-members">20</span>
+      <!-- ═══ TAB 2: Co-Working ═══ -->
+      <div class="tab-panel" id="panel-coworking">
+        <div class="business-section coworking">
+          <div class="business-section-header">
+            <span class="accent-dot green"></span>
+            Co-Working
           </div>
-          <input type="range" id="sl-members" min="0" max="50" step="1" value="20">
+          <p class="business-section-sub">Memberships, passes &amp; private offices — 50 seats, 2 offices</p>
+
+          <!-- Memberships -->
+          <div class="input-subgroup">
+            <p class="input-subgroup-title">Monthly Memberships</p>
+            <div class="fixed-display">
+              <span class="fixed-display-label">Total Seats</span>
+              <span class="fixed-display-value">50</span>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Monthly Members</span>
+                <span class="slider-value" id="val-members">20</span>
+              </div>
+              <input type="range" id="sl-members" min="0" max="50" step="1" value="20">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Monthly Rate</span>
+                <span class="slider-value" id="val-cowork">฿8,000</span>
+              </div>
+              <input type="range" id="sl-cowork" min="5000" max="15000" step="500" value="8000">
+            </div>
+          </div>
+
+          <!-- Passes -->
+          <div class="input-subgroup">
+            <p class="input-subgroup-title">Passes</p>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Weekly Pass Holders</span>
+                <span class="slider-value" id="val-cw-weekly-count">5</span>
+              </div>
+              <input type="range" id="sl-cw-weekly-count" min="0" max="30" step="1" value="5">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Weekly Pass Rate</span>
+                <span class="slider-value" id="val-cw-weekly-rate">฿3,000</span>
+              </div>
+              <input type="range" id="sl-cw-weekly-rate" min="1500" max="6000" step="250" value="3000">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Day Passes / day</span>
+                <span class="slider-value" id="val-cw-day-count">3</span>
+              </div>
+              <input type="range" id="sl-cw-day-count" min="0" max="20" step="1" value="3">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Day Pass Rate</span>
+                <span class="slider-value" id="val-cw-day-rate">฿500</span>
+              </div>
+              <input type="range" id="sl-cw-day-rate" min="200" max="1500" step="50" value="500">
+            </div>
+          </div>
+
+          <!-- Private Offices -->
+          <div class="input-subgroup">
+            <p class="input-subgroup-title">Private Offices</p>
+            <div class="fixed-display">
+              <span class="fixed-display-label">Total Offices</span>
+              <span class="fixed-display-value">2</span>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Offices Occupied</span>
+                <span class="slider-value" id="val-cw-office-count">2</span>
+              </div>
+              <input type="range" id="sl-cw-office-count" min="0" max="2" step="1" value="2">
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span class="slider-label">Office Monthly Rate</span>
+                <span class="slider-value" id="val-cw-office-rate">฿18,000</span>
+              </div>
+              <input type="range" id="sl-cw-office-rate" min="10000" max="30000" step="1000" value="18000">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ TAB 3: Combined ═══ -->
+      <div class="tab-panel" id="panel-combined">
+
+        <!-- Revenue by Business -->
+        <div class="output-card">
+          <h3>Revenue by Business</h3>
+          <div class="output-row">
+            <span class="output-row-label">Co-Living revenue</span>
+            <span class="output-row-value" id="out-rev-coliving">—</span>
+          </div>
+          <div class="output-row">
+            <span class="output-row-label">Co-Working — memberships</span>
+            <span class="output-row-value" id="out-rev-cw-monthly">—</span>
+          </div>
+          <div class="output-row">
+            <span class="output-row-label">Co-Working — weekly passes</span>
+            <span class="output-row-value" id="out-rev-cw-weekly">—</span>
+          </div>
+          <div class="output-row">
+            <span class="output-row-label">Co-Working — day passes</span>
+            <span class="output-row-value" id="out-rev-cw-day">—</span>
+          </div>
+          <div class="output-row">
+            <span class="output-row-label">Co-Working — private offices</span>
+            <span class="output-row-value" id="out-rev-cw-office">—</span>
+          </div>
+          <div class="output-row total">
+            <span class="output-row-label">Total Monthly Revenue</span>
+            <span class="output-row-value" id="out-rev-total">—</span>
+          </div>
+          <div class="rev-split-bar">
+            <div class="seg-coliving" id="rev-bar-coliving" style="width:70%"></div>
+            <div class="seg-coworking" id="rev-bar-coworking" style="width:30%"></div>
+          </div>
+          <div class="rev-split-labels">
+            <span id="rev-label-coliving">Co-Living 70%</span>
+            <span id="rev-label-coworking">Co-Working 30%</span>
+          </div>
         </div>
 
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Monthly Rate</span>
-            <span class="slider-value" id="val-cowork">฿8,000</span>
+        <!-- Monthly P&L -->
+        <div class="output-card">
+          <h3>Monthly P&amp;L (Combined)</h3>
+          <div class="output-row">
+            <span class="output-row-label">Co-Living revenue</span>
+            <span class="output-row-value" id="out-pl-coliving">—</span>
           </div>
-          <input type="range" id="sl-cowork" min="5000" max="15000" step="500" value="8000">
+          <div class="output-row">
+            <span class="output-row-label">Co-Working revenue</span>
+            <span class="output-row-value" id="out-pl-cowork">—</span>
+          </div>
+          <div class="output-row">
+            <span class="output-row-label">Total revenue</span>
+            <span class="output-row-value" id="out-pl-gross">—</span>
+          </div>
+          <div class="output-row negative">
+            <span class="output-row-label">Shared OPEX</span>
+            <span class="output-row-value" id="out-pl-opex">—</span>
+          </div>
+          <div class="output-row negative">
+            <span class="output-row-label">Investor returns (8 rooms)</span>
+            <span class="output-row-value" id="out-pl-investor">—</span>
+          </div>
+          <div class="output-row total" id="out-pl-net-row">
+            <span class="output-row-label">Developer Net</span>
+            <span class="output-row-value" id="out-pl-net">—</span>
+          </div>
+          <div class="output-row">
+            <span class="output-row-label">Margin</span>
+            <span class="output-row-value" id="out-pl-margin">—</span>
+          </div>
         </div>
 
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Weekly Pass Holders</span>
-            <span class="slider-value" id="val-cw-weekly-count">5</span>
+        <!-- Annual Summary -->
+        <div class="output-card">
+          <h3>Annual Summary</h3>
+          <div class="output-row">
+            <span class="output-row-label">Annual revenue</span>
+            <span class="output-row-value" id="out-ann-rev">—</span>
           </div>
-          <input type="range" id="sl-cw-weekly-count" min="0" max="30" step="1" value="5">
+          <div class="output-row">
+            <span class="output-row-label">Annual OPEX</span>
+            <span class="output-row-value" id="out-ann-opex">—</span>
+          </div>
+          <div class="output-row">
+            <span class="output-row-label">Annual investor payout</span>
+            <span class="output-row-value" id="out-ann-investor">—</span>
+          </div>
+          <div class="output-row total" id="out-ann-dev-row">
+            <span class="output-row-label">Annual developer net</span>
+            <span class="output-row-value" id="out-ann-dev">—</span>
+          </div>
         </div>
 
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Weekly Pass Rate</span>
-            <span class="slider-value" id="val-cw-weekly-rate">฿3,000</span>
+        <!-- Investor Metrics -->
+        <div class="output-card">
+          <h3>Investor Metrics</h3>
+          <div class="output-row">
+            <span class="output-row-label">Investment per room</span>
+            <span class="output-row-value" id="out-inv-cost">—</span>
           </div>
-          <input type="range" id="sl-cw-weekly-rate" min="1500" max="6000" step="250" value="3000">
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Day Passes / day</span>
-            <span class="slider-value" id="val-cw-day-count">3</span>
+          <div class="output-row">
+            <span class="output-row-label">Annual return per investor</span>
+            <span class="output-row-value" id="out-inv-annual">—</span>
           </div>
-          <input type="range" id="sl-cw-day-count" min="0" max="20" step="1" value="3">
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Day Pass Rate</span>
-            <span class="slider-value" id="val-cw-day-rate">฿500</span>
+          <div class="output-row">
+            <span class="output-row-label">Monthly return per investor</span>
+            <span class="output-row-value" id="out-inv-monthly">—</span>
           </div>
-          <input type="range" id="sl-cw-day-rate" min="200" max="1500" step="50" value="500">
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Offices Occupied</span>
-            <span class="slider-value" id="val-cw-office-count">2</span>
+          <div class="output-row highlight">
+            <span class="output-row-label">Effective yield</span>
+            <span class="output-row-value" id="out-inv-yield">—</span>
           </div>
-          <input type="range" id="sl-cw-office-count" min="0" max="2" step="1" value="2">
-        </div>
-
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Office Monthly Rate</span>
-            <span class="slider-value" id="val-cw-office-rate">฿18,000</span>
+          <div class="output-row">
+            <span class="output-row-label">Payback period</span>
+            <span class="output-row-value" id="out-inv-payback">—</span>
           </div>
-          <input type="range" id="sl-cw-office-rate" min="10000" max="30000" step="1000" value="18000">
         </div>
       </div>
 
     </div>
 
-    <!-- RIGHT COLUMN — Results -->
-    <div class="outputs-col">
-      <p class="section-title">Results</p>
+    <!-- RIGHT COLUMN — Always-visible live summary -->
+    <div class="summary-col">
 
-      <!-- Card 1: Revenue by Business -->
-      <div class="output-card">
-        <h3>Revenue by Business</h3>
-        <div class="output-row">
-          <span class="output-row-label">Co-Living revenue</span>
-          <span class="output-row-value" id="out-rev-coliving">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Co-Working — memberships</span>
-          <span class="output-row-value" id="out-rev-cw-monthly">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Co-Working — weekly passes</span>
-          <span class="output-row-value" id="out-rev-cw-weekly">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Co-Working — day passes</span>
-          <span class="output-row-value" id="out-rev-cw-day">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Co-Working — private offices</span>
-          <span class="output-row-value" id="out-rev-cw-office">—</span>
-        </div>
-        <div class="output-row total">
-          <span class="output-row-label">Total Monthly Revenue</span>
-          <span class="output-row-value" id="out-rev-total">—</span>
+      <div class="summary-card">
+        <div class="summary-hero">
+          <p class="summary-hero-label">Total Monthly Revenue</p>
+          <p class="summary-hero-value" id="sum-revenue">—</p>
         </div>
         <div class="rev-split-bar">
-          <div class="seg-coliving" id="rev-bar-coliving" style="width:70%"></div>
-          <div class="seg-coworking" id="rev-bar-coworking" style="width:30%"></div>
+          <div class="seg-coliving" id="sum-bar-coliving" style="width:70%"></div>
+          <div class="seg-coworking" id="sum-bar-coworking" style="width:30%"></div>
         </div>
         <div class="rev-split-labels">
-          <span id="rev-label-coliving">Co-Living 70%</span>
-          <span id="rev-label-coworking">Co-Working 30%</span>
+          <span id="sum-label-coliving">Co-Living 70%</span>
+          <span id="sum-label-coworking">Co-Working 30%</span>
         </div>
       </div>
 
-      <!-- Card 2: Monthly P&L -->
-      <div class="output-card">
-        <h3>Monthly P&amp;L (Combined)</h3>
-        <div class="output-row">
-          <span class="output-row-label">Co-Living revenue</span>
-          <span class="output-row-value" id="out-pl-coliving">—</span>
+      <div class="summary-card">
+        <h3>Live P&amp;L</h3>
+        <div class="summary-row">
+          <span class="summary-row-label">Co-Living</span>
+          <span class="summary-row-value" id="sum-coliving">—</span>
         </div>
-        <div class="output-row">
-          <span class="output-row-label">Co-Working revenue</span>
-          <span class="output-row-value" id="out-pl-cowork">—</span>
+        <div class="summary-row">
+          <span class="summary-row-label">Co-Working</span>
+          <span class="summary-row-value" id="sum-coworking">—</span>
         </div>
-        <div class="output-row">
-          <span class="output-row-label">Total revenue</span>
-          <span class="output-row-value" id="out-pl-gross">—</span>
+        <div class="summary-row">
+          <span class="summary-row-label">Shared OPEX</span>
+          <span class="summary-row-value negative" id="sum-opex">—</span>
         </div>
-        <div class="output-row negative">
-          <span class="output-row-label">Shared OPEX</span>
-          <span class="output-row-value" id="out-pl-opex">—</span>
+        <div class="summary-row">
+          <span class="summary-row-label">Investor returns</span>
+          <span class="summary-row-value negative" id="sum-investor">—</span>
         </div>
-        <div class="output-row negative">
-          <span class="output-row-label">Investor returns (8 rooms)</span>
-          <span class="output-row-value" id="out-pl-investor">—</span>
+        <div class="summary-row" id="sum-net-row">
+          <span class="summary-row-label" style="font-weight:600;color:var(--text)">Developer Net</span>
+          <span class="summary-row-value" style="font-weight:700;font-size:15px" id="sum-net">—</span>
         </div>
-        <div class="output-row total" id="out-pl-net-row">
-          <span class="output-row-label">Developer Net</span>
-          <span class="output-row-value" id="out-pl-net">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Margin</span>
-          <span class="output-row-value" id="out-pl-margin">—</span>
+        <div class="summary-row">
+          <span class="summary-row-label">Margin</span>
+          <span class="summary-row-value" id="sum-margin">—</span>
         </div>
       </div>
 
-      <!-- Card 3: Annual Summary -->
-      <div class="output-card">
-        <h3>Annual Summary</h3>
-        <div class="output-row">
-          <span class="output-row-label">Annual revenue</span>
-          <span class="output-row-value" id="out-ann-rev">—</span>
+      <div class="summary-card">
+        <h3>Investor Return</h3>
+        <div class="summary-row">
+          <span class="summary-row-label">Yield</span>
+          <span class="summary-row-value" style="color:var(--terracotta);font-weight:700" id="sum-yield">—</span>
         </div>
-        <div class="output-row">
-          <span class="output-row-label">Annual OPEX</span>
-          <span class="output-row-value" id="out-ann-opex">—</span>
+        <div class="summary-row">
+          <span class="summary-row-label">Monthly per room</span>
+          <span class="summary-row-value" id="sum-inv-monthly">—</span>
         </div>
-        <div class="output-row">
-          <span class="output-row-label">Annual investor payout</span>
-          <span class="output-row-value" id="out-ann-investor">—</span>
-        </div>
-        <div class="output-row total" id="out-ann-dev-row">
-          <span class="output-row-label">Annual developer net</span>
-          <span class="output-row-value" id="out-ann-dev">—</span>
+        <div class="summary-row">
+          <span class="summary-row-label">Payback</span>
+          <span class="summary-row-value" id="sum-payback">—</span>
         </div>
       </div>
 
-      <!-- Card 4: Investor Metrics -->
-      <div class="output-card">
-        <h3>Investor Metrics</h3>
-        <div class="output-row">
-          <span class="output-row-label">Investment per room</span>
-          <span class="output-row-value" id="out-inv-cost">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Annual return per investor</span>
-          <span class="output-row-value" id="out-inv-annual">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Monthly return per investor</span>
-          <span class="output-row-value" id="out-inv-monthly">—</span>
-        </div>
-        <div class="output-row highlight">
-          <span class="output-row-label">Effective yield</span>
-          <span class="output-row-value" id="out-inv-yield">—</span>
-        </div>
-        <div class="output-row">
-          <span class="output-row-label">Payback period</span>
-          <span class="output-row-value" id="out-inv-payback">—</span>
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -953,6 +1133,16 @@
       document.getElementById('currencyDropdown').classList.remove('open');
     }
   });
+
+  /* ── Tabs ── */
+  window.switchTab = function(tab) {
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.tab === tab);
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(panel) {
+      panel.classList.toggle('active', panel.id === 'panel-' + tab);
+    });
+  };
 
   /* ── Sliders ── */
   var sliders = {
@@ -1056,7 +1246,7 @@
   var ROOMS = 8;
   var DAYS = 30;
   var OPEX = 242200;
-  var INVESTOR_RETURNS = 124800; // 8 x 15600
+  var INVESTOR_RETURNS = 124800;
   var INVESTMENT_PER_ROOM = 2340000;
 
   function calculate() {
@@ -1108,11 +1298,11 @@
     var revMonthly = occupiedNights * mixM * (monthlyRate / 30);
     var coLivingRevenue = revNightly + revWeekly + revMonthly;
 
-    // Co-Working Revenue (monthly memberships + weekly passes + day passes)
+    // Co-Working Revenue
     var cwMonthlyRev = members * coworkRate;
-    var cwWeeklyRev = cwWeeklyCount * cwWeeklyRate * (DAYS / 7); // weekly passes per month
-    var cwDayRev = cwDayCount * cwDayRate * DAYS; // day passes per month
-    var cwOfficeRev = cwOfficeCount * cwOfficeRate; // private offices per month
+    var cwWeeklyRev = cwWeeklyCount * cwWeeklyRate * (DAYS / 7);
+    var cwDayRev = cwDayCount * cwDayRate * DAYS;
+    var cwOfficeRev = cwOfficeCount * cwOfficeRate;
     var coWorkingRevenue = cwMonthlyRev + cwWeeklyRev + cwDayRev + cwOfficeRev;
 
     // Combined P&L
@@ -1132,11 +1322,33 @@
     var yieldPct = (annualPerInvestor / INVESTMENT_PER_ROOM) * 100;
     var payback = annualPerInvestor > 0 ? (INVESTMENT_PER_ROOM / annualPerInvestor) : Infinity;
 
-    // Revenue split percentages
+    // Revenue split
     var coLivingPct = totalRevenue > 0 ? Math.round(coLivingRevenue / totalRevenue * 100) : 0;
     var coWorkingPct = 100 - coLivingPct;
 
-    // ── Render outputs ──
+    // ── Right column: Live summary ──
+    document.getElementById('sum-revenue').textContent = fmtCur(totalRevenue);
+    document.getElementById('sum-bar-coliving').style.width = coLivingPct + '%';
+    document.getElementById('sum-bar-coworking').style.width = coWorkingPct + '%';
+    document.getElementById('sum-label-coliving').textContent = 'Co-Living ' + coLivingPct + '%';
+    document.getElementById('sum-label-coworking').textContent = 'Co-Working ' + coWorkingPct + '%';
+
+    document.getElementById('sum-coliving').textContent = fmtCur(coLivingRevenue);
+    document.getElementById('sum-coworking').textContent = fmtCur(coWorkingRevenue);
+    document.getElementById('sum-opex').textContent = '-' + fmtCur(OPEX);
+    document.getElementById('sum-investor').textContent = '-' + fmtCur(INVESTOR_RETURNS);
+    document.getElementById('sum-net').textContent = fmtCur(developerNet);
+    document.getElementById('sum-margin').textContent = margin.toFixed(1) + '%';
+
+    var sumNetRow = document.getElementById('sum-net-row');
+    sumNetRow.classList.remove('positive', 'negative');
+    sumNetRow.classList.add(developerNet >= 0 ? 'positive' : 'negative');
+
+    document.getElementById('sum-yield').textContent = yieldPct.toFixed(1) + '%';
+    document.getElementById('sum-inv-monthly').textContent = fmtCur(monthlyPerInvestor);
+    document.getElementById('sum-payback').textContent = payback === Infinity ? '—' : payback.toFixed(1) + ' yrs';
+
+    // ── Combined tab outputs ──
 
     // Card 1: Revenue by Business
     document.getElementById('out-rev-coliving').textContent = fmtCur(coLivingRevenue);
