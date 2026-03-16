@@ -255,6 +255,7 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
     cursor: pointer;
     transition: transform 0.15s;
+    margin-top: -7px;
   }
   input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
 
@@ -515,7 +516,7 @@
             <span class="slider-label" style="color:var(--green)">Weekly %</span>
             <span class="slider-value" id="val-mix-weekly">30%</span>
           </div>
-          <input type="range" id="sl-mix-weekly" min="0" max="100" step="5" value="30">
+          <input type="range" id="sl-mix-weekly" min="0" max="100" step="5" value="20">
         </div>
 
         <div class="slider-group" style="margin-bottom:0">
@@ -523,7 +524,7 @@
             <span class="slider-label" style="color:var(--text-muted)">Monthly %</span>
             <span class="slider-value" id="val-mix-monthly">40%</span>
           </div>
-          <input type="range" id="sl-mix-monthly" min="0" max="100" step="5" value="40">
+          <input type="range" id="sl-mix-monthly" min="0" max="100" step="5" value="50">
         </div>
       </div>
     </div>
@@ -762,7 +763,7 @@
   /* ── Presets ── */
   var presets = {
     conservative: { occupancy: 50, members: 15, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, mixNightly: 20, mixWeekly: 30, mixMonthly: 50 },
-    base:         { occupancy: 60, members: 20, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, mixNightly: 30, mixWeekly: 30, mixMonthly: 40 },
+    base:         { occupancy: 60, members: 20, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, mixNightly: 30, mixWeekly: 20, mixMonthly: 50 },
     optimistic:   { occupancy: 75, members: 25, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, mixNightly: 40, mixWeekly: 35, mixMonthly: 25 }
   };
 
