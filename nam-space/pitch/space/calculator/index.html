@@ -758,11 +758,26 @@
     <div class="toggle-group">
       <button class="toggle-opt active" data-model="fixed" onclick="setReturnModel('fixed')">Fixed ROI</button>
       <button class="toggle-opt" data-model="share" onclick="setReturnModel('share')">Profit Share</button>
+      <button class="toggle-opt" data-model="hybrid" onclick="setReturnModel('hybrid')">Hybrid</button>
     </div>
-    <div class="profit-share-slider hidden" id="profitShareControls">
+  </div>
+  <div id="model-controls" style="margin-bottom:36px;display:none;">
+    <div id="ctrl-share" class="profit-share-slider" style="display:none;">
       <label>Investor share</label>
       <input type="range" id="sl-profit-share" min="10" max="70" step="5" value="40">
       <span class="share-val" id="val-profit-share">40%</span>
+    </div>
+    <div id="ctrl-hybrid" style="display:none;">
+      <div class="profit-share-slider" style="margin-bottom:12px;">
+        <label>Floor yield</label>
+        <input type="range" id="sl-hybrid-floor" min="3" max="8" step="1" value="5">
+        <span class="share-val" id="val-hybrid-floor">5%</span>
+      </div>
+      <div class="profit-share-slider">
+        <label>Bonus share</label>
+        <input type="range" id="sl-hybrid-bonus" min="10" max="50" step="5" value="20">
+        <span class="share-val" id="val-hybrid-bonus">20%</span>
+      </div>
     </div>
   </div>
 
@@ -1247,22 +1262,39 @@
   };
 
   /* ── Return model toggle ── */
-  var returnModel = 'fixed'; // 'fixed' or 'share'
+  var returnModel = 'fixed'; // 'fixed', 'share', or 'hybrid'
   var profitShareSlider = document.getElementById('sl-profit-share');
-  var profitShareControls = document.getElementById('profitShareControls');
+  var hybridFloorSlider = document.getElementById('sl-hybrid-floor');
+  var hybridBonusSlider = document.getElementById('sl-hybrid-bonus');
+  var modelControls = document.getElementById('model-controls');
 
   window.setReturnModel = function(model) {
     returnModel = model;
     document.querySelectorAll('.toggle-opt').forEach(function(btn) {
       btn.classList.toggle('active', btn.dataset.model === model);
     });
-    profitShareControls.classList.toggle('hidden', model !== 'share');
+    // Show/hide model controls container
+    modelControls.style.display = (model === 'fixed') ? 'none' : 'block';
+    document.getElementById('ctrl-share').style.display = (model === 'share') ? 'flex' : 'none';
+    document.getElementById('ctrl-hybrid').style.display = (model === 'hybrid') ? 'block' : 'none';
     calculate();
   };
 
   profitShareSlider.addEventListener('input', function() {
     document.getElementById('val-profit-share').textContent = profitShareSlider.value + '%';
     updateSliderTrack(profitShareSlider);
+    calculate();
+  });
+
+  hybridFloorSlider.addEventListener('input', function() {
+    document.getElementById('val-hybrid-floor').textContent = hybridFloorSlider.value + '%';
+    updateSliderTrack(hybridFloorSlider);
+    calculate();
+  });
+
+  hybridBonusSlider.addEventListener('input', function() {
+    document.getElementById('val-hybrid-bonus').textContent = hybridBonusSlider.value + '%';
+    updateSliderTrack(hybridBonusSlider);
     calculate();
   });
 
@@ -1302,6 +1334,8 @@
     updateSliderTrack(sl);
   });
   updateSliderTrack(profitShareSlider);
+  updateSliderTrack(hybridFloorSlider);
+  updateSliderTrack(hybridBonusSlider);
 
   /* ── Revenue mix balancing ── */
   function adjustMix(changedKey) {
@@ -1430,6 +1464,8 @@
     // Update slider tracks
     Object.keys(sliders).forEach(function(key) { updateSliderTrack(sliders[key]); });
     updateSliderTrack(profitShareSlider);
+    updateSliderTrack(hybridFloorSlider);
+    updateSliderTrack(hybridBonusSlider);
 
     // Co-Living Revenue
     var occupiedNights = ROOMS * DAYS * occ;
@@ -1458,6 +1494,19 @@
       var grossProfit = Math.max(0, totalRevenue - OPEX);
       investorReturns = grossProfit * (profitSharePct / 100);
       investorLabel = 'Investor share (' + profitSharePct + '% of gross profit)';
+    } else if (returnModel === 'hybrid') {
+      // Hybrid: guaranteed floor yield + bonus share of surplus
+      var floorPct = parseInt(hybridFloorSlider.value);
+      var bonusPct = parseInt(hybridBonusSlider.value);
+      var monthlyFloorPerRoom = INVESTMENT_PER_ROOM * (floorPct / 100) / 12;
+      var totalFloor = monthlyFloorPerRoom * ROOMS;
+      var surplus = Math.max(0, totalRevenue - OPEX - totalFloor);
+      var bonus = surplus * (bonusPct / 100);
+      investorReturns = totalFloor + bonus;
+      investorLabel = 'Hybrid (' + floorPct + '% floor + ' + bonusPct + '% of surplus)';
+      // Update display values
+      document.getElementById('val-hybrid-floor').textContent = floorPct + '%';
+      document.getElementById('val-hybrid-bonus').textContent = bonusPct + '%';
     } else {
       // Fixed ROI: 8% annual = ฿15,600/mo per room
       investorReturns = INVESTOR_RETURNS;
