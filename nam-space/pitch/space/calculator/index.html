@@ -1548,7 +1548,7 @@
     document.getElementById('sum-coliving').textContent = fmtCur(coLivingRevenue);
     document.getElementById('sum-coworking').textContent = fmtCur(coWorkingRevenue);
     document.getElementById('sum-opex').textContent = '-' + fmtCur(OPEX);
-    document.getElementById('sum-investor-label').textContent = returnModel === 'share' ? 'Investor share (' + profitSharePct + '%)' : 'Investor returns';
+    document.getElementById('sum-investor-label').textContent = investorLabel;
     document.getElementById('sum-investor').textContent = '-' + fmtCur(investorReturns);
     document.getElementById('sum-tax').textContent = '-' + fmtCur(monthlyTax);
     document.getElementById('sum-net').textContent = fmtCur(afterTaxNet);
