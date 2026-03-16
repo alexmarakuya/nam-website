@@ -183,6 +183,75 @@
   .preset-btn.active { background: var(--terracotta); }
   .preset-btn:active { transform: scale(0.97); }
 
+  /* Return model toggle */
+  .return-model {
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .return-model h3 {
+    font-size: 12px;
+    font-family: 'Sometype Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-right: 4px;
+  }
+
+  .toggle-group {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .toggle-opt {
+    padding: 9px 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: background 0.2s, color 0.2s;
+  }
+  .toggle-opt:not(:last-child) { border-right: 1px solid var(--border); }
+  .toggle-opt.active { background: var(--green); color: var(--bg); }
+
+  .profit-share-slider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: opacity 0.2s;
+  }
+
+  .profit-share-slider.hidden { opacity: 0.3; pointer-events: none; }
+
+  .profit-share-slider label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .profit-share-slider input[type="range"] {
+    width: 140px;
+  }
+
+  .profit-share-slider .share-val {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--terracotta);
+    min-width: 36px;
+    text-align: right;
+  }
+
   /* Main grid */
   .main-grid {
     display: grid;
@@ -684,6 +753,19 @@
     </div>
   </div>
 
+  <div class="return-model">
+    <h3>Return Model</h3>
+    <div class="toggle-group">
+      <button class="toggle-opt active" data-model="fixed" onclick="setReturnModel('fixed')">Fixed ROI</button>
+      <button class="toggle-opt" data-model="share" onclick="setReturnModel('share')">Profit Share</button>
+    </div>
+    <div class="profit-share-slider hidden" id="profitShareControls">
+      <label>Investor share</label>
+      <input type="range" id="sl-profit-share" min="10" max="70" step="5" value="40">
+      <span class="share-val" id="val-profit-share">40%</span>
+    </div>
+  </div>
+
   <div class="main-grid">
     <!-- LEFT COLUMN — Tabbed inputs + Combined results -->
     <div class="inputs-col">
@@ -944,7 +1026,7 @@
             <span class="output-row-value" id="out-pl-opex">—</span>
           </div>
           <div class="output-row negative">
-            <span class="output-row-label">Investor returns (8 rooms)</span>
+            <span class="output-row-label" id="out-pl-investor-label">Investor returns (fixed 8%)</span>
             <span class="output-row-value" id="out-pl-investor">—</span>
           </div>
           <div class="output-row total" id="out-pl-pretax-row">
@@ -1055,7 +1137,7 @@
           <span class="summary-row-value negative" id="sum-opex">—</span>
         </div>
         <div class="summary-row">
-          <span class="summary-row-label">Investor returns</span>
+          <span class="summary-row-label" id="sum-investor-label">Investor returns</span>
           <span class="summary-row-value negative" id="sum-investor">—</span>
         </div>
         <div class="summary-row">
@@ -1164,6 +1246,26 @@
     });
   };
 
+  /* ── Return model toggle ── */
+  var returnModel = 'fixed'; // 'fixed' or 'share'
+  var profitShareSlider = document.getElementById('sl-profit-share');
+  var profitShareControls = document.getElementById('profitShareControls');
+
+  window.setReturnModel = function(model) {
+    returnModel = model;
+    document.querySelectorAll('.toggle-opt').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.model === model);
+    });
+    profitShareControls.classList.toggle('hidden', model !== 'share');
+    calculate();
+  };
+
+  profitShareSlider.addEventListener('input', function() {
+    document.getElementById('val-profit-share').textContent = profitShareSlider.value + '%';
+    updateSliderTrack(profitShareSlider);
+    calculate();
+  });
+
   /* ── Sliders ── */
   var sliders = {
     occupancy: document.getElementById('sl-occupancy'),
@@ -1199,6 +1301,7 @@
     });
     updateSliderTrack(sl);
   });
+  updateSliderTrack(profitShareSlider);
 
   /* ── Revenue mix balancing ── */
   function adjustMix(changedKey) {
@@ -1326,6 +1429,7 @@
 
     // Update slider tracks
     Object.keys(sliders).forEach(function(key) { updateSliderTrack(sliders[key]); });
+    updateSliderTrack(profitShareSlider);
 
     // Co-Living Revenue
     var occupiedNights = ROOMS * DAYS * occ;
@@ -1343,8 +1447,24 @@
 
     // Combined P&L
     var totalRevenue = coLivingRevenue + coWorkingRevenue;
-    var preTaxNet = totalRevenue - OPEX - INVESTOR_RETURNS;
-    var margin = totalRevenue > 0 ? (preTaxNet / totalRevenue * 100) : 0;
+
+    // Investor returns — depends on model
+    var investorReturns;
+    var investorLabel;
+    var profitSharePct = parseInt(profitShareSlider.value);
+
+    if (returnModel === 'share') {
+      // Profit share: investors split (Revenue - OPEX) with developer
+      var grossProfit = Math.max(0, totalRevenue - OPEX);
+      investorReturns = grossProfit * (profitSharePct / 100);
+      investorLabel = 'Investor share (' + profitSharePct + '% of gross profit)';
+    } else {
+      // Fixed ROI: 8% annual = ฿15,600/mo per room
+      investorReturns = INVESTOR_RETURNS;
+      investorLabel = 'Investor returns (fixed 8%)';
+    }
+
+    var preTaxNet = totalRevenue - OPEX - investorReturns;
 
     // Thai SME corporate tax (annual, tiered)
     var annualPreTax = preTaxNet * 12;
@@ -1356,12 +1476,12 @@
     // Annual
     var annualRev = totalRevenue * 12;
     var annualOpex = OPEX * 12;
-    var annualInvestor = INVESTOR_RETURNS * 12;
+    var annualInvestor = investorReturns * 12;
     var annualAfterTax = afterTaxNet * 12;
 
     // Investor metrics
-    var annualPerInvestor = (INVESTOR_RETURNS / ROOMS) * 12;
-    var monthlyPerInvestor = INVESTOR_RETURNS / ROOMS;
+    var annualPerInvestor = (investorReturns / ROOMS) * 12;
+    var monthlyPerInvestor = investorReturns / ROOMS;
     var yieldPct = (annualPerInvestor / INVESTMENT_PER_ROOM) * 100;
     var payback = annualPerInvestor > 0 ? (INVESTMENT_PER_ROOM / annualPerInvestor) : Infinity;
 
@@ -1379,7 +1499,8 @@
     document.getElementById('sum-coliving').textContent = fmtCur(coLivingRevenue);
     document.getElementById('sum-coworking').textContent = fmtCur(coWorkingRevenue);
     document.getElementById('sum-opex').textContent = '-' + fmtCur(OPEX);
-    document.getElementById('sum-investor').textContent = '-' + fmtCur(INVESTOR_RETURNS);
+    document.getElementById('sum-investor-label').textContent = returnModel === 'share' ? 'Investor share (' + profitSharePct + '%)' : 'Investor returns';
+    document.getElementById('sum-investor').textContent = '-' + fmtCur(investorReturns);
     document.getElementById('sum-tax').textContent = '-' + fmtCur(monthlyTax);
     document.getElementById('sum-net').textContent = fmtCur(afterTaxNet);
     document.getElementById('sum-margin').textContent = afterTaxMargin.toFixed(1) + '%';
@@ -1412,7 +1533,8 @@
     document.getElementById('out-pl-cowork').textContent = fmtCur(coWorkingRevenue);
     document.getElementById('out-pl-gross').textContent = fmtCur(totalRevenue);
     document.getElementById('out-pl-opex').textContent = '-' + fmtCur(OPEX);
-    document.getElementById('out-pl-investor').textContent = '-' + fmtCur(INVESTOR_RETURNS);
+    document.getElementById('out-pl-investor-label').textContent = investorLabel;
+    document.getElementById('out-pl-investor').textContent = '-' + fmtCur(investorReturns);
     document.getElementById('out-pl-pretax').textContent = fmtCur(preTaxNet);
     document.getElementById('out-pl-tax').textContent = '-' + fmtCur(monthlyTax);
     document.getElementById('out-pl-aftertax').textContent = fmtCur(afterTaxNet);
