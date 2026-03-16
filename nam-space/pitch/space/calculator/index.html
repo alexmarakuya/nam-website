@@ -384,6 +384,33 @@
   .mix-bar-seg.weekly { background: var(--green); }
   .mix-bar-seg.monthly { background: var(--text-muted); }
 
+  .mix-legend {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .mix-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-family: 'Sometype Mono', monospace;
+    color: var(--text-secondary);
+  }
+
+  .mix-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .mix-legend-dot.nightly { background: var(--terracotta); }
+  .mix-legend-dot.weekly { background: var(--green); }
+  .mix-legend-dot.monthly { background: var(--text-muted); }
+
   /* Output cards */
   .output-card {
     background: var(--white);
@@ -424,11 +451,20 @@
     color: var(--text);
   }
 
+  .output-row + .output-row.total {
+    border-top: 2px solid var(--green);
+  }
+
   .output-row.total {
     border-top: 2px solid var(--green);
     border-bottom: none;
     margin-top: 4px;
     padding-top: 14px;
+  }
+
+  /* Remove bottom border on the row just before a total row to prevent doubling */
+  .output-row:has(+ .output-row.total) {
+    border-bottom: none;
   }
 
   .output-row.total .output-row-label {
@@ -447,6 +483,16 @@
 
   .output-row.net-positive .output-row-value { color: #2a7a3b; }
   .output-row.net-negative .output-row-value { color: #b54a2a; }
+
+  .output-row.sub .output-row-label {
+    padding-left: 12px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .output-row.sub .output-row-value {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
 
   /* Revenue split bar */
   .rev-split-bar {
@@ -606,6 +652,11 @@
             <div class="mix-bar-seg weekly" id="mix-bar-weekly" style="width:20%"></div>
             <div class="mix-bar-seg monthly" id="mix-bar-monthly" style="width:50%"></div>
           </div>
+          <div class="mix-legend">
+            <span class="mix-legend-item"><span class="mix-legend-dot nightly"></span>Nightly</span>
+            <span class="mix-legend-item"><span class="mix-legend-dot weekly"></span>Weekly</span>
+            <span class="mix-legend-item"><span class="mix-legend-dot monthly"></span>Monthly</span>
+          </div>
 
           <div class="slider-group">
             <div class="slider-header">
@@ -639,27 +690,80 @@
           <span class="accent-dot green"></span>
           Co-Working
         </div>
-        <p class="business-section-sub">Membership revenue</p>
+        <p class="business-section-sub">Memberships, passes &amp; private offices</p>
 
         <div class="fixed-display">
           <span class="fixed-display-label">Total Seats</span>
           <span class="fixed-display-value">50</span>
         </div>
 
-        <div class="slider-group">
-          <div class="slider-header">
-            <span class="slider-label">Members</span>
-            <span class="slider-value" id="val-members">20</span>
-          </div>
-          <input type="range" id="sl-members" min="5" max="50" step="1" value="20">
+        <div class="fixed-display">
+          <span class="fixed-display-label">Private Offices</span>
+          <span class="fixed-display-value">2</span>
         </div>
 
         <div class="slider-group">
           <div class="slider-header">
-            <span class="slider-label">Membership Rate</span>
+            <span class="slider-label">Monthly Members</span>
+            <span class="slider-value" id="val-members">20</span>
+          </div>
+          <input type="range" id="sl-members" min="0" max="50" step="1" value="20">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Monthly Rate</span>
             <span class="slider-value" id="val-cowork">฿8,000</span>
           </div>
           <input type="range" id="sl-cowork" min="5000" max="15000" step="500" value="8000">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Weekly Pass Holders</span>
+            <span class="slider-value" id="val-cw-weekly-count">5</span>
+          </div>
+          <input type="range" id="sl-cw-weekly-count" min="0" max="30" step="1" value="5">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Weekly Pass Rate</span>
+            <span class="slider-value" id="val-cw-weekly-rate">฿3,000</span>
+          </div>
+          <input type="range" id="sl-cw-weekly-rate" min="1500" max="6000" step="250" value="3000">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Day Passes / day</span>
+            <span class="slider-value" id="val-cw-day-count">3</span>
+          </div>
+          <input type="range" id="sl-cw-day-count" min="0" max="20" step="1" value="3">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Day Pass Rate</span>
+            <span class="slider-value" id="val-cw-day-rate">฿500</span>
+          </div>
+          <input type="range" id="sl-cw-day-rate" min="200" max="1500" step="50" value="500">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Offices Occupied</span>
+            <span class="slider-value" id="val-cw-office-count">2</span>
+          </div>
+          <input type="range" id="sl-cw-office-count" min="0" max="2" step="1" value="2">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Office Monthly Rate</span>
+            <span class="slider-value" id="val-cw-office-rate">฿18,000</span>
+          </div>
+          <input type="range" id="sl-cw-office-rate" min="10000" max="30000" step="1000" value="18000">
         </div>
       </div>
 
@@ -677,8 +781,20 @@
           <span class="output-row-value" id="out-rev-coliving">—</span>
         </div>
         <div class="output-row">
-          <span class="output-row-label">Co-Working revenue</span>
-          <span class="output-row-value" id="out-rev-cowork">—</span>
+          <span class="output-row-label">Co-Working — memberships</span>
+          <span class="output-row-value" id="out-rev-cw-monthly">—</span>
+        </div>
+        <div class="output-row">
+          <span class="output-row-label">Co-Working — weekly passes</span>
+          <span class="output-row-value" id="out-rev-cw-weekly">—</span>
+        </div>
+        <div class="output-row">
+          <span class="output-row-label">Co-Working — day passes</span>
+          <span class="output-row-value" id="out-rev-cw-day">—</span>
+        </div>
+        <div class="output-row">
+          <span class="output-row-label">Co-Working — private offices</span>
+          <span class="output-row-value" id="out-rev-cw-office">—</span>
         </div>
         <div class="output-row total">
           <span class="output-row-label">Total Monthly Revenue</span>
@@ -846,6 +962,12 @@
     weekly: document.getElementById('sl-weekly'),
     monthly: document.getElementById('sl-monthly'),
     cowork: document.getElementById('sl-cowork'),
+    cwWeeklyCount: document.getElementById('sl-cw-weekly-count'),
+    cwWeeklyRate: document.getElementById('sl-cw-weekly-rate'),
+    cwDayCount: document.getElementById('sl-cw-day-count'),
+    cwDayRate: document.getElementById('sl-cw-day-rate'),
+    cwOfficeCount: document.getElementById('sl-cw-office-count'),
+    cwOfficeRate: document.getElementById('sl-cw-office-rate'),
     mixNightly: document.getElementById('sl-mix-nightly'),
     mixWeekly: document.getElementById('sl-mix-weekly'),
     mixMonthly: document.getElementById('sl-mix-monthly')
@@ -907,9 +1029,9 @@
 
   /* ── Presets ── */
   var presets = {
-    conservative: { occupancy: 50, members: 15, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, mixNightly: 20, mixWeekly: 30, mixMonthly: 50 },
-    base:         { occupancy: 60, members: 20, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, mixNightly: 30, mixWeekly: 20, mixMonthly: 50 },
-    optimistic:   { occupancy: 75, members: 25, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, mixNightly: 40, mixWeekly: 35, mixMonthly: 25 }
+    conservative: { occupancy: 50, members: 15, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, cwWeeklyCount: 3, cwWeeklyRate: 3000, cwDayCount: 2, cwDayRate: 500, cwOfficeCount: 1, cwOfficeRate: 18000, mixNightly: 20, mixWeekly: 30, mixMonthly: 50 },
+    base:         { occupancy: 60, members: 20, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, cwWeeklyCount: 5, cwWeeklyRate: 3000, cwDayCount: 3, cwDayRate: 500, cwOfficeCount: 2, cwOfficeRate: 18000, mixNightly: 30, mixWeekly: 20, mixMonthly: 50 },
+    optimistic:   { occupancy: 75, members: 25, nightly: 3000, weekly: 18000, monthly: 50000, cowork: 8000, cwWeeklyCount: 8, cwWeeklyRate: 3000, cwDayCount: 5, cwDayRate: 500, cwOfficeCount: 2, cwOfficeRate: 18000, mixNightly: 40, mixWeekly: 35, mixMonthly: 25 }
   };
 
   window.applyPreset = function(name) {
@@ -944,6 +1066,12 @@
     var weeklyRate = parseInt(sliders.weekly.value);
     var monthlyRate = parseInt(sliders.monthly.value);
     var coworkRate = parseInt(sliders.cowork.value);
+    var cwWeeklyCount = parseInt(sliders.cwWeeklyCount.value);
+    var cwWeeklyRate = parseInt(sliders.cwWeeklyRate.value);
+    var cwDayCount = parseInt(sliders.cwDayCount.value);
+    var cwDayRate = parseInt(sliders.cwDayRate.value);
+    var cwOfficeCount = parseInt(sliders.cwOfficeCount.value);
+    var cwOfficeRate = parseInt(sliders.cwOfficeRate.value);
     var mixN = parseInt(sliders.mixNightly.value) / 100;
     var mixW = parseInt(sliders.mixWeekly.value) / 100;
     var mixM = parseInt(sliders.mixMonthly.value) / 100;
@@ -955,6 +1083,12 @@
     document.getElementById('val-weekly').textContent = fmtCur(weeklyRate);
     document.getElementById('val-monthly').textContent = fmtCur(monthlyRate);
     document.getElementById('val-cowork').textContent = fmtCur(coworkRate);
+    document.getElementById('val-cw-weekly-count').textContent = cwWeeklyCount;
+    document.getElementById('val-cw-weekly-rate').textContent = fmtCur(cwWeeklyRate);
+    document.getElementById('val-cw-day-count').textContent = cwDayCount;
+    document.getElementById('val-cw-day-rate').textContent = fmtCur(cwDayRate);
+    document.getElementById('val-cw-office-count').textContent = cwOfficeCount;
+    document.getElementById('val-cw-office-rate').textContent = fmtCur(cwOfficeRate);
     document.getElementById('val-mix-nightly').textContent = Math.round(mixN * 100) + '%';
     document.getElementById('val-mix-weekly').textContent = Math.round(mixW * 100) + '%';
     document.getElementById('val-mix-monthly').textContent = Math.round(mixM * 100) + '%';
@@ -974,8 +1108,12 @@
     var revMonthly = occupiedNights * mixM * (monthlyRate / 30);
     var coLivingRevenue = revNightly + revWeekly + revMonthly;
 
-    // Co-Working Revenue
-    var coWorkingRevenue = members * coworkRate;
+    // Co-Working Revenue (monthly memberships + weekly passes + day passes)
+    var cwMonthlyRev = members * coworkRate;
+    var cwWeeklyRev = cwWeeklyCount * cwWeeklyRate * (DAYS / 7); // weekly passes per month
+    var cwDayRev = cwDayCount * cwDayRate * DAYS; // day passes per month
+    var cwOfficeRev = cwOfficeCount * cwOfficeRate; // private offices per month
+    var coWorkingRevenue = cwMonthlyRev + cwWeeklyRev + cwDayRev + cwOfficeRev;
 
     // Combined P&L
     var totalRevenue = coLivingRevenue + coWorkingRevenue;
@@ -1002,7 +1140,10 @@
 
     // Card 1: Revenue by Business
     document.getElementById('out-rev-coliving').textContent = fmtCur(coLivingRevenue);
-    document.getElementById('out-rev-cowork').textContent = fmtCur(coWorkingRevenue);
+    document.getElementById('out-rev-cw-monthly').textContent = fmtCur(cwMonthlyRev);
+    document.getElementById('out-rev-cw-weekly').textContent = fmtCur(cwWeeklyRev);
+    document.getElementById('out-rev-cw-day').textContent = fmtCur(cwDayRev);
+    document.getElementById('out-rev-cw-office').textContent = fmtCur(cwOfficeRev);
     document.getElementById('out-rev-total').textContent = fmtCur(totalRevenue);
 
     document.getElementById('rev-bar-coliving').style.width = coLivingPct + '%';
