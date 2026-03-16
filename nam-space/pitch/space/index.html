@@ -1608,8 +1608,110 @@
 </section>
 
 
-<!-- 34 ─ Kin Haus Validation -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s34">
+<!-- 34 ─ Scenario Calculator -->
+<section class="slide bg-green grain watermark watermark-dark wm-br" id="s34">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:1.5rem;">
+      <div class="label">Scenarios</div>
+      <h2 style="font-size:2rem;">What if?</h2>
+    </div>
+
+    <!-- Scenario tabs -->
+    <div id="scenarioTabs" style="display:flex;gap:0;margin-bottom:2rem;border-radius:8px;overflow:hidden;border:1px solid rgba(244,242,232,0.15);">
+      <button class="scenario-tab" data-scenario="conservative" style="flex:1;padding:0.75rem 1.25rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;letter-spacing:0.05em;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;background:transparent;color:rgba(244,242,232,0.5);">Conservative</button>
+      <button class="scenario-tab active" data-scenario="base" style="flex:1;padding:0.75rem 1.25rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;letter-spacing:0.05em;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;background:var(--terracotta);color:var(--bg);">Base</button>
+      <button class="scenario-tab" data-scenario="optimistic" style="flex:1;padding:0.75rem 1.25rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;letter-spacing:0.05em;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;background:transparent;color:rgba(244,242,232,0.5);">Optimistic</button>
+    </div>
+
+    <!-- Assumptions -->
+    <div style="display:flex;gap:2rem;margin-bottom:2rem;">
+      <div style="flex:1;background:rgba(244,242,232,0.06);border-radius:8px;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:rgba(244,242,232,0.6);font-size:0.9rem;">Occupancy</span>
+        <span id="scenarioOcc" style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--bg);font-size:1.1rem;">60%</span>
+      </div>
+      <div style="flex:1;background:rgba(244,242,232,0.06);border-radius:8px;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:rgba(244,242,232,0.6);font-size:0.9rem;">Co-working members</span>
+        <span id="scenarioMembers" style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--bg);font-size:1.1rem;">20</span>
+      </div>
+    </div>
+
+    <!-- P&L table -->
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Accommodation revenue</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span id="scenarioAccom" data-currency data-thb="324000" data-format="short">&#x0E3F;324,000</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Co-working revenue</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span id="scenarioCowork" data-currency data-thb="160000" data-format="short">&#x0E3F;160,000</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Total revenue</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--bg);"><span id="scenarioRevenue" data-currency data-thb="484000" data-format="short">&#x0E3F;484,000</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Operating costs</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:rgba(244,242,232,0.5);">&minus;<span id="scenarioOpex" data-currency data-thb="242200" data-format="short">&#x0E3F;242,200</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Investor returns</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:rgba(244,242,232,0.5);">&minus;<span id="scenarioInvestor" data-currency data-thb="124800" data-format="short">&#x0E3F;124,800</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-top:2px solid var(--terracotta-light);align-items:baseline;">
+        <span style="color:var(--bg);font-weight:500;font-size:0.95rem;">Developer net</span>
+        <span style="display:flex;align-items:baseline;gap:0.75rem;">
+          <span id="scenarioMargin" style="font-family:'Sometype Mono',monospace;font-size:0.8rem;color:var(--terracotta-light);">24.2% margin</span>
+          <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--terracotta-light);"><span id="scenarioNet" data-currency data-thb="117000" data-format="short">&#x0E3F;117,000</span></span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Calculator link -->
+    <div style="margin-top:2rem;text-align:right;">
+      <a href="calculator/" style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--terracotta-light);text-decoration:none;border-bottom:1px solid rgba(196,109,72,0.3);padding-bottom:2px;">Explore the full calculator &rarr;</a>
+    </div>
+  </div>
+  <div class="sn">34</div>
+
+  <script>
+  (function(){
+    var scenarios = {
+      conservative: { occ: 50, members: 15, accom: 270000, cowork: 120000, revenue: 390000, opex: 242200, investor: 124800, net: 23000, margin: '5.9' },
+      base:         { occ: 60, members: 20, accom: 324000, cowork: 160000, revenue: 484000, opex: 242200, investor: 124800, net: 117000, margin: '24.2' },
+      optimistic:   { occ: 75, members: 25, accom: 405000, cowork: 200000, revenue: 605000, opex: 242200, investor: 124800, net: 238000, margin: '39.3' }
+    };
+    var tabs = document.querySelectorAll('#scenarioTabs .scenario-tab');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var key = tab.dataset.scenario;
+        var s = scenarios[key];
+        tabs.forEach(function(t) {
+          t.classList.remove('active');
+          t.style.background = 'transparent';
+          t.style.color = 'rgba(244,242,232,0.5)';
+        });
+        tab.classList.add('active');
+        tab.style.background = 'var(--terracotta)';
+        tab.style.color = 'var(--bg)';
+        document.getElementById('scenarioOcc').textContent = s.occ + '%';
+        document.getElementById('scenarioMembers').textContent = s.members;
+        document.getElementById('scenarioAccom').dataset.thb = s.accom;
+        document.getElementById('scenarioCowork').dataset.thb = s.cowork;
+        document.getElementById('scenarioRevenue').dataset.thb = s.revenue;
+        document.getElementById('scenarioOpex').dataset.thb = s.opex;
+        document.getElementById('scenarioInvestor').dataset.thb = s.investor;
+        document.getElementById('scenarioNet').dataset.thb = s.net;
+        document.getElementById('scenarioMargin').textContent = s.margin + '% margin';
+        if (typeof selectCurrency === 'function') selectCurrency(activeCurrency || 'THB');
+      });
+    });
+  })();
+  </script>
+</section>
+
+
+<!-- 35 ─ Kin Haus Validation -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s35">
   <div class="slide-inner" style="max-width:1000px;">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Proof of Concept</div>
@@ -1637,12 +1739,12 @@
       <p style="color:rgba(244,242,232,0.85);font-size:0.95rem;line-height:1.6;"><strong style="color:var(--bg);">What this proves:</strong> The co-living model works on Koh Phangan with strong margins &mdash; even as a rented property. N&#x101;M Space takes this further with owned land, purpose-built architecture, and multiple revenue streams. Both properties sit next to each other &mdash; when one is full, we refer guests to the other, creating a natural overflow pipeline.</p>
     </div>
   </div>
-  <div class="sn">34</div>
+  <div class="sn">35</div>
 </section>
 
 
-<!-- 35 ─ The Raise -->
-<section class="slide bg-cream grain watermark watermark-light wm-br" id="s35">
+<!-- 36 ─ The Raise -->
+<section class="slide bg-cream grain watermark watermark-light wm-br" id="s36">
   <div class="slide-inner" style="max-width:1000px;">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The Raise</div>
@@ -1689,7 +1791,7 @@
       </div>
     </div>
   </div>
-  <div class="sn">35</div>
+  <div class="sn">36</div>
 </section>
 </div><!-- /deck -->
 </div><!-- /deck-wrapper -->
@@ -1815,8 +1917,9 @@
       { idx: 30, title: 'The Founder' },
       { idx: 31, title: 'Monthly P&L' },
       { idx: 32, title: 'Cost Breakdown' },
-      { idx: 33, title: 'Kin Haus MVP' },
-      { idx: 34, title: 'The Raise' }
+      { idx: 33, title: 'Scenario Calculator' },
+      { idx: 34, title: 'Kin Haus MVP' },
+      { idx: 35, title: 'The Raise' }
     ]}
   ];
 
