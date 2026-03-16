@@ -1674,7 +1674,7 @@
   <div class="sn">34</div>
 
   <script>
-  (function(){
+  document.addEventListener('DOMContentLoaded', function(){
     var scenarios = {
       conservative: { occ: 50, members: 15, accom: 270000, cowork: 120000, revenue: 390000, opex: 242200, investor: 124800, net: 23000, margin: '5.9' },
       base:         { occ: 60, members: 20, accom: 324000, cowork: 160000, revenue: 484000, opex: 242200, investor: 124800, net: 117000, margin: '24.2' },
@@ -1702,10 +1702,13 @@
         document.getElementById('scenarioInvestor').dataset.thb = s.investor;
         document.getElementById('scenarioNet').dataset.thb = s.net;
         document.getElementById('scenarioMargin').textContent = s.margin + '% margin';
-        if (typeof selectCurrency === 'function') selectCurrency(activeCurrency || 'THB');
+        // Get active currency from the currency label in the nav
+        var curLabel = document.getElementById('currencyLabel');
+        var cur = curLabel ? curLabel.textContent.trim() : 'THB';
+        if (typeof window.updateCurrency === 'function') window.updateCurrency();
       });
     });
-  })();
+  });
   </script>
 </section>
 
