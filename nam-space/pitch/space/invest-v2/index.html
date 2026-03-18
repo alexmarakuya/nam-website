@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM Space — Investment Overview</title>
+<meta name="description" content="NāM Space — Financials, deal structure, and investor returns.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2e8;
+    --bg-warm: #f0ebd8;
+    --nav-h: 52px;
+    --bg-tan: #e6e2d6;
+    --green: #2a3a2b;
+    --green-dark: #1e2d1f;
+    --gray: #383834;
+    --terracotta: #d46b44;
+    --terracotta-light: #e07a55;
+    --text: #2a3a2b;
+    --text-secondary: #5a6a5b;
+    --text-muted: #8a9a8b;
+    --border: #d4d0c4;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { height: 100%; overflow: hidden; }
+
+  body {
+    height: 100%; margin: 0; overflow: hidden;
+    font-family: 'Epilogue', sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.5; -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column;
+  }
+
+  .deck-wrapper { flex: 1 1 0; min-height: 0; overflow: hidden; }
+  .deck { display: flex; height: 100%; width: max-content; transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .slide { width: 100vw; height: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 70px 100px 40px; position: relative; overflow: hidden; }
+  .slide-inner { max-width: 1400px; width: 100%; max-height: 100%; overflow-y: auto; scrollbar-width: none; position: relative; z-index: 2; opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s; }
+  .slide.active .slide-inner { opacity: 1; transform: translateY(0); }
+  .slide-inner::-webkit-scrollbar { display: none; }
+
+  .slide .img-full-caption, .slide .hero-content, .slide .cta-content { opacity: 0; transform: translateY(16px); transition: opacity 0.65s ease 0.2s, transform 0.65s ease 0.2s; }
+  .slide.active .img-full-caption, .slide.active .hero-content, .slide.active .cta-content { opacity: 1; transform: translateY(0); }
+
+  .slide .list-item, .slide .info-row, .slide .eco-card { opacity: 0; transform: translateY(8px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .slide.active .list-item, .slide.active .info-row, .slide.active .eco-card { opacity: 1; transform: translateY(0); }
+  .slide.active .list-item:nth-child(1), .slide.active .info-row:nth-child(1), .slide.active .eco-card:nth-child(1) { transition-delay: 0.15s; }
+  .slide.active .list-item:nth-child(2), .slide.active .info-row:nth-child(2), .slide.active .eco-card:nth-child(2) { transition-delay: 0.3s; }
+  .slide.active .list-item:nth-child(3), .slide.active .info-row:nth-child(3), .slide.active .eco-card:nth-child(3) { transition-delay: 0.45s; }
+  .slide.active .list-item:nth-child(4), .slide.active .info-row:nth-child(4), .slide.active .eco-card:nth-child(4) { transition-delay: 0.6s; }
+  .slide.active .list-item:nth-child(5), .slide.active .info-row:nth-child(5), .slide.active .eco-card:nth-child(5) { transition-delay: 0.75s; }
+  .slide.active .list-item:nth-child(6), .slide.active .info-row:nth-child(6), .slide.active .eco-card:nth-child(6) { transition-delay: 0.9s; }
+  .slide.active .list-item:nth-child(5), .slide.active .info-row:nth-child(5) { transition-delay: 0.55s; }
+  .slide.active .list-item:nth-child(6), .slide.active .info-row:nth-child(6) { transition-delay: 0.65s; }
+
+  /* Map fly-in */
+  .map-flyin { transform: scale(3); opacity: 0; transition: transform 2.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s, opacity 0.8s ease 0.1s; }
+  .slide.active .map-flyin { transform: scale(1); opacity: 1; }
+
+  /* Backgrounds */
+  .bg-cream { background: var(--bg); }
+  .bg-warm { background: var(--bg-warm); }
+  .bg-green { background: var(--green); color: var(--bg); }
+  .bg-tan { background: var(--bg-tan); }
+  .bg-dark { background: #1a1a18; color: var(--bg); }
+  .bg-terracotta { background: var(--terracotta); color: var(--bg); }
+
+  .bg-green .label { color: var(--terracotta); }
+  .bg-green .sub { color: rgba(244,242,232,0.65); }
+  .bg-green .muted { color: rgba(244,242,232,0.4); }
+  .bg-green h2, .bg-green h3, .bg-green h4 { color: var(--bg); }
+  .bg-green .who-card p { color: rgba(244,242,232,0.65); }
+  .bg-green .who-card { border-color: rgba(244,242,232,0.15); }
+  .bg-green .dot { background: var(--terracotta); }
+  .bg-green .line-accent { background: var(--terracotta); }
+  .bg-green .card { background: none; border-color: rgba(244,242,232,0.15); }
+  .bg-green .card h3 { color: var(--bg); }
+  .bg-green .card p { color: rgba(244,242,232,0.7); }
+  .bg-green .card .src { color: rgba(244,242,232,0.55); }
+  .bg-green .info-row { border-color: rgba(244,242,232,0.15); }
+  .bg-green .info-label { color: rgba(244,242,232,0.6); }
+  .bg-green .info-value { color: var(--bg); }
+  .bg-green .list-item { border-color: rgba(244,242,232,0.12); }
+  .bg-green .list-item p { color: rgba(244,242,232,0.65); }
+  .bg-green .tbl th { color: rgba(244,242,232,0.65); border-color: rgba(244,242,232,0.15); }
+  .bg-green .tbl td { color: rgba(244,242,232,0.8); border-color: rgba(244,242,232,0.1); }
+  .bg-green .hi { color: var(--terracotta) !important; font-weight: 600 !important; }
+  .bg-green .eco-card { border-color: rgba(244,242,232,0.15); }
+  .bg-green .eco-card .eco-accent { background: var(--terracotta); }
+
+  .bg-dark .label { color: var(--terracotta); }
+  .bg-dark .sub { color: rgba(244,242,232,0.6); }
+
+  .bg-terracotta .label { color: rgba(255,255,255,0.85); }
+  .bg-terracotta .sub { color: rgba(244,242,232,0.7); }
+  .bg-terracotta h2, .bg-terracotta h3, .bg-terracotta h4 { color: var(--bg); }
+  .bg-terracotta .info-row { border-color: rgba(244,242,232,0.2); }
+  .bg-terracotta .info-label { color: rgba(244,242,232,0.9); }
+  .bg-terracotta .info-value { color: var(--bg); }
+  .bg-terracotta .dot { background: var(--bg); }
+  .bg-terracotta .line-accent { background: var(--bg); }
+  .bg-terracotta .card { background: none; border-color: rgba(244,242,232,0.2); }
+  .bg-terracotta .card h3 { color: var(--bg); }
+  .bg-terracotta .card p { color: rgba(244,242,232,0.75); }
+  .bg-terracotta .asterisk { filter: brightness(0) invert(1); }
+
+  /* Asterisk */
+  .asterisk { display: inline-block; width: 40px; height: 40px; flex-shrink: 0; filter: brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%); }
+  .asterisk-sm { width: 24px; height: 24px; }
+  .asterisk-lg { width: 56px; height: 56px; }
+
+  /* Grain overlay */
+  .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.28; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); background-size: 180px 180px; mix-blend-mode: overlay; }
+
+  /* Watermark */
+  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('../../../assets/River.png'); background-repeat: no-repeat; }
+  .watermark-light::before { opacity: 0.04; mix-blend-mode: multiply; }
+  .watermark-dark::before { opacity: 0.06; mix-blend-mode: soft-light; filter: invert(1); }
+  .wm-tr::before { width: 70%; height: 110%; top: -15%; right: -10%; background-size: contain; background-position: top right; }
+  .wm-bl::before { width: 65%; height: 110%; bottom: -15%; left: -8%; top: auto; background-size: contain; background-position: bottom left; transform: rotate(180deg); }
+  .wm-br::before { width: 60%; height: 100%; bottom: -10%; right: -5%; top: auto; background-size: contain; background-position: bottom right; transform: scaleX(-1); }
+  .wm-tl::before { width: 65%; height: 110%; top: -10%; left: -10%; background-size: contain; background-position: top left; transform: scaleX(-1) rotate(180deg); }
+  .wm-center::before { width: 90%; height: 120%; top: -10%; left: 5%; background-size: contain; background-position: center; transform: rotate(15deg); }
+
+  /* Image hints */
+  .img-hint { position: absolute; overflow: hidden; pointer-events: none; z-index: 0; display: flex; }
+  .img-hint img { flex: 1; min-width: 0; min-height: 0; object-fit: cover; display: block; }
+  .img-hint-accent { flex-shrink: 0; background: var(--terracotta); }
+  .img-hint-h { width: 100%; left: 0; height: clamp(40px, 5.5vw, 75px); flex-direction: row; }
+  .img-hint-h .img-hint-accent { width: clamp(180px, 24vw, 360px); height: 100%; }
+  .img-hint-v { height: 100%; top: 0; width: clamp(40px, 5.5vw, 75px); flex-direction: column; }
+  .img-hint-v .img-hint-accent { width: 100%; height: clamp(180px, 24vw, 360px); }
+
+  /* Typography */
+  .label { font-family: 'Sometype Mono', monospace; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+  h1 { font-family: 'Epilogue', sans-serif; font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; }
+  h2 { font-family: 'Epilogue', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  h3 { font-family: 'Epilogue', sans-serif; font-size: 1.25rem; font-weight: 500; margin-bottom: 0.6rem; line-height: 1.3; }
+  h4 { font-family: 'Epilogue', sans-serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.4rem; line-height: 1.3; }
+  .sub { font-family: 'Sometype Mono', monospace; font-size: 1.34rem; color: var(--text-secondary); font-weight: 400; line-height: 1.7; max-width: 620px; }
+  .sub-ep { font-family: 'Epilogue', sans-serif; font-size: 1.44rem; color: var(--text-secondary); font-weight: 300; line-height: 1.7; max-width: 620px; }
+  .muted { color: var(--text-muted); }
+  .mono { font-family: 'Sometype Mono', monospace; }
+  .tc { color: var(--terracotta); }
+  .big-num { font-family: 'Epilogue', sans-serif; font-size: clamp(3rem, 5vw, 5rem); font-weight: 600; color: var(--terracotta); line-height: 1; letter-spacing: -0.03em; }
+
+  /* Layout */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+
+  /* Swiss split */
+  .swiss-split { padding: 0; display: flex; height: 100%; }
+  .swiss-split-img { width: 48%; flex-shrink: 0; align-self: stretch; position: relative; overflow: hidden; }
+  .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .swiss-split-img-caption { position: absolute; bottom: 32px; left: 60px; right: 60px; color: #fff; z-index: 2; }
+  .swiss-split-img-caption h2 { font-family: 'Sometype Mono', monospace; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; color: #fff; line-height: 1.25; }
+  .swiss-split-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.8) 0%, rgba(26,26,24,0.35) 50%, rgba(26,26,24,0.1) 100%); pointer-events: none; }
+  .swiss-split-bar { width: 6px; flex-shrink: 0; background: var(--terracotta); }
+  .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 40px; min-width: 0; overflow-y: auto; scrollbar-width: none; }
+  .swiss-split-content::-webkit-scrollbar { display: none; }
+
+  /* Hero */
+  .hero-slide { padding: 0 !important; display: flex; height: 100%; width: 100vw; background: var(--green); }
+  .hero-main { flex: 1; min-width: 0; height: 100%; align-self: stretch; padding: 80px 90px 40px; display: flex; flex-direction: column; position: relative; overflow: hidden; background: var(--green); }
+  .hero-content { margin-top: auto; margin-bottom: auto; }
+  .hero-main h1 { font-family: 'Epilogue', sans-serif; font-size: clamp(5rem, 10vw, 9rem); font-weight: 500; color: var(--bg); line-height: 0.95; letter-spacing: -0.04em; }
+  .hero-main .hero-sub { font-family: 'Sometype Mono', monospace; font-size: clamp(1rem, 1.8vw, 1.35rem); color: rgba(244,242,232,0.65); font-weight: 400; margin-top: 2.5rem; line-height: 1.5; }
+  .hero-main .hero-footer-line { margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(244,242,232,0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 6px; width: 100%; }
+  .hero-main .hero-footer-line span { font-family: 'Sometype Mono', monospace; font-size: 0.96rem; color: rgba(244,242,232,0.5); letter-spacing: 0.08em; display: flex; align-items: center; gap: 8px; }
+  .hero-accent-strip { width: 48px; flex-shrink: 0; height: 100%; display: flex; flex-direction: column; }
+  .hero-accent-cream { flex: 1; background: var(--bg); }
+  .hero-accent-terracotta { flex: 1; background: var(--terracotta); }
+  .hero-img-strip { width: 33%; flex-shrink: 0; height: 100%; position: relative; overflow: hidden; }
+  .hero-img-strip img, .hero-img-strip video { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+
+  /* Full-bleed image slide */
+  .img-full { padding: 0; position: relative; }
+  .img-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-full-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.95) 0%, rgba(26,26,24,0.7) 40%, rgba(26,26,24,0.3) 70%, rgba(26,26,24,0.15) 100%); pointer-events: none; }
+  .img-full-caption { position: absolute; bottom: 96px; left: 100px; right: 100px; color: var(--bg); z-index: 2; }
+  .img-full-caption .label { color: var(--terracotta-light); }
+  .img-full-caption h2 { color: #fff; margin-bottom: 0.75rem; font-size: clamp(2.5rem, 4vw, 3.5rem); }
+  .img-full-caption p { font-family: 'Sometype Mono', monospace; color: rgba(255,255,255,0.8); font-weight: 400; max-width: 550px; font-size: 1.02rem; line-height: 1.7; }
+
+  /* Divider */
+  .divider { text-align: center; }
+  .divider h2 { font-size: clamp(3rem, 5.5vw, 5rem); margin-bottom: 1.25rem; }
+  .divider p { font-family: 'Sometype Mono', monospace; font-size: 1.26rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto; font-weight: 400; line-height: 1.7; }
+  .line-accent { width: 50px; height: 3px; background: var(--terracotta); margin: 0 auto 1.5rem; border-radius: 2px; }
+
+  /* Cards */
+  .card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; }
+  .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+  .card p { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
+  .card .src { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: var(--text-muted); margin-top: 1.25rem; letter-spacing: 0.03em; }
+
+  /* List items */
+  .list-item { padding: var(--list-pad, 2rem) 0; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; align-items: flex-start; }
+  .list-item:last-child { border-bottom: none; }
+  .dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; background: var(--terracotta); margin-top: 0.5rem; }
+  .list-item h4 { font-size: 1.1rem; font-weight: 500; }
+  .list-item p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
+
+  /* Info table */
+  .info-table { max-width: 750px; }
+  .info-row { display: grid; grid-template-columns: 36px 180px 1fr; border-bottom: 1px solid var(--border); padding: 0.85rem 0; font-size: 1rem; align-items: center; gap: 0.5rem; }
+  .info-icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--terracotta); flex-shrink: 0; }
+  .info-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .info-label { font-family: 'Sometype Mono', monospace; font-size: 0.88rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+  .info-value { color: var(--text); font-weight: 400; font-size: 1.26rem; }
+  .info-note { font-family: 'Sometype Mono', monospace; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+
+  /* Eco cards */
+  .eco-card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; position: relative; }
+  .eco-accent { position: absolute; top: -1px; left: 0; width: 40px; height: 3px; background: var(--terracotta); }
+  .eco-card h4 { font-size: 1.1rem; color: var(--text); margin-bottom: 0.6rem; }
+  .eco-card p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
+
+  /* Who cards */
+  .who-card { padding: 2.2rem 0; border-top: 1px solid var(--border); background: none; }
+  .who-card h4 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+  .who-card p { font-family: 'Sometype Mono', monospace; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; font-weight: 400; }
+
+  /* Concept cards with thumb */
+  .concept-card { padding: 3.5rem 0; border-top: 1px solid var(--border); background: none; display: flex; gap: 2rem; align-items: flex-start; }
+  .concept-card-text { display: flex; flex-direction: column; justify-content: center; }
+  .concept-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+  .concept-card p { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
+  .card-thumb { width: 180px; min-width: 180px; height: 130px; overflow: hidden; flex-shrink: 0; border-radius: 12px; }
+  .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Projection table */
+  .tbl { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+  .tbl th, .tbl td { padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 1.2rem; }
+  .tbl th { font-family: 'Sometype Mono', monospace; color: var(--text-muted); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .tbl td { font-family: 'Sometype Mono', monospace; color: var(--text-secondary); font-weight: 400; font-size: 1.2rem; }
+  .hi { color: var(--terracotta) !important; font-weight: 600 !important; }
+  .tbl-note { font-family: 'Sometype Mono', monospace; font-size: 0.84rem; color: var(--text-muted); margin-top: 1.5rem; line-height: 1.8; }
+
+  /* Proximity list */
+  .prox-list { list-style: none; }
+  .prox-list li { padding: 0.65rem 0; font-size: 1rem; color: var(--text-secondary); font-weight: 300; border-bottom: 1px solid var(--border); display: flex; gap: 1rem; }
+  .prox-list li:last-child { border-bottom: none; }
+  .prox-time { font-family: 'Sometype Mono', monospace; color: var(--terracotta); font-weight: 600; min-width: 85px; font-size: 0.9rem; }
+
+  /* TOC */
+  .toc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .toc-section { padding: 2.5rem 2.5rem 2.5rem 0; border-left: 1px solid var(--border); padding-left: 2.5rem; }
+  .toc-section:first-child { border-left: none; padding-left: 0; }
+  .toc-num { font-family: 'Epilogue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--terracotta); font-weight: 500; line-height: 1; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+  .toc-section h3 { font-size: 1.3rem; margin-bottom: 1.25rem; font-weight: 500; padding-bottom: 1rem; border-bottom: 1px solid var(--border); cursor: pointer; transition: color 0.2s; }
+  .toc-section h3:hover { color: var(--terracotta); }
+  .toc-section h3::after { content: ' \2192'; font-size: 0.85em; opacity: 0.4; margin-left: 0.3em; }
+  .toc-section ul { list-style: none; }
+  .toc-section ul li { font-family: 'Sometype Mono', monospace; font-size: 1.14rem; color: var(--text-secondary); padding: 0.4rem 0; font-weight: 400; cursor: pointer; transition: color 0.2s; }
+  .toc-section ul li:hover { color: var(--terracotta); }
+  .toc-section ul li::after { content: ' \2192'; font-size: 0.75em; opacity: 0.35; margin-left: 0.3em; }
+
+  /* CTA */
+  .cta-content { max-width: 650px; }
+  .cta-content h2 { margin-bottom: 1.75rem; }
+  .cta-content p { font-family: 'Sometype Mono', monospace; font-size: 1.32rem; color: var(--text-secondary); font-weight: 400; line-height: 1.75; margin-bottom: 1.5rem; }
+  .cta-btn { display: inline-block; font-family: 'Sometype Mono', monospace; background: var(--terracotta); color: var(--bg); padding: 1rem 2.5rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2rem; text-decoration: none; }
+  .cta-btn:hover { filter: brightness(1.1); }
+
+  /* Currency Picker */
+  .currency-picker { position: absolute; left: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; }
+  .currency-trigger { font-family: 'Sometype Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; background: none; color: rgba(244,242,232,0.55); border: none; padding: 5px 2px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: color 0.2s; }
+  .currency-trigger:hover { color: rgba(244,242,232,0.9); }
+  .currency-trigger svg { opacity: 0.5; transition: transform 0.25s; }
+  .currency-picker.open .currency-trigger svg { transform: rotate(180deg); }
+  .currency-popup { position: fixed; bottom: calc(var(--nav-h) + 12px); left: 50%; transform: translateX(-50%) scale(0.95); background: var(--bg); border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 0; padding: 8px 12px 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.08); opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; z-index: 200; }
+  .currency-picker.open .currency-popup { opacity: 1; pointer-events: auto; transform: translateX(-50%) scale(1); }
+  .currency-note { font-family: 'Sometype Mono', monospace; font-size: 0.6rem; letter-spacing: 0.04em; color: var(--text-muted); padding: 4px 8px 6px; white-space: nowrap; }
+  .currency-opt { font-family: 'Sometype Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; padding: 8px 14px; border: none; border-radius: 5px; background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .currency-opt:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+  .currency-opt.active { background: var(--terracotta); color: #fff; }
+
+  /* Slide Number */
+  .sn { position: absolute; top: 32px; right: 44px; font-family: 'Sometype Mono', monospace; font-size: 0.92rem; color: var(--text-secondary); letter-spacing: 0.1em; }
+  .bg-green .sn { color: rgba(244,242,232,0.5); }
+  .bg-dark .sn { color: rgba(244,242,232,0.5); }
+  .bg-terracotta .sn { color: rgba(244,242,232,0.55) !important; }
+  .img-full .sn { color: rgba(255,255,255,0.5); z-index: 3; }
+
+  /* Navigation */
+  .nav-bar { position: relative; flex-shrink: 0; z-index: 100; background: var(--green); display: flex; align-items: center; justify-content: center; padding: 0 30px; height: var(--nav-h); }
+  .nav-center { display: flex; align-items: center; gap: 4px; z-index: 1; }
+  .nav-arrow { background: none; border: none; color: rgba(244,242,232,0.7); width: 56px; height: 56px; border-radius: 6px; cursor: pointer; font-size: 1.65rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s, opacity 0.2s; font-family: 'Sometype Mono', monospace; flex-shrink: 0; margin-bottom: 4px; }
+  .nav-arrow:hover { color: var(--bg); }
+  .nav-arrow:disabled { opacity: 0.15; pointer-events: none; }
+  .slide-counter { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Epilogue', sans-serif; font-size: 0.82rem; color: rgba(244,242,232,0.85); text-align: center; cursor: pointer; padding: 4px 10px; border-radius: 6px; border: none; background: none; transition: color 0.2s; user-select: none; white-space: nowrap; width: 200px; }
+  .slide-counter:hover { color: var(--bg); }
+  .slide-counter.nav-active { color: var(--terracotta); }
+  .counter-num { font-family: 'Sometype Mono', monospace; font-size: 0.72rem; opacity: 0.7; font-weight: 500; margin-bottom: 2px; }
+  .counter-name { font-weight: 500; letter-spacing: 0.01em; text-align: left; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Share button */
+  .share-btn { position: absolute; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; z-index: 10; background: none; border: none; padding: 5px 2px; cursor: pointer; color: rgba(244,242,232,0.55); transition: color 0.2s; }
+  .share-btn:hover { color: rgba(244,242,232,0.9); }
+
+  /* Slide navigator dropdown */
+  .slide-nav-dropdown { display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.96); width: 33vw; max-height: 66vh; overflow-y: auto; background: var(--bg); border: 1px solid rgba(42,58,43,0.1); border-radius: 10px; z-index: 999; padding: 12px 0; scrollbar-width: thin; scrollbar-color: rgba(42,58,43,0.12) transparent; opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease; box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(42,58,43,0.05); }
+  .slide-nav-dropdown.open { display: block; }
+  .slide-nav-dropdown.visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .slide-nav-section { font-family: 'Sometype Mono', monospace; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); padding: 14px 24px 8px; font-weight: 600; }
+  .slide-nav-section:first-child { padding-top: 4px; }
+  .slide-nav-item { display: flex; align-items: center; gap: 14px; padding: 9px 24px; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: 'Epilogue', sans-serif; font-size: 0.95rem; color: rgba(42,58,43,0.55); font-weight: 400; line-height: 1.3; }
+  .slide-nav-item:hover { background: rgba(42,58,43,0.05); color: var(--green); }
+  .slide-nav-item.current { color: var(--green); background: rgba(42,58,43,0.04); }
+  .slide-nav-item-num { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: rgba(42,58,43,0.35); min-width: 26px; text-align: right; flex-shrink: 0; }
+  .slide-nav-item.current .slide-nav-item-num { color: var(--terracotta); }
+  .slide-nav-divider { height: 1px; background: rgba(42,58,43,0.06); margin: 6px 24px; }
+  .slide-nav-backdrop { display: none; position: fixed; inset: 0; z-index: 998; background: rgba(0,0,0,0.3); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease; }
+  .slide-nav-backdrop.open { display: block; }
+  .slide-nav-backdrop.visible { opacity: 1; }
+
+  /* Progress bar */
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); z-index: 200; transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; }
+
+  /* Environment badge */
+  .env-badge { position: fixed; top: 12px; left: 12px; z-index: 300; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; cursor: default; }
+  .env-badge::before { content: ''; position: absolute; inset: 0; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); opacity: 0.45; transition: opacity 0.3s; }
+  .env-badge:hover::before { opacity: 1; }
+  .env-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; position: relative; z-index: 1; animation: env-pulse 2s ease-in-out infinite; }
+  .env-dot-staging { background: #f5a623; }
+  .env-dot-local { background: #4cd964; }
+  .env-label { font-family: 'Sometype Mono', monospace; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); white-space: nowrap; position: absolute; left: 100%; margin-left: 6px; padding: 0 8px; height: 24px; line-height: 24px; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .env-badge:hover .env-label { opacity: 1; }
+  @keyframes env-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+  /* Print */
+  @media print {
+    .nav-bar, .progress-bar, .slide-nav-dropdown, .slide-nav-backdrop { display: none !important; }
+    .deck { display: block; width: auto; transform: none !important; }
+    .slide { page-break-after: always; width: 100vw; height: 100vh; padding: 40px 60px; }
+    body, html { overflow: visible; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .slide { padding: 50px 44px 30px; }
+    .grid-2 { grid-template-columns: 1fr; gap: 2.5rem; }
+    .grid-3 { grid-template-columns: 1fr; gap: 2rem; }
+    .toc { grid-template-columns: 1fr; }
+    .toc-section { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    .img-full-caption { left: 44px; right: 44px; bottom: 28px; }
+    .hero-main { padding: 50px 44px 30px; }
+    .hero-img-strip { width: 30%; }
+    .swiss-split-img { width: 42%; }
+    .swiss-split-content { padding: 50px 44px 30px; }
+  }
+
+  @media (max-width: 768px) {
+    .slide { padding: 0 24px; justify-content: flex-start !important; align-items: flex-start !important; }
+    .slide-inner { padding-top: 0; width: 100%; }
+    .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
+    .sn { display: none !important; }
+    .slide.img-full { padding: 0 !important; }
+    .nav-bar { padding: 0 12px; }
+    .slide-nav-dropdown { width: calc(100vw - 32px); }
+    .slide-counter { width: 140px; }
+    .currency-picker { left: 12px; }
+    .share-btn { right: 12px; }
+    .img-full-caption { left: 24px; right: 24px; bottom: 28px; }
+    .hero-main { padding: 12px 24px 16px; }
+    .hero-img-strip { width: 35%; }
+    .toc { grid-template-columns: 1fr; }
+    .toc-section { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    .swiss-split { flex-direction: column; }
+    .swiss-split-img { width: 100%; height: 40vh; }
+    .swiss-split-bar { width: 100%; height: 4px; }
+    .swiss-split-content { padding: 12px 24px 16px; }
+    .hero-slide { flex-direction: column; }
+    .hero-main { height: auto; flex: 1; }
+    .hero-accent-strip { display: none; }
+    .sub { font-size: 1.1rem !important; }
+    .sub-ep { font-size: 1.15rem !important; }
+    .info-row { grid-template-columns: 28px 1fr; gap: 0.2rem; }
+    .info-row .info-value { grid-column: 2; }
+    .card { padding: 1.75rem 0 !important; }
+    .concept-card { flex-direction: column; gap: 1rem; padding: 1.5rem 0; }
+    .card-thumb { width: 100%; min-width: 100%; height: 160px; border-radius: 8px; }
+    .tbl th, .tbl td { font-size: 0.72rem !important; padding: 0.55rem 0.4rem !important; }
+    .tbl th { font-size: 0.62rem !important; }
+    .img-hint { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div id="mobileNotice" style="display:none;position:fixed;inset:0;z-index:9999;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;">
+  <div style="width:48px;height:48px;margin-bottom:1.5rem;opacity:0.4;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+  </div>
+  <h2 style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--green);margin-bottom:0.75rem;">Best viewed on desktop</h2>
+  <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--text-secondary);line-height:1.6;max-width:320px;">This presentation is designed for larger screens. Please open it on a laptop or desktop for the best experience.</p>
+  <button onclick="document.getElementById('mobileNotice').style.display='none'" style="margin-top:2rem;padding:0.75rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.8rem;background:var(--green);color:var(--bg);border:none;border-radius:4px;cursor:pointer;letter-spacing:0.05em;">Continue anyway &rarr;</button>
+</div>
+<style>
+  @media (max-width: 960px) {
+    #mobileNotice { display:flex !important; }
+  }
+</style>
+
+<div class="progress-bar" id="progress"></div>
+<div class="env-badge" id="envBadge" style="display:none;">
+  <div class="env-dot" id="envDot"></div>
+  <span class="env-label" id="envLabel"></span>
+</div>
+
+<div class="deck-wrapper">
+<div class="deck" id="deck">
+
+<!-- 00 ─ Cover -->
+<section class="slide bg-green grain" id="s0">
+  <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+    <div class="label" style="justify-content:center;">Investment Overview</div>
+    <h2 style="max-width:700px;">NāM Space</h2>
+    <p class="sub" style="margin-top:1rem;max-width:550px;color:rgba(244,242,232,0.65);">Financials, deal structure, and returns</p>
+  </div>
+  <div class="sn">0</div>
+</section>
+
+<section class="slide bg-cream grain" id="s1" style="overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;width:1600px;height:1600px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(196,109,72,0.18) 0%,rgba(196,109,72,0.08) 35%,rgba(196,109,72,0.02) 55%,transparent 70%);animation:orbMove 35s ease-in-out infinite,orbMorph 25s ease-in-out infinite;pointer-events:none;z-index:0;filter:blur(60px);"></div>
+  <style>
+    @keyframes orbMove {
+      0%   { transform:translate(-50%,-50%) translate(0,0); }
+      15%  { transform:translate(-50%,-50%) translate(120px,-80px); }
+      35%  { transform:translate(-50%,-50%) translate(-90px,110px); }
+      55%  { transform:translate(-50%,-50%) translate(60px,70px); }
+      75%  { transform:translate(-50%,-50%) translate(-110px,-50px); }
+      100% { transform:translate(-50%,-50%) translate(0,0); }
+    }
+    @keyframes orbMorph {
+      0%,100% { border-radius:50% 35% 60% 40%; opacity:0.6; }
+      20%  { border-radius:35% 55% 40% 60%; opacity:0.85; }
+      40%  { border-radius:60% 40% 35% 55%; opacity:1; }
+      60%  { border-radius:40% 60% 55% 35%; opacity:0.75; }
+      80%  { border-radius:55% 35% 60% 45%; opacity:0.9; }
+    }
+  </style>
+  <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+    <div class="label" style="justify-content:center;color:var(--text-secondary);">Appendix</div>
+    <h2 style="max-width:600px;color:var(--green);">Financials</h2>
+    <p class="sub" style="margin-top:1rem;max-width:550px;">We need to raise <span data-currency data-thb="18720000" data-format="compact">THB 18.7M</span> to fully realise Phase 1.</p>
+    <div style="display:flex;gap:0;margin-top:2rem;border-radius:6px;overflow:hidden;border:1px solid rgba(42,58,43,0.15);">
+      <button onclick="selectCurrency('THB')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:rgba(42,58,43,0.08);color:var(--green);border:none;cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="THB">THB</button>
+      <button onclick="selectCurrency('USD')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:var(--text-secondary);border:none;border-left:1px solid rgba(42,58,43,0.15);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="USD">USD</button>
+      <button onclick="selectCurrency('EUR')" style="padding:0.6rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;background:transparent;color:var(--text-secondary);border:none;border-left:1px solid rgba(42,58,43,0.15);cursor:pointer;letter-spacing:0.05em;" class="appendix-cur" data-cur="EUR">EUR</button>
+    </div>
+    <p class="sub" style="margin-top:0.75rem;font-size:0.8rem;">Select your preferred currency. Rates update automatically.</p>
+  </div>
+  <div class="sn">1</div>
+</section>
+
+
+<!-- 30 ─ The Deal -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s2">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The Deal</div>
+      <h2 style="font-size:2rem;">Own a studio at N&#x101;M Space</h2>
+      <p class="sub" style="margin-top:0.75rem;max-width:600px;">Invest in one of 8 private studios. Fixed annual returns from month 13, capital returned at year 30.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;">
+      <div>
+        <div style="border-top:2px solid var(--terracotta);padding-top:1.5rem;">
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:1.25rem;">Investment per room</div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:2.8rem;font-weight:600;color:var(--green);line-height:1;" data-currency data-thb="2340000" data-format="compact">&#x0E3F;2,340,000</div>
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--text-secondary);margin-top:0.5rem;"><span data-currency data-thb="2340000" data-format="equiv">~$65,000 USD &middot; ~&euro;60,000</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:2rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Annual return</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);">8% &mdash; <span data-currency data-thb="187200" data-format="short">&#x0E3F;187,200</span>/yr</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Monthly return</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);"><span data-currency data-thb="15600" data-format="short">&#x0E3F;15,600</span>/mo</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Returns begin</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);">Month 13</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Term</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);">30 years</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Buyout option</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);">Available</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Slots available</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--terracotta);">8 only</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="border-top:2px solid var(--terracotta);padding-top:1.5rem;">
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:1.25rem;">30-year summary</div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:2.8rem;font-weight:600;color:var(--terracotta);line-height:1;">240% ROI</div>
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--text-secondary);margin-top:0.5rem;">Total received: <span data-currency data-thb="7956000" data-format="short">&#x0E3F;7,956,000</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:2rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Total payments over 30 years</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);"><span data-currency data-thb="5616000" data-format="short">&#x0E3F;5,616,000</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Capital returned at year 30</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);"><span data-currency data-thb="2340000" data-format="short">&#x0E3F;2,340,000</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Total received</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--terracotta);"><span data-currency data-thb="7956000" data-format="short">&#x0E3F;7,956,000</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Return on investment</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--terracotta);">240%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">2</div>
+</section>
+
+
+<!-- 31 ─ Investor Benefits -->
+<section class="slide bg-terracotta grain" id="s3">
+  <div class="slide-inner" style="max-width:1050px;">
+    <div style="margin-bottom:2.5rem;">
+      <div class="label" style="color:rgba(244,242,232,0.6);">Investor Benefits</div>
+      <h2 style="font-size:2rem;">More than a return</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;">
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--bg);line-height:1;">14</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-top:0.35rem;">nights / year</div>
+        <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:1rem;">Free annual stay in your studio or any available room.</p>
+      </div>
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;">
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--bg);line-height:1;">30</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-top:0.35rem;">years membership</div>
+        <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:1rem;">Full access to co-working, wellness, events, and community.</p>
+      </div>
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;">
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--bg);line-height:1;">1st</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-top:0.35rem;">priority access</div>
+        <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:1rem;">First dibs on future investment rounds across the ecosystem.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.25rem;">
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;display:flex;gap:1.5rem;align-items:center;">
+        <div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:1.6rem;font-weight:600;color:var(--bg);line-height:1;">Buyout option</div>
+          <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:0.6rem;">Early exit available with structured terms at predetermined intervals.</p>
+        </div>
+      </div>
+      <div style="background:rgba(244,242,232,0.1);border-radius:8px;padding:1.75rem;display:flex;gap:1.5rem;align-items:center;">
+        <div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:1.6rem;font-weight:600;color:var(--bg);line-height:1;">Global community</div>
+          <p style="font-size:0.9rem;color:rgba(244,242,232,0.75);line-height:1.5;margin-top:0.6rem;">Join a network of founders, creatives, and builders worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">3</div>
+</section>
+
+
+<!-- 32 ─ Risks & Mitigation -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s4">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Risk Management</div>
+      <h2 style="font-size:2rem;">Risks and how we offset them</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(42,58,43,0.12);">
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <h4 style="color:var(--terracotta);font-size:1.05rem;">Seasonality</h4>
+        </div>
+        <div>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">Low season is offset through curated retreats, team offsites, and hacker houses that attract year-round demand. We&rsquo;re also building collaborations with spaces globally &mdash; particularly in Australia, where their winter coincides with our low season, creating a natural exchange pipeline.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <h4 style="color:var(--terracotta);font-size:1.05rem;">Local &amp; regulatory</h4>
+        </div>
+        <div>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">The founder is Thai with deep connections to local government, enabling special privileges and institutional support. This isn&rsquo;t an outsider project &mdash; it&rsquo;s built with the island, not on top of it.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <h4 style="color:var(--terracotta);font-size:1.05rem;">Market demand</h4>
+        </div>
+        <div>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">Koh Phangan is transitioning from party island to wellness and entrepreneur hub. The founder is aiming to work with central government to position Thailand as a premier digital nomad destination &mdash; and N&#x101;M is designed to lead that shift.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.5rem 0;">
+        <div>
+          <h4 style="color:var(--terracotta);font-size:1.05rem;">Execution</h4>
+        </div>
+        <div>
+          <p style="color:var(--text-secondary);line-height:1.65;font-size:0.95rem;">We operate like a lean startup &mdash; short feedback loops, continuous improvement, and heavy use of AI to drive efficiency across operations. The founder is personally invested and deeply motivated to grow this into something much larger.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">4</div>
+</section>
+
+
+<!-- 33 ─ The Founder -->
+<section class="slide bg-green grain watermark watermark-dark wm-br" id="s5">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:center;">
+      <div style="text-align:center;">
+        <img src="../../../assets/Alex.jpg" alt="Alex — Founder" style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid var(--terracotta);">
+        <h3 style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--bg);margin-top:1.25rem;">Alex Duffner</h3>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.8rem;color:rgba(244,242,232,0.5);margin-top:0.25rem;">Founder &amp; Builder</p>
+      </div>
+      <div>
+        <div class="label">The Founder</div>
+        <h2 style="font-size:1.8rem;margin-bottom:1.5rem;">Because the founder<br>is the audience.</h2>
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(244,242,232,0.15);">
+          <div style="padding:1rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <h4 style="color:var(--terracotta-light);font-size:1rem;margin-bottom:0.3rem;">7&ndash;8 years as a digital nomad</h4>
+            <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.55);line-height:1.5;">Lived and worked from 30+ countries. Deep understanding of what remote workers actually need.</p>
+          </div>
+          <div style="padding:1rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <h4 style="color:var(--terracotta-light);font-size:1rem;margin-bottom:0.3rem;">Fortune 500 &amp; impact startups</h4>
+            <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.55);line-height:1.5;">American Express, VMware, Volkswagen &mdash; alongside mission-driven ventures.</p>
+          </div>
+          <div style="padding:1rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <h4 style="color:var(--terracotta-light);font-size:1rem;margin-bottom:0.3rem;">Community builder</h4>
+            <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.55);line-height:1.5;">Experienced in building online and in-person communities. 500+ members across existing networks.</p>
+          </div>
+          <div style="padding:1rem 0;">
+            <h4 style="color:var(--terracotta-light);font-size:1rem;margin-bottom:0.3rem;">Personally invested</h4>
+            <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.55);line-height:1.5;">Thai founder with skin in the game, local government connections, and the drive to make this vision real.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">5</div>
+</section>
+
+
+<!-- 34 ─ Monthly P&L & Revenue Mix -->
+<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s6">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label">Unit Economics</div>
+      <h2 style="font-size:2rem;">Monthly P&amp;L &amp; revenue mix</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+      <!-- Monthly P&L -->
+      <div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-bottom:1.5rem;">Monthly P&amp;L</div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Gross revenue</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span data-currency data-thb="484000" data-format="short">&#x0E3F;484,000</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Operating costs</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:rgba(244,242,232,0.5);">&minus;<span data-currency data-thb="242200" data-format="short">&#x0E3F;242,200</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Investor returns</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:rgba(244,242,232,0.5);">&minus;<span data-currency data-thb="124800" data-format="short">&#x0E3F;124,800</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-top:2px solid var(--terracotta-light);">
+            <span style="color:var(--bg);font-weight:500;font-size:0.95rem;">Developer net</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--terracotta-light);"><span data-currency data-thb="117000" data-format="short">&#x0E3F;117,000</span></span>
+          </div>
+        </div>
+      </div>
+      <!-- Revenue Mix -->
+      <div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-bottom:1.5rem;">Revenue Mix</div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Nightly rate</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span data-currency data-thb="3000" data-format="short">&#x0E3F;3,000</span>/night at 60% occ.</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Weekly rate</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span data-currency data-thb="18000" data-format="short">&#x0E3F;18,000</span>/week</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Monthly rate</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span data-currency data-thb="50000" data-format="short">&#x0E3F;50,000</span>/month</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;">
+            <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Co-working memberships</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);">20 &times; <span data-currency data-thb="8000" data-format="short">&#x0E3F;8,000</span>/mo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">6</div>
+</section>
+
+
+<!-- 35 ─ Monthly Cost Breakdown -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s7">
+  <div class="slide-inner" style="max-width:900px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Operating Costs</div>
+      <h2 style="font-size:2rem;">Monthly cost breakdown</h2>
+      <p class="sub-ep" style="margin-top:0.75rem;max-width:600px;">What it costs to run NāM Space each month. Total: <span data-currency data-thb="192200" data-format="short" style="font-weight:600;color:var(--green);">&#x0E3F;192,200</span>/mo.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Land rental</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">30-year lease, sea-view freehold land</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="50000" data-format="short">&#x0E3F;50,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Staff &amp; payroll</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Founder, cleaning, maintenance, reception &amp; manager</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="102000" data-format="short">&#x0E3F;102,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Utilities</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Electricity, water, high-speed internet</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="25000" data-format="short">&#x0E3F;25,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Laundry &amp; cleaning supplies</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Linen service, detergents, consumables</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="15000" data-format="short">&#x0E3F;15,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Repairs &amp; materials</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Parts, tools, tropical wear &amp; tear</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="15000" data-format="short">&#x0E3F;15,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Marketing &amp; acquisition</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Direct bookings, content, SEO</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="12000" data-format="short">&#x0E3F;12,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Insurance &amp; legal</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Property insurance, compliance</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="8000" data-format="short">&#x0E3F;8,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Supplies &amp; consumables</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Coffee, toiletries, office supplies</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="8200" data-format="short">&#x0E3F;8,200</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;">
+        <div>
+          <span style="font-weight:500;color:var(--green);font-size:0.95rem;">Admin &amp; accounting</span>
+          <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:0.75rem;">Bookkeeping, software, banking</span>
+        </div>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);" data-currency data-thb="7000" data-format="short">&#x0E3F;7,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-top:2px solid var(--terracotta);margin-top:0.5rem;">
+        <span style="font-weight:600;color:var(--green);font-size:1rem;">Total monthly OPEX</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--terracotta);font-size:1.1rem;" data-currency data-thb="242200" data-format="short">&#x0E3F;242,200</span>
+      </div>
+    </div>
+  </div>
+  <div class="sn">7</div>
+</section>
+
+
+<!-- 36 ─ Scenario Calculator -->
+<section class="slide bg-green grain watermark watermark-dark wm-br" id="s8">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:1.5rem;">
+      <div class="label">Scenarios</div>
+      <h2 style="font-size:2rem;">What if?</h2>
+    </div>
+
+    <!-- Scenario tabs -->
+    <div id="scenarioTabs" style="display:flex;gap:0;margin-bottom:2rem;border-radius:8px;overflow:hidden;border:1px solid rgba(244,242,232,0.15);">
+      <button class="scenario-tab" data-scenario="conservative" style="flex:1;padding:0.75rem 1.25rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;letter-spacing:0.05em;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;background:transparent;color:rgba(244,242,232,0.5);">Conservative</button>
+      <button class="scenario-tab active" data-scenario="base" style="flex:1;padding:0.75rem 1.25rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;letter-spacing:0.05em;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;background:var(--terracotta);color:var(--bg);">Base</button>
+      <button class="scenario-tab" data-scenario="optimistic" style="flex:1;padding:0.75rem 1.25rem;font-family:'Sometype Mono',monospace;font-size:0.85rem;letter-spacing:0.05em;border:none;cursor:pointer;transition:background 0.2s,color 0.2s;background:transparent;color:rgba(244,242,232,0.5);">Optimistic</button>
+    </div>
+
+    <!-- Assumptions -->
+    <div style="display:flex;gap:2rem;margin-bottom:2rem;">
+      <div style="flex:1;background:rgba(244,242,232,0.06);border-radius:8px;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:rgba(244,242,232,0.6);font-size:0.9rem;">Occupancy</span>
+        <span id="scenarioOcc" style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--bg);font-size:1.1rem;">60%</span>
+      </div>
+      <div style="flex:1;background:rgba(244,242,232,0.06);border-radius:8px;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:rgba(244,242,232,0.6);font-size:0.9rem;">Co-working members</span>
+        <span id="scenarioMembers" style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--bg);font-size:1.1rem;">20</span>
+      </div>
+    </div>
+
+    <!-- P&L table -->
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Accommodation revenue</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span id="scenarioAccom" data-currency data-thb="324000" data-format="short">&#x0E3F;324,000</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Co-working revenue</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--bg);"><span id="scenarioCowork" data-currency data-thb="160000" data-format="short">&#x0E3F;160,000</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Total revenue</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--bg);"><span id="scenarioRevenue" data-currency data-thb="484000" data-format="short">&#x0E3F;484,000</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Operating costs</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:rgba(244,242,232,0.5);">&minus;<span id="scenarioOpex" data-currency data-thb="242200" data-format="short">&#x0E3F;242,200</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <span style="color:rgba(244,242,232,0.7);font-size:0.95rem;">Investor returns</span>
+        <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:rgba(244,242,232,0.5);">&minus;<span id="scenarioInvestor" data-currency data-thb="124800" data-format="short">&#x0E3F;124,800</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-top:2px solid var(--terracotta-light);align-items:baseline;">
+        <span style="color:var(--bg);font-weight:500;font-size:0.95rem;">Developer net</span>
+        <span style="display:flex;align-items:baseline;gap:0.75rem;">
+          <span id="scenarioMargin" style="font-family:'Sometype Mono',monospace;font-size:0.8rem;color:var(--terracotta-light);">24.2% margin</span>
+          <span style="font-family:'Sometype Mono',monospace;font-weight:600;color:var(--terracotta-light);"><span id="scenarioNet" data-currency data-thb="117000" data-format="short">&#x0E3F;117,000</span></span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Calculator link -->
+    <div style="margin-top:2rem;text-align:right;">
+      <a href="../../space/calculator/" style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--terracotta-light);text-decoration:none;border-bottom:1px solid rgba(196,109,72,0.3);padding-bottom:2px;">Explore the full calculator &rarr;</a>
+    </div>
+  </div>
+  <div class="sn">8</div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var scenarios = {
+      conservative: { occ: 50, members: 15, accom: 270000, cowork: 120000, revenue: 390000, opex: 242200, investor: 124800, net: 23000, margin: '5.9' },
+      base:         { occ: 60, members: 20, accom: 324000, cowork: 160000, revenue: 484000, opex: 242200, investor: 124800, net: 117000, margin: '24.2' },
+      optimistic:   { occ: 75, members: 25, accom: 405000, cowork: 200000, revenue: 605000, opex: 242200, investor: 124800, net: 238000, margin: '39.3' }
+    };
+    var tabs = document.querySelectorAll('#scenarioTabs .scenario-tab');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var key = tab.dataset.scenario;
+        var s = scenarios[key];
+        tabs.forEach(function(t) {
+          t.classList.remove('active');
+          t.style.background = 'transparent';
+          t.style.color = 'rgba(244,242,232,0.5)';
+        });
+        tab.classList.add('active');
+        tab.style.background = 'var(--terracotta)';
+        tab.style.color = 'var(--bg)';
+        document.getElementById('scenarioOcc').textContent = s.occ + '%';
+        document.getElementById('scenarioMembers').textContent = s.members;
+        document.getElementById('scenarioAccom').dataset.thb = s.accom;
+        document.getElementById('scenarioCowork').dataset.thb = s.cowork;
+        document.getElementById('scenarioRevenue').dataset.thb = s.revenue;
+        document.getElementById('scenarioOpex').dataset.thb = s.opex;
+        document.getElementById('scenarioInvestor').dataset.thb = s.investor;
+        document.getElementById('scenarioNet').dataset.thb = s.net;
+        document.getElementById('scenarioMargin').textContent = s.margin + '% margin';
+        // Get active currency from the currency label in the nav
+        var curLabel = document.getElementById('currencyLabel');
+        var cur = curLabel ? curLabel.textContent.trim() : 'THB';
+        if (typeof window.updateCurrency === 'function') window.updateCurrency();
+      });
+    });
+  });
+  </script>
+</section>
+
+
+<!-- 37 ─ Kin Haus Validation -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s9">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Proof of Concept</div>
+      <h2 style="font-size:2rem;">Kin Haus &mdash; our MVP</h2>
+      <p class="sub" style="margin-top:0.75rem;max-width:650px;">Before building N&#x101;M Space, we launched Kin Haus &mdash; a boutique co-living space on Koh Phangan with 3 rooms. In our first two months of full operations (Feb&ndash;Mar 2026), the numbers speak for themselves.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-top:1.5rem;">
+      <div style="border-top:2px solid var(--terracotta);padding-top:1.5rem;">
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:0.75rem;">Monthly Revenue</div>
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--green);line-height:1;" data-currency data-thb="150000" data-thb-high="160000" data-format="range">&#x0E3F;150&ndash;160K</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--text-secondary);margin-top:0.5rem;">Consistent across Feb &amp; Mar</div>
+      </div>
+      <div style="border-top:2px solid var(--terracotta);padding-top:1.5rem;">
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:0.75rem;">Monthly Costs</div>
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--green);line-height:1;" data-currency data-thb="70000" data-thb-high="75000" data-format="range">&#x0E3F;70&ndash;75K</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--text-secondary);margin-top:0.5rem;"><span data-currency data-thb="50000" data-format="compact">&#x0E3F;50K</span> rent + <span data-currency data-thb="20000" data-thb-high="25000" data-format="range">&#x0E3F;20&ndash;25K</span> OPEX</div>
+      </div>
+      <div style="border-top:2px solid var(--terracotta);padding-top:1.5rem;">
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:0.75rem;">Monthly Profit</div>
+        <div style="font-family:'Epilogue',sans-serif;font-size:2.4rem;font-weight:600;color:var(--terracotta);line-height:1;" data-currency data-thb="80000" data-thb-high="90000" data-format="range">&#x0E3F;80&ndash;90K</div>
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--text-secondary);margin-top:0.5rem;">~55% profit margin</div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;padding:1.5rem;background:var(--green);border-radius:8px;">
+      <p style="color:rgba(244,242,232,0.85);font-size:0.95rem;line-height:1.6;"><strong style="color:var(--bg);">What this proves:</strong> The co-living model works on Koh Phangan with strong margins &mdash; even as a rented property. N&#x101;M Space takes this further with owned land, purpose-built architecture, and multiple revenue streams. Both properties sit next to each other &mdash; when one is full, we refer guests to the other, creating a natural overflow pipeline.</p>
+    </div>
+  </div>
+  <div class="sn">9</div>
+</section>
+
+
+<!-- 38 ─ The Raise -->
+<section class="slide bg-cream grain watermark watermark-light wm-br" id="s10">
+  <div class="slide-inner" style="max-width:1000px;">
+    <div style="margin-bottom:2rem;">
+      <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The Raise</div>
+      <h2 style="font-size:2rem;">Capital allocation</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+      <div>
+        <div style="border-top:2px solid var(--terracotta);padding-top:1.5rem;">
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:1.25rem;">Total raise</div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:2.8rem;font-weight:600;color:var(--green);line-height:1;" data-currency data-thb="18720000" data-format="compact">&#x0E3F;18,720,000</div>
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.95rem;color:var(--text-secondary);margin-top:0.5rem;"><span data-currency data-thb="18720000" data-format="equiv">~$520,000 USD</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;margin-top:2rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Build + fit-out</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);"><span data-currency data-thb="15600000" data-format="short">&#x0E3F;15,600,000</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.8rem 0;">
+            <span style="color:var(--text-secondary);font-size:0.95rem;">Buffer + reserve</span>
+            <span style="font-family:'Sometype Mono',monospace;font-weight:500;color:var(--green);"><span data-currency data-thb="3120000" data-format="short">&#x0E3F;3,120,000</span></span>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--green);border-radius:8px;padding:2rem;color:var(--bg);">
+        <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(244,242,232,0.5);margin-bottom:1.25rem;">How it works</div>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">1</div>
+            <p style="font-size:0.95rem;color:rgba(244,242,232,0.85);line-height:1.5;">Invest <span data-currency data-thb="2340000" data-format="short">&#x0E3F;2,340,000</span> in one of 8 studios</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">2</div>
+            <p style="font-size:0.95rem;color:rgba(244,242,232,0.85);line-height:1.5;">We build and operate the space during year 1</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">3</div>
+            <p style="font-size:0.95rem;color:rgba(244,242,232,0.85);line-height:1.5;">8% annual returns begin month 13, paid monthly</p>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">4</div>
+            <p style="font-size:0.95rem;color:rgba(244,242,232,0.85);line-height:1.5;">Full capital returned at year 30 &mdash; 240% total ROI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">10</div>
+</section>
+
+
+</div><!-- /deck -->
+</div><!-- /deck-wrapper -->
+
+<nav class="nav-bar">
+  <div class="nav-center">
+    <button onclick="prevSlide()" class="nav-arrow" id="prevBtn" title="Previous" disabled>&larr;</button>
+    <div class="slide-counter" id="counter" onclick="toggleSlideNav()" title="Jump to slide">
+      <span class="counter-num" id="counterNum">01</span>
+      <span class="counter-name" id="counterName">The Search</span>
+    </div>
+    <button onclick="nextSlide()" class="nav-arrow" id="nextBtn" title="Next">&rarr;</button>
+  </div>
+  <div class="currency-picker" id="currencyPicker">
+    <button class="currency-trigger" id="currencyTrigger" onclick="toggleCurrencyPicker()" title="Display currency">
+      <span id="currencyLabel">THB</span>
+      <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 4l3-3 3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="currency-popup" id="currencyPopup">
+      <div style="display:flex;gap:0;padding:0;">
+        <button class="currency-opt active" data-cur="THB" onclick="selectCurrency('THB')">THB</button>
+        <button class="currency-opt" data-cur="EUR" onclick="selectCurrency('EUR')">EUR</button>
+        <button class="currency-opt" data-cur="USD" onclick="selectCurrency('USD')">USD</button>
+      </div>
+      <div class="currency-note">Rates based on today's market rate</div>
+    </div>
+  </div>
+  <button class="share-btn" onclick="doShare()" title="Share">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+  </button>
+</nav>
+<div class="slide-nav-backdrop" id="slideNavBackdrop"></div>
+<div class="slide-nav-dropdown" id="slideNav"></div>
+<script>
+(function(){
+  let current = 0;
+  const deck = document.getElementById('deck');
+  const slides = deck.querySelectorAll('.slide');
+  const total = slides.length;
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+
+  function goTo(n) {
+    if (navOpen) closeSlideNav();
+    current = Math.max(0, Math.min(total - 1, n));
+    deck.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    document.getElementById('counterNum').textContent = String(current + 1).padStart(2, '0');
+    document.getElementById('counterName').textContent = slideNames[current] || '';
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    document.getElementById('prevBtn').disabled = (current === 0);
+    document.getElementById('nextBtn').disabled = (current === total - 1);
+    slides.forEach(function(s, i) {
+      if (i === current) s.classList.add('active');
+      else s.classList.remove('active');
+    });
+    if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
+  }
+
+  window.nextSlide = function() { goTo(current + 1); };
+  window.prevSlide = function() { goTo(current - 1); };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  window.goTo = goTo;
+
+  /* Slide navigator */
+  var slideNav = document.getElementById('slideNav');
+  var navOpen = false;
+
+  var slideData = [
+    { section: 'Investment Overview', items: [
+      { idx: 0, title: 'Cover' },
+      { idx: 1, title: 'Financials' },
+      { idx: 2, title: 'The Deal' },
+      { idx: 3, title: 'Investor Benefits' },
+      { idx: 4, title: 'Risks' },
+      { idx: 5, title: 'The Founder' },
+      { idx: 6, title: 'Monthly P&L' },
+      { idx: 7, title: 'Cost Breakdown' },
+      { idx: 8, title: 'Scenario Calculator' },
+      { idx: 9, title: 'Kin Haus MVP' },
+      { idx: 10, title: 'The Raise' }
+    ]}
+  ];
+
+  var slideNames = [];
+  slideData.forEach(function(section) {
+    section.items.forEach(function(item) { slideNames[item.idx] = item.title; });
+  });
+
+  var navHtml = '';
+  slideData.forEach(function(section, si) {
+    if (si > 0) navHtml += '<div class="slide-nav-divider"></div>';
+    navHtml += '<div class="slide-nav-section">' + section.section + '</div>';
+    section.items.forEach(function(item) {
+      navHtml += '<div class="slide-nav-item" data-idx="' + item.idx + '">'
+        + '<span class="slide-nav-item-num">' + String(item.idx + 1).padStart(2, '0') + '</span>'
+        + '<span>' + item.title + '</span></div>';
+    });
+  });
+  slideNav.innerHTML = navHtml;
+
+  slideNav.querySelectorAll('.slide-nav-item').forEach(function(el) {
+    el.addEventListener('click', function() { goTo(parseInt(el.getAttribute('data-idx'))); });
+  });
+
+  var backdrop = document.getElementById('slideNavBackdrop');
+
+  function openSlideNav() {
+    slideNav.querySelectorAll('.slide-nav-item').forEach(function(el) {
+      el.classList.toggle('current', parseInt(el.getAttribute('data-idx')) === current);
+    });
+    slideNav.classList.add('open');
+    backdrop.classList.add('open');
+    counter.classList.add('nav-active');
+    var cur = slideNav.querySelector('.slide-nav-item.current');
+    if (cur) setTimeout(function() { cur.scrollIntoView({ block: 'center', behavior: 'instant' }); }, 10);
+    requestAnimationFrame(function() { slideNav.classList.add('visible'); backdrop.classList.add('visible'); });
+    navOpen = true;
+  }
+
+  function closeSlideNav() {
+    slideNav.classList.remove('visible'); backdrop.classList.remove('visible'); counter.classList.remove('nav-active');
+    setTimeout(function() { slideNav.classList.remove('open'); backdrop.classList.remove('open'); }, 250);
+    navOpen = false;
+  }
+
+  window.toggleSlideNav = function() { if (navOpen) closeSlideNav(); else openSlideNav(); };
+  backdrop.addEventListener('click', function() { closeSlideNav(); });
+  document.addEventListener('click', function(e) {
+    if (navOpen && !slideNav.contains(e.target) && !counter.contains(e.target) && e.target !== backdrop) closeSlideNav();
+  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && navOpen) { e.preventDefault(); closeSlideNav(); } });
+
+  /* Currency */
+  var currencyRates = { THB: 1, EUR: 0.0273, USD: 0.0290 };
+  var thbToUsd = 0.0290;
+
+  fetch('https://api.exchangerate-api.com/v4/latest/THB')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.rates) {
+        currencyRates.EUR = data.rates.EUR || currencyRates.EUR;
+        currencyRates.USD = data.rates.USD || currencyRates.USD;
+        thbToUsd = currencyRates.USD;
+        updateCurrency();
+      }
+    }).catch(function() {});
+
+  function fmtNum(n) {
+    if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (n >= 1000) return Math.round(n).toLocaleString('en');
+    return Math.round(n).toString();
+  }
+
+  function fmtCurrency(amount, currency, prefix) {
+    var sym = currency === 'EUR' ? '\u20AC' : currency === 'USD' ? '$' : '';
+    var label = currency === 'THB' ? 'THB ' : '';
+    return (prefix || '') + label + sym + fmtNum(amount);
+  }
+
+  var activeCurrency = 'THB';
+
+  window.toggleCurrencyPicker = function() { document.getElementById('currencyPicker').classList.toggle('open'); };
+
+  window.selectCurrency = function(cur) {
+    activeCurrency = cur;
+    document.getElementById('currencyLabel').textContent = cur;
+    document.querySelectorAll('.currency-opt').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.cur === cur); });
+    document.querySelectorAll('.appendix-cur').forEach(function(btn) {
+      btn.style.background = btn.dataset.cur === cur ? 'rgba(42,58,43,0.08)' : 'transparent';
+      btn.style.color = btn.dataset.cur === cur ? 'var(--green)' : 'var(--text-secondary)';
+    });
+    document.getElementById('currencyPicker').classList.remove('open');
+    updateCurrency();
+  };
+
+  document.addEventListener('click', function(e) {
+    var picker = document.getElementById('currencyPicker');
+    if (picker && !picker.contains(e.target)) picker.classList.remove('open');
+  });
+
+  window.doShare = function() {
+    var url = window.location.href;
+    if (navigator.share) { navigator.share({ title: document.title, url: url }).catch(function(){}); return; }
+    var done = function() {
+      var t = document.createElement('div');
+      t.textContent = 'Link copied \u2713';
+      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#2a3a2b;color:#f4f2e8;padding:10px 20px;border-radius:6px;font-size:0.85rem;z-index:9999;opacity:0;transition:opacity 0.3s';
+      document.body.appendChild(t);
+      requestAnimationFrame(function(){ t.style.opacity='1'; });
+      setTimeout(function(){ t.style.opacity='0'; setTimeout(function(){ t.remove(); }, 300); }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(function() { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); });
+    } else { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+  };
+
+  window.updateCurrency = function() {
+    var sel = activeCurrency;
+    document.querySelectorAll('[data-currency]').forEach(function(el) {
+      var thb = parseFloat(el.dataset.thb);
+      if (isNaN(thb)) return;
+      var converted = sel === 'THB' ? thb : thb * currencyRates[sel];
+      var fmt = el.dataset.format;
+
+      switch (fmt) {
+        case 'compact':
+          if (sel === 'THB') { el.textContent = 'THB ' + (converted >= 1000000 ? (converted/1000000).toFixed(1).replace(/\.0$/,'') + 'M' : Math.round(converted/1000) + 'K'); }
+          else { var sym = sel === 'EUR' ? '\u20AC' : '$'; el.textContent = sym + Math.round(converted/1000) + 'K'; }
+          break;
+        case 'sub':
+          if (sel === 'THB') { el.textContent = '(' + (converted/1000000).toFixed(2) + 'm THB)'; }
+          else { var sym2 = sel === 'EUR' ? '\u20AC' : '$'; el.textContent = '(' + sym2 + Math.round(converted).toLocaleString('en') + ')'; }
+          break;
+        case 'full':
+          el.textContent = fmtCurrency(converted, sel);
+          break;
+        case 'short':
+          if (sel === 'THB') { el.textContent = 'THB ' + (converted >= 1000000 ? (converted/1000000).toFixed(0) + 'M' : Math.round(converted).toLocaleString('en')); }
+          else { var sym3 = sel === 'EUR' ? '\u20AC' : '$'; el.textContent = sym3 + Math.round(converted).toLocaleString('en'); }
+          break;
+        case 'equiv':
+          if (sel === 'THB') { var eqUsd = thb * currencyRates.USD; var eqEur = thb * currencyRates.EUR; el.textContent = '~$' + Math.round(eqUsd).toLocaleString('en') + ' USD \u00B7 ~\u20AC' + Math.round(eqEur).toLocaleString('en'); }
+          else if (sel === 'USD') { var eqEur2 = thb * currencyRates.EUR; el.textContent = '~\u20AC' + Math.round(eqEur2).toLocaleString('en'); }
+          else { var eqUsd2 = thb * currencyRates.USD; el.textContent = '~$' + Math.round(eqUsd2).toLocaleString('en') + ' USD'; }
+          break;
+        case 'range':
+          var hi = parseFloat(el.dataset.thbHigh) || thb;
+          var cLo = sel === 'THB' ? thb : thb * currencyRates[sel];
+          var cHi = sel === 'THB' ? hi : hi * currencyRates[sel];
+          var rSym = sel === 'EUR' ? '\u20AC' : sel === 'USD' ? '$' : '';
+          var rLbl = sel === 'THB' ? 'THB ' : '';
+          var fK = function(v) { return Math.round(v / 1000) + 'K'; };
+          var loStr = fK(cLo), hiStr = fK(cHi);
+          el.textContent = loStr === hiStr ? rLbl + rSym + '~' + loStr : rLbl + rSym + loStr + '\u2013' + hiStr;
+          break;
+      }
+    });
+    localStorage.setItem('preferredCurrency', sel);
+  };
+
+  var savedCurrency = localStorage.getItem('preferredCurrency');
+  if (savedCurrency && ['THB','EUR','USD'].indexOf(savedCurrency) !== -1) selectCurrency(savedCurrency);
+
+  var startSlide = parseInt(window.location.hash.replace('#', ''), 10);
+  goTo((startSlide >= 1 && startSlide <= total) ? startSlide - 1 : 0);
+
+  window.addEventListener('hashchange', function() {
+    var h = parseInt(window.location.hash.replace('#', ''), 10);
+    if (h >= 1 && h <= total && h - 1 !== current) { goTo._skipHash = true; goTo(h - 1); goTo._skipHash = false; }
+  });
+
+  /* Environment badge */
+  (function() {
+    var host = window.location.hostname;
+    var badge = document.getElementById('envBadge');
+    var dot = document.getElementById('envDot');
+    var label = document.getElementById('envLabel');
+    if (!badge) return;
+    var env = null;
+    if (host === 'localhost' || host === '127.0.0.1') env = 'local';
+    else if (/^\d+\.\d+\.\d+\.\d+$/.test(host)) env = 'staging';
+    if (!env) return;
+    dot.classList.add('env-dot-' + env);
+    label.textContent = env === 'local' ? 'Local' : 'Staging';
+    badge.style.display = 'flex';
+  })();
+})();
+
+</body>
+</html>
