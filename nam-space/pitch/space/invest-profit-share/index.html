@@ -718,8 +718,99 @@
   <div class="sn">5</div>
 </section>
 
-<!-- S6 — Why Profit Share -->
-<section class="slide bg-cream grain watermark watermark-light wm-br" id="s6">
+<!-- S6 — Interactive Calculator -->
+<section class="slide bg-cream grain" id="s6" style="overflow:hidden;">
+  <div class="slide-inner" style="max-width:1100px;">
+    <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Calculator</div>
+    <h2 style="margin-bottom:1.5rem;">Run your own numbers</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;">
+      <!-- Sliders -->
+      <div>
+        <div style="margin-bottom:1.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
+            <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Rooms you invest in</label>
+            <span id="calcRoomsVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">1</span>
+          </div>
+          <input type="range" id="calcRooms" min="1" max="4" value="1" step="1" style="width:100%;accent-color:var(--terracotta);">
+        </div>
+
+        <div style="margin-bottom:1.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
+            <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Occupancy</label>
+            <span id="calcOccVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">60%</span>
+          </div>
+          <input type="range" id="calcOcc" min="40" max="90" value="60" step="5" style="width:100%;accent-color:var(--terracotta);">
+        </div>
+
+        <div style="margin-bottom:1.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
+            <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Profit share</label>
+            <span id="calcShareVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">40%</span>
+          </div>
+          <input type="range" id="calcShare" min="20" max="60" value="40" step="5" style="width:100%;accent-color:var(--terracotta);">
+        </div>
+
+        <div style="margin-bottom:1.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
+            <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Co-working members</label>
+            <span id="calcMembersVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">20</span>
+          </div>
+          <input type="range" id="calcMembers" min="10" max="35" value="20" step="1" style="width:100%;accent-color:var(--terracotta);">
+        </div>
+
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.72rem;color:var(--text-muted);line-height:1.5;margin-top:1rem;">Accommodation: 8 rooms, base &#x0E3F;3,000/night<br>Stay mix: 30% nightly, 20% weekly, 50% monthly<br>Co-working: + 10 weekly passes, 10 day passes, 2 offices</p>
+      </div>
+
+      <!-- Results -->
+      <div>
+        <div style="background:var(--green);border-radius:12px;padding:2rem;color:var(--bg);">
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(244,242,232,0.5);margin-bottom:1.25rem;">Your investment</div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">Rooms</span>
+            <span id="calcResRooms" style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:500;">1 of 8</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">Total invested</span>
+            <span id="calcResInvest" style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:500;">&#x0E3F;2,340,000</span>
+          </div>
+
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(244,242,232,0.5);margin:1.5rem 0 1rem;">Monthly P&amp;L</div>
+          <div style="display:flex;justify-content:space-between;padding:0.5rem 0;">
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">Revenue</span>
+            <span id="calcResRev" style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:500;">&#x0E3F;555,000</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.5rem 0;">
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">OPEX</span>
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:500;">-&#x0E3F;242,200</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">Gross profit</span>
+            <span id="calcResProfit" style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:600;color:var(--terracotta);">&#x0E3F;312,800</span>
+          </div>
+
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(244,242,232,0.5);margin:1.5rem 0 1rem;">Your returns</div>
+          <div style="display:flex;justify-content:space-between;padding:0.5rem 0;">
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">Monthly</span>
+            <span id="calcResMonthly" style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--bg);">&#x0E3F;15,640</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.5rem 0;">
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">Annual</span>
+            <span id="calcResAnnual" style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--bg);">&#x0E3F;187,680</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.75rem 0;margin-top:0.5rem;border-top:2px solid var(--terracotta);">
+            <span style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--terracotta);">Annualized ROI</span>
+            <span id="calcResROI" style="font-family:'Epilogue',sans-serif;font-size:1.8rem;font-weight:700;color:var(--terracotta);">~8.0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">6</div>
+</section>
+
+<!-- S7 — Why Profit Share -->
+<section class="slide bg-cream grain watermark watermark-light wm-br" id="s7">
   <div class="slide-inner" style="max-width:900px;">
     <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Why Profit Share</div>
     <h2>Aligned incentives, shared upside</h2>
@@ -754,11 +845,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">6</div>
+  <div class="sn">7</div>
 </section>
 
 <!-- S7 — The Terms -->
-<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s7">
+<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s8">
   <div class="slide-inner" style="max-width:1100px;">
     <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The Terms</div>
     <h2>Simple. Transparent. Fair.</h2>
@@ -824,11 +915,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">7</div>
+  <div class="sn">8</div>
 </section>
 
 <!-- S8 — Risks -->
-<section class="slide bg-cream grain watermark watermark-light wm-tl" id="s8">
+<section class="slide bg-cream grain watermark watermark-light wm-tl" id="s9">
   <div class="slide-inner" style="max-width:1000px;">
     <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Risks</div>
     <h2>What could go wrong</h2>
@@ -855,11 +946,11 @@
       </div>
     </div>
   </div>
-  <div class="sn">8</div>
+  <div class="sn">9</div>
 </section>
 
 <!-- S9 — Next Step -->
-<section class="slide bg-green grain watermark watermark-dark wm-center" id="s9">
+<section class="slide bg-green grain watermark watermark-dark wm-center" id="s10">
   <div class="slide-inner cta-content" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center;">
     <div class="label"><img src="../../../assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Next Step</div>
     <h2>Let&rsquo;s talk.</h2>
@@ -870,7 +961,7 @@
       <a href="../v2/" style="display:inline-block;font-family:'Sometype Mono',monospace;color:var(--bg);padding:1rem 2.5rem;border-radius:6px;font-size:0.85rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-top:0;text-decoration:none;border:1px solid rgba(244,242,232,0.3);transition:border-color 0.2s;">View the full pitch &rarr;</a>
     </div>
   </div>
-  <div class="sn">9</div>
+  <div class="sn">10</div>
 </section>
 
 </div><!-- /deck -->
@@ -961,10 +1052,11 @@
       { idx: 3, title: 'Base Case P&L' },
       { idx: 4, title: 'Scenarios' },
       { idx: 5, title: 'Multi-Room' },
-      { idx: 6, title: 'Why Profit Share' },
-      { idx: 7, title: 'The Terms' },
-      { idx: 8, title: 'Risks' },
-      { idx: 9, title: 'Next Step' }
+      { idx: 6, title: 'Calculator' },
+      { idx: 8, title: 'Why Profit Share' },
+      { idx: 8, title: 'The Terms' },
+      { idx: 9, title: 'Risks' },
+      { idx: 10, title: 'Next Step' }
     ]}
   ];
 
@@ -1146,6 +1238,83 @@
     dot.classList.add('env-dot-' + env);
     label.textContent = env === 'local' ? 'Local' : 'Staging';
     badge.style.display = 'flex';
+  })();
+
+  // ── Profit Share Calculator ──
+  (function() {
+    var ROOMS = 8;
+    var INVEST_PER_ROOM = 2340000;
+    var OPEX = 242200;
+    var NIGHTLY_RATE = 3000;
+    var WEEKLY_RATE = 18000;
+    var MONTHLY_RATE = 50000;
+    var MIX_NIGHTLY = 0.30;
+    var MIX_WEEKLY = 0.20;
+    var MIX_MONTHLY = 0.50;
+    var CW_RATE = 8000;
+    var CW_WEEKLY_PASSES = 10;
+    var CW_WEEKLY_RATE = 3000;
+    var CW_DAY_PASSES = 10;
+    var CW_DAY_RATE = 500;
+    var CW_OFFICES = 2;
+    var CW_OFFICE_RATE = 18000;
+
+    var elRooms = document.getElementById('calcRooms');
+    var elOcc = document.getElementById('calcOcc');
+    var elShare = document.getElementById('calcShare');
+    var elMembers = document.getElementById('calcMembers');
+    if (!elRooms) return;
+
+    function fmt(n) { return '\u0E3F' + Math.round(n).toLocaleString('en-US'); }
+
+    function calc() {
+      var rooms = parseInt(elRooms.value);
+      var occ = parseInt(elOcc.value) / 100;
+      var share = parseInt(elShare.value) / 100;
+      var members = parseInt(elMembers.value);
+
+      // Accommodation revenue
+      var daysInMonth = 30;
+      var nightlyRev = ROOMS * NIGHTLY_RATE * occ * daysInMonth * MIX_NIGHTLY;
+      var weeklyRev = ROOMS * WEEKLY_RATE * occ * (daysInMonth / 7) * MIX_WEEKLY;
+      var monthlyRev = ROOMS * MONTHLY_RATE * occ * MIX_MONTHLY;
+      var accomRev = nightlyRev + weeklyRev + monthlyRev;
+
+      // Co-working revenue
+      var cwRev = (members * CW_RATE)
+        + (CW_WEEKLY_PASSES * CW_WEEKLY_RATE)
+        + (CW_DAY_PASSES * CW_DAY_RATE)
+        + (CW_OFFICES * CW_OFFICE_RATE);
+
+      var totalRev = accomRev + cwRev;
+      var grossProfit = totalRev - OPEX;
+      if (grossProfit < 0) grossProfit = 0;
+      var investorPool = grossProfit * share;
+      var perRoom = investorPool / ROOMS;
+      var myMonthly = perRoom * rooms;
+      var myAnnual = myMonthly * 12;
+      var invested = INVEST_PER_ROOM * rooms;
+      var roi = invested > 0 ? (myAnnual / invested * 100) : 0;
+
+      document.getElementById('calcRoomsVal').textContent = rooms;
+      document.getElementById('calcOccVal').textContent = Math.round(occ * 100) + '%';
+      document.getElementById('calcShareVal').textContent = Math.round(share * 100) + '%';
+      document.getElementById('calcMembersVal').textContent = members;
+
+      document.getElementById('calcResRooms').textContent = rooms + ' of 8';
+      document.getElementById('calcResInvest').textContent = fmt(invested);
+      document.getElementById('calcResRev').textContent = fmt(totalRev);
+      document.getElementById('calcResProfit').textContent = fmt(grossProfit);
+      document.getElementById('calcResMonthly').textContent = fmt(myMonthly);
+      document.getElementById('calcResAnnual').textContent = fmt(myAnnual);
+      document.getElementById('calcResROI').textContent = '~' + roi.toFixed(1) + '%';
+    }
+
+    elRooms.addEventListener('input', calc);
+    elOcc.addEventListener('input', calc);
+    elShare.addEventListener('input', calc);
+    elMembers.addEventListener('input', calc);
+    calc();
   })();
 })();
 </script>
