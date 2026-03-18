@@ -784,10 +784,11 @@
 
         <div style="margin-bottom:1.75rem;">
           <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
-            <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Nightly rate</label>
-            <span id="calcRateVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">&#x0E3F;3,000</span>
+            <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Blended nightly rate</label>
+            <span id="calcRateVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">&#x0E3F;2,250</span>
           </div>
-          <input type="range" id="calcRate" min="2000" max="5000" value="3000" step="250" style="width:100%;accent-color:var(--terracotta);">
+          <input type="range" id="calcRate" min="1500" max="4000" value="2250" step="50" style="width:100%;accent-color:var(--terracotta);">
+          <div style="display:flex;justify-content:space-between;font-family:'Sometype Mono',monospace;font-size:0.65rem;color:var(--text-muted);margin-top:0.25rem;"><span>Budget</span><span>Premium</span></div>
         </div>
 
         <div style="margin-bottom:1.75rem;">
@@ -795,18 +796,28 @@
             <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Co-working members</label>
             <span id="calcMembersVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">20</span>
           </div>
-          <input type="range" id="calcMembers" min="10" max="35" value="20" step="1" style="width:100%;accent-color:var(--terracotta);">
+          <input type="range" id="calcMembers" min="10" max="40" value="20" step="1" style="width:100%;accent-color:var(--terracotta);">
         </div>
 
-        <div style="margin-bottom:1.75rem;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
-            <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Membership rate</label>
-            <span id="calcMemberRateVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">&#x0E3F;8,000</span>
+        <!-- Phase 2 toggle -->
+        <div style="margin-bottom:1.5rem;padding:1rem;background:rgba(42,58,43,0.06);border-radius:8px;">
+          <label style="display:flex;align-items:center;gap:0.75rem;cursor:pointer;">
+            <input type="checkbox" id="calcPhase2" style="width:18px;height:18px;accent-color:var(--terracotta);">
+            <div>
+              <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;font-weight:600;color:var(--green);">Include Phase 2 expansion</span>
+              <div style="font-family:'Sometype Mono',monospace;font-size:0.72rem;color:var(--text-muted);margin-top:0.15rem;">+4 premium rooms at higher rate</div>
+            </div>
+          </label>
+          <div id="calcPhase2Options" style="display:none;margin-top:1rem;padding-top:0.75rem;border-top:1px solid rgba(42,58,43,0.1);">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.5rem;">
+              <label style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-secondary);">Premium blended rate</label>
+              <span id="calcP2RateVal" style="font-family:'Sometype Mono',monospace;font-size:1rem;font-weight:600;color:var(--green);">&#x0E3F;3,500</span>
+            </div>
+            <input type="range" id="calcP2Rate" min="2500" max="6000" value="3500" step="100" style="width:100%;accent-color:var(--terracotta);">
           </div>
-          <input type="range" id="calcMemberRate" min="5000" max="15000" value="8000" step="500" style="width:100%;accent-color:var(--terracotta);">
         </div>
 
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.72rem;color:var(--text-muted);line-height:1.5;margin-top:0.5rem;">40% profit share &middot; Stay mix: 30% nightly, 20% weekly, 50% monthly<br>Weekly rate = nightly &times; 6 &middot; Monthly rate = nightly &times; 17<br>+ 10 weekly passes, 10 day passes, 2 private offices</p>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.72rem;color:var(--text-muted);line-height:1.5;">40% profit share &middot; Blended rate = avg across nightly, weekly, monthly stays<br>Co-working: memberships + 10 weekly + 10 day passes + 2 offices</p>
       </div>
 
       <!-- Results -->
@@ -1343,21 +1354,23 @@
     var INVEST_PER_ROOM = 2340000;
     var OPEX = 242200;
     var PROFIT_SHARE = 0.40;
-    var MIX_NIGHTLY = 0.30;
-    var MIX_WEEKLY = 0.20;
-    var MIX_MONTHLY = 0.50;
     var CW_WEEKLY_PASSES = 10;
     var CW_WEEKLY_RATE = 3000;
     var CW_DAY_PASSES = 10;
     var CW_DAY_RATE = 500;
     var CW_OFFICES = 2;
     var CW_OFFICE_RATE = 18000;
+    var CW_MEMBER_RATE = 8000;
+    var P2_ROOMS = 4;
+    var P2_OPEX_ADD = 80000; // additional OPEX for 4 premium rooms
 
     var elRooms = document.getElementById('calcRooms');
     var elOcc = document.getElementById('calcOcc');
     var elRate = document.getElementById('calcRate');
     var elMembers = document.getElementById('calcMembers');
-    var elMemberRate = document.getElementById('calcMemberRate');
+    var elPhase2 = document.getElementById('calcPhase2');
+    var elP2Rate = document.getElementById('calcP2Rate');
+    var elP2Options = document.getElementById('calcPhase2Options');
     if (!elRooms) return;
 
     function calcFmt(thb) {
@@ -1377,30 +1390,36 @@
     function calc() {
       var rooms = parseInt(elRooms.value);
       var occ = parseInt(elOcc.value) / 100;
-      var nightlyRate = parseInt(elRate.value);
+      var blendedRate = parseInt(elRate.value);
       var members = parseInt(elMembers.value);
-      var memberRate = parseInt(elMemberRate.value);
+      var phase2 = elPhase2.checked;
+      var p2Rate = parseInt(elP2Rate.value);
 
-      // Derive weekly and monthly rates from nightly
-      var weeklyRate = nightlyRate * 6;
-      var monthlyRate = nightlyRate * 17;
+      // Accommodation: blended rate × rooms × occupancy × 30 days
+      var accomRev = ROOMS * blendedRate * occ * 30;
 
-      var daysInMonth = 30;
-      var nightlyRev = ROOMS * nightlyRate * occ * daysInMonth * MIX_NIGHTLY;
-      var weeklyRev = ROOMS * weeklyRate * occ * (daysInMonth / 7) * MIX_WEEKLY;
-      var monthlyRev = ROOMS * monthlyRate * occ * MIX_MONTHLY;
-      var accomRev = nightlyRev + weeklyRev + monthlyRev;
-
-      var cwRev = (members * memberRate)
+      // Co-working revenue
+      var cwRev = (members * CW_MEMBER_RATE)
         + (CW_WEEKLY_PASSES * CW_WEEKLY_RATE)
         + (CW_DAY_PASSES * CW_DAY_RATE)
         + (CW_OFFICES * CW_OFFICE_RATE);
 
       var totalRev = accomRev + cwRev;
-      var grossProfit = totalRev - OPEX;
+      var totalOpex = OPEX;
+      var totalRooms = ROOMS;
+
+      // Phase 2: add premium rooms
+      if (phase2) {
+        var p2AccomRev = P2_ROOMS * p2Rate * occ * 30;
+        totalRev += p2AccomRev;
+        totalOpex += P2_OPEX_ADD;
+        totalRooms = ROOMS + P2_ROOMS;
+      }
+
+      var grossProfit = totalRev - totalOpex;
       if (grossProfit < 0) grossProfit = 0;
       var investorPool = grossProfit * PROFIT_SHARE;
-      var perRoom = investorPool / ROOMS;
+      var perRoom = investorPool / totalRooms;
       var myMonthly = perRoom * rooms;
       var myAnnual = myMonthly * 12;
       var invested = INVEST_PER_ROOM * rooms;
@@ -1408,14 +1427,14 @@
 
       document.getElementById('calcRoomsVal').textContent = rooms;
       document.getElementById('calcOccVal').textContent = Math.round(occ * 100) + '%';
-      document.getElementById('calcRateVal').textContent = fmtTHB(nightlyRate);
+      document.getElementById('calcRateVal').textContent = fmtTHB(blendedRate);
       document.getElementById('calcMembersVal').textContent = members;
-      document.getElementById('calcMemberRateVal').textContent = fmtTHB(memberRate);
+      if (phase2) document.getElementById('calcP2RateVal').textContent = fmtTHB(p2Rate);
 
-      document.getElementById('calcResRooms').textContent = rooms + ' of 8';
+      document.getElementById('calcResRooms').textContent = rooms + ' of ' + totalRooms;
       document.getElementById('calcResInvest').textContent = calcFmt(invested);
       document.getElementById('calcResRev').textContent = calcFmt(totalRev);
-      document.getElementById('calcResOpex').textContent = calcFmtOpex();
+      document.getElementById('calcResOpex').textContent = '-' + calcFmt(totalOpex).replace('-','');
       document.getElementById('calcResProfit').textContent = calcFmt(grossProfit);
       document.getElementById('calcResMonthly').textContent = calcFmt(myMonthly);
       document.getElementById('calcResAnnual').textContent = calcFmt(myAnnual);
@@ -1426,7 +1445,11 @@
     elOcc.addEventListener('input', calc);
     elRate.addEventListener('input', calc);
     elMembers.addEventListener('input', calc);
-    elMemberRate.addEventListener('input', calc);
+    elPhase2.addEventListener('change', function() {
+      elP2Options.style.display = elPhase2.checked ? 'block' : 'none';
+      calc();
+    });
+    elP2Rate.addEventListener('input', calc);
 
     // Recalculate when currency changes
     window.recalcProfitShare = calc;
