@@ -782,7 +782,7 @@
           </div>
           <div style="display:flex;justify-content:space-between;padding:0.5rem 0;">
             <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">OPEX</span>
-            <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:500;">-&#x0E3F;242,200</span>
+            <span id="calcResOpex" style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:500;">-&#x0E3F;242,200</span>
           </div>
           <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid rgba(244,242,232,0.1);">
             <span style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.6);">Gross profit</span>
@@ -1146,6 +1146,7 @@
     document.querySelectorAll('.currency-opt').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.cur === cur); });
     document.getElementById('currencyPicker').classList.remove('open');
     updateCurrency();
+    if (window.recalcProfitShare) window.recalcProfitShare();
   };
 
   document.addEventListener('click', function(e) {
@@ -1265,7 +1266,17 @@
     var elMembers = document.getElementById('calcMembers');
     if (!elRooms) return;
 
-    function fmt(n) { return '\u0E3F' + Math.round(n).toLocaleString('en-US'); }
+    function calcFmt(thb) {
+      var rate = currencyRates[activeCurrency] || 1;
+      var converted = thb * rate;
+      return fmtCurrency(converted, activeCurrency);
+    }
+
+    function calcFmtOpex() {
+      var rate = currencyRates[activeCurrency] || 1;
+      var converted = OPEX * rate;
+      return '-' + fmtCurrency(converted, activeCurrency);
+    }
 
     function calc() {
       var rooms = parseInt(elRooms.value);
@@ -1273,14 +1284,12 @@
       var share = parseInt(elShare.value) / 100;
       var members = parseInt(elMembers.value);
 
-      // Accommodation revenue
       var daysInMonth = 30;
       var nightlyRev = ROOMS * NIGHTLY_RATE * occ * daysInMonth * MIX_NIGHTLY;
       var weeklyRev = ROOMS * WEEKLY_RATE * occ * (daysInMonth / 7) * MIX_WEEKLY;
       var monthlyRev = ROOMS * MONTHLY_RATE * occ * MIX_MONTHLY;
       var accomRev = nightlyRev + weeklyRev + monthlyRev;
 
-      // Co-working revenue
       var cwRev = (members * CW_RATE)
         + (CW_WEEKLY_PASSES * CW_WEEKLY_RATE)
         + (CW_DAY_PASSES * CW_DAY_RATE)
@@ -1302,11 +1311,12 @@
       document.getElementById('calcMembersVal').textContent = members;
 
       document.getElementById('calcResRooms').textContent = rooms + ' of 8';
-      document.getElementById('calcResInvest').textContent = fmt(invested);
-      document.getElementById('calcResRev').textContent = fmt(totalRev);
-      document.getElementById('calcResProfit').textContent = fmt(grossProfit);
-      document.getElementById('calcResMonthly').textContent = fmt(myMonthly);
-      document.getElementById('calcResAnnual').textContent = fmt(myAnnual);
+      document.getElementById('calcResInvest').textContent = calcFmt(invested);
+      document.getElementById('calcResRev').textContent = calcFmt(totalRev);
+      document.getElementById('calcResOpex').textContent = calcFmtOpex();
+      document.getElementById('calcResProfit').textContent = calcFmt(grossProfit);
+      document.getElementById('calcResMonthly').textContent = calcFmt(myMonthly);
+      document.getElementById('calcResAnnual').textContent = calcFmt(myAnnual);
       document.getElementById('calcResROI').textContent = '~' + roi.toFixed(1) + '%';
     }
 
@@ -1314,6 +1324,9 @@
     elOcc.addEventListener('input', calc);
     elShare.addEventListener('input', calc);
     elMembers.addEventListener('input', calc);
+
+    // Recalculate when currency changes
+    window.recalcProfitShare = calc;
     calc();
   })();
 })();
