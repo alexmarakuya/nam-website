@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM OS — Financial Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&family=Sometype+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f2e8;
+  --green: #2a3a2b;
+  --green-light: #3a5a3b;
+  --terracotta: #d46b44;
+  --text-muted: #8a9a8b;
+  --white: #ffffff;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --mono: 'Sometype Mono', monospace;
+  --heading: 'Epilogue', sans-serif;
+}
+
+html { font-size: 15px; }
+body {
+  font-family: var(--heading);
+  background: var(--bg);
+  color: var(--green);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top Bar ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 56px;
+  font-size: 0.85rem;
+}
+.topbar-left {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+}
+.status-dot.offline { background: #ef4444; }
+.topbar a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  transition: color 0.2s;
+}
+.topbar a:hover { color: #fff; }
+.save-btn {
+  background: var(--terracotta);
+  color: #fff;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+  transition: opacity 0.2s;
+}
+.save-btn:hover { opacity: 0.85; }
+.save-btn.visible { display: inline-block; }
+.last-saved {
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── Main Layout ── */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+/* ── Summary Banner ── */
+.summary-banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.summary-card {
+  background: var(--green);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.summary-card .label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+}
+.summary-card .value {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.summary-card .value.terracotta { color: var(--terracotta); }
+.summary-card .sub {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 6px;
+}
+
+/* ── Sections ── */
+.section {
+  margin-bottom: 48px;
+}
+.section-title {
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(42,58,43,0.1);
+}
+
+/* ── Card Grids ── */
+.card-grid {
+  display: grid;
+  gap: 16px;
+}
+.card-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: var(--card-shadow-hover); }
+.card .label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.card .value {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--green);
+  cursor: pointer;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.2s;
+  display: inline-block;
+  min-width: 60px;
+}
+.card .value:hover {
+  border-bottom-color: var(--terracotta);
+}
+.card .desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* ── Editable Input ── */
+.edit-input {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--green);
+  border: none;
+  border-bottom: 2px solid var(--terracotta);
+  background: transparent;
+  outline: none;
+  width: 100%;
+  max-width: 200px;
+  padding: 0 0 2px;
+}
+.edit-input-small {
+  font-size: 0.95rem;
+  max-width: 120px;
+}
+
+/* ── OPEX Table ── */
+.opex-table {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+.opex-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 140px;
+  padding: 14px 24px;
+  align-items: center;
+  border-bottom: 1px solid rgba(42,58,43,0.06);
+  transition: background 0.15s;
+}
+.opex-row:hover { background: rgba(244,242,232,0.5); }
+.opex-row:last-child { border-bottom: none; }
+.opex-row.total {
+  background: rgba(42,58,43,0.04);
+  font-weight: 600;
+  border-top: 2px solid rgba(42,58,43,0.15);
+}
+.opex-name {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.opex-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.opex-value {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: right;
+  cursor: pointer;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.2s;
+  display: inline-block;
+  margin-left: auto;
+}
+.opex-value:hover { border-bottom-color: var(--terracotta); }
+.opex-value.computed { cursor: default; }
+.opex-value.computed:hover { border-bottom-color: transparent; }
+
+/* ── P&L Block ── */
+.pnl-block {
+  background: var(--green);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 40px;
+  margin-top: 48px;
+}
+.pnl-block .section-title {
+  color: var(--white);
+  border-bottom-color: rgba(255,255,255,0.15);
+  margin-bottom: 28px;
+}
+.pnl-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.pnl-row .pnl-label { color: rgba(255,255,255,0.6); }
+.pnl-row .pnl-val {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.pnl-row.subtotal {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin-top: 8px;
+  padding-top: 14px;
+}
+.pnl-row.subtotal .pnl-label,
+.pnl-row.subtotal .pnl-val {
+  color: var(--white);
+  font-size: 1rem;
+}
+.pnl-row.highlight .pnl-val { color: var(--terracotta); font-size: 1.15rem; }
+.pnl-row.profit { margin-top: 16px; }
+.pnl-row.profit .pnl-val { color: #4ade80; font-size: 1.2rem; font-weight: 700; }
+.pnl-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 16px 0;
+}
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--green);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 200;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .summary-banner { grid-template-columns: repeat(2, 1fr); }
+  .card-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .card-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .opex-row { grid-template-columns: 140px 1fr 120px; }
+}
+@media (max-width: 600px) {
+  .summary-banner { grid-template-columns: 1fr; }
+  .card-grid.cols-4, .card-grid.cols-3, .card-grid.cols-2 { grid-template-columns: 1fr; }
+  .topbar { padding: 0 16px; }
+  .main { padding: 20px 16px 60px; }
+  .pnl-block { padding: 24px; }
+  .opex-row { grid-template-columns: 1fr 100px; }
+  .opex-desc { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-left">NāM OS</div>
+  <div class="topbar-right">
+    <button class="save-btn" id="saveBtn" onclick="saveData()">Save changes</button>
+    <div class="status">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Connecting...</span>
+    </div>
+    <span class="last-saved" id="lastSaved"></span>
+    <a href="../">← Back to pitches</a>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main" id="app">
+  <!-- Summary Banner -->
+  <div class="summary-banner">
+    <div class="summary-card">
+      <div class="label">Monthly Revenue</div>
+      <div class="value" id="sum-revenue">--</div>
+      <div class="sub">at base occupancy</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Monthly OPEX</div>
+      <div class="value" id="sum-opex">--</div>
+      <div class="sub">total operating costs</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Gross Profit</div>
+      <div class="value terracotta" id="sum-profit">--</div>
+      <div class="sub">revenue minus costs</div>
+    </div>
+    <div class="summary-card">
+      <div class="label">Per Room / Month</div>
+      <div class="value" id="sum-per-room">--</div>
+      <div class="sub" id="sum-roi">-- ROI annualized</div>
+    </div>
+  </div>
+
+  <!-- What You Charge -->
+  <div class="section">
+    <div class="section-title">What you charge</div>
+    <div class="card-grid cols-4">
+      <div class="card">
+        <div class="label">Nightly Rate</div>
+        <div class="value" data-field="accommodation.nightly_rate" data-format="thb">--</div>
+        <div class="desc">Per night, short stays</div>
+      </div>
+      <div class="card">
+        <div class="label">Weekly Rate</div>
+        <div class="value" data-field="accommodation.weekly_rate" data-format="thb">--</div>
+        <div class="desc">7-night package</div>
+      </div>
+      <div class="card">
+        <div class="label">Monthly Rate</div>
+        <div class="value" data-field="accommodation.monthly_rate" data-format="thb">--</div>
+        <div class="desc">30+ night stays</div>
+      </div>
+      <div class="card">
+        <div class="label">Blended Rate</div>
+        <div class="value" data-field="accommodation.blended_rate" data-format="thb">--</div>
+        <div class="desc">Weighted average nightly</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stay Mix -->
+  <div class="section">
+    <div class="section-title">Stay mix</div>
+    <div class="card-grid cols-3">
+      <div class="card">
+        <div class="label">Nightly %</div>
+        <div class="value" data-field="accommodation.mix_nightly" data-format="pct">--</div>
+        <div class="desc">Short-stay proportion</div>
+      </div>
+      <div class="card">
+        <div class="label">Weekly %</div>
+        <div class="value" data-field="accommodation.mix_weekly" data-format="pct">--</div>
+        <div class="desc">Week-stay proportion</div>
+      </div>
+      <div class="card">
+        <div class="label">Monthly %</div>
+        <div class="value" data-field="accommodation.mix_monthly" data-format="pct">--</div>
+        <div class="desc">Long-stay proportion</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Occupancy Scenarios -->
+  <div class="section">
+    <div class="section-title">Occupancy scenarios</div>
+    <div class="card-grid cols-3">
+      <div class="card">
+        <div class="label">Conservative</div>
+        <div class="value" data-field="accommodation.occ_conservative" data-format="pct">--</div>
+        <div class="desc">Cautious estimate</div>
+      </div>
+      <div class="card">
+        <div class="label">Base</div>
+        <div class="value" data-field="accommodation.occ_base" data-format="pct">--</div>
+        <div class="desc">Expected scenario</div>
+      </div>
+      <div class="card">
+        <div class="label">Optimistic</div>
+        <div class="value" data-field="accommodation.occ_optimistic" data-format="pct">--</div>
+        <div class="desc">Best case</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Co-working -->
+  <div class="section">
+    <div class="section-title">Co-working</div>
+    <div class="card-grid cols-4">
+      <div class="card">
+        <div class="label">Membership Rate</div>
+        <div class="value" data-field="coworking.member_rate" data-format="thb">--</div>
+        <div class="desc">Monthly co-work membership</div>
+      </div>
+      <div class="card">
+        <div class="label">Members (base)</div>
+        <div class="value" data-field="coworking.members_base" data-format="num">--</div>
+        <div class="desc">Expected monthly members</div>
+      </div>
+      <div class="card">
+        <div class="label">Weekly Pass</div>
+        <div class="value" data-field="coworking.weekly_pass_price" data-format="thb">--</div>
+        <div class="desc">7-day co-work access</div>
+      </div>
+      <div class="card">
+        <div class="label">Weekly Pass Volume</div>
+        <div class="value" data-field="coworking.weekly_pass_volume" data-format="num">--</div>
+        <div class="desc">Passes sold / month</div>
+      </div>
+      <div class="card">
+        <div class="label">Day Pass</div>
+        <div class="value" data-field="coworking.day_pass_price" data-format="thb">--</div>
+        <div class="desc">Single-day access</div>
+      </div>
+      <div class="card">
+        <div class="label">Day Pass Volume</div>
+        <div class="value" data-field="coworking.day_pass_volume" data-format="num">--</div>
+        <div class="desc">Day passes sold / month</div>
+      </div>
+      <div class="card">
+        <div class="label">Private Office Rate</div>
+        <div class="value" data-field="coworking.office_rate" data-format="thb">--</div>
+        <div class="desc">Monthly per office</div>
+      </div>
+      <div class="card">
+        <div class="label">Offices</div>
+        <div class="value" data-field="coworking.offices" data-format="num">--</div>
+        <div class="desc">Number of private offices</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPEX -->
+  <div class="section">
+    <div class="section-title">What you spend</div>
+    <div class="opex-table" id="opexTable"></div>
+  </div>
+
+  <!-- Investment Structure -->
+  <div class="section">
+    <div class="section-title">Investment structure</div>
+    <div class="card-grid cols-4">
+      <div class="card">
+        <div class="label">Cost Per Room</div>
+        <div class="value" data-field="investment.cost_per_room" data-format="thb">--</div>
+        <div class="desc">Buy-in per room unit</div>
+      </div>
+      <div class="card">
+        <div class="label">Profit Share</div>
+        <div class="value" data-field="investment.profit_share_pct" data-format="pct">--</div>
+        <div class="desc">Investor share of profit</div>
+      </div>
+      <div class="card">
+        <div class="label">Max Rooms / Investor</div>
+        <div class="value" data-field="investment.max_rooms_per_investor" data-format="num">--</div>
+        <div class="desc">Cap per single investor</div>
+      </div>
+      <div class="card">
+        <div class="label">Term</div>
+        <div class="value" data-field="investment.term_years" data-format="num">--</div>
+        <div class="desc">Years of lease</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="section">
+    <div class="section-title">Phase 2 expansion</div>
+    <div class="card-grid cols-4">
+      <div class="card">
+        <div class="label">Additional Rooms</div>
+        <div class="value" data-field="phase2.additional_rooms" data-format="num">--</div>
+        <div class="desc">Phase 2 room count</div>
+      </div>
+      <div class="card">
+        <div class="label">Premium Blended Rate</div>
+        <div class="value" data-field="phase2.premium_blended_rate" data-format="thb">--</div>
+        <div class="desc">Higher quality, higher rate</div>
+      </div>
+      <div class="card">
+        <div class="label">Additional OPEX</div>
+        <div class="value" data-field="phase2.additional_opex" data-format="thb">--</div>
+        <div class="desc">Extra monthly costs</div>
+      </div>
+      <div class="card">
+        <div class="label">Timeline</div>
+        <div class="value" data-field="phase2.timeline" data-format="text">--</div>
+        <div class="desc">Expected build window</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P&L Preview -->
+  <div class="pnl-block">
+    <div class="section-title">Monthly P&L Preview — Base Case</div>
+    <div id="pnlContent"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Configuration ──
+const API_BASE = '/nam-os/api';
+const API_URL = `${API_BASE}/data/nam-space/financials`;
+
+const OPEX_DESCRIPTIONS = {
+  staff: 'Salaries, housekeeping, management',
+  land: 'Monthly lease payment',
+  utilities: 'Electric, water, internet',
+  maintenance: 'Grounds, pool, common areas',
+  repairs: 'Ongoing repairs & replacements',
+  marketing: 'Digital ads, content, partnerships',
+  insurance: 'Property & liability coverage',
+  software: 'PMS, accounting, tools',
+  misc: 'Contingency & sundries'
+};
+
+const DEFAULTS = {
+  _meta: { entity: "nam-space", type: "financials", version: 1, updated: null, currency: "THB" },
+  accommodation: {
+    rooms_phase1: 8, nightly_rate: 3000, weekly_rate: 18000, monthly_rate: 50000,
+    blended_rate: 2250, mix_nightly: 30, mix_weekly: 20, mix_monthly: 50,
+    occ_conservative: 50, occ_base: 60, occ_optimistic: 75
+  },
+  coworking: {
+    member_rate: 8000, members_base: 20, weekly_pass_price: 3000, weekly_pass_volume: 10,
+    day_pass_price: 500, day_pass_volume: 10, office_rate: 18000, offices: 2
+  },
+  opex: { staff: 102000, land: 50000, utilities: 25000, maintenance: 15000, repairs: 15000, marketing: 12000, insurance: 8000, software: 8200, misc: 7000 },
+  investment: { cost_per_room: 2340000, profit_share_pct: 40, max_rooms_per_investor: 4, term_years: 30, distribution: "monthly", reporting: "quarterly" },
+  phase2: { additional_rooms: 4, premium_blended_rate: 3500, additional_opex: 80000, timeline: "Year 2-3" }
+};
+
+// ── State ──
+let data = JSON.parse(JSON.stringify(DEFAULTS));
+let dirty = false;
+let online = false;
+
+// ── Formatting ──
+function fmtTHB(n) {
+  return '\u0E3F' + Number(n).toLocaleString('en-US');
+}
+function fmtPct(n) { return n + '%'; }
+function fmtNum(n) { return Number(n).toLocaleString('en-US'); }
+
+function formatValue(val, fmt) {
+  if (fmt === 'thb') return fmtTHB(val);
+  if (fmt === 'pct') return fmtPct(val);
+  if (fmt === 'num') return fmtNum(val);
+  return val;
+}
+
+function parseInput(raw, fmt) {
+  if (fmt === 'text') return raw.trim();
+  const n = Number(raw.replace(/[^0-9.-]/g, ''));
+  return isNaN(n) ? 0 : n;
+}
+
+// ── Deep get/set ──
+function deepGet(obj, path) {
+  return path.split('.').reduce((o, k) => o && o[k], obj);
+}
+function deepSet(obj, path, val) {
+  const keys = path.split('.');
+  const last = keys.pop();
+  const target = keys.reduce((o, k) => o[k], obj);
+  target[last] = val;
+}
+
+// ── Computed Values ──
+function compute() {
+  const a = data.accommodation;
+  const cw = data.coworking;
+  const inv = data.investment;
+  const rooms = a.rooms_phase1;
+  const occ = a.occ_base;
+
+  const accomRevenue = rooms * a.blended_rate * (occ / 100) * 30;
+  const cwRevenue = (cw.members_base * cw.member_rate)
+    + (cw.weekly_pass_volume * cw.weekly_pass_price)
+    + (cw.day_pass_volume * cw.day_pass_price)
+    + (cw.offices * cw.office_rate);
+  const totalRevenue = accomRevenue + cwRevenue;
+
+  const totalOpex = Object.values(data.opex).reduce((s, v) => s + v, 0);
+  const grossProfit = totalRevenue - totalOpex;
+  const investorPool = grossProfit * (inv.profit_share_pct / 100);
+  const perRoom = investorPool / rooms;
+  const roi = (perRoom * 12) / inv.cost_per_room * 100;
+
+  return { accomRevenue, cwRevenue, totalRevenue, totalOpex, grossProfit, investorPool, perRoom, roi, rooms, occ };
+}
+
+// ── Render ──
+function render() {
+  const c = compute();
+
+  // Summary
+  document.getElementById('sum-revenue').textContent = fmtTHB(Math.round(c.totalRevenue));
+  document.getElementById('sum-opex').textContent = fmtTHB(Math.round(c.totalOpex));
+  document.getElementById('sum-profit').textContent = fmtTHB(Math.round(c.grossProfit));
+  document.getElementById('sum-per-room').textContent = fmtTHB(Math.round(c.perRoom));
+  document.getElementById('sum-roi').textContent = c.roi.toFixed(1) + '% ROI annualized';
+
+  // Editable card values
+  document.querySelectorAll('.card .value[data-field]').forEach(el => {
+    const field = el.dataset.field;
+    const fmt = el.dataset.format;
+    const val = deepGet(data, field);
+    if (val !== undefined && !el.querySelector('input')) {
+      el.textContent = formatValue(val, fmt);
+    }
+  });
+
+  // OPEX table
+  renderOpex();
+
+  // P&L
+  renderPnL(c);
+
+  // Save button
+  document.getElementById('saveBtn').classList.toggle('visible', dirty);
+}
+
+function renderOpex() {
+  const table = document.getElementById('opexTable');
+  const opex = data.opex;
+  let total = 0;
+  let html = '';
+  for (const [key, val] of Object.entries(opex)) {
+    total += val;
+    html += `
+      <div class="opex-row">
+        <div class="opex-name">${key}</div>
+        <div class="opex-desc">${OPEX_DESCRIPTIONS[key] || ''}</div>
+        <div class="opex-value" data-field="opex.${key}" data-format="thb" onclick="startEdit(this)">${fmtTHB(val)}</div>
+      </div>`;
+  }
+  html += `
+    <div class="opex-row total">
+      <div class="opex-name">Total OPEX</div>
+      <div class="opex-desc"></div>
+      <div class="opex-value computed">${fmtTHB(total)}</div>
+    </div>`;
+  table.innerHTML = html;
+}
+
+function renderPnL(c) {
+  const pnl = document.getElementById('pnlContent');
+  pnl.innerHTML = `
+    <div class="pnl-row">
+      <span class="pnl-label">Accommodation (${c.rooms} rooms @ ${c.occ}% occ)</span>
+      <span class="pnl-val">${fmtTHB(Math.round(c.accomRevenue))}</span>
+    </div>
+    <div class="pnl-row">
+      <span class="pnl-label">Co-working</span>
+      <span class="pnl-val">${fmtTHB(Math.round(c.cwRevenue))}</span>
+    </div>
+    <div class="pnl-row subtotal highlight">
+      <span class="pnl-label">Total Revenue</span>
+      <span class="pnl-val">${fmtTHB(Math.round(c.totalRevenue))}</span>
+    </div>
+    <hr class="pnl-divider">
+    <div class="pnl-row">
+      <span class="pnl-label">Total OPEX</span>
+      <span class="pnl-val">${fmtTHB(Math.round(c.totalOpex))}</span>
+    </div>
+    <div class="pnl-row subtotal profit">
+      <span class="pnl-label">Gross Profit</span>
+      <span class="pnl-val">${fmtTHB(Math.round(c.grossProfit))}</span>
+    </div>
+    <hr class="pnl-divider">
+    <div class="pnl-row">
+      <span class="pnl-label">Investor Pool (${data.investment.profit_share_pct}%)</span>
+      <span class="pnl-val">${fmtTHB(Math.round(c.investorPool))}</span>
+    </div>
+    <div class="pnl-row">
+      <span class="pnl-label">Per Room / Month</span>
+      <span class="pnl-val">${fmtTHB(Math.round(c.perRoom))}</span>
+    </div>
+    <div class="pnl-row subtotal highlight">
+      <span class="pnl-label">Annualized ROI</span>
+      <span class="pnl-val">${c.roi.toFixed(1)}%</span>
+    </div>
+  `;
+}
+
+// ── Click-to-Edit ──
+function startEdit(el) {
+  if (el.querySelector('input')) return;
+  const field = el.dataset.field;
+  const fmt = el.dataset.format;
+  const raw = deepGet(data, field);
+
+  const input = document.createElement('input');
+  input.type = fmt === 'text' ? 'text' : 'text';
+  input.value = raw;
+  input.className = el.classList.contains('opex-value') ? 'edit-input edit-input-small' : 'edit-input';
+
+  el.textContent = '';
+  el.appendChild(input);
+  input.focus();
+  input.select();
+
+  function commit() {
+    const newVal = parseInput(input.value, fmt);
+    deepSet(data, field, newVal);
+    dirty = true;
+    el.textContent = formatValue(newVal, fmt);
+    render();
+  }
+
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+    if (e.key === 'Escape') {
+      el.textContent = formatValue(raw, fmt);
+    }
+  });
+}
+
+// Set up click-to-edit on card values
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('.card .value[data-field]');
+  if (el) startEdit(el);
+});
+
+// ── API ──
+async function fetchData() {
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error('Not OK');
+    const json = await res.json();
+    data = json;
+    online = true;
+    updateStatus(true);
+    if (data._meta && data._meta.updated) {
+      document.getElementById('lastSaved').textContent = 'saved ' + timeAgo(data._meta.updated);
+    }
+  } catch (e) {
+    console.warn('API unreachable, using defaults', e);
+    online = false;
+    updateStatus(false);
+  }
+  render();
+}
+
+async function saveData() {
+  try {
+    const res = await fetch(API_URL, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Save failed');
+    const result = await res.json();
+    dirty = false;
+    online = true;
+    updateStatus(true);
+    document.getElementById('lastSaved').textContent = 'saved just now';
+    document.getElementById('saveBtn').classList.remove('visible');
+    showToast('Saved \u2713');
+  } catch (e) {
+    showToast('Save failed — check connection');
+    updateStatus(false);
+  }
+}
+
+function updateStatus(isOnline) {
+  const dot = document.getElementById('statusDot');
+  const text = document.getElementById('statusText');
+  dot.className = 'status-dot' + (isOnline ? '' : ' offline');
+  text.textContent = isOnline ? 'Connected' : 'Offline';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function timeAgo(iso) {
+  const diff = Date.now() - new Date(iso).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + 'm ago';
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return hrs + 'h ago';
+  return Math.floor(hrs / 24) + 'd ago';
+}
+
+// ── Keyboard shortcut: Cmd+S / Ctrl+S to save ──
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+    e.preventDefault();
+    if (dirty) saveData();
+  }
+});
+
+// ── Init ──
+fetchData();
+</script>
+</body>
+</html>

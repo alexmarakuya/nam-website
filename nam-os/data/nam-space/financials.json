@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "entity": "nam-space",
+    "type": "financials",
+    "version": 1,
+    "updated": "2026-03-19T00:00:00Z",
+    "currency": "THB"
+  },
+  "accommodation": {
+    "rooms_phase1": 8,
+    "nightly_rate": 3000,
+    "weekly_rate": 18000,
+    "monthly_rate": 50000,
+    "blended_rate": 2250,
+    "mix_nightly": 30,
+    "mix_weekly": 20,
+    "mix_monthly": 50,
+    "occ_conservative": 50,
+    "occ_base": 60,
+    "occ_optimistic": 75
+  },
+  "coworking": {
+    "member_rate": 8000,
+    "members_base": 20,
+    "weekly_pass_price": 3000,
+    "weekly_pass_volume": 10,
+    "day_pass_price": 500,
+    "day_pass_volume": 10,
+    "office_rate": 18000,
+    "offices": 2
+  },
+  "opex": {
+    "staff": 102000,
+    "land": 50000,
+    "utilities": 25000,
+    "maintenance": 15000,
+    "repairs": 15000,
+    "marketing": 12000,
+    "insurance": 8000,
+    "software": 8200,
+    "misc": 7000
+  },
+  "investment": {
+    "cost_per_room": 2340000,
+    "profit_share_pct": 40,
+    "max_rooms_per_investor": 4,
+    "term_years": 30,
+    "distribution": "monthly",
+    "reporting": "quarterly"
+  },
+  "phase2": {
+    "additional_rooms": 4,
+    "premium_blended_rate": 3500,
+    "additional_opex": 80000,
+    "timeline": "Year 2-3"
+  }
+}
