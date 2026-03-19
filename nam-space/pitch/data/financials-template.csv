@@ -1,36 +1,51 @@
-key,value,unit,category,notes
-rooms_phase1,8,rooms,Structure,Standard studios
-rooms_phase2,4,rooms,Structure,Premium studios (Phase 2)
-invest_per_room,2340000,THB,Investment,Build cost per studio
-profit_share_pct,40,%,Investment,Investor pool share
-max_rooms_per_investor,4,rooms,Investment,Cap per investor
-term_years,30,years,Investment,Land lease term
-nightly_rate,3000,THB/night,Accommodation,Standard room
-weekly_rate,18000,THB/week,Accommodation,Standard room
-monthly_rate,50000,THB/month,Accommodation,Standard room
-blended_rate,2250,THB/night,Accommodation,Weighted avg across stay mix
-mix_nightly,30,%,Accommodation,Share of nightly bookings
-mix_weekly,20,%,Accommodation,Share of weekly bookings
-mix_monthly,50,%,Accommodation,Share of monthly bookings
-occ_conservative,50,%,Scenarios,Low season / ramp-up
-occ_base,60,%,Scenarios,Steady state
-occ_optimistic,75,%,Scenarios,High season / mature
-cw_member_rate,8000,THB/month,Co-working,Monthly membership
-cw_members_base,20,members,Co-working,Base case members
-cw_weekly_passes,10,/month,Co-working,Weekly pass volume
-cw_weekly_rate,3000,THB/pass,Co-working,Weekly pass price
-cw_day_passes,10,/month,Co-working,Day pass volume
-cw_day_rate,500,THB/pass,Co-working,Day pass price
-cw_offices,2,offices,Co-working,Private offices
-cw_office_rate,18000,THB/month,Co-working,Per office
-opex_staff,102000,THB/month,OPEX,"Community manager, cleaner, maintenance"
-opex_land,50000,THB/month,OPEX,"30-year lease, fixed rate"
-opex_utilities,25000,THB/month,OPEX,"Electricity, water, internet"
-opex_maintenance,15000,THB/month,OPEX,"Grounds, pool, common areas"
-opex_repairs,15000,THB/month,OPEX,"Furniture, appliances, wear & tear"
-opex_marketing,12000,THB/month,OPEX,"Online listings, content, outreach"
-opex_insurance,8000,THB/month,OPEX,"Property, liability, contents"
-opex_software,8200,THB/month,OPEX,"PMS, booking, accounting, WiFi"
-opex_misc,7000,THB/month,OPEX,"Supplies, transport, contingency"
-p2_blended_rate,3500,THB/night,Phase 2,Premium room blended rate
-p2_opex_add,80000,THB/month,Phase 2,Additional OPEX for 4 rooms
+Section,Line Item,Value,Unit,Frequency,Notes
+,,,,,
+REVENUE ASSUMPTIONS,,,,,
+Accommodation,Rooms (Phase 1),8,units,,Standard studios
+Accommodation,Nightly Rate (ADR),3000,THB,per night,Average daily rate
+Accommodation,Weekly Rate,18000,THB,per week,~6x nightly
+Accommodation,Monthly Rate,50000,THB,per month,~17x nightly
+Accommodation,Blended Rate,2250,THB,per night,Weighted avg across stay mix
+Accommodation,Mix — Nightly,30,%,,Share of nightly bookings
+Accommodation,Mix — Weekly,20,%,,Share of weekly bookings
+Accommodation,Mix — Monthly,50,%,,Share of monthly bookings
+Accommodation,Occupancy — Conservative,50,%,,Low season / ramp-up
+Accommodation,Occupancy — Base Case,60,%,,Steady state assumption
+Accommodation,Occupancy — Optimistic,75,%,,High season / mature
+,,,,,
+Co-working,Monthly Membership Fee,8000,THB,per month,Per member
+Co-working,Members (Base Case),20,members,per month,
+Co-working,Weekly Pass Price,3000,THB,per pass,
+Co-working,Weekly Pass Volume,10,passes,per month,
+Co-working,Day Pass Price,500,THB,per pass,
+Co-working,Day Pass Volume,10,passes,per month,
+Co-working,Private Office Rate,18000,THB,per month,Per office
+Co-working,Private Offices,2,offices,,
+,,,,,
+OPERATING EXPENSES (OPEX),,,,,
+Payroll,Staff & Payroll,102000,THB,per month,"Community manager, cleaner, maintenance"
+Occupancy Costs,Land Rental,50000,THB,per month,"30-year lease, fixed rate"
+Occupancy Costs,Utilities,25000,THB,per month,"Electricity, water, high-speed internet"
+Occupancy Costs,Maintenance,15000,THB,per month,"Grounds, pool, common areas"
+Occupancy Costs,Repairs & Replacements,15000,THB,per month,"Furniture, appliances, wear & tear"
+Sales & Marketing,Marketing & Acquisition,12000,THB,per month,"Online listings, content, outreach"
+General & Admin,Insurance,8000,THB,per month,"Property, liability, contents"
+General & Admin,Software & Systems,8200,THB,per month,"PMS, booking, accounting, WiFi mgmt"
+General & Admin,Miscellaneous,7000,THB,per month,"Supplies, transport, contingency"
+,,,,,
+CAPITAL STRUCTURE,,,,,
+Investment,Cost Per Room,2340000,THB,,Build cost per studio
+Investment,Total Rooms (Phase 1),8,rooms,,
+Investment,Total Raise,18720000,THB,,= Cost Per Room × Total Rooms
+Investment,Profit Share to Investors,40,%,,Of gross profit
+Investment,Distribution Frequency,Monthly,,,
+Investment,Reporting,Quarterly P&L,,,
+Investment,Term,30,years,,Land lease duration
+Investment,Capital Return,End of term,,,
+Investment,Max Rooms Per Investor,4,rooms,,
+,,,,,
+PHASE 2 EXPANSION,,,,,
+Phase 2,Additional Rooms,4,rooms,,Premium studios
+Phase 2,Premium Blended Rate,3500,THB,per night,Higher spec rooms
+Phase 2,Additional OPEX,80000,THB,per month,Staff + utilities + maintenance
+Phase 2,Timeline,Year 2-3,,,Funded from Phase 1 profits
