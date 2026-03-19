@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,10 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sukhumvit+Set:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: 'Sukhumvit Set'; src: local('Sukhumvit Set'), local('SukhumvitSet-Text'); }
+</style>
 <style>
   :root {
     --bg: #f4f2e8;
@@ -79,7 +82,8 @@
   .bg-green .info-value { color: var(--bg); }
   .bg-green .list-item { border-color: rgba(244,242,232,0.12); }
   .bg-green .list-item p { color: rgba(244,242,232,0.65); }
-  .bg-green .thai { color: rgba(244,242,232,0.45) !important; }
+  .bg-green .thai { color: rgba(244,242,232,0.9) !important; }
+  .bg-green .eng { color: rgba(244,242,232,0.5) !important; }
 
   /* Grain overlay */
   .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.28; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); background-size: 180px 180px; mix-blend-mode: overlay; }
@@ -104,7 +108,8 @@
   .muted { color: var(--text-muted); }
   .mono { font-family: 'Sometype Mono', monospace; }
   .tc { color: var(--terracotta); }
-  .thai { font-family: 'Sometype Mono', monospace; font-size: 0.88em; color: var(--text-muted); line-height: 1.6; margin-top: 0.3rem; }
+  .thai { font-family: 'Sukhumvit Set', 'Epilogue', sans-serif; font-size: 1.05em; color: var(--text); line-height: 1.7; margin-top: 0.2rem; }
+  .eng { font-family: 'Sometype Mono', monospace; font-size: 0.88em; color: var(--text-muted); line-height: 1.6; margin-top: 0.25rem; }
 
   /* Layout */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -125,13 +130,13 @@
   .info-row { display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid var(--border); padding: 0.85rem 0; font-size: 1rem; align-items: baseline; gap: 1rem; }
   .info-label { font-family: 'Sometype Mono', monospace; font-size: 0.88rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
   .info-value { color: var(--text); font-weight: 400; font-size: 1.15rem; }
-  .info-value .thai { font-size: 0.85em; }
+  .info-value .eng { font-size: 0.85em; }
 
   /* Program grid cards */
   .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
   .program-card { border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.75rem; background: none; }
   .program-card h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.25rem; }
-  .program-card .thai { font-size: 0.85em; margin-bottom: 0.5rem; }
+  .program-card .eng { font-size: 0.85em; margin-bottom: 0.5rem; }
 
   /* Question cards (centrepiece) */
   .q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
@@ -141,7 +146,7 @@
   .q-card h4 { font-size: 0.98rem; font-weight: 600; color: var(--text); margin-bottom: 0.1rem; }
   .q-card .q-thai-title { font-family: 'Sometype Mono', monospace; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; }
   .q-card p { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; font-weight: 400; }
-  .q-card .thai { font-size: 0.78em; color: var(--text-muted); margin-top: 0.35rem; }
+  .q-card .eng { font-size: 0.78em; color: var(--text-muted); margin-top: 0.35rem; }
 
   /* Slide Number */
   .sn { position: absolute; top: 32px; right: 44px; font-family: 'Sometype Mono', monospace; font-size: 0.92rem; color: var(--text-secondary); letter-spacing: 0.1em; }
@@ -330,11 +335,11 @@
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
     <div class="hero-content">
       <h1 style="font-size:clamp(4.5rem,9vw,8rem);letter-spacing:-0.04em;color:var(--bg);margin-bottom:1.5rem;">N&#x101;M Space</h1>
-      <p class="sub" style="color:rgba(244,242,232,0.65);max-width:560px;margin:0 auto 0.75rem;font-size:1.25rem;">A design-led creative campus on Koh Phangan</p>
-      <p style="font-family:'Sometype Mono',monospace;font-size:1.05rem;color:rgba(244,242,232,0.4);max-width:560px;margin:0 auto;line-height:1.6;">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe01;&#xe32;&#xe23;&#xe17;&#xe33;&#xe07;&#xe32;&#xe19;&#xe41;&#xe25;&#xe30;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe0a;&#xe35;&#xe27;&#xe34;&#xe15;&#xe1a;&#xe19;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;</p>
+      <p class="sub" style="color:rgba(244,242,232,0.65);max-width:560px;margin:0 auto 0.75rem;font-size:1.25rem;">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe01;&#xe32;&#xe23;&#xe17;&#xe33;&#xe07;&#xe32;&#xe19;&#xe41;&#xe25;&#xe30;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe0a;&#xe35;&#xe27;&#xe34;&#xe15;&#xe1a;&#xe19;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;</p>
+      <p style="font-family:'Sometype Mono',monospace;font-size:1.05rem;color:rgba(244,242,232,0.4);max-width:560px;margin:0 auto;line-height:1.6;">A design-led creative campus on Koh Phangan</p>
       <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(244,242,232,0.15);">
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.55);letter-spacing:0.05em;">Prepared for Tessabaan Koh Phangan</p>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.35);margin-top:0.3rem;">&#xe08;&#xe31;&#xe14;&#xe17;&#xe33;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe40;&#xe17;&#xe28;&#xe1a;&#xe32;&#xe25;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;</p>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.55);letter-spacing:0.05em;">&#xe08;&#xe31;&#xe14;&#xe17;&#xe33;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe40;&#xe17;&#xe28;&#xe1a;&#xe32;&#xe25;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;</p>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.35);margin-top:0.3rem;">Prepared for Tessabaan Koh Phangan</p>
       </div>
     </div>
   </div>
@@ -345,30 +350,30 @@
 <section class="slide bg-cream grain watermark watermark-light wm-tr" id="s2">
   <div class="slide-inner">
     <div class="label"><img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);"> About us / &#xe40;&#xe01;&#xe35;&#xe48;&#xe22;&#xe27;&#xe01;&#xe31;&#xe1a;&#xe40;&#xe23;&#xe32;</div>
-    <h2>Who we are</h2>
-    <p class="thai" style="font-size:1.1rem;margin-bottom:2rem;color:var(--text-muted);">&#xe40;&#xe23;&#xe32;&#xe04;&#xe37;&#xe2d;&#xe43;&#xe04;&#xe23;</p>
+    <h2>&#xe40;&#xe23;&#xe32;&#xe04;&#xe37;&#xe2d;&#xe43;&#xe04;&#xe23;</h2>
+    <p class="eng" style="font-size:1.1rem;margin-bottom:2rem;color:var(--text-muted);">Who we are</p>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <p>N&#x101;M Space is a Thai-registered company (N&#x101;M Space Co. Ltd.) developing a design-led co-working, co-living, and creative campus.</p>
-        <p class="thai">N&#x101;M Space &#xe40;&#xe1b;&#xe47;&#xe19;&#xe1a;&#xe23;&#xe34;&#xe29;&#xe31;&#xe17;&#xe08;&#xe14;&#xe17;&#xe30;&#xe40;&#xe1a;&#xe35;&#xe22;&#xe19;&#xe43;&#xe19;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe17;&#xe28;&#xe44;&#xe17;&#xe22; (&#xe1a;&#xe23;&#xe34;&#xe29;&#xe31;&#xe17; &#xe19;&#xe32;&#xe21; &#xe2a;&#xe40;&#xe1b;&#xe0b; &#xe08;&#xe33;&#xe01;&#xe31;&#xe14;) &#xe17;&#xe35;&#xe48;&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe1e;&#xe31;&#xe12;&#xe19;&#xe32;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe01;&#xe32;&#xe23;&#xe17;&#xe33;&#xe07;&#xe32;&#xe19;&#xe23;&#xe48;&#xe27;&#xe21;&#xe01;&#xe31;&#xe19; &#xe01;&#xe32;&#xe23;&#xe2d;&#xe22;&#xe39;&#xe48;&#xe2d;&#xe32;&#xe28;&#xe31;&#xe22; &#xe41;&#xe25;&#xe30;&#xe01;&#xe34;&#xe08;&#xe01;&#xe23;&#xe23;&#xe21;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;</p>
+        <p>N&#x101;M Space &#xe40;&#xe1b;&#xe47;&#xe19;&#xe1a;&#xe23;&#xe34;&#xe29;&#xe31;&#xe17;&#xe08;&#xe14;&#xe17;&#xe30;&#xe40;&#xe1a;&#xe35;&#xe22;&#xe19;&#xe43;&#xe19;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe17;&#xe28;&#xe44;&#xe17;&#xe22; (&#xe1a;&#xe23;&#xe34;&#xe29;&#xe31;&#xe17; &#xe19;&#xe32;&#xe21; &#xe2a;&#xe40;&#xe1b;&#xe0b; &#xe08;&#xe33;&#xe01;&#xe31;&#xe14;) &#xe17;&#xe35;&#xe48;&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe1e;&#xe31;&#xe12;&#xe19;&#xe32;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe01;&#xe32;&#xe23;&#xe17;&#xe33;&#xe07;&#xe32;&#xe19;&#xe23;&#xe48;&#xe27;&#xe21;&#xe01;&#xe31;&#xe19; &#xe01;&#xe32;&#xe23;&#xe2d;&#xe22;&#xe39;&#xe48;&#xe2d;&#xe32;&#xe28;&#xe31;&#xe22; &#xe41;&#xe25;&#xe30;&#xe01;&#xe34;&#xe08;&#xe01;&#xe23;&#xe23;&#xe21;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;</p>
+        <p class="eng">N&#x101;M Space is a Thai-registered company (N&#x101;M Space Co. Ltd.) developing a design-led co-working, co-living, and creative campus.</p>
       </div>
     </div>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <p>Founded by Alex Duffner &mdash; Thai national, half Thai / half German &mdash; who has lived on Koh Phangan for over 4 years.</p>
-        <p class="thai">&#xe01;&#xe48;&#xe2d;&#xe15;&#xe31;&#xe49;&#xe07;&#xe42;&#xe14;&#xe22; &#xe2d;&#xe40;&#xe25;&#xe47;&#xe01;&#xe0b;&#xe4c; &#xe14;&#xe31;&#xe1f;&#xe1f;&#xe4c;&#xe40;&#xe19;&#xe2d;&#xe23;&#xe4c; &mdash; &#xe2a;&#xe31;&#xe0d;&#xe0a;&#xe32;&#xe15;&#xe34;&#xe44;&#xe17;&#xe22; &#xe40;&#xe0a;&#xe37;&#xe49;&#xe2d;&#xe2a;&#xe32;&#xe22;&#xe44;&#xe17;&#xe22;-&#xe40;&#xe22;&#xe2d;&#xe23;&#xe21;&#xe31;&#xe19; &mdash; &#xe0b;&#xe36;&#xe48;&#xe07;&#xe2d;&#xe32;&#xe28;&#xe31;&#xe22;&#xe2d;&#xe22;&#xe39;&#xe48;&#xe1a;&#xe19;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;&#xe21;&#xe32;&#xe01;&#xe01;&#xe27;&#xe48;&#xe32; 4 &#xe1b;&#xe35;</p>
+        <p>&#xe01;&#xe48;&#xe2d;&#xe15;&#xe31;&#xe49;&#xe07;&#xe42;&#xe14;&#xe22; &#xe2d;&#xe40;&#xe25;&#xe47;&#xe01;&#xe0b;&#xe4c; &#xe14;&#xe31;&#xe1f;&#xe1f;&#xe4c;&#xe40;&#xe19;&#xe2d;&#xe23;&#xe4c; &mdash; &#xe2a;&#xe31;&#xe0d;&#xe0a;&#xe32;&#xe15;&#xe34;&#xe44;&#xe17;&#xe22; &#xe40;&#xe0a;&#xe37;&#xe49;&#xe2d;&#xe2a;&#xe32;&#xe22;&#xe44;&#xe17;&#xe22;-&#xe40;&#xe22;&#xe2d;&#xe23;&#xe21;&#xe31;&#xe19; &mdash; &#xe0b;&#xe36;&#xe48;&#xe07;&#xe2d;&#xe32;&#xe28;&#xe31;&#xe22;&#xe2d;&#xe22;&#xe39;&#xe48;&#xe1a;&#xe19;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;&#xe21;&#xe32;&#xe01;&#xe01;&#xe27;&#xe48;&#xe32; 4 &#xe1b;&#xe35;</p>
+        <p class="eng">Founded by Alex Duffner &mdash; Thai national, half Thai / half German &mdash; who has lived on Koh Phangan for over 4 years.</p>
       </div>
     </div>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <p>The land is 3 rai, green zone, owned personally by Alex.</p>
-        <p class="thai">&#xe17;&#xe35;&#xe48;&#xe14;&#xe34;&#xe19; 3 &#xe44;&#xe23;&#xe48; &#xe43;&#xe19;&#xe40;&#xe02;&#xe15;&#xe2a;&#xe35;&#xe40;&#xe02;&#xe35;&#xe22;&#xe27; &#xe40;&#xe1b;&#xe47;&#xe19;&#xe01;&#xe23;&#xe23;&#xe21;&#xe2a;&#xe34;&#xe17;&#xe18;&#xe34;&#xe4c;&#xe2a;&#xe48;&#xe27;&#xe19;&#xe1a;&#xe38;&#xe04;&#xe04;&#xe25;&#xe02;&#xe2d;&#xe07;&#xe2d;&#xe40;&#xe25;&#xe47;&#xe01;&#xe0b;&#xe4c;</p>
+        <p>&#xe17;&#xe35;&#xe48;&#xe14;&#xe34;&#xe19; 3 &#xe44;&#xe23;&#xe48; &#xe43;&#xe19;&#xe40;&#xe02;&#xe15;&#xe2a;&#xe35;&#xe40;&#xe02;&#xe35;&#xe22;&#xe27; &#xe40;&#xe1b;&#xe47;&#xe19;&#xe01;&#xe23;&#xe23;&#xe21;&#xe2a;&#xe34;&#xe17;&#xe18;&#xe34;&#xe4c;&#xe2a;&#xe48;&#xe27;&#xe19;&#xe1a;&#xe38;&#xe04;&#xe04;&#xe25;&#xe02;&#xe2d;&#xe07;&#xe2d;&#xe40;&#xe25;&#xe47;&#xe01;&#xe0b;&#xe4c;</p>
+        <p class="eng">The land is 3 rai, green zone, owned personally by Alex.</p>
       </div>
     </div>
   </div>
@@ -380,47 +385,47 @@
 <section class="slide bg-warm grain" id="s3">
   <div class="slide-inner" style="max-width:1300px;">
     <div class="label"><img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);"> The project / &#xe42;&#xe04;&#xe23;&#xe07;&#xe01;&#xe32;&#xe23;</div>
-    <h2 style="margin-bottom:0.25rem;">What we want to build</h2>
-    <p class="thai" style="font-size:1.1rem;margin-bottom:1.5rem;color:var(--text-muted);">&#xe2a;&#xe34;&#xe48;&#xe07;&#xe17;&#xe35;&#xe48;&#xe40;&#xe23;&#xe32;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;</p>
+    <h2 style="margin-bottom:0.25rem;">&#xe2a;&#xe34;&#xe48;&#xe07;&#xe17;&#xe35;&#xe48;&#xe40;&#xe23;&#xe32;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;</h2>
+    <p class="eng" style="font-size:1.1rem;margin-bottom:1.5rem;color:var(--text-muted);">What we want to build</p>
 
     <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:start;">
       <!-- NāM Space renders -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
         <div style="border-radius:8px;overflow:hidden;grid-column:1/3;">
-          <img src="../../assets/exterior-1.jpg" alt="N&#x101;M Space exterior" style="width:100%;height:220px;object-fit:cover;">
+          <img src="../../assets/exterior-1.jpg" alt="N&#x101;M Space exterior" style="width:100%;aspect-ratio:16/9;object-fit:cover;">
         </div>
         <div style="border-radius:8px;overflow:hidden;">
-          <img src="../../assets/commons-1.jpg" alt="N&#x101;M Space commons" style="width:100%;height:140px;object-fit:cover;">
+          <img src="../../assets/commons-1.jpg" alt="N&#x101;M Space commons" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
         </div>
         <div style="border-radius:8px;overflow:hidden;">
-          <img src="../../assets/cafe-1.jpg" alt="N&#x101;M Space caf&#xe9;" style="width:100%;height:140px;object-fit:cover;">
+          <img src="../../assets/cafe-1.jpg" alt="N&#x101;M Space caf&#xe9;" style="width:100%;aspect-ratio:4/3;object-fit:cover;">
         </div>
       </div>
       <!-- Program list -->
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="padding:0.85rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">Co-working space (50 seats)</h4>
-          <p class="thai" style="font-size:0.82rem;">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe17;&#xe33;&#xe07;&#xe32;&#xe19;&#xe23;&#xe48;&#xe27;&#xe21;&#xe01;&#xe31;&#xe19; (50 &#xe17;&#xe35;&#xe48;&#xe19;&#xe31;&#xe48;&#xe07;)</p>
+          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe17;&#xe33;&#xe07;&#xe32;&#xe19;&#xe23;&#xe48;&#xe27;&#xe21;&#xe01;&#xe31;&#xe19; (50 &#xe17;&#xe35;&#xe48;&#xe19;&#xe31;&#xe48;&#xe07;)</h4>
+          <p class="eng" style="font-size:0.82rem;">Co-working space (50 seats)</p>
         </div>
         <div style="padding:0.85rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">Creative classrooms &amp; workshops</h4>
-          <p class="thai" style="font-size:0.82rem;">&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;&#xe41;&#xe25;&#xe30;&#xe40;&#xe27;&#xe34;&#xe23;&#xe4c;&#xe04;&#xe0a;&#xe47;&#xe2d;&#xe1b;</p>
+          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">&#xe2b;&#xe49;&#xe2d;&#xe07;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;&#xe41;&#xe25;&#xe30;&#xe40;&#xe27;&#xe34;&#xe23;&#xe4c;&#xe04;&#xe0a;&#xe47;&#xe2d;&#xe1b;</h4>
+          <p class="eng" style="font-size:0.82rem;">Creative classrooms &amp; workshops</p>
         </div>
         <div style="padding:0.85rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">Wellness facilities (yoga, pool)</h4>
-          <p class="thai" style="font-size:0.82rem;">&#xe2a;&#xe34;&#xe48;&#xe07;&#xe2d;&#xe33;&#xe19;&#xe27;&#xe22;&#xe04;&#xe27;&#xe32;&#xe21;&#xe2a;&#xe30;&#xe14;&#xe27;&#xe01;&#xe14;&#xe49;&#xe32;&#xe19;&#xe2a;&#xe38;&#xe02;&#xe20;&#xe32;&#xe1e; (&#xe42;&#xe22;&#xe04;&#xe30;, &#xe2a;&#xe23;&#xe30;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;)</p>
+          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">&#xe2a;&#xe34;&#xe48;&#xe07;&#xe2d;&#xe33;&#xe19;&#xe27;&#xe22;&#xe04;&#xe27;&#xe32;&#xe21;&#xe2a;&#xe30;&#xe14;&#xe27;&#xe01;&#xe14;&#xe49;&#xe32;&#xe19;&#xe2a;&#xe38;&#xe02;&#xe20;&#xe32;&#xe1e; (&#xe42;&#xe22;&#xe04;&#xe30;, &#xe2a;&#xe23;&#xe30;&#xe27;&#xe48;&#xe32;&#xe22;&#xe19;&#xe49;&#xe33;)</h4>
+          <p class="eng" style="font-size:0.82rem;">Wellness facilities (yoga, pool)</p>
         </div>
         <div style="padding:0.85rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">Small caf&#xe9;</h4>
-          <p class="thai" style="font-size:0.82rem;">&#xe04;&#xe32;&#xe40;&#xe1f;&#xe48;&#xe02;&#xe19;&#xe32;&#xe14;&#xe40;&#xe25;&#xe47;&#xe01;</p>
+          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">&#xe04;&#xe32;&#xe40;&#xe1f;&#xe48;&#xe02;&#xe19;&#xe32;&#xe14;&#xe40;&#xe25;&#xe47;&#xe01;</h4>
+          <p class="eng" style="font-size:0.82rem;">Small caf&#xe9;</p>
         </div>
         <div style="padding:0.85rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">Co-living accommodation (8 studios)</h4>
-          <p class="thai" style="font-size:0.82rem;">&#xe17;&#xe35;&#xe48;&#xe1e;&#xe31;&#xe01;&#xe2d;&#xe32;&#xe28;&#xe31;&#xe22;&#xe23;&#xe48;&#xe27;&#xe21; (&#xe2a;&#xe15;&#xe39;&#xe14;&#xe34;&#xe42;&#xe2d; 8 &#xe2b;&#xe49;&#xe2d;&#xe07;, &#xe40;&#xe02;&#xe49;&#xe32;&#xe1e;&#xe31;&#xe01;&#xe23;&#xe32;&#xe22;&#xe40;&#xe14;&#xe37;&#xe2d;&#xe19;)</p>
+          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">&#xe17;&#xe35;&#xe48;&#xe1e;&#xe31;&#xe01;&#xe2d;&#xe32;&#xe28;&#xe31;&#xe22;&#xe23;&#xe48;&#xe27;&#xe21; (&#xe2a;&#xe15;&#xe39;&#xe14;&#xe34;&#xe42;&#xe2d; 8 &#xe2b;&#xe49;&#xe2d;&#xe07;, &#xe40;&#xe02;&#xe49;&#xe32;&#xe1e;&#xe31;&#xe01;&#xe23;&#xe32;&#xe22;&#xe40;&#xe14;&#xe37;&#xe2d;&#xe19;)</h4>
+          <p class="eng" style="font-size:0.82rem;">Co-living accommodation (8 studios)</p>
         </div>
         <div style="padding:0.85rem 0;">
-          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">Community event space</h4>
-          <p class="thai" style="font-size:0.82rem;">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe08;&#xe31;&#xe14;&#xe01;&#xe34;&#xe08;&#xe01;&#xe23;&#xe23;&#xe21;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;</p>
+          <h4 style="font-size:1rem;font-weight:500;color:var(--green);">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe08;&#xe31;&#xe14;&#xe01;&#xe34;&#xe08;&#xe01;&#xe23;&#xe23;&#xe21;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;</h4>
+          <p class="eng" style="font-size:0.82rem;">Community event space</p>
         </div>
       </div>
     </div>
@@ -465,33 +470,33 @@
 <section class="slide bg-cream grain watermark watermark-light wm-tr" id="s5">
   <div class="slide-inner">
     <div class="label"><img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);"> Location / &#xe17;&#xe35;&#xe48;&#xe15;&#xe31;&#xe49;&#xe07;</div>
-    <h2>The site</h2>
-    <p class="thai" style="font-size:1.1rem;margin-bottom:2rem;color:var(--text-muted);">&#xe17;&#xe35;&#xe48;&#xe15;&#xe31;&#xe49;&#xe07;&#xe42;&#xe04;&#xe23;&#xe07;&#xe01;&#xe32;&#xe23;</p>
+    <h2>&#xe17;&#xe35;&#xe48;&#xe15;&#xe31;&#xe49;&#xe07;&#xe42;&#xe04;&#xe23;&#xe07;&#xe01;&#xe32;&#xe23;</h2>
+    <p class="eng" style="font-size:1.1rem;margin-bottom:2rem;color:var(--text-muted);">The site</p>
 
     <div class="info-table">
       <div class="info-row">
         <span class="info-label">Location</span>
-        <span class="info-value">Koh Phangan<span class="thai" style="display:block;">&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;</span></span>
+        <span class="info-value">&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;<span class="eng" style="display:block;">Koh Phangan</span></span>
       </div>
       <div class="info-row">
         <span class="info-label">Land area</span>
-        <span class="info-value">3 rai (4,800 sqm)<span class="thai" style="display:block;">3 &#xe44;&#xe23;&#xe48; (4,800 &#xe15;&#xe23;.&#xe21;.)</span></span>
+        <span class="info-value">3 &#xe44;&#xe23;&#xe48; (4,800 &#xe15;&#xe23;.&#xe21;.)<span class="eng" style="display:block;">3 rai (4,800 sqm)</span></span>
       </div>
       <div class="info-row">
         <span class="info-label">Zone</span>
-        <span class="info-value">Dark green (rural / agricultural)<span class="thai" style="display:block;">&#xe40;&#xe02;&#xe15;&#xe2a;&#xe35;&#xe40;&#xe02;&#xe35;&#xe22;&#xe27;&#xe40;&#xe02;&#xe49;&#xe21; (&#xe40;&#xe02;&#xe15;&#xe0a;&#xe19;&#xe1a;&#xe17;&#xe41;&#xe25;&#xe30;&#xe40;&#xe01;&#xe29;&#xe15;&#xe23;&#xe01;&#xe23;&#xe23;&#xe21;)</span></span>
+        <span class="info-value">&#xe40;&#xe02;&#xe15;&#xe2a;&#xe35;&#xe40;&#xe02;&#xe35;&#xe22;&#xe27;&#xe40;&#xe02;&#xe49;&#xe21; (&#xe40;&#xe02;&#xe15;&#xe0a;&#xe19;&#xe1a;&#xe17;&#xe41;&#xe25;&#xe30;&#xe40;&#xe01;&#xe29;&#xe15;&#xe23;&#xe01;&#xe23;&#xe23;&#xe21;)<span class="eng" style="display:block;">Dark green (rural / agricultural)</span></span>
       </div>
       <div class="info-row">
         <span class="info-label">Built-up area</span>
-        <span class="info-value">900&ndash;1,000 sqm (planned)<span class="thai" style="display:block;">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe17;&#xe35;&#xe48;&#xe27;&#xe32;&#xe07;&#xe41;&#xe1c;&#xe19;: 900&ndash;1,000 &#xe15;&#xe23;.&#xe21;.</span></span>
+        <span class="info-value">&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe17;&#xe35;&#xe48;&#xe27;&#xe32;&#xe07;&#xe41;&#xe1c;&#xe19;: 900&ndash;1,000 &#xe15;&#xe23;.&#xe21;.<span class="eng" style="display:block;">900&ndash;1,000 sqm (planned)</span></span>
       </div>
       <div class="info-row">
         <span class="info-label">Build ratio</span>
-        <span class="info-value">~20% of land<span class="thai" style="display:block;">&#xe2d;&#xe31;&#xe15;&#xe23;&#xe32;&#xe2a;&#xe48;&#xe27;&#xe19;&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;: &#xe1b;&#xe23;&#xe30;&#xe21;&#xe32;&#xe13; 20% &#xe02;&#xe2d;&#xe07;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe14;&#xe34;&#xe19;</span></span>
+        <span class="info-value">&#xe2d;&#xe31;&#xe15;&#xe23;&#xe32;&#xe2a;&#xe48;&#xe27;&#xe19;&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;: &#xe1b;&#xe23;&#xe30;&#xe21;&#xe32;&#xe13; 20% &#xe02;&#xe2d;&#xe07;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe14;&#xe34;&#xe19;<span class="eng" style="display:block;">~20% of land</span></span>
       </div>
       <div class="info-row" style="border-bottom:none;">
         <span class="info-label">Development</span>
-        <span class="info-value">Phased development<span class="thai" style="display:block;">&#xe1e;&#xe31;&#xe12;&#xe19;&#xe32;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe40;&#xe1f;&#xe2a;</span></span>
+        <span class="info-value">&#xe1e;&#xe31;&#xe12;&#xe19;&#xe32;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe40;&#xe1f;&#xe2a;<span class="eng" style="display:block;">Phased development</span></span>
       </div>
     </div>
   </div>
@@ -503,42 +508,42 @@
 <section class="slide bg-green grain watermark watermark-dark wm-bl" id="s6">
   <div class="slide-inner" style="font-size:0.95em;">
     <div class="label">Community impact / &#xe1c;&#xe25;&#xe1b;&#xe23;&#xe30;&#xe42;&#xe22;&#xe0a;&#xe19;&#xe4c;&#xe15;&#xe48;&#xe2d;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;</div>
-    <h2>How N&#x101;M Space benefits Koh Phangan</h2>
-    <p class="thai" style="font-size:1.1rem;margin-bottom:1.25rem;color:rgba(244,242,232,0.4);">N&#x101;M Space &#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe42;&#xe22;&#xe0a;&#xe19;&#xe4c;&#xe43;&#xe2b;&#xe49;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe44;&#xe23;</p>
+    <h2>N&#x101;M Space &#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe42;&#xe22;&#xe0a;&#xe19;&#xe4c;&#xe43;&#xe2b;&#xe49;&#xe40;&#xe01;&#xe32;&#xe30;&#xe1e;&#xe30;&#xe07;&#xe31;&#xe19;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe44;&#xe23;</h2>
+    <p class="eng" style="font-size:1.1rem;margin-bottom:1.25rem;color:rgba(244,242,232,0.4);">How N&#x101;M Space benefits Koh Phangan</p>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <h4>Local employment</h4>
-        <p>Staff, contractors, suppliers sourced from the island.</p>
-        <p class="thai" style="color:rgba(244,242,232,0.4);">&#xe01;&#xe32;&#xe23;&#xe08;&#xe49;&#xe32;&#xe07;&#xe07;&#xe32;&#xe19;&#xe17;&#xe49;&#xe2d;&#xe07;&#xe16;&#xe34;&#xe48;&#xe19; &mdash; &#xe1e;&#xe19;&#xe31;&#xe01;&#xe07;&#xe32;&#xe19;, &#xe1c;&#xe39;&#xe49;&#xe23;&#xe31;&#xe1a;&#xe40;&#xe2b;&#xe21;&#xe32;, &#xe0b;&#xe31;&#xe1e;&#xe1e;&#xe25;&#xe32;&#xe22;&#xe40;&#xe2d;&#xe2d;&#xe23;&#xe4c;&#xe08;&#xe32;&#xe01;&#xe1a;&#xe19;&#xe40;&#xe01;&#xe32;&#xe30;</p>
+        <h4>&#xe01;&#xe32;&#xe23;&#xe08;&#xe49;&#xe32;&#xe07;&#xe07;&#xe32;&#xe19;&#xe17;&#xe49;&#xe2d;&#xe07;&#xe16;&#xe34;&#xe48;&#xe19;</h4>
+        <p>&#xe1e;&#xe19;&#xe31;&#xe01;&#xe07;&#xe32;&#xe19;, &#xe1c;&#xe39;&#xe49;&#xe23;&#xe31;&#xe1a;&#xe40;&#xe2b;&#xe21;&#xe32;, &#xe0b;&#xe31;&#xe1e;&#xe1e;&#xe25;&#xe32;&#xe22;&#xe40;&#xe2d;&#xe2d;&#xe23;&#xe4c;&#xe08;&#xe32;&#xe01;&#xe1a;&#xe19;&#xe40;&#xe01;&#xe32;&#xe30;</p>
+        <p class="eng" style="color:rgba(244,242,232,0.4);">Local employment &mdash; Staff, contractors, suppliers sourced from the island.</p>
       </div>
     </div>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <h4>Skill-sharing programs</h4>
-        <p>Open to the local community.</p>
-        <p class="thai" style="color:rgba(244,242,232,0.4);">&#xe42;&#xe1b;&#xe23;&#xe41;&#xe01;&#xe23;&#xe21;&#xe41;&#xe1a;&#xe48;&#xe07;&#xe1b;&#xe31;&#xe19;&#xe17;&#xe31;&#xe01;&#xe29;&#xe30;&#xe17;&#xe35;&#xe48;&#xe40;&#xe1b;&#xe34;&#xe14;&#xe43;&#xe2b;&#xe49;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;&#xe17;&#xe49;&#xe2d;&#xe07;&#xe16;&#xe34;&#xe48;&#xe19;&#xe40;&#xe02;&#xe49;&#xe32;&#xe23;&#xe48;&#xe27;&#xe21;</p>
+        <h4>&#xe42;&#xe1b;&#xe23;&#xe41;&#xe01;&#xe23;&#xe21;&#xe41;&#xe1a;&#xe48;&#xe07;&#xe1b;&#xe31;&#xe19;&#xe17;&#xe31;&#xe01;&#xe29;&#xe30;</h4>
+        <p>&#xe40;&#xe1b;&#xe34;&#xe14;&#xe43;&#xe2b;&#xe49;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;&#xe17;&#xe49;&#xe2d;&#xe07;&#xe16;&#xe34;&#xe48;&#xe19;&#xe40;&#xe02;&#xe49;&#xe32;&#xe23;&#xe48;&#xe27;&#xe21;</p>
+        <p class="eng" style="color:rgba(244,242,232,0.4);">Skill-sharing programs &mdash; Open to the local community.</p>
       </div>
     </div>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <h4>Sustainable, low-impact design</h4>
-        <p>Nature-integrated, not concrete resort.</p>
-        <p class="thai" style="color:rgba(244,242,232,0.4);">&#xe01;&#xe32;&#xe23;&#xe2d;&#xe2d;&#xe01;&#xe41;&#xe1a;&#xe1a;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe22;&#xe31;&#xe48;&#xe07;&#xe22;&#xe37;&#xe19; &#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe15;&#xe48;&#xe33; &mdash; &#xe1c;&#xe2a;&#xe32;&#xe19;&#xe01;&#xe31;&#xe1a;&#xe18;&#xe23;&#xe23;&#xe21;&#xe0a;&#xe32;&#xe15;&#xe34; &#xe44;&#xe21;&#xe48;&#xe43;&#xe0a;&#xe48;&#xe23;&#xe35;&#xe2a;&#xe2d;&#xe23;&#xe4c;&#xe17;&#xe04;&#xe2d;&#xe19;&#xe01;&#xe23;&#xe35;&#xe15;</p>
+        <h4>&#xe01;&#xe32;&#xe23;&#xe2d;&#xe2d;&#xe01;&#xe41;&#xe1a;&#xe1a;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe22;&#xe31;&#xe48;&#xe07;&#xe22;&#xe37;&#xe19; &#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe15;&#xe48;&#xe33;</h4>
+        <p>&#xe1c;&#xe2a;&#xe32;&#xe19;&#xe01;&#xe31;&#xe1a;&#xe18;&#xe23;&#xe23;&#xe21;&#xe0a;&#xe32;&#xe15;&#xe34; &#xe44;&#xe21;&#xe48;&#xe43;&#xe0a;&#xe48;&#xe23;&#xe35;&#xe2a;&#xe2d;&#xe23;&#xe4c;&#xe17;&#xe04;&#xe2d;&#xe19;&#xe01;&#xe23;&#xe35;&#xe15;</p>
+        <p class="eng" style="color:rgba(244,242,232,0.4);">Sustainable, low-impact design &mdash; Nature-integrated, not concrete resort.</p>
       </div>
     </div>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <h4>A new kind of visitor for the island</h4>
-        <p>Attracts high-spending, long-stay professionals &mdash; helping reduce reliance on the party-tourism image and bringing visitors who contribute meaningfully to the local economy year-round.</p>
-        <p class="thai" style="color:rgba(244,242,232,0.4);">ดึงดูดนักเดินทางคุณภาพที่พักระยะยาวและมีกำลังจ่ายสูง — ช่วยลดการพึ่งพาภาพลักษณ์เกาะปาร์ตี้ และนำผู้มาเยือนที่มีส่วนร่วมกับเศรษฐกิจท้องถิ่นอย่างยั่งยืนตลอดทั้งปี</p>
+        <h4>ดึงดูดนักเดินทางคุณภาพรูปแบบใหม่สู่เกาะ</h4>
+        <p>ดึงดูดนักเดินทางคุณภาพที่พักระยะยาวและมีกำลังจ่ายสูง — ช่วยลดการพึ่งพาภาพลักษณ์เกาะปาร์ตี้ และนำผู้มาเยือนที่มีส่วนร่วมกับเศรษฐกิจท้องถิ่นอย่างยั่งยืนตลอดทั้งปี</p>
+        <p class="eng" style="color:rgba(244,242,232,0.4);">A new kind of visitor for the island &mdash; Attracts high-spending, long-stay professionals, helping reduce reliance on the party-tourism image and bringing visitors who contribute meaningfully to the local economy year-round.</p>
       </div>
     </div>
   </div>
@@ -550,57 +555,57 @@
 <section class="slide bg-cream grain" id="s7">
   <div class="slide-inner">
     <div class="label"><img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);"> Questions / &#xe04;&#xe33;&#xe16;&#xe32;&#xe21;</div>
-    <h2 style="margin-bottom:0.4rem;">We want to build this right &mdash; together</h2>
-    <p class="thai" style="font-size:1.15rem;margin-bottom:0.25rem;color:var(--text-muted);">&#xe40;&#xe23;&#xe32;&#xe2d;&#xe22;&#xe32;&#xe01;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe19;&#xe35;&#xe49;&#xe43;&#xe2b;&#xe49;&#xe16;&#xe39;&#xe01;&#xe15;&#xe49;&#xe2d;&#xe07; &mdash; &#xe23;&#xe48;&#xe27;&#xe21;&#xe01;&#xe31;&#xe19;</p>
+    <h2 style="margin-bottom:0.4rem;">&#xe40;&#xe23;&#xe32;&#xe2d;&#xe22;&#xe32;&#xe01;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe19;&#xe35;&#xe49;&#xe43;&#xe2b;&#xe49;&#xe16;&#xe39;&#xe01;&#xe15;&#xe49;&#xe2d;&#xe07; &mdash; &#xe23;&#xe48;&#xe27;&#xe21;&#xe01;&#xe31;&#xe19;</h2>
+    <p class="eng" style="font-size:1.15rem;margin-bottom:0.25rem;color:var(--text-muted);">We want to build this right &mdash; together</p>
 
     <div class="q-grid">
 
       <div class="q-card">
         <div class="q-num">1</div>
-        <h4>Build ratio</h4>
-        <div class="q-thai-title">&#xe01;&#xe32;&#xe23;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;</div>
-        <p>What is the exact permitted build-up ratio for dark green zone land here? Is there a distinction between commercial and community-use buildings?</p>
-        <p class="thai">&#xe2d;&#xe31;&#xe15;&#xe23;&#xe32;&#xe2a;&#xe48;&#xe27;&#xe19;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe17;&#xe35;&#xe48;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe17;&#xe35;&#xe48;&#xe14;&#xe34;&#xe19;&#xe40;&#xe02;&#xe15;&#xe2a;&#xe35;&#xe40;&#xe02;&#xe35;&#xe22;&#xe27;&#xe40;&#xe02;&#xe49;&#xe21;&#xe43;&#xe19;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe19;&#xe35;&#xe49;&#xe04;&#xe37;&#xe2d;&#xe40;&#xe17;&#xe48;&#xe32;&#xe44;&#xe2b;&#xe23;&#xe48;? &#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe41;&#xe22;&#xe01;&#xe04;&#xe27;&#xe32;&#xe21;&#xe41;&#xe15;&#xe01;&#xe15;&#xe48;&#xe32;&#xe07;&#xe23;&#xe30;&#xe2b;&#xe27;&#xe48;&#xe32;&#xe07;&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe0a;&#xe34;&#xe07;&#xe1e;&#xe32;&#xe13;&#xe34;&#xe0a;&#xe22;&#xe4c;&#xe41;&#xe25;&#xe30;&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe44;&#xe21;&#xe48;?</p>
+        <h4>&#xe01;&#xe32;&#xe23;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;</h4>
+        <div class="q-thai-title">Build ratio</div>
+        <p>&#xe2d;&#xe31;&#xe15;&#xe23;&#xe32;&#xe2a;&#xe48;&#xe27;&#xe19;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe17;&#xe35;&#xe48;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe2a;&#xe33;&#xe2b;&#xe23;&#xe31;&#xe1a;&#xe17;&#xe35;&#xe48;&#xe14;&#xe34;&#xe19;&#xe40;&#xe02;&#xe15;&#xe2a;&#xe35;&#xe40;&#xe02;&#xe35;&#xe22;&#xe27;&#xe40;&#xe02;&#xe49;&#xe21;&#xe43;&#xe19;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe19;&#xe35;&#xe49;&#xe04;&#xe37;&#xe2d;&#xe40;&#xe17;&#xe48;&#xe32;&#xe44;&#xe2b;&#xe23;&#xe48;? &#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe41;&#xe22;&#xe01;&#xe04;&#xe27;&#xe32;&#xe21;&#xe41;&#xe15;&#xe01;&#xe15;&#xe48;&#xe32;&#xe07;&#xe23;&#xe30;&#xe2b;&#xe27;&#xe48;&#xe32;&#xe07;&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe0a;&#xe34;&#xe07;&#xe1e;&#xe32;&#xe13;&#xe34;&#xe0a;&#xe22;&#xe4c;&#xe41;&#xe25;&#xe30;&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe44;&#xe21;&#xe48;?</p>
+        <p class="eng">What is the exact permitted build-up ratio for dark green zone land here? Is there a distinction between commercial and community-use buildings?</p>
       </div>
 
       <div class="q-card">
         <div class="q-num">2</div>
-        <h4>Permitted uses &amp; stays</h4>
-        <div class="q-thai-title">การใช้ประโยชน์ที่ดินและระยะเข้าพัก</div>
-        <p>We plan to offer weekly and monthly stays. We may also consider daily stays, but if that is not permitted, we are happy to adjust our plan accordingly. Which of our proposed uses (coworking, classrooms, wellness, caf&eacute;, accommodation) are permitted, conditionally permitted, or require special approval?</p>
-        <p class="thai">เราวางแผนให้เข้าพักรายสัปดาห์และรายเดือน และอาจพิจารณารายวันด้วย แต่หากไม่ได้รับอนุญาต เรายินดีปรับแผนตามข้อกำหนด การใช้งานที่เสนอ (โคเวิร์กกิ้ง, ห้องเรียน, สุขภาพ, คาเฟ่, ที่พัก) อย่างใดที่ได้รับอนุญาต ได้รับอนุญาตแบบมีเงื่อนไข หรือต้องได้รับอนุมัติพิเศษ?</p>
+        <h4>การใช้ประโยชน์ที่ดินและระยะเข้าพัก</h4>
+        <div class="q-thai-title">Permitted uses &amp; stays</div>
+        <p>เราวางแผนให้เข้าพักรายสัปดาห์และรายเดือน และอาจพิจารณารายวันด้วย แต่หากไม่ได้รับอนุญาต เรายินดีปรับแผนตามข้อกำหนด การใช้งานที่เสนอ (โคเวิร์กกิ้ง, ห้องเรียน, สุขภาพ, คาเฟ่, ที่พัก) อย่างใดที่ได้รับอนุญาต ได้รับอนุญาตแบบมีเงื่อนไข หรือต้องได้รับอนุมัติพิเศษ?</p>
+        <p class="eng">We plan to offer weekly and monthly stays. We may also consider daily stays, but if that is not permitted, we are happy to adjust our plan accordingly. Which of our proposed uses (coworking, classrooms, wellness, caf&eacute;, accommodation) are permitted, conditionally permitted, or require special approval?</p>
       </div>
 
       <div class="q-card">
         <div class="q-num">3</div>
-        <h4>Classification pathways</h4>
-        <div class="q-thai-title">&#xe41;&#xe19;&#xe27;&#xe17;&#xe32;&#xe07;&#xe01;&#xe32;&#xe23;&#xe08;&#xe33;&#xe41;&#xe19;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;</div>
-        <p>Is there a classification &mdash; community learning center, creative campus, or wellness retreat &mdash; that better fits our program and may unlock different zoning conditions?</p>
-        <p class="thai">&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe08;&#xe33;&#xe41;&#xe19;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17; &#xe40;&#xe0a;&#xe48;&#xe19; &#xe28;&#xe39;&#xe19;&#xe22;&#xe4c;&#xe01;&#xe32;&#xe23;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe23;&#xe39;&#xe49;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;, &#xe27;&#xe34;&#xe17;&#xe22;&#xe32;&#xe40;&#xe02;&#xe15;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;, &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe28;&#xe39;&#xe19;&#xe22;&#xe4c;&#xe2a;&#xe38;&#xe02;&#xe20;&#xe32;&#xe1e; &mdash; &#xe17;&#xe35;&#xe48;&#xe40;&#xe2b;&#xe21;&#xe32;&#xe30;&#xe2a;&#xe21;&#xe01;&#xe31;&#xe1a;&#xe42;&#xe1b;&#xe23;&#xe41;&#xe01;&#xe23;&#xe21;&#xe02;&#xe2d;&#xe07;&#xe40;&#xe23;&#xe32;&#xe21;&#xe32;&#xe01;&#xe01;&#xe27;&#xe48;&#xe32;&#xe41;&#xe25;&#xe30;&#xe2d;&#xe32;&#xe08;&#xe40;&#xe1b;&#xe34;&#xe14;&#xe40;&#xe07;&#xe37;&#xe48;&#xe2d;&#xe19;&#xe44;&#xe02;&#xe1c;&#xe31;&#xe07;&#xe40;&#xe21;&#xe37;&#xe2d;&#xe07;&#xe17;&#xe35;&#xe48;&#xe41;&#xe15;&#xe01;&#xe15;&#xe48;&#xe32;&#xe07;&#xe2d;&#xe2d;&#xe01;&#xe44;&#xe1b;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe44;&#xe21;&#xe48;?</p>
+        <h4>&#xe41;&#xe19;&#xe27;&#xe17;&#xe32;&#xe07;&#xe01;&#xe32;&#xe23;&#xe08;&#xe33;&#xe41;&#xe19;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17;</h4>
+        <div class="q-thai-title">Classification pathways</div>
+        <p>&#xe21;&#xe35;&#xe01;&#xe32;&#xe23;&#xe08;&#xe33;&#xe41;&#xe19;&#xe01;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe20;&#xe17; &#xe40;&#xe0a;&#xe48;&#xe19; &#xe28;&#xe39;&#xe19;&#xe22;&#xe4c;&#xe01;&#xe32;&#xe23;&#xe40;&#xe23;&#xe35;&#xe22;&#xe19;&#xe23;&#xe39;&#xe49;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;, &#xe27;&#xe34;&#xe17;&#xe22;&#xe32;&#xe40;&#xe02;&#xe15;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe2a;&#xe23;&#xe23;&#xe04;&#xe4c;, &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe28;&#xe39;&#xe19;&#xe22;&#xe4c;&#xe2a;&#xe38;&#xe02;&#xe20;&#xe32;&#xe1e; &mdash; &#xe17;&#xe35;&#xe48;&#xe40;&#xe2b;&#xe21;&#xe32;&#xe30;&#xe2a;&#xe21;&#xe01;&#xe31;&#xe1a;&#xe42;&#xe1b;&#xe23;&#xe41;&#xe01;&#xe23;&#xe21;&#xe02;&#xe2d;&#xe07;&#xe40;&#xe23;&#xe32;&#xe21;&#xe32;&#xe01;&#xe01;&#xe27;&#xe48;&#xe32;&#xe41;&#xe25;&#xe30;&#xe2d;&#xe32;&#xe08;&#xe40;&#xe1b;&#xe34;&#xe14;&#xe40;&#xe07;&#xe37;&#xe48;&#xe2d;&#xe19;&#xe44;&#xe02;&#xe1c;&#xe31;&#xe07;&#xe40;&#xe21;&#xe37;&#xe2d;&#xe07;&#xe17;&#xe35;&#xe48;&#xe41;&#xe15;&#xe01;&#xe15;&#xe48;&#xe32;&#xe07;&#xe2d;&#xe2d;&#xe01;&#xe44;&#xe1b;&#xe2b;&#xe23;&#xe37;&#xe2d;&#xe44;&#xe21;&#xe48;?</p>
+        <p class="eng">Is there a classification &mdash; community learning center, creative campus, or wellness retreat &mdash; that better fits our program and may unlock different zoning conditions?</p>
       </div>
 
       <div class="q-card">
         <div class="q-num">4</div>
-        <h4>Accommodation registration</h4>
-        <div class="q-thai-title">การจดทะเบียนที่พัก</div>
-        <p>We understand that properties with up to 8 rooms may not require a hotel license. With 8 units planned, what are the registration options available to us? What other ways can we legally register our accommodation?</p>
-        <p class="thai">เราเข้าใจว่าที่พักที่มีไม่เกิน 8 ห้องอาจไม่ต้องมีใบอนุญาตโรงแรม เราวางแผนมี 8 ห้อง — มีทางเลือกในการจดทะเบียนอย่างไรบ้าง? มีวิธีอื่นใดที่สามารถจดทะเบียนที่พักได้ถูกต้องตามกฎหมาย?</p>
+        <h4>การจดทะเบียนที่พัก</h4>
+        <div class="q-thai-title">Accommodation registration</div>
+        <p>เราเข้าใจว่าที่พักที่มีไม่เกิน 8 ห้องอาจไม่ต้องมีใบอนุญาตโรงแรม เราวางแผนมี 8 ห้อง — มีทางเลือกในการจดทะเบียนอย่างไรบ้าง? มีวิธีอื่นใดที่สามารถจดทะเบียนที่พักได้ถูกต้องตามกฎหมาย?</p>
+        <p class="eng">We understand that properties with up to 8 rooms may not require a hotel license. With 8 units planned, what are the registration options available to us? What other ways can we legally register our accommodation?</p>
       </div>
 
       <div class="q-card">
         <div class="q-num">5</div>
-        <h4>EIA requirements</h4>
-        <div class="q-thai-title">&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe21;&#xe34;&#xe19;&#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe41;&#xe27;&#xe14;&#xe25;&#xe49;&#xe2d;&#xe21;</div>
-        <p>At 900&ndash;1,000 sqm built-up area, do we trigger an Environmental Impact Assessment or Initial Environmental Evaluation?</p>
-        <p class="thai">&#xe14;&#xe49;&#xe27;&#xe22;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07; 900&ndash;1,000 &#xe15;&#xe23;.&#xe21;. &#xe40;&#xe23;&#xe32;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe33;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe21;&#xe34;&#xe19;&#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe41;&#xe27;&#xe14;&#xe25;&#xe49;&#xe2d;&#xe21; (EIA) &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe21;&#xe34;&#xe19;&#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe41;&#xe27;&#xe14;&#xe25;&#xe49;&#xe2d;&#xe21;&#xe40;&#xe1a;&#xe37;&#xe49;&#xe2d;&#xe07;&#xe15;&#xe49;&#xe19; (IEE) &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe44;&#xe21;&#xe48;?</p>
+        <h4>&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe21;&#xe34;&#xe19;&#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe41;&#xe27;&#xe14;&#xe25;&#xe49;&#xe2d;&#xe21;</h4>
+        <div class="q-thai-title">EIA requirements</div>
+        <p>&#xe14;&#xe49;&#xe27;&#xe22;&#xe1e;&#xe37;&#xe49;&#xe19;&#xe17;&#xe35;&#xe48;&#xe01;&#xe48;&#xe2d;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07; 900&ndash;1,000 &#xe15;&#xe23;.&#xe21;. &#xe40;&#xe23;&#xe32;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe17;&#xe33;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe21;&#xe34;&#xe19;&#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe41;&#xe27;&#xe14;&#xe25;&#xe49;&#xe2d;&#xe21; (EIA) &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe01;&#xe32;&#xe23;&#xe1b;&#xe23;&#xe30;&#xe40;&#xe21;&#xe34;&#xe19;&#xe1c;&#xe25;&#xe01;&#xe23;&#xe30;&#xe17;&#xe1a;&#xe2a;&#xe34;&#xe48;&#xe07;&#xe41;&#xe27;&#xe14;&#xe25;&#xe49;&#xe2d;&#xe21;&#xe40;&#xe1a;&#xe37;&#xe49;&#xe2d;&#xe07;&#xe15;&#xe49;&#xe19; (IEE) &#xe2b;&#xe23;&#xe37;&#xe2d;&#xe44;&#xe21;&#xe48;?</p>
+        <p class="eng">At 900&ndash;1,000 sqm built-up area, do we trigger an Environmental Impact Assessment or Initial Environmental Evaluation?</p>
       </div>
 
       <div class="q-card">
         <div class="q-num">6</div>
-        <h4>Process and timeline</h4>
-        <div class="q-thai-title">&#xe02;&#xe31;&#xe49;&#xe19;&#xe15;&#xe2d;&#xe19;&#xe41;&#xe25;&#xe30;&#xe23;&#xe30;&#xe22;&#xe30;&#xe40;&#xe27;&#xe25;&#xe32;</div>
-        <p>What is the correct permitting sequence, and who are the key offices to work with step by step?</p>
-        <p class="thai">&#xe25;&#xe33;&#xe14;&#xe31;&#xe1a;&#xe02;&#xe31;&#xe49;&#xe19;&#xe15;&#xe2d;&#xe19;&#xe01;&#xe32;&#xe23;&#xe02;&#xe2d;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe04;&#xe37;&#xe2d;&#xe2d;&#xe30;&#xe44;&#xe23; &#xe41;&#xe25;&#xe30;&#xe2b;&#xe19;&#xe48;&#xe27;&#xe22;&#xe07;&#xe32;&#xe19;&#xe2b;&#xe25;&#xe31;&#xe01;&#xe17;&#xe35;&#xe48;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe2a;&#xe32;&#xe19;&#xe07;&#xe32;&#xe19;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe02;&#xe31;&#xe49;&#xe19;&#xe15;&#xe2d;&#xe19;&#xe21;&#xe35;&#xe2d;&#xe30;&#xe44;&#xe23;&#xe1a;&#xe49;&#xe32;&#xe07;?</p>
+        <h4>&#xe02;&#xe31;&#xe49;&#xe19;&#xe15;&#xe2d;&#xe19;&#xe41;&#xe25;&#xe30;&#xe23;&#xe30;&#xe22;&#xe30;&#xe40;&#xe27;&#xe25;&#xe32;</h4>
+        <div class="q-thai-title">Process and timeline</div>
+        <p>&#xe25;&#xe33;&#xe14;&#xe31;&#xe1a;&#xe02;&#xe31;&#xe49;&#xe19;&#xe15;&#xe2d;&#xe19;&#xe01;&#xe32;&#xe23;&#xe02;&#xe2d;&#xe2d;&#xe19;&#xe38;&#xe0d;&#xe32;&#xe15;&#xe17;&#xe35;&#xe48;&#xe16;&#xe39;&#xe01;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe04;&#xe37;&#xe2d;&#xe2d;&#xe30;&#xe44;&#xe23; &#xe41;&#xe25;&#xe30;&#xe2b;&#xe19;&#xe48;&#xe27;&#xe22;&#xe07;&#xe32;&#xe19;&#xe2b;&#xe25;&#xe31;&#xe01;&#xe17;&#xe35;&#xe48;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe1b;&#xe23;&#xe30;&#xe2a;&#xe32;&#xe19;&#xe07;&#xe32;&#xe19;&#xe40;&#xe1b;&#xe47;&#xe19;&#xe02;&#xe31;&#xe49;&#xe19;&#xe15;&#xe2d;&#xe19;&#xe21;&#xe35;&#xe2d;&#xe30;&#xe44;&#xe23;&#xe1a;&#xe49;&#xe32;&#xe07;?</p>
+        <p class="eng">What is the correct permitting sequence, and who are the key offices to work with step by step?</p>
       </div>
 
     </div>
@@ -613,33 +618,33 @@
 <section class="slide bg-warm grain watermark watermark-light wm-tr" id="s8">
   <div class="slide-inner">
     <div class="label"><img src="../../assets/Asterix.svg" alt="" style="width:24px;height:24px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);"> Our commitment / &#xe04;&#xe27;&#xe32;&#xe21;&#xe21;&#xe38;&#xe48;&#xe07;&#xe21;&#xe31;&#xe48;&#xe19;&#xe02;&#xe2d;&#xe07;&#xe40;&#xe23;&#xe32;</div>
-    <h2>How we want to work with you</h2>
-    <p class="thai" style="font-size:1.1rem;margin-bottom:2rem;color:var(--text-muted);">&#xe27;&#xe34;&#xe18;&#xe35;&#xe17;&#xe35;&#xe48;&#xe40;&#xe23;&#xe32;&#xe2d;&#xe22;&#xe32;&#xe01;&#xe23;&#xe48;&#xe27;&#xe21;&#xe07;&#xe32;&#xe19;&#xe01;&#xe31;&#xe1a;&#xe17;&#xe48;&#xe32;&#xe19;</p>
+    <h2>&#xe27;&#xe34;&#xe18;&#xe35;&#xe17;&#xe35;&#xe48;&#xe40;&#xe23;&#xe32;&#xe2d;&#xe22;&#xe32;&#xe01;&#xe23;&#xe48;&#xe27;&#xe21;&#xe07;&#xe32;&#xe19;&#xe01;&#xe31;&#xe1a;&#xe17;&#xe48;&#xe32;&#xe19;</h2>
+    <p class="eng" style="font-size:1.1rem;margin-bottom:2rem;color:var(--text-muted);">How we want to work with you</p>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <h4>Full transparency</h4>
-        <p>We share all plans, drawings, and details openly.</p>
-        <p class="thai">&#xe04;&#xe27;&#xe32;&#xe21;&#xe42;&#xe1b;&#xe23;&#xe48;&#xe07;&#xe43;&#xe2a;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe40;&#xe15;&#xe47;&#xe21;&#xe17;&#xe35;&#xe48; &mdash; &#xe40;&#xe23;&#xe32;&#xe41;&#xe1a;&#xe48;&#xe07;&#xe1b;&#xe31;&#xe19;&#xe41;&#xe1c;&#xe19; &#xe41;&#xe1a;&#xe1a; &#xe41;&#xe25;&#xe30;&#xe23;&#xe32;&#xe22;&#xe25;&#xe30;&#xe40;&#xe2d;&#xe35;&#xe22;&#xe14;&#xe17;&#xe31;&#xe49;&#xe07;&#xe2b;&#xe21;&#xe14;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe40;&#xe1b;&#xe34;&#xe14;&#xe40;&#xe1c;&#xe22;</p>
+        <h4>&#xe04;&#xe27;&#xe32;&#xe21;&#xe42;&#xe1b;&#xe23;&#xe48;&#xe07;&#xe43;&#xe2a;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe40;&#xe15;&#xe47;&#xe21;&#xe17;&#xe35;&#xe48;</h4>
+        <p>&#xe40;&#xe23;&#xe32;&#xe41;&#xe1a;&#xe48;&#xe07;&#xe1b;&#xe31;&#xe19;&#xe41;&#xe1c;&#xe19; &#xe41;&#xe1a;&#xe1a; &#xe41;&#xe25;&#xe30;&#xe23;&#xe32;&#xe22;&#xe25;&#xe30;&#xe40;&#xe2d;&#xe35;&#xe22;&#xe14;&#xe17;&#xe31;&#xe49;&#xe07;&#xe2b;&#xe21;&#xe14;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe40;&#xe1b;&#xe34;&#xe14;&#xe40;&#xe1c;&#xe22;</p>
+        <p class="eng">Full transparency &mdash; We share all plans, drawings, and details openly.</p>
       </div>
     </div>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <h4>Willing to adapt</h4>
-        <p>If certain uses require different approaches, we adjust.</p>
-        <p class="thai">&#xe1e;&#xe23;&#xe49;&#xe2d;&#xe21;&#xe1b;&#xe23;&#xe31;&#xe1a;&#xe40;&#xe1b;&#xe25;&#xe35;&#xe48;&#xe22;&#xe19; &mdash; &#xe2b;&#xe32;&#xe01;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe07;&#xe32;&#xe19;&#xe1a;&#xe32;&#xe07;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;&#xe41;&#xe19;&#xe27;&#xe17;&#xe32;&#xe07;&#xe17;&#xe35;&#xe48;&#xe41;&#xe15;&#xe01;&#xe15;&#xe48;&#xe32;&#xe07; &#xe40;&#xe23;&#xe32;&#xe1b;&#xe23;&#xe31;&#xe1a;&#xe44;&#xe14;&#xe49;</p>
+        <h4>&#xe1e;&#xe23;&#xe49;&#xe2d;&#xe21;&#xe1b;&#xe23;&#xe31;&#xe1a;&#xe40;&#xe1b;&#xe25;&#xe35;&#xe48;&#xe22;&#xe19;</h4>
+        <p>&#xe2b;&#xe32;&#xe01;&#xe01;&#xe32;&#xe23;&#xe43;&#xe0a;&#xe49;&#xe07;&#xe32;&#xe19;&#xe1a;&#xe32;&#xe07;&#xe2d;&#xe22;&#xe48;&#xe32;&#xe07;&#xe15;&#xe49;&#xe2d;&#xe07;&#xe01;&#xe32;&#xe23;&#xe41;&#xe19;&#xe27;&#xe17;&#xe32;&#xe07;&#xe17;&#xe35;&#xe48;&#xe41;&#xe15;&#xe01;&#xe15;&#xe48;&#xe32;&#xe07; &#xe40;&#xe23;&#xe32;&#xe1b;&#xe23;&#xe31;&#xe1a;&#xe44;&#xe14;&#xe49;</p>
+        <p class="eng">Willing to adapt &mdash; If certain uses require different approaches, we adjust.</p>
       </div>
     </div>
 
     <div class="list-item">
       <div class="dot"></div>
       <div>
-        <h4>Long-term commitment</h4>
-        <p>This is not a short-term project. We are building for decades.</p>
-        <p class="thai">&#xe04;&#xe27;&#xe32;&#xe21;&#xe21;&#xe38;&#xe48;&#xe07;&#xe21;&#xe31;&#xe48;&#xe19;&#xe23;&#xe30;&#xe22;&#xe30;&#xe22;&#xe32;&#xe27; &mdash; &#xe19;&#xe35;&#xe48;&#xe44;&#xe21;&#xe48;&#xe43;&#xe0a;&#xe48;&#xe42;&#xe04;&#xe23;&#xe07;&#xe01;&#xe32;&#xe23;&#xe23;&#xe30;&#xe22;&#xe30;&#xe2a;&#xe31;&#xe49;&#xe19; &#xe40;&#xe23;&#xe32;&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe2d;&#xe19;&#xe32;&#xe04;&#xe15;&#xe2b;&#xe25;&#xe32;&#xe22;&#xe17;&#xe28;&#xe27;&#xe23;&#xe23;&#xe29;</p>
+        <h4>&#xe04;&#xe27;&#xe32;&#xe21;&#xe21;&#xe38;&#xe48;&#xe07;&#xe21;&#xe31;&#xe48;&#xe19;&#xe23;&#xe30;&#xe22;&#xe30;&#xe22;&#xe32;&#xe27;</h4>
+        <p>&#xe19;&#xe35;&#xe48;&#xe44;&#xe21;&#xe48;&#xe43;&#xe0a;&#xe48;&#xe42;&#xe04;&#xe23;&#xe07;&#xe01;&#xe32;&#xe23;&#xe23;&#xe30;&#xe22;&#xe30;&#xe2a;&#xe31;&#xe49;&#xe19; &#xe40;&#xe23;&#xe32;&#xe01;&#xe33;&#xe25;&#xe31;&#xe07;&#xe2a;&#xe23;&#xe49;&#xe32;&#xe07;&#xe40;&#xe1e;&#xe37;&#xe48;&#xe2d;&#xe2d;&#xe19;&#xe32;&#xe04;&#xe15;&#xe2b;&#xe25;&#xe32;&#xe22;&#xe17;&#xe28;&#xe27;&#xe23;&#xe23;&#xe29;</p>
+        <p class="eng">Long-term commitment &mdash; This is not a short-term project. We are building for decades.</p>
       </div>
     </div>
   </div>
@@ -651,8 +656,8 @@
 <section class="slide bg-green grain watermark watermark-dark wm-center" id="s9">
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
     <div class="cta-content" style="max-width:550px;margin:0 auto;">
-      <h2 style="font-size:clamp(3rem,5.5vw,5rem);margin-bottom:0.75rem;">Thank you</h2>
-      <p style="font-family:'Sometype Mono',monospace;font-size:1.5rem;color:rgba(244,242,232,0.45);margin-bottom:3rem;">&#xe02;&#xe2d;&#xe1a;&#xe04;&#xe38;&#xe13;&#xe04;&#xe23;&#xe31;&#xe1a;</p>
+      <h2 style="font-size:clamp(3rem,5.5vw,5rem);margin-bottom:0.75rem;">&#xe02;&#xe2d;&#xe1a;&#xe04;&#xe38;&#xe13;&#xe04;&#xe23;&#xe31;&#xe1a;</h2>
+      <p style="font-family:'Sometype Mono',monospace;font-size:1.5rem;color:rgba(244,242,232,0.45);margin-bottom:3rem;">Thank you</p>
 
       <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:3rem;">
         <p style="font-family:'Epilogue',sans-serif;font-size:1.3rem;color:var(--bg);font-weight:500;">Alex Duffner</p>
