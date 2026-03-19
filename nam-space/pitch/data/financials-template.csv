@@ -1,0 +1,36 @@
+key,value,unit,category,notes
+rooms_phase1,8,rooms,Structure,Standard studios
+rooms_phase2,4,rooms,Structure,Premium studios (Phase 2)
+invest_per_room,2340000,THB,Investment,Build cost per studio
+profit_share_pct,40,%,Investment,Investor pool share
+max_rooms_per_investor,4,rooms,Investment,Cap per investor
+term_years,30,years,Investment,Land lease term
+nightly_rate,3000,THB/night,Accommodation,Standard room
+weekly_rate,18000,THB/week,Accommodation,Standard room
+monthly_rate,50000,THB/month,Accommodation,Standard room
+blended_rate,2250,THB/night,Accommodation,Weighted avg across stay mix
+mix_nightly,30,%,Accommodation,Share of nightly bookings
+mix_weekly,20,%,Accommodation,Share of weekly bookings
+mix_monthly,50,%,Accommodation,Share of monthly bookings
+occ_conservative,50,%,Scenarios,Low season / ramp-up
+occ_base,60,%,Scenarios,Steady state
+occ_optimistic,75,%,Scenarios,High season / mature
+cw_member_rate,8000,THB/month,Co-working,Monthly membership
+cw_members_base,20,members,Co-working,Base case members
+cw_weekly_passes,10,/month,Co-working,Weekly pass volume
+cw_weekly_rate,3000,THB/pass,Co-working,Weekly pass price
+cw_day_passes,10,/month,Co-working,Day pass volume
+cw_day_rate,500,THB/pass,Co-working,Day pass price
+cw_offices,2,offices,Co-working,Private offices
+cw_office_rate,18000,THB/month,Co-working,Per office
+opex_staff,102000,THB/month,OPEX,"Community manager, cleaner, maintenance"
+opex_land,50000,THB/month,OPEX,"30-year lease, fixed rate"
+opex_utilities,25000,THB/month,OPEX,"Electricity, water, internet"
+opex_maintenance,15000,THB/month,OPEX,"Grounds, pool, common areas"
+opex_repairs,15000,THB/month,OPEX,"Furniture, appliances, wear & tear"
+opex_marketing,12000,THB/month,OPEX,"Online listings, content, outreach"
+opex_insurance,8000,THB/month,OPEX,"Property, liability, contents"
+opex_software,8200,THB/month,OPEX,"PMS, booking, accounting, WiFi"
+opex_misc,7000,THB/month,OPEX,"Supplies, transport, contingency"
+p2_blended_rate,3500,THB/night,Phase 2,Premium room blended rate
+p2_opex_add,80000,THB/month,Phase 2,Additional OPEX for 4 rooms

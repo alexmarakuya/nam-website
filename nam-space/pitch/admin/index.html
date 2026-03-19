@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM Space — Financial Dashboard</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&family=Sometype+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2e8;
+    --green: #2a3a2b;
+    --terracotta: #d46b44;
+    --text: #2a3a2b;
+    --text-secondary: #5a6a5b;
+    --text-muted: #8a9a8b;
+    --white: #fff;
+    --border: rgba(42,58,43,0.1);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  .topbar {
+    background: var(--green); color: var(--bg); padding: 1rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .topbar h1 { font-size: 1rem; font-weight: 500; letter-spacing: 0.02em; }
+  .topbar-right { display: flex; align-items: center; gap: 1rem; }
+  .topbar-link { color: rgba(244,242,232,0.5); text-decoration: none; font-size: 0.82rem; font-family: 'Sometype Mono', monospace; transition: color 0.2s; }
+  .topbar-link:hover { color: var(--bg); }
+  .status { display: flex; align-items: center; gap: 0.5rem; font-family: 'Sometype Mono', monospace; font-size: 0.78rem; color: rgba(244,242,232,0.5); }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; }
+  .status-dot.offline { background: var(--terracotta); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+  /* Summary banner */
+  .summary {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .summary-card {
+    background: var(--green); border-radius: 12px; padding: 1.5rem;
+    color: var(--bg);
+  }
+  .summary-label {
+    font-family: 'Sometype Mono', monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: rgba(244,242,232,0.45); margin-bottom: 0.75rem;
+  }
+  .summary-value {
+    font-size: 1.8rem; font-weight: 600; line-height: 1;
+  }
+  .summary-sub {
+    font-family: 'Sometype Mono', monospace; font-size: 0.75rem;
+    color: rgba(244,242,232,0.4); margin-top: 0.5rem;
+  }
+  .summary-value.accent { color: var(--terracotta); }
+
+  /* Section */
+  .section { margin-bottom: 2.5rem; }
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-size: 0.78rem; font-family: 'Sometype Mono', monospace;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+  .section-total {
+    font-family: 'Sometype Mono', monospace; font-size: 0.85rem;
+    font-weight: 600; color: var(--green);
+  }
+
+  /* Cards grid */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+
+  .card {
+    background: var(--white); border-radius: 12px; padding: 1.25rem 1.5rem;
+    box-shadow: var(--card-shadow); border: 1px solid var(--border);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04); }
+  .card-label {
+    font-family: 'Sometype Mono', monospace; font-size: 0.75rem;
+    color: var(--text-muted); margin-bottom: 0.5rem;
+  }
+  .card-value {
+    font-size: 1.6rem; font-weight: 600; color: var(--green);
+    display: flex; align-items: baseline; gap: 0.25rem;
+  }
+  .card-value .currency { font-size: 1rem; font-weight: 400; color: var(--text-secondary); }
+  .card-desc {
+    font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.4;
+  }
+
+  /* Editable values */
+  .editable {
+    cursor: pointer; position: relative;
+    border-bottom: 2px dashed rgba(212,107,68,0.3);
+    transition: border-color 0.2s;
+  }
+  .editable:hover { border-color: var(--terracotta); }
+  .editable:focus {
+    outline: none; border-bottom: 2px solid var(--terracotta);
+    background: rgba(212,107,68,0.06); border-radius: 4px;
+    padding: 0 4px;
+  }
+
+  /* OPEX table */
+  .opex-table { background: var(--white); border-radius: 12px; box-shadow: var(--card-shadow); border: 1px solid var(--border); overflow: hidden; }
+  .opex-row {
+    display: grid; grid-template-columns: 1fr auto;
+    padding: 0.85rem 1.5rem; border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .opex-row:last-child { border-bottom: none; }
+  .opex-row.total { background: rgba(42,58,43,0.04); font-weight: 600; }
+  .opex-name { font-size: 0.9rem; }
+  .opex-name small { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.15rem; }
+  .opex-val { font-family: 'Sometype Mono', monospace; font-size: 0.95rem; text-align: right; }
+
+  /* P&L preview */
+  .pnl-preview {
+    background: var(--green); border-radius: 12px; padding: 2rem;
+    color: var(--bg); margin-top: 2.5rem;
+  }
+  .pnl-row {
+    display: flex; justify-content: space-between; padding: 0.6rem 0;
+    font-family: 'Sometype Mono', monospace; font-size: 0.9rem;
+    border-bottom: 1px solid rgba(244,242,232,0.08);
+  }
+  .pnl-row:last-child { border-bottom: none; }
+  .pnl-row.highlight { color: var(--terracotta); font-weight: 600; font-size: 1rem; padding: 0.8rem 0; }
+  .pnl-row.subtotal { font-weight: 600; border-bottom: 2px solid rgba(244,242,232,0.15); }
+  .pnl-label { color: rgba(244,242,232,0.5); }
+  .pnl-row.highlight .pnl-label { color: var(--terracotta); }
+  .pnl-row.subtotal .pnl-label { color: rgba(244,242,232,0.8); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .summary { grid-template-columns: 1fr 1fr; }
+    .cards { grid-template-columns: 1fr; }
+    .container { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>NāM Space — Financial Dashboard</h1>
+  <div class="topbar-right">
+    <div class="status">
+      <div class="status-dot offline" id="statusDot"></div>
+      <span id="statusText">Local defaults</span>
+    </div>
+    <a href="../" class="topbar-link">← Back to pitches</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Summary -->
+  <div class="summary">
+    <div class="summary-card">
+      <div class="summary-label">Monthly revenue</div>
+      <div class="summary-value" id="sumRevenue">—</div>
+      <div class="summary-sub">at 60% occupancy</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Monthly OPEX</div>
+      <div class="summary-value" id="sumOpex">—</div>
+      <div class="summary-sub">fixed costs</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Gross profit</div>
+      <div class="summary-value accent" id="sumProfit">—</div>
+      <div class="summary-sub">revenue − opex</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Per room / month</div>
+      <div class="summary-value" id="sumPerRoom">—</div>
+      <div class="summary-sub" id="sumROI">—</div>
+    </div>
+  </div>
+
+  <!-- What you charge -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">What you charge</span>
+    </div>
+    <div class="cards" id="chargeCards"></div>
+  </div>
+
+  <!-- Co-working -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Co-working</span>
+      <span class="section-total" id="cwTotal"></span>
+    </div>
+    <div class="cards" id="cwCards"></div>
+  </div>
+
+  <!-- What you spend -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">What you spend</span>
+      <span class="section-total" id="opexTotal"></span>
+    </div>
+    <div class="opex-table" id="opexTable"></div>
+  </div>
+
+  <!-- Investment structure -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Investment structure</span>
+    </div>
+    <div class="cards" id="investCards"></div>
+  </div>
+
+  <!-- P&L Preview -->
+  <div class="pnl-preview">
+    <div style="font-family:'Sometype Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:rgba(244,242,232,0.4);margin-bottom:1.25rem;">Monthly P&L — Base Case (60% occupancy)</div>
+    <div id="pnlRows"></div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── Financial data (hardcoded for now, will connect to Google Sheet) ──
+  var F = {
+    rooms_phase1: 8, rooms_phase2: 4,
+    invest_per_room: 2340000, profit_share_pct: 40,
+    max_rooms_per_investor: 4, term_years: 30,
+    nightly_rate: 3000, weekly_rate: 18000, monthly_rate: 50000,
+    blended_rate: 2250,
+    mix_nightly: 30, mix_weekly: 20, mix_monthly: 50,
+    occ_base: 60,
+    cw_member_rate: 8000, cw_members_base: 20,
+    cw_weekly_passes: 10, cw_weekly_rate: 3000,
+    cw_day_passes: 10, cw_day_rate: 500,
+    cw_offices: 2, cw_office_rate: 18000,
+    opex_staff: 102000, opex_land: 50000, opex_utilities: 25000,
+    opex_maintenance: 15000, opex_repairs: 15000, opex_marketing: 12000,
+    opex_insurance: 8000, opex_software: 8200, opex_misc: 7000,
+    p2_blended_rate: 3500, p2_opex_add: 80000
+  };
+
+  function fmt(n) { return '฿' + Math.round(n).toLocaleString('en'); }
+  function fmtK(n) { return n >= 1000000 ? '฿' + (n/1000000).toFixed(1) + 'M' : '฿' + Math.round(n/1000) + 'K'; }
+
+  function opexTotal() {
+    return F.opex_staff + F.opex_land + F.opex_utilities + F.opex_maintenance
+      + F.opex_repairs + F.opex_marketing + F.opex_insurance + F.opex_software + F.opex_misc;
+  }
+
+  function cwRevenue() {
+    return (F.cw_members_base * F.cw_member_rate) + (F.cw_weekly_passes * F.cw_weekly_rate)
+      + (F.cw_day_passes * F.cw_day_rate) + (F.cw_offices * F.cw_office_rate);
+  }
+
+  function accomRevenue(occ) {
+    return F.rooms_phase1 * F.blended_rate * (occ / 100) * 30;
+  }
+
+  function render() {
+    var occ = F.occ_base;
+    var accom = accomRevenue(occ);
+    var cw = cwRevenue();
+    var rev = accom + cw;
+    var opex = opexTotal();
+    var profit = Math.max(0, rev - opex);
+    var pool = profit * (F.profit_share_pct / 100);
+    var perRoom = pool / F.rooms_phase1;
+    var annual = perRoom * 12;
+    var roi = F.invest_per_room > 0 ? (annual / F.invest_per_room * 100) : 0;
+
+    // Summary
+    document.getElementById('sumRevenue').textContent = fmtK(rev);
+    document.getElementById('sumOpex').textContent = fmtK(opex);
+    document.getElementById('sumProfit').textContent = fmtK(profit);
+    document.getElementById('sumPerRoom').textContent = fmt(Math.round(perRoom));
+    document.getElementById('sumROI').textContent = '~' + roi.toFixed(1) + '% annualized ROI';
+
+    // What you charge
+    var chargeHTML = '';
+    var chargeItems = [
+      { label: 'Nightly rate', value: F.nightly_rate, desc: 'Per room per night' },
+      { label: 'Weekly rate', value: F.weekly_rate, desc: 'Per room per week' },
+      { label: 'Monthly rate', value: F.monthly_rate, desc: 'Per room per month' },
+      { label: 'Blended rate', value: F.blended_rate, desc: 'Weighted average across stay mix' }
+    ];
+    chargeItems.forEach(function(item) {
+      chargeHTML += '<div class="card"><div class="card-label">' + item.label + '</div>'
+        + '<div class="card-value">' + fmt(item.value) + '</div>'
+        + '<div class="card-desc">' + item.desc + '</div></div>';
+    });
+    document.getElementById('chargeCards').innerHTML = chargeHTML;
+
+    // Co-working
+    var cwHTML = '';
+    var cwItems = [
+      { label: 'Monthly membership', value: fmt(F.cw_member_rate), desc: F.cw_members_base + ' members (base case)' },
+      { label: 'Weekly passes', value: fmt(F.cw_weekly_rate), desc: F.cw_weekly_passes + ' passes/month' },
+      { label: 'Day passes', value: fmt(F.cw_day_rate), desc: F.cw_day_passes + ' passes/month' },
+      { label: 'Private offices', value: fmt(F.cw_office_rate), desc: F.cw_offices + ' offices' }
+    ];
+    cwItems.forEach(function(item) {
+      cwHTML += '<div class="card"><div class="card-label">' + item.label + '</div>'
+        + '<div class="card-value">' + item.value + '</div>'
+        + '<div class="card-desc">' + item.desc + '</div></div>';
+    });
+    document.getElementById('cwCards').innerHTML = cwHTML;
+    document.getElementById('cwTotal').textContent = fmt(cw) + '/mo';
+
+    // OPEX
+    var opexItems = [
+      { name: 'Staff & payroll', desc: 'Community manager, cleaner, maintenance', val: F.opex_staff },
+      { name: 'Land rental', desc: '30-year lease, fixed rate', val: F.opex_land },
+      { name: 'Utilities', desc: 'Electricity, water, internet', val: F.opex_utilities },
+      { name: 'Maintenance', desc: 'Grounds, pool, common areas', val: F.opex_maintenance },
+      { name: 'Repairs', desc: 'Furniture, appliances, wear & tear', val: F.opex_repairs },
+      { name: 'Marketing', desc: 'Listings, content, outreach', val: F.opex_marketing },
+      { name: 'Insurance', desc: 'Property, liability, contents', val: F.opex_insurance },
+      { name: 'Software', desc: 'PMS, booking, accounting, WiFi', val: F.opex_software },
+      { name: 'Miscellaneous', desc: 'Supplies, transport, contingency', val: F.opex_misc }
+    ];
+    var opexHTML = '';
+    opexItems.forEach(function(item) {
+      opexHTML += '<div class="opex-row"><div class="opex-name">' + item.name + '<small>' + item.desc + '</small></div>'
+        + '<div class="opex-val">' + fmt(item.val) + '</div></div>';
+    });
+    opexHTML += '<div class="opex-row total"><div class="opex-name">Total OPEX</div><div class="opex-val">' + fmt(opex) + '</div></div>';
+    document.getElementById('opexTable').innerHTML = opexHTML;
+    document.getElementById('opexTotal').textContent = fmt(opex) + '/mo';
+
+    // Investment
+    var investHTML = '';
+    var investItems = [
+      { label: 'Per room', value: fmtK(F.invest_per_room), desc: 'Build cost per studio' },
+      { label: 'Total raise', value: fmtK(F.invest_per_room * F.rooms_phase1), desc: F.rooms_phase1 + ' rooms × ' + fmtK(F.invest_per_room) },
+      { label: 'Profit share', value: F.profit_share_pct + '%', desc: 'To investor pool' },
+      { label: 'Term', value: F.term_years + ' years', desc: 'Land lease duration' }
+    ];
+    investItems.forEach(function(item) {
+      investHTML += '<div class="card"><div class="card-label">' + item.label + '</div>'
+        + '<div class="card-value">' + item.value + '</div>'
+        + '<div class="card-desc">' + item.desc + '</div></div>';
+    });
+    document.getElementById('investCards').innerHTML = investHTML;
+
+    // P&L
+    var pnlHTML = '';
+    var pnlRows = [
+      { label: 'Accommodation revenue', value: fmt(accom), cls: '' },
+      { label: 'Co-working revenue', value: fmt(cw), cls: '' },
+      { label: 'Total revenue', value: fmt(rev), cls: 'subtotal' },
+      { label: 'Operating costs', value: '-' + fmt(opex), cls: '' },
+      { label: 'Gross profit', value: fmt(profit), cls: 'highlight' },
+      { label: '→ 40% to investor pool', value: fmt(pool), cls: '' },
+      { label: '→ 60% to operator', value: fmt(rev - opex - pool > 0 ? rev - opex - pool : 0), cls: '' },
+      { label: 'Per room / month', value: fmt(Math.round(perRoom)), cls: 'subtotal' },
+      { label: 'Annualized ROI', value: '~' + roi.toFixed(1) + '%', cls: 'highlight' }
+    ];
+    pnlRows.forEach(function(row) {
+      pnlHTML += '<div class="pnl-row ' + row.cls + '"><span class="pnl-label">' + row.label + '</span><span>' + row.value + '</span></div>';
+    });
+    document.getElementById('pnlRows').innerHTML = pnlHTML;
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
