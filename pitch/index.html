@@ -1296,11 +1296,22 @@
 
   /* ── Print ── */
   @media print {
-    .nav-bar, .progress-bar, .slide-nav-dropdown, .slide-nav-backdrop { display: none !important; }
-    .deck { display: block; width: auto; transform: none !important; }
-    .slide { page-break-after: always; width: 100vw; height: 100vh; padding: 40px 60px; }
-    body, html { overflow: visible; }
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-bar, .progress-bar, .slide-nav-dropdown, .slide-nav-backdrop,
+    .nav-hint, .cta-sticky-bar, .hero-arrow-hint { display: none !important; }
+    html, body { overflow: visible !important; height: auto !important; width: 100% !important; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; display: block !important; }
+    .deck-wrapper { overflow: visible !important; height: auto !important; flex: none !important; }
+    .deck { display: block !important; width: 100% !important; height: auto !important; transform: none !important; }
+    .slide {
+      page-break-after: always;
+      page-break-inside: avoid;
+      width: 100vw !important;
+      height: 100vh !important;
+      padding: 40px 60px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .slide:last-child { page-break-after: auto; }
   }
 
   /* ── Responsive ── */
@@ -1887,7 +1898,7 @@
           <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div><div class="info-label">Scale</div><div class="info-value">Limited number of homes</div></div>
           <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div><div class="info-label">Options</div><div class="info-value">Single or shared ownership (two parties)</div></div>
         </div>
-        <p class="info-note">* Early Release &mdash; By 27 March 2026</p>
+        <p class="info-note">* Early Release &mdash; By 31 March 2026</p>
       </div>
       <div>
         <div class="info-section-label" style="margin-top:0;">Additional details</div>
@@ -2317,7 +2328,7 @@
       </div>
       <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
         <div style="font-family:'Sometype Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Limited availability</div>
-        <div style="font-family:'Epilogue',sans-serif;font-size:1.1rem;font-weight:600;color:var(--terracotta);">Early release closes 27 March 2026</div>
+        <div style="font-family:'Epilogue',sans-serif;font-size:1.1rem;font-weight:600;color:var(--terracotta);">Early release closes 31 March 2026</div>
       </div>
     </div>
   </div>
