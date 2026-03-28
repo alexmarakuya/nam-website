@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM Founder's House — Build Something Real on Koh Phangan</title>
+<meta name="description" content="A curated founder retreat and residency on Koh Phangan, Thailand. One week facilitated, three weeks self-guided. Four founders per cohort.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nam.space/founder-house/">
+<meta property="og:title" content="NāM Founder's House — Build Something Real on Koh Phangan">
+<meta property="og:description" content="A curated founder retreat and residency on Koh Phangan, Thailand. One week facilitated, three weeks self-guided. Four founders per cohort.">
+<meta property="og:image" content="https://nam.space/assets/og-image.jpg">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Sometype+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-green: #2b3a2c;
+    --foliage: #49584a;
+    --sage: #b8c8b7;
+    --sapling: #a3b2a2;
+    --oat: #e7e2d6;
+    --cream: #f5f2e9;
+    --beige: #ccc4b5;
+    --sunwashed: #d56b45;
+    --slate: #393834;
+    --granite: #61605c;
+    --pebble: #7d7970;
+    --white: #ffffff;
+    --font-display: 'Epilogue', sans-serif;
+    --font-mono: 'Sometype Mono', monospace;
+    --text-h1: 60px;
+    --text-h2: 44px;
+    --text-h3: 32px;
+    --text-body-lg: 20px;
+    --text-body-sm: 16px;
+    --text-nav: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-mono); color: var(--slate); background: var(--deep-green); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  ul, li { list-style: none; }
+
+  :focus-visible { outline: 2px solid var(--sunwashed); outline-offset: 3px; border-radius: 4px; }
+
+  .skip-link { position: absolute; top: -100%; left: 16px; background: var(--sunwashed); color: var(--cream); padding: 12px 24px; border-radius: 8px; font-family: var(--font-mono); font-size: var(--text-nav); text-decoration: none; z-index: 10000; }
+  .skip-link:focus { top: 16px; }
+
+  .page { display: flex; flex-direction: column; align-items: center; width: 100%; overflow: clip; }
+  .page > main { width: 100%; }
+
+  /* Typography */
+  .h1 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h1); line-height: 1.2; letter-spacing: -1.2px; }
+  .h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h2); line-height: 1.2; letter-spacing: -0.88px; }
+  .h3 { font-family: var(--font-display); font-weight: 400; font-size: var(--text-h3); line-height: 1.2; letter-spacing: -0.64px; }
+  .body-lg { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-lg); line-height: 1.4; letter-spacing: -0.4px; }
+  .body-lg-semi { font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.4; letter-spacing: -0.4px; }
+  .body-sm { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-sm); line-height: 1.4; letter-spacing: -0.32px; }
+  .caption { font-family: var(--font-mono); font-weight: 400; font-size: var(--text-body-sm); line-height: 1.4; letter-spacing: -0.32px; }
+
+  /* =============================================
+     HEADER
+     ============================================= */
+  .site-header { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1600px; padding: 32px 64px; z-index: 10; position: relative; }
+  .site-header::after { content: ''; position: absolute; bottom: 0; left: 64px; right: 64px; height: 1px; background: rgba(255,255,255,0.12); }
+  .site-logo img { height: 28px; width: auto; }
+  .site-nav { display: flex; gap: 12px; align-items: center; }
+  .site-nav a { color: var(--cream); font-family: var(--font-mono); font-size: var(--text-nav); line-height: 1; letter-spacing: -0.28px; text-decoration: none; padding: 10px 18px; border-radius: 100px; border: 1px solid transparent; transition: border-color 0.3s, background 0.3s, color 0.3s; }
+  .site-nav a:hover { border-color: var(--foliage); }
+  .site-nav a[aria-current="page"] { border-color: var(--cream); opacity: 1; }
+  .site-nav .nav-cta { border-color: var(--sunwashed); background: var(--sunwashed); color: var(--cream); }
+  .site-nav .nav-cta:hover { filter: brightness(1.1); }
+
+  .lang-toggle { position: relative; }
+  .lang-trigger { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 12px; font-family: var(--font-mono); font-size: 12px; color: var(--sage); cursor: pointer; line-height: 1; transition: border-color 0.2s; }
+  .lang-trigger:hover { border-color: rgba(255,255,255,0.3); }
+  .lang-chevron { transition: transform 0.2s; }
+  .lang-toggle.open .lang-chevron { transform: rotate(180deg); }
+  .lang-menu { display: none; position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--deep-green); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 4px; min-width: 56px; z-index: 200; flex-direction: column; }
+  .lang-toggle.open .lang-menu { display: flex; }
+  .lang-opt { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 8px; color: var(--sage); transition: all 0.15s; line-height: 1; background: none; border: none; cursor: pointer; text-align: center; }
+  .lang-opt:hover { background: rgba(255,255,255,0.08); }
+  .lang-opt.active { color: var(--cream); font-weight: 500; }
+
+  .top-banner { width: 100%; background: var(--sunwashed); padding: 12px 64px; display: flex; align-items: center; justify-content: center; text-align: center; }
+  .top-banner a { font-family: var(--font-mono); font-size: var(--text-nav); font-weight: 500; color: var(--cream); text-decoration: none; letter-spacing: -0.28px; line-height: 1.4; }
+  .top-banner a:hover { text-decoration: underline; }
+
+  .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; position: relative; }
+  .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
+  .burger span + span { margin-top: 6px; }
+  .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* =============================================
+     HERO
+     ============================================= */
+  .hero-section { width: 100%; background: var(--deep-green); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 64px 100px; min-height: 60vh; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.2; }
+  .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, var(--deep-green) 0%, rgba(43,58,44,0.4) 40%, var(--deep-green) 100%); }
+  .hero-inner { max-width: 820px; width: 100%; text-align: center; position: relative; z-index: 1; }
+  .hero-tag { font-family: var(--font-mono); font-weight: 500; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sapling); margin-bottom: 24px; }
+  .hero-title { font-family: var(--font-display); font-weight: 400; font-size: 72px; line-height: 1.05; letter-spacing: -2px; color: var(--cream); margin-bottom: 24px; }
+  .hero-title span { color: var(--sunwashed); }
+  .hero-subtitle { font-family: var(--font-mono); font-weight: 400; font-size: 18px; line-height: 1.5; letter-spacing: -0.36px; color: var(--sapling); max-width: 480px; margin: 0 auto 32px; }
+  .hero-meta { display: flex; align-items: center; justify-content: center; gap: 20px; }
+  .status-pill { display: inline-block; padding: 7px 16px; border: 1px solid var(--sunwashed); color: var(--sunwashed); font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; border-radius: 100px; }
+  .location-label { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.5px; color: var(--sapling); text-transform: uppercase; }
+  .hero-el { opacity: 0; transform: translateY(16px); transition: opacity 1s ease, transform 1s ease; }
+  .hero-el.visible { opacity: 1; transform: translateY(0); }
+  .hero-el:nth-child(2) { transition-delay: 0.15s; }
+  .hero-el:nth-child(3) { transition-delay: 0.3s; }
+  .hero-el:nth-child(4) { transition-delay: 0.45s; }
+
+  /* =============================================
+     CONTENT SECTIONS — cream background
+     ============================================= */
+  .content-wrap { background: var(--cream); width: 100%; }
+  .section { max-width: 1000px; margin: 0 auto; padding: 80px 64px; }
+  .section + .section { padding-top: 0; }
+
+  .section-label { font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sunwashed); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--beige); }
+
+  .section-title { margin-bottom: 24px; color: var(--slate); }
+
+  /* Intro */
+  .intro-text { font-family: var(--font-display); font-weight: 300; font-size: 22px; line-height: 1.6; letter-spacing: -0.44px; color: var(--slate); }
+  .intro-text + .intro-text { margin-top: 16px; }
+
+  /* Flow steps */
+  .flow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-top: 24px; }
+  .flow-step { background: var(--white); padding: 32px 28px; border-radius: 0; }
+  .flow-step:first-child { border-radius: 8px 0 0 8px; }
+  .flow-step:last-child { border-radius: 0 8px 8px 0; }
+  .step-img { width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; margin-bottom: 20px; }
+  .step-img img { width: 100%; height: 100%; object-fit: cover; }
+  .step-num { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 1px; color: var(--sunwashed); margin-bottom: 14px; text-transform: uppercase; }
+  .step-title { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.2; letter-spacing: -0.44px; color: var(--slate); margin-bottom: 10px; }
+  .step-desc { font-family: var(--font-mono); font-weight: 400; font-size: 15px; line-height: 1.6; letter-spacing: -0.3px; color: var(--pebble); }
+
+  /* Pricing */
+  .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+  .price-card { border: 1px solid var(--beige); padding: 32px; background: var(--white); border-radius: 8px; }
+  .price-card.featured { background: var(--deep-green); border-color: var(--deep-green); }
+  .price-card.featured .price-label,
+  .price-card.featured .price-name,
+  .price-card.featured .price-desc { color: var(--sapling); }
+  .price-card.featured .price-amount { color: var(--cream); }
+  .price-card.featured .price-tag { color: var(--foliage); }
+  .price-card.featured .price-divider { background: var(--foliage); }
+  .price-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: var(--pebble); margin-bottom: 16px; }
+  .price-name { font-family: var(--font-display); font-size: 24px; font-weight: 400; letter-spacing: -0.48px; margin-bottom: 8px; color: var(--slate); }
+  .price-amount { font-family: var(--font-display); font-size: 44px; font-weight: 300; letter-spacing: -1px; color: var(--slate); line-height: 1; margin-bottom: 6px; }
+  .price-tag { font-family: var(--font-mono); font-size: 12px; color: var(--pebble); letter-spacing: 0.3px; margin-bottom: 20px; }
+  .price-divider { height: 1px; background: var(--beige); margin-bottom: 18px; }
+  .price-desc { font-family: var(--font-mono); font-size: 15px; font-weight: 400; line-height: 1.6; letter-spacing: -0.3px; color: var(--pebble); }
+
+  /* Bundle card */
+  .bundle-card { grid-column: 1 / -1; background: var(--sunwashed); border-radius: 8px; padding: 36px 40px; }
+  .bundle-top-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 20px; }
+  .bundle-left { flex: 1; min-width: 0; }
+  .bundle-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 10px; }
+  .bundle-name { font-family: var(--font-display); font-size: 28px; font-weight: 400; letter-spacing: -0.56px; color: var(--white); line-height: 1.1; }
+  .bundle-right { text-align: right; flex-shrink: 0; }
+  .bundle-was { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.3px; color: rgba(255,255,255,0.5); text-decoration: line-through; margin-bottom: 2px; }
+  .bundle-price { font-family: var(--font-display); font-size: 52px; font-weight: 300; letter-spacing: -1.5px; color: var(--white); line-height: 1; white-space: nowrap; }
+  .bundle-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 5px; white-space: nowrap; }
+  .bundle-divider { height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 18px; }
+  .bundle-desc { font-family: var(--font-mono); font-size: 15px; font-weight: 400; line-height: 1.6; letter-spacing: -0.3px; color: rgba(255,255,255,0.85); }
+  .bundle-includes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .bundle-includes .price-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.15); padding: 24px; }
+  .bundle-includes .price-card .price-label { color: rgba(255,255,255,0.5); }
+  .bundle-includes .price-card .price-name { color: var(--white); }
+  .bundle-includes .price-card .price-amount { color: var(--white); font-size: 32px; }
+  .bundle-includes .price-card .price-tag { color: rgba(255,255,255,0.45); }
+  .bundle-includes .price-card .price-divider { background: rgba(255,255,255,0.15); }
+  .bundle-includes .price-card .price-desc { color: rgba(255,255,255,0.7); font-size: 14px; }
+
+  /* Founding note */
+  .founding-note { grid-column: 1 / -1; background: rgba(213,107,69,0.07); border: 1px dashed rgba(213,107,69,0.3); border-radius: 8px; padding: 20px 24px; display: flex; align-items: center; gap: 14px; }
+  .founding-note-icon { font-size: 18px; flex-shrink: 0; color: var(--sunwashed); }
+  .founding-note-text { font-family: var(--font-mono); font-size: 15px; font-weight: 400; line-height: 1.6; letter-spacing: -0.3px; color: var(--slate); }
+  .founding-note-text strong { font-weight: 600; color: var(--sunwashed); }
+
+  /* Included */
+  .included-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+  .included-header { grid-column: 1 / -1; padding: 14px 18px; border-radius: 0 6px 6px 0; display: flex; align-items: center; gap: 12px; }
+  .included-header.retreat { background: rgba(213,107,69,0.06); border-left: 3px solid var(--sunwashed); }
+  .included-header.residency { background: rgba(43,58,44,0.06); border-left: 3px solid var(--deep-green); margin-top: 8px; }
+  .included-header-text { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; }
+  .included-header.retreat .included-header-text { color: var(--sunwashed); }
+  .included-header.residency .included-header-text { color: var(--deep-green); }
+  .included-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 18px; background: var(--white); border-radius: 6px; }
+  .included-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sunwashed); flex-shrink: 0; margin-top: 7px; }
+  .included-text { font-family: var(--font-mono); font-size: 15px; font-weight: 400; line-height: 1.5; letter-spacing: -0.3px; color: var(--slate); }
+
+  /* Image break */
+  .image-break { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 64px; }
+  .image-break-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; border-radius: 12px; overflow: hidden; }
+  .image-break-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .image-break-grid .ib-tall { grid-row: 1 / 3; min-height: 360px; }
+  .image-break-grid .ib-short { min-height: 176px; }
+
+  /* Testimonials */
+  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .testimonial-card { background: var(--white); border-radius: 8px; padding: 32px 28px; border: 1px solid var(--beige); display: flex; flex-direction: column; }
+  .testimonial-quote { font-family: var(--font-display); font-weight: 300; font-size: 18px; line-height: 1.6; letter-spacing: -0.36px; color: var(--slate); font-style: italic; flex: 1; margin-bottom: 24px; }
+  .testimonial-quote::before { content: '\201C'; font-size: 32px; line-height: 0; vertical-align: -8px; color: var(--sunwashed); margin-right: 4px; }
+  .testimonial-author { border-top: 1px solid var(--beige); padding-top: 16px; }
+  .testimonial-name { font-family: var(--font-mono); font-weight: 500; font-size: 14px; color: var(--slate); margin-bottom: 2px; }
+  .testimonial-role { font-family: var(--font-mono); font-weight: 400; font-size: 13px; color: var(--pebble); }
+  .testimonials-note { text-align: center; margin-top: 16px; font-family: var(--font-mono); font-size: 13px; color: var(--pebble); font-style: italic; }
+
+  /* Who it's for */
+  .for-list { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 24px; }
+  .for-item { padding: 24px 20px; border-left: 3px solid var(--sunwashed); background: var(--white); border-radius: 0 6px 6px 0; }
+  .for-title { font-family: var(--font-display); font-weight: 400; font-size: 20px; letter-spacing: -0.4px; margin-bottom: 8px; color: var(--slate); }
+  .for-desc { font-family: var(--font-mono); font-weight: 400; font-size: 15px; line-height: 1.6; letter-spacing: -0.3px; color: var(--pebble); }
+
+  /* FAQ */
+  .faq-list { margin-top: 24px; }
+  .faq-item { border-bottom: 1px solid var(--beige); }
+  .faq-item:first-child { border-top: 1px solid var(--beige); }
+  .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-display); font-weight: 400; font-size: 20px; letter-spacing: -0.4px; color: var(--slate); line-height: 1.3; }
+  .faq-question:hover { color: var(--sunwashed); }
+  .faq-chevron { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.3s; color: var(--pebble); }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+  .faq-answer-inner { padding: 0 0 24px; font-family: var(--font-mono); font-weight: 400; font-size: 15px; line-height: 1.7; letter-spacing: -0.3px; color: var(--pebble); max-width: 700px; }
+
+  /* Application form */
+  .form-section { background: var(--deep-green); width: 100%; }
+  .form-inner { max-width: 640px; margin: 0 auto; padding: 80px 64px; }
+  .form-title { color: var(--cream); margin-bottom: 8px; }
+  .form-subtitle { font-family: var(--font-mono); font-weight: 400; font-size: 16px; line-height: 1.5; letter-spacing: -0.32px; color: var(--sapling); margin-bottom: 40px; }
+  .form-group { margin-bottom: 24px; }
+  .form-label { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; }
+  .form-input,
+  .form-textarea,
+  .form-select { width: 100%; font-family: var(--font-mono); font-size: 16px; letter-spacing: -0.32px; color: var(--cream); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 14px 16px; transition: border-color 0.2s; -webkit-appearance: none; }
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: var(--foliage); }
+  .form-input:focus,
+  .form-textarea:focus,
+  .form-select:focus { outline: none; border-color: var(--sunwashed); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23b8c8b7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+  .form-select option { background: var(--deep-green); color: var(--cream); }
+  .form-submit { display: inline-block; font-family: var(--font-mono); font-weight: 500; font-size: 15px; letter-spacing: -0.3px; color: var(--cream); background: var(--sunwashed); border: none; border-radius: 100px; padding: 16px 40px; cursor: pointer; transition: filter 0.2s; margin-top: 8px; }
+  .form-submit:hover { filter: brightness(1.1); }
+
+  /* CTA bar */
+  .cta-bar { background: var(--slate); width: 100%; }
+  .cta-inner { max-width: 1000px; margin: 0 auto; padding: 48px 64px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px; }
+  .cta-text h3 { font-family: var(--font-display); font-weight: 400; font-size: 28px; letter-spacing: -0.56px; color: var(--cream); margin-bottom: 8px; line-height: 1.2; }
+  .cta-text h3 em { font-style: italic; color: var(--sunwashed); }
+  .cta-text p { font-family: var(--font-mono); font-weight: 400; font-size: 15px; letter-spacing: -0.3px; color: var(--pebble); line-height: 1.6; }
+  .cta-right { text-align: right; flex-shrink: 0; }
+  .spots-badge { display: inline-block; background: var(--sunwashed); color: var(--white); font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 10px; }
+  .cta-contact { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.5px; color: var(--pebble); display: block; margin-bottom: 4px; text-transform: uppercase; }
+  .cta-url { font-family: var(--font-mono); font-size: 15px; color: var(--sunwashed); font-style: italic; text-decoration: none; }
+  .cta-url:hover { text-decoration: underline; }
+
+  /* =============================================
+     FOOTER
+     ============================================= */
+  .site-footer { background: var(--oat); width: 100%; display: flex; justify-content: center; padding: 0 120px; }
+  .footer-inner { max-width: 1200px; width: 100%; display: flex; align-items: flex-start; justify-content: space-between; border-top: 1px solid var(--beige); padding: 20px 0 80px; }
+  .footer-copy { color: var(--slate); }
+  .footer-copy span { color: var(--sunwashed); }
+  .footer-logo { display: flex; align-items: center; flex-shrink: 0; }
+  .footer-logo img { height: 20px; width: 54px; display: block; }
+
+  /* =============================================
+     ANIMATIONS
+     ============================================= */
+  .fade-up { opacity: 0; transition: opacity 0.7s ease; }
+  .fade-up.visible { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up, .hero-el { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* =============================================
+     TABLET
+     ============================================= */
+  @media (max-width: 1024px) {
+    .top-banner { padding: 12px 40px; }
+    .site-header { padding: 24px 40px; }
+    .hero-section { padding: 80px 40px 60px; }
+    .hero-title { font-size: 56px; }
+    .section { padding: 60px 40px; }
+    .flow-steps { grid-template-columns: 1fr; gap: 2px; }
+    .flow-step, .flow-step:first-child, .flow-step:last-child { border-radius: 0; }
+    .flow-step:first-child { border-radius: 8px 8px 0 0; }
+    .flow-step:last-child { border-radius: 0 0 8px 8px; }
+    .step-img { aspect-ratio: 21 / 9; }
+    .image-break { padding: 0 40px; }
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid .testimonial-card:last-child { grid-column: 1 / -1; }
+    .for-list { grid-template-columns: 1fr; }
+    .form-inner { padding: 60px 40px; }
+    .cta-inner { padding: 40px; }
+    .site-footer { padding: 0 40px; }
+  }
+
+  /* =============================================
+     MOBILE
+     ============================================= */
+  @media (max-width: 640px) {
+    .top-banner { padding: 10px 20px; }
+    .top-banner a { font-size: 12px; }
+    .site-header { padding: 14px 20px; }
+    .site-header::after { left: 20px; right: 20px; }
+    .site-logo { min-height: 40px; display: flex; align-items: center; }
+    .site-logo img { height: 22px; }
+    .burger { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+    .site-nav { position: fixed; top: 0; right: 0; width: 260px; height: 100dvh; background: var(--deep-green); flex-direction: column; align-items: stretch; gap: 0; padding: 80px 32px 40px; transform: translateX(100%); transition: transform 0.35s ease; z-index: 100; box-shadow: -4px 0 24px rgba(0,0,0,0.3); }
+    .site-nav.open { transform: translateX(0); }
+    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
+    .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
+    .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
+    .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .lang-toggle { margin-top: 16px; align-self: flex-start; }
+    .lang-menu { left: 0; transform: none; }
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+    .nav-overlay.open { display: block; }
+
+    .hero-section { padding: 60px 24px 48px; min-height: auto; }
+    .hero-title { font-size: 40px; letter-spacing: -1px; }
+    .hero-subtitle { font-size: 16px; }
+    .hero-meta { flex-direction: column; gap: 10px; }
+
+    .h1 { font-size: 36px; letter-spacing: -0.72px; }
+    .h2 { font-size: 32px; letter-spacing: -0.64px; }
+    .h3 { font-size: 24px; letter-spacing: -0.48px; }
+    .body-lg, .body-lg-semi { font-size: 17px; }
+    .body-sm, .caption { font-size: 14px; }
+
+    .section { padding: 48px 24px; }
+    .image-break { padding: 0 24px; }
+    .image-break-grid { grid-template-columns: 1fr; border-radius: 8px; }
+    .image-break-grid .ib-tall { grid-row: auto; min-height: 220px; }
+    .image-break-grid .ib-short { min-height: 160px; }
+    .intro-text { font-size: 18px; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .bundle-includes { grid-template-columns: 1fr; }
+    .bundle-top-row { flex-direction: column; align-items: flex-start; }
+    .bundle-right { text-align: left; }
+    .bundle-price { font-size: 40px; }
+    .included-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-grid .testimonial-card:last-child { grid-column: auto; }
+    .for-list { grid-template-columns: 1fr; }
+
+    .form-inner { padding: 48px 24px; }
+    .cta-inner { grid-template-columns: 1fr; padding: 32px 24px; }
+    .cta-right { text-align: left; }
+    .site-footer { padding: 0 24px; }
+    .footer-inner { flex-direction: column; gap: 20px; padding: 20px 0 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top banner -->
+  <div class="top-banner">
+    <a href="/casa-nam/">Introducing Casa NāM — our residential project on Koh Phangan. Private homes and shared spaces for living well. Explore &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="/" class="site-logo"><img src="/assets/logo.svg" alt="NāM"></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-overlay"></div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">NāM Space</a>
+      <a href="/blog/">Blog</a>
+      <a href="/casa-nam/">Casa NāM</a>
+      <a href="/founder-house/" aria-current="page">Founder's House</a>
+      <div class="lang-toggle" aria-label="Language">
+        <button class="lang-trigger" aria-expanded="false">
+          <span class="lang-current">EN</span>
+          <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-menu">
+          <button class="lang-opt active" data-lang="en">EN</button>
+          <button class="lang-opt" data-lang="de">DE</button>
+          <button class="lang-opt" data-lang="th">TH</button>
+        </div>
+      </div>
+      <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="nav-cta">Follow us</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="hero-bg"><img src="assets/hero-poolside.jpg" alt="" loading="eager"></div>
+    <div class="hero-inner">
+      <p class="hero-tag hero-el">NāM &middot; Founder's House</p>
+      <h1 class="hero-title hero-el">NāM <span>Founder's House</span></h1>
+      <p class="hero-subtitle hero-el">Stop settling for half-measures. Come build something real.</p>
+      <div class="hero-meta hero-el">
+        <span class="status-pill">Now Forming</span>
+        <span class="location-label">Koh Phangan, Thailand</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+
+  <!-- The Concept -->
+  <section class="section fade-up">
+    <div class="section-label">The Concept</div>
+    <p class="intro-text">Most retreats give you inspiration and send you home. NāM Founder's House gives you a container to actually build inside. Hosted at Kin Haus on Koh Phangan, it brings together a small, carefully selected group of founders, operators, and creative entrepreneurs — people who are serious about growth and generous with their knowledge.</p>
+    <p class="intro-text">Week one is fully facilitated — every detail handled, every session held, every meal cooked. What follows is yours: three weeks of self-guided residency inside the same space, same community, same rhythm. Or stay the full month — most people who do say it's where everything clicked. Two modes. One uninterrupted run.</p>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section fade-up">
+    <div class="section-label">How It Works</div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-img"><img src="assets/retreat-yoga.jpg" alt="Group yoga session by the pool at Kin Haus" loading="lazy"></div>
+        <div class="step-num">01 &middot; The Retreat</div>
+        <div class="step-title">Arrive &amp; Go Deep</div>
+        <div class="step-desc">Fully facilitated from day one. Scooter waiting, chef cooking, massage booked, yoga on. Curated peer sessions, mastermind time, and local immersion built in. Your only job: show up.</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-img"><img src="assets/residency-workshop.jpg" alt="Founder presenting during a workshop at Kin Haus" loading="lazy"></div>
+        <div class="step-num">02 &middot; The Residency</div>
+        <div class="step-title">Stay &amp; Build</div>
+        <div class="step-desc">Stay for three weeks on your own terms. The space, the people, and the island remain — but the schedule is yours. Work privately, collaborate freely, go deeper. Three weeks is enough to find your rhythm. A month is enough to change something.</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-img"><img src="assets/network-community.jpg" alt="Friends connecting at a Kin Haus event" loading="lazy"></div>
+        <div class="step-num">03 &middot; The Network</div>
+        <div class="step-title">Leave &amp; Stay Connected</div>
+        <div class="step-desc">The relationships built here don't end when you leave. NāM alumni are a vetted network of operators and builders. Priority access to future retreats, shared deal flow, and an ongoing group that actually knows each other.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section fade-up">
+    <div class="section-label">Pricing</div>
+    <div class="pricing-grid">
+
+      <div class="bundle-card">
+        <div class="bundle-top-row">
+          <div class="bundle-left">
+            <div class="bundle-label">Most Popular &middot; Retreat + Full Month</div>
+            <div class="bundle-name">The Full Stay</div>
+          </div>
+          <div class="bundle-right">
+            <div class="bundle-was">$4,000</div>
+            <div class="bundle-price">$3,850</div>
+            <div class="bundle-tag">per person &middot; retreat + full month &middot; save $650</div>
+          </div>
+        </div>
+        <div class="bundle-divider"></div>
+        <div class="bundle-desc">The Retreat (1 week) + a full month residency — not three weeks, the whole month. The week to arrive and converge. The month to actually build. Those who commit to the full stay say it's where everything shifted. 15% off.</div>
+        <div class="bundle-includes">
+          <div class="price-card">
+            <div class="price-label">Fully Facilitated &middot; 7 Nights</div>
+            <div class="price-name">The Retreat</div>
+            <div class="price-amount">$2,050</div>
+            <div class="price-tag">per person &middot; 7 nights (cohort week)</div>
+            <div class="price-divider"></div>
+            <div class="price-desc">Everything handled — scooter, chef, daily massage, yoga, local immersion, and curated entrepreneur sessions. Four founders. One focused week.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-label">Self-Guided &middot; 3 Weeks</div>
+            <div class="price-name">The Residency</div>
+            <div class="price-amount">$1,950</div>
+            <div class="price-tag">per person &middot; 21 nights</div>
+            <div class="price-divider"></div>
+            <div class="price-desc">Three weeks at Kin Haus on your own terms. Private room, shared spaces, fast internet, and community access. Find your rhythm.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="founding-note">
+        <div class="founding-note-icon">&#10022;</div>
+        <div class="founding-note-text"><strong>Founding Cohort Rate</strong> — The first two retreats run at $1,650 as a founding member price. This is the one time this price exists. Those who come early shape what NāM Founder's House becomes.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section fade-up">
+    <div class="section-label">What's Included</div>
+    <div class="included-grid">
+      <div class="included-header retreat">
+        <div class="included-header-text">The Retreat — Week One, Fully Facilitated</div>
+      </div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Scooter arranged and ready on arrival</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Private chef — meals handled so you stay in flow</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Daily massage — one session, every day</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Daily yoga classes on campus</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Curated mastermind and peer sessions</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Local immersion — hidden spots, real Phangan</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Welcome dinner and closing gathering</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Structured deep work and focus sessions</div></div>
+      <div class="included-header residency">
+        <div class="included-header-text">The Residency — 3 Weeks, Self-Guided</div>
+      </div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Private room for the full month</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Full working space access — desks, garden, common areas</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">High-speed fibre internet throughout</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Community kitchen and shared spaces</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">NāM founder network and alumni community</div></div>
+      <div class="included-item"><div class="included-dot"></div><div class="included-text">Priority on future retreats and NāM residencies</div></div>
+    </div>
+  </section>
+
+  <!-- Image break -->
+  <div class="image-break fade-up" style="padding-top: 24px; padding-bottom: 24px;">
+    <div class="image-break-grid">
+      <img class="ib-tall" src="assets/yoga-jungle.jpg" alt="Yoga on the deck with jungle views at Kin Haus" loading="lazy">
+      <img class="ib-short" src="assets/portrait-deck.jpg" alt="Founder on the Kin Haus deck with mountain views" loading="lazy">
+      <img class="ib-short" src="assets/hero-poolside.jpg" alt="Kin Haus pool and tropical surroundings" loading="lazy">
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <section class="section fade-up">
+    <div class="section-label">From the Community</div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">The people I've met through NāM events on Phangan are some of the sharpest, most generous people I know. If that's the filter for who ends up in a room together for a month, I'm in.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Kin Haus community member</div>
+          <div class="testimonial-role">Founder &amp; operator</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">I've done retreats that were all inspiration and no follow-through. The residency model — a week to arrive, then real time to build — is the thing that's been missing.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Early applicant</div>
+          <div class="testimonial-role">Creative entrepreneur</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">Kin Haus is already one of the best places to work on the island. Adding a curated group and a structured week on top of that? It's a no-brainer.</div>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Kin Haus community member</div>
+          <div class="testimonial-role">Digital business owner</div>
+        </div>
+      </div>
+    </div>
+    <p class="testimonials-note">The founding cohort launches July 2026. Real testimonials to follow.</p>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="section fade-up">
+    <div class="section-label">Who It's For</div>
+    <div class="for-list">
+      <div class="for-item">
+        <div class="for-title">The Operator</div>
+        <div class="for-desc">Running something real — a business, a project, a pivot. Needs focused time, sharp peers, and a change of scene to think clearly and move faster.</div>
+      </div>
+      <div class="for-item">
+        <div class="for-title">The Crossroads</div>
+        <div class="for-desc">Between chapters — closing one thing, starting another. The kind of decision that needs distance, honesty, and people who've been there.</div>
+      </div>
+      <div class="for-item">
+        <div class="for-title">The Escapee</div>
+        <div class="for-desc">Done with half-measures and shallow networking. Wants real community, real work, and a place that actually feels like somewhere — not just anywhere.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section fade-up">
+    <div class="section-label">Frequently Asked Questions</div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          When is the first cohort?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">We're forming the founding cohort now. The first retreat runs in July 2026. Once four people are confirmed, we lock in the exact dates together. Apply and we'll keep you in the loop.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do I need a visa to stay for a month?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Most nationalities get 60 days visa-free on arrival in Thailand. That covers the full month with time to spare. We'll share a visa guide with everything you need once you're confirmed.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How fast is the internet?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Kin Haus runs on fibre. You'll get reliable, fast internet throughout the property — good enough for video calls, heavy uploads, and uninterrupted deep work. We also have backup connectivity.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can I just do the retreat week without the residency?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. The retreat and the residency are priced separately. You can do just the week, just the residency (if you've attended a previous retreat), or both. Most people who come for the week end up staying longer.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What should I bring?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Your laptop and whatever you need to do your best work. Koh Phangan is warm year-round — pack light. We'll send a detailed packing list and arrival guide once you're confirmed.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How are founders selected?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Every cohort is matched for experience level, generosity, and what they bring to the group. We read every application personally. It's not about revenue or followers — it's about people who are serious, open, and ready to go deep.</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  </div><!-- .content-wrap -->
+
+  <!-- Application Form -->
+  <section class="form-section" id="apply">
+    <div class="form-inner fade-up">
+      <div class="section-label" style="color: rgba(213,107,69,0.7);">Apply</div>
+      <h2 class="h2 form-title">Tell us what you're building</h2>
+      <p class="form-subtitle">Every cohort is four founders — matched for experience, generosity, and what they bring. This isn't first-come. It's right-fit.</p>
+      <form action="#" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="working-on">What are you working on?</label>
+          <textarea class="form-textarea" id="working-on" name="working_on" placeholder="Tell us about your project, business, or what you're building right now..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="tier">Which tier interests you?</label>
+          <select class="form-select" id="tier" name="tier" required>
+            <option value="" disabled selected>Select a tier</option>
+            <option value="retreat">The Retreat (1 week, $2,050)</option>
+            <option value="residency">The Residency (3 weeks, $1,950)</option>
+            <option value="full-stay">The Full Stay (retreat + month, $3,850)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="linkedin">LinkedIn or website</label>
+          <input class="form-input" type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/you">
+        </div>
+        <button type="submit" class="form-submit">Submit Application</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-bar">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h3>Screened.<br><em>Not first-come.</em></h3>
+        <p>Every cohort is matched for experience level, generosity, and what they bring to the group. Apply and tell us what you're working on.</p>
+      </div>
+      <div class="cta-right">
+        <span class="spots-badge">4 spots / cohort</span>
+        <span class="cta-contact">Apply or enquire</span>
+        <a class="cta-url" href="#apply">nam.space/founder-house</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="caption footer-copy">NāM Space<br><span>Copyright &copy; 2026</span></p>
+      <div class="footer-logo"><img src="/assets/footer-logo.svg" alt="NāM"></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  // Burger menu
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.site-nav');
+  var overlay = document.querySelector('.nav-overlay');
+  if (burger && nav && overlay) {
+    function toggleMenu() {
+      var isOpen = nav.classList.toggle('open');
+      burger.classList.toggle('open');
+      overlay.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (nav.classList.contains('open')) toggleMenu();
+      });
+    });
+  }
+
+  // Language toggle
+  var langToggle = document.querySelector('.lang-toggle');
+  if (langToggle) {
+    var trigger = langToggle.querySelector('.lang-trigger');
+    trigger.addEventListener('click', function() {
+      langToggle.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', langToggle.classList.contains('open'));
+    });
+    document.addEventListener('click', function(e) {
+      if (!langToggle.contains(e.target)) {
+        langToggle.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Hero fade-in
+  setTimeout(function() {
+    document.querySelectorAll('.hero-el').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 300);
+
+  // Fade-up observer
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    fadeObserver.observe(el);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var answer = item.querySelector('.faq-answer');
+      var isOpen = item.classList.contains('open');
+
+      // Close all others
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+        if (openItem !== item) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          openItem.querySelector('.faq-answer').style.maxHeight = '0';
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = '0';
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
