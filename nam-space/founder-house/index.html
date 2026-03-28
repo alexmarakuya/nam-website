@@ -294,6 +294,17 @@
   @media (max-width: 1024px) {
     .top-banner { padding: 12px 40px; }
     .site-header { padding: 24px 40px; }
+    .burger { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+    .site-nav { position: fixed; top: 0; right: 0; width: 260px; height: 100dvh; background: var(--deep-green); flex-direction: column; align-items: stretch; gap: 0; padding: 80px 32px 40px; transform: translateX(100%); transition: transform 0.35s ease; z-index: 100; box-shadow: -4px 0 24px rgba(0,0,0,0.3); }
+    .site-nav.open { transform: translateX(0); }
+    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
+    .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
+    .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
+    .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
+    .lang-toggle { margin-top: 16px; align-self: flex-start; }
+    .lang-menu { left: 0; transform: none; }
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+    .nav-overlay.open { display: block; }
     .hero-section { padding: 80px 40px 60px; }
     .hero-title { font-size: 56px; }
     .section { padding: 60px 40px; }
@@ -321,17 +332,6 @@
     .site-header::after { left: 20px; right: 20px; }
     .site-logo { min-height: 40px; display: flex; align-items: center; }
     .site-logo img { height: 22px; }
-    .burger { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
-    .site-nav { position: fixed; top: 0; right: 0; width: 260px; height: 100dvh; background: var(--deep-green); flex-direction: column; align-items: stretch; gap: 0; padding: 80px 32px 40px; transform: translateX(100%); transition: transform 0.35s ease; z-index: 100; box-shadow: -4px 0 24px rgba(0,0,0,0.3); }
-    .site-nav.open { transform: translateX(0); }
-    .site-nav a { padding: 16px 0; font-size: 16px; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; }
-    .site-nav a:hover { border-color: rgba(255,255,255,0.1); }
-    .site-nav a[aria-current="page"] { border-color: rgba(255,255,255,0.1); }
-    .site-nav .nav-cta { background: var(--sunwashed); border: none; border-radius: 100px; padding: 14px 24px; text-align: center; margin-top: 16px; }
-    .lang-toggle { margin-top: 16px; align-self: flex-start; }
-    .lang-menu { left: 0; transform: none; }
-    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
-    .nav-overlay.open { display: block; }
 
     .hero-section { padding: 60px 24px 48px; min-height: auto; }
     .hero-title { font-size: 40px; letter-spacing: -1px; }
@@ -532,9 +532,9 @@
   <!-- Image break -->
   <div class="image-break fade-up" style="padding-top: 24px; padding-bottom: 24px;">
     <div class="image-break-grid">
-      <img class="ib-tall" src="assets/yoga-jungle.jpg" alt="Yoga on the deck with jungle views at Kin Haus" loading="lazy">
-      <img class="ib-short" src="assets/portrait-deck.jpg" alt="Founder on the Kin Haus deck with mountain views" loading="lazy">
-      <img class="ib-short" src="assets/hero-poolside.jpg" alt="Kin Haus pool and tropical surroundings" loading="lazy">
+      <img class="ib-tall" src="assets/collage-yoga-group.jpg" alt="Group yoga session on the Kin Haus deck with pool and jungle views" loading="lazy">
+      <img class="ib-short" src="assets/collage-poolside-social.jpg" alt="Community members socializing poolside at Kin Haus" loading="lazy">
+      <img class="ib-short" src="assets/collage-notebooks.jpg" alt="People relaxing with notebooks at a Kin Haus session" loading="lazy">
     </div>
   </div>
 
