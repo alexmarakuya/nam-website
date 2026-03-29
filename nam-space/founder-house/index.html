@@ -223,6 +223,10 @@
   .week-cal-cell.soft { background: rgba(43,58,44,0.04); color: var(--foliage); }
   .week-cal-cell.free { color: var(--pebble); font-style: italic; }
 
+  /* Week extras */
+  .week-extras { text-align: center; margin-top: 20px; font-family: var(--font-mono); font-size: 14px; color: var(--pebble); letter-spacing: -0.28px; }
+  .week-extras strong { color: var(--sunwashed); font-weight: 600; }
+
   /* Image break */
   .image-break { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 64px; }
   .image-break-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; border-radius: 12px; overflow: hidden; }
@@ -459,46 +463,8 @@
 
   <!-- The Week -->
   <section class="section fade-up">
-    <div class="section-label">The Week</div>
-    <div class="week-grid">
-      <div class="week-day">
-        <div class="week-day-name">Monday</div>
-        <div class="week-day-label">Deep Focus</div>
-        <div class="week-day-desc">Morning yoga and movement. Brunch together. Then heads down — structured deep work for the rest of the day.</div>
-      </div>
-      <div class="week-day">
-        <div class="week-day-name">Tuesday</div>
-        <div class="week-day-label">Activity &amp; Culture</div>
-        <div class="week-day-desc">Sports, outdoor adventures, or cultural immersion — Thai cooking class, local market tours, island exploration. Something to do together.</div>
-      </div>
-      <div class="week-day">
-        <div class="week-day-name">Wednesday</div>
-        <div class="week-day-label">Deep Focus</div>
-        <div class="week-day-desc">Same rhythm as Monday. Yoga, brunch, then uninterrupted building time. Mid-week momentum.</div>
-      </div>
-      <div class="week-day">
-        <div class="week-day-name">Thursday</div>
-        <div class="week-day-label">Community &amp; Talks</div>
-        <div class="week-day-desc">Open doors. Thought leadership sessions, guest speakers, AI talks, local founders invited to the house. The night the cohort meets the island.</div>
-      </div>
-      <div class="week-day">
-        <div class="week-day-name">Friday</div>
-        <div class="week-day-label">Social</div>
-        <div class="week-day-desc">Wind down the week. Dinner out, sundowners, or something low-key at the house. You earned it.</div>
-      </div>
-      <div class="week-day weekend">
-        <div class="week-day-name">Saturday</div>
-        <div class="week-day-label">Play</div>
-        <div class="week-day-desc">Boat trip, house party, or island exploring — depends on the cohort and the vibe. Once a month we do a proper boat tour.</div>
-      </div>
-      <div class="week-day weekend">
-        <div class="week-day-name">Sunday</div>
-        <div class="week-day-label">Beach Day</div>
-        <div class="week-day-desc">Together at the beach. Slow morning, good water, nothing scheduled. Recharge before the next week.</div>
-      </div>
-    </div>
-
-    <!-- Visual weekly calendar -->
+    <div class="section-label">Your Week</div>
+    <p class="intro-text" style="margin-bottom: 24px;">Every week follows the same rhythm. Enough structure to keep momentum, enough space to make it yours.</p>
     <div class="week-calendar">
       <div class="week-cal-header">
         <span></span>
@@ -513,12 +479,12 @@
       <div class="week-cal-row">
         <div class="week-cal-time">Morning</div>
         <div class="week-cal-cell highlight">Yoga &amp; Movement</div>
-        <div class="week-cal-cell soft">Activity / Cultural</div>
+        <div class="week-cal-cell soft">Activity / Culture</div>
         <div class="week-cal-cell highlight">Yoga &amp; Movement</div>
         <div class="week-cal-cell free">Free</div>
         <div class="week-cal-cell free">Free</div>
-        <div class="week-cal-cell soft">Boat trip / Party</div>
-        <div class="week-cal-cell soft">Beach Day</div>
+        <div class="week-cal-cell soft">Explore</div>
+        <div class="week-cal-cell soft">Beach</div>
       </div>
       <div class="week-cal-row">
         <div class="week-cal-time">Midday</div>
@@ -547,10 +513,11 @@
         <div class="week-cal-cell soft">House dinner</div>
         <div class="week-cal-cell highlight">Talks &amp; Open House</div>
         <div class="week-cal-cell highlight">Social night</div>
-        <div class="week-cal-cell soft">Party / Chill</div>
+        <div class="week-cal-cell free">Free</div>
         <div class="week-cal-cell free">Free</div>
       </div>
     </div>
+    <p class="week-extras">Once a month: <strong>house party</strong> + <strong>boat tour</strong> around the island.</p>
   </section>
 
   <!-- Pricing -->
