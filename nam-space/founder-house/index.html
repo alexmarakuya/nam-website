@@ -119,6 +119,17 @@
   .hero-el:nth-child(4) { transition-delay: 0.45s; }
 
   /* =============================================
+     HERO GALLERY — image-first intro
+     ============================================= */
+  .hero-gallery { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 64px; transform: translateY(-48px); margin-bottom: -24px; position: relative; z-index: 2; }
+  .hero-gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 240px 240px; gap: 6px; border-radius: 12px; overflow: hidden; }
+  .hero-gallery-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hg-main { grid-row: 1 / 3; }
+  .hg-top-right { }
+  .hg-bot-left { }
+  .hg-bot-right { }
+
+  /* =============================================
      CONTENT SECTIONS — cream background
      ============================================= */
   .content-wrap { background: var(--cream); width: 100%; }
@@ -219,12 +230,28 @@
   .week-cal-row:last-child { border-bottom: none; }
   .week-cal-time { font-family: var(--font-mono); font-weight: 400; font-size: 12px; color: var(--pebble); padding: 14px 16px; background: rgba(0,0,0,0.015); display: flex; align-items: center; }
   .week-cal-cell { font-family: var(--font-mono); font-weight: 400; font-size: 12px; line-height: 1.4; letter-spacing: -0.24px; color: var(--slate); padding: 14px 8px; text-align: center; border-left: 1px solid var(--beige); display: flex; align-items: center; justify-content: center; }
-  .week-cal-cell.highlight { background: rgba(213,107,69,0.06); color: var(--sunwashed); font-weight: 500; }
-  .week-cal-cell.soft { background: rgba(43,58,44,0.04); color: var(--foliage); }
+  /* Category colors */
+  .week-cal-cell.cat-wellness { background: rgba(168,195,167,0.15); color: #4a6b4a; font-weight: 500; }
+  .week-cal-cell.cat-focus { background: rgba(213,107,69,0.08); color: var(--sunwashed); font-weight: 500; }
+  .week-cal-cell.cat-community { background: rgba(43,58,44,0.08); color: var(--foliage); font-weight: 500; }
+  .week-cal-cell.cat-knowledge { background: rgba(100,80,160,0.08); color: #5c4ba1; font-weight: 500; }
+  .week-cal-cell.cat-culture { background: rgba(70,140,180,0.08); color: #3a7fa3; font-weight: 500; }
+  .week-cal-cell.cat-social { background: rgba(200,160,60,0.1); color: #9a7a20; font-weight: 500; }
   .week-cal-cell.free { color: var(--pebble); font-style: italic; }
 
+  /* Legend */
+  .week-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; justify-content: center; }
+  .week-legend-item { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3px; color: var(--pebble); }
+  .week-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .week-legend-dot.wellness { background: #4a6b4a; }
+  .week-legend-dot.focus { background: var(--sunwashed); }
+  .week-legend-dot.community { background: var(--foliage); }
+  .week-legend-dot.knowledge { background: #5c4ba1; }
+  .week-legend-dot.culture { background: #3a7fa3; }
+  .week-legend-dot.social { background: #9a7a20; }
+
   /* Week extras */
-  .week-extras { text-align: center; margin-top: 20px; font-family: var(--font-mono); font-size: 14px; color: var(--pebble); letter-spacing: -0.28px; }
+  .week-extras { text-align: center; margin-top: 16px; font-family: var(--font-mono); font-size: 14px; color: var(--pebble); letter-spacing: -0.28px; }
   .week-extras strong { color: var(--sunwashed); font-weight: 600; }
 
   /* Image break */
@@ -331,6 +358,8 @@
     .lang-menu { left: 0; transform: none; }
     .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
     .nav-overlay.open { display: block; }
+    .hero-gallery { padding: 0 40px; }
+    .hero-gallery-grid { grid-template-rows: 200px 200px; }
     .hero-section { padding: 80px 40px 60px; }
     .hero-title { font-size: 56px; }
     .section { padding: 60px 40px; }
@@ -342,6 +371,7 @@
     .week-grid { grid-template-columns: repeat(4, 1fr); }
     .week-cal-header, .week-cal-row { grid-template-columns: 60px repeat(7, 1fr); }
     .week-cal-header span, .week-cal-cell, .week-cal-time { font-size: 11px; padding: 10px 4px; }
+    .week-legend { gap: 12px; }
     .image-break { padding: 0 40px; }
     .testimonials-grid { grid-template-columns: 1fr 1fr; }
     .testimonials-grid .testimonial-card:last-child { grid-column: 1 / -1; }
@@ -362,6 +392,9 @@
     .site-logo { min-height: 40px; display: flex; align-items: center; }
     .site-logo img { height: 22px; }
 
+    .hero-gallery { padding: 0 24px; transform: translateY(-32px); margin-bottom: -16px; }
+    .hero-gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 140px; }
+    .hg-main { grid-row: 1 / 2; }
     .hero-section { padding: 60px 24px 48px; min-height: auto; }
     .hero-title { font-size: 40px; letter-spacing: -1px; }
     .hero-subtitle { font-size: 16px; }
@@ -452,6 +485,16 @@
     </div>
   </section>
 
+  <!-- Hero Gallery -->
+  <div class="hero-gallery fade-up">
+    <div class="hero-gallery-grid">
+      <img class="hg-main" src="assets/retreat-yoga.jpg" alt="Group yoga session by the pool at Kin Haus" loading="eager">
+      <img class="hg-top-right" src="assets/network-community.jpg" alt="Friends connecting at a Kin Haus community event" loading="eager">
+      <img class="hg-bot-left" src="assets/collage-poolside-social.jpg" alt="Community socializing poolside at Kin Haus" loading="eager">
+      <img class="hg-bot-right" src="assets/residency-workshop.jpg" alt="Founder presenting during a workshop" loading="eager">
+    </div>
+  </div>
+
   <div class="content-wrap">
 
   <!-- The Concept -->
@@ -478,44 +521,52 @@
       </div>
       <div class="week-cal-row">
         <div class="week-cal-time">Morning</div>
-        <div class="week-cal-cell highlight">Yoga &amp; Movement</div>
-        <div class="week-cal-cell soft">Activity / Culture</div>
-        <div class="week-cal-cell highlight">Yoga &amp; Movement</div>
+        <div class="week-cal-cell cat-wellness">Yoga</div>
+        <div class="week-cal-cell free">Free</div>
+        <div class="week-cal-cell cat-wellness">Yoga</div>
         <div class="week-cal-cell free">Free</div>
         <div class="week-cal-cell free">Free</div>
-        <div class="week-cal-cell soft">Explore</div>
-        <div class="week-cal-cell soft">Beach</div>
+        <div class="week-cal-cell cat-culture">Culture day</div>
+        <div class="week-cal-cell cat-social">Beach day</div>
       </div>
       <div class="week-cal-row">
         <div class="week-cal-time">Midday</div>
-        <div class="week-cal-cell highlight">Brunch</div>
-        <div class="week-cal-cell soft">Lunch together</div>
-        <div class="week-cal-cell highlight">Brunch</div>
-        <div class="week-cal-cell free">Free</div>
-        <div class="week-cal-cell free">Free</div>
-        <div class="week-cal-cell free">Free</div>
-        <div class="week-cal-cell soft">Beach lunch</div>
+        <div class="week-cal-cell cat-community">Brunch</div>
+        <div class="week-cal-cell cat-community">Brunch</div>
+        <div class="week-cal-cell cat-community">Brunch</div>
+        <div class="week-cal-cell cat-knowledge">Talks &amp; Open House</div>
+        <div class="week-cal-cell cat-community">Brunch</div>
+        <div class="week-cal-cell cat-community">Brunch</div>
+        <div class="week-cal-cell cat-community">Brunch</div>
       </div>
       <div class="week-cal-row">
         <div class="week-cal-time">Afternoon</div>
-        <div class="week-cal-cell highlight">Deep Focus</div>
+        <div class="week-cal-cell cat-focus">Deep Focus</div>
         <div class="week-cal-cell free">Free</div>
-        <div class="week-cal-cell highlight">Deep Focus</div>
-        <div class="week-cal-cell free">Free</div>
+        <div class="week-cal-cell cat-focus">Deep Focus</div>
+        <div class="week-cal-cell cat-knowledge">Open House</div>
         <div class="week-cal-cell free">Free</div>
         <div class="week-cal-cell free">Free</div>
         <div class="week-cal-cell free">Free</div>
       </div>
       <div class="week-cal-row">
         <div class="week-cal-time">Evening</div>
-        <div class="week-cal-cell soft">House dinner</div>
+        <div class="week-cal-cell cat-community">House dinner</div>
+        <div class="week-cal-cell cat-wellness">Evening yoga</div>
+        <div class="week-cal-cell cat-community">House dinner</div>
         <div class="week-cal-cell free">Free</div>
-        <div class="week-cal-cell soft">House dinner</div>
-        <div class="week-cal-cell highlight">Talks &amp; Open House</div>
-        <div class="week-cal-cell highlight">Social night</div>
+        <div class="week-cal-cell cat-social">Social night</div>
         <div class="week-cal-cell free">Free</div>
         <div class="week-cal-cell free">Free</div>
       </div>
+    </div>
+    <div class="week-legend">
+      <div class="week-legend-item"><div class="week-legend-dot wellness"></div>Wellness</div>
+      <div class="week-legend-item"><div class="week-legend-dot focus"></div>Deep Work</div>
+      <div class="week-legend-item"><div class="week-legend-dot community"></div>Community</div>
+      <div class="week-legend-item"><div class="week-legend-dot knowledge"></div>Knowledge</div>
+      <div class="week-legend-item"><div class="week-legend-dot culture"></div>Culture</div>
+      <div class="week-legend-item"><div class="week-legend-dot social"></div>Social</div>
     </div>
     <p class="week-extras">Once a month: <strong>house party</strong> + <strong>boat tour</strong> around the island.</p>
   </section>
