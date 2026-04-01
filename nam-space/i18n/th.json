@@ -152,8 +152,8 @@
       "status": {
         "weekly": "ทุกสัปดาห์",
         "trial": "ทดลอง",
-        "planned": "กำลังวางแผน",
-        "coming": "เร็วๆ นี้"
+        "planned": "Phase 1",
+        "coming": "Phase 2"
       },
       "a1": {
         "title": "Co-Working Events",

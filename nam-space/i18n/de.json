@@ -152,8 +152,8 @@
       "status": {
         "weekly": "Wöchentlich",
         "trial": "Testphase",
-        "planned": "Geplant",
-        "coming": "Demnächst"
+        "planned": "Phase 1",
+        "coming": "Phase 2"
       },
       "a1": {
         "title": "Co-Working Events",

@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NāM Space — Redefining the third place for the age of AI</title>
-<meta name="description" content="NāM is a co-creation space on Koh Phangan — the third place for the post-AI world. Where creativity happens in community, not in silos.">
+<title>NāM Space: Design-Led Co-working and Co-living on Koh Phangan, Thailand</title>
+<meta name="description" content="NāM is a design-led co-working and co-living campus on Koh Phangan, Thailand. A place to work, create and live well on the island over time.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nam.space/">
-<meta property="og:title" content="NāM Space — Redefining the third place for the age of AI">
-<meta property="og:description" content="A co-creation space designed from the ground up for the age of AI. Coming soon to Koh Phangan.">
+<meta property="og:title" content="NāM Space: Design-Led Co-working and Co-living on Koh Phangan, Thailand">
+<meta property="og:description" content="A design-led co-working and co-living campus on Koh Phangan, Thailand. A place to work, create and live well on the island over time.">
 <meta property="og:image" content="https://nam.space/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NāM Space — Redefining the third place for the age of AI">
-<meta name="twitter:description" content="A co-creation space designed from the ground up for the age of AI. Coming soon to Koh Phangan.">
+<meta name="twitter:title" content="NāM Space: Design-Led Co-working and Co-living on Koh Phangan, Thailand">
+<meta name="twitter:description" content="A design-led co-working and co-living campus on Koh Phangan, Thailand. A place to work, create and live well on the island over time.">
 <meta name="twitter:image" content="https://nam.space/assets/og-image.jpg">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Sometype+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -454,6 +454,37 @@
     .activities-section::after { animation: none; }
   }
 
+  /* Status badge */
+  .manifesto-status { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; padding: 6px 16px; font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--sage); letter-spacing: 0.3px; margin-bottom: 28px; }
+  .manifesto-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--sunwashed); flex-shrink: 0; }
+
+  /* Audience qualifier */
+  .manifesto-qualifier { font-family: var(--font-mono); font-weight: 400; font-size: 18px; line-height: 1.6; color: var(--sapling); margin-top: -16px; margin-bottom: 56px; }
+
+  /* Milestone section */
+  .milestone-section { background: var(--deep-green); width: 100%; display: flex; justify-content: center; padding: 80px 64px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .milestone-inner { max-width: 1200px; width: 100%; display: flex; flex-direction: column; gap: 36px; }
+  .milestone-eyebrow { font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--sunwashed); }
+  .milestone-track { display: flex; gap: 0; }
+  .milestone-step { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 24px 32px 24px 0; border-top: 2px solid var(--foliage); }
+  .milestone-step.current { border-top-color: var(--sunwashed); }
+  .milestone-step-phase { font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sapling); }
+  .milestone-step.current .milestone-step-phase { color: var(--sunwashed); }
+  .milestone-step-title { font-family: var(--font-display); font-weight: 400; font-size: 22px; letter-spacing: -0.44px; color: var(--foliage); }
+  .milestone-step.current .milestone-step-title { color: var(--cream); }
+  .milestone-step-detail { font-family: var(--font-mono); font-size: 14px; color: var(--sapling); line-height: 1.5; }
+  .milestone-step.current .milestone-step-detail { color: var(--oat); }
+
+  /* CTA founding member */
+  .cta-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .cta-benefit { background: rgba(255,255,255,0.12); border-radius: 16px; padding: 16px 20px; }
+  .cta-benefit-title { font-family: var(--font-mono); font-weight: 600; font-size: 14px; color: var(--cream); margin-bottom: 4px; }
+  .cta-benefit-desc { font-family: var(--font-mono); font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+  .cta-founder { display: flex; align-items: center; gap: 20px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 28px; }
+  .cta-founder-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .cta-founder-text { font-family: var(--font-mono); font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.75); }
+  .cta-founder-text strong { color: var(--cream); font-weight: 600; display: block; margin-bottom: 2px; }
+
   /* =============================================
      TABLET
      ============================================= */
@@ -498,7 +529,12 @@
     .mfu-section { padding: 60px 40px; }
     .mfu-inner { flex-direction: column; gap: 48px; }
     .cta-section { background: linear-gradient(to bottom, transparent 80px, var(--oat) 80px); padding: 0 40px 60px; margin-top: -80px; }
+    .milestone-section { padding: 60px 40px; }
+    .milestone-track { flex-direction: column; gap: 0; }
+    .milestone-step { padding: 20px 0; border-top: none; border-left: 2px solid var(--foliage); padding-left: 20px; }
+    .milestone-step.current { border-left-color: var(--sunwashed); border-top: none; }
     .cta-benefits { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .cta-founder { flex-direction: row; }
     .cta-bar-inside { flex-direction: column; text-align: center; }
     .blog-section { padding: 60px 40px 160px; }
     .blog-section-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
@@ -601,9 +637,12 @@
     .btn-sm { min-height: 44px; padding: 12px 16px; }
     .mfu-section { padding: 48px 24px; }
     .mfu-inner { gap: 32px; }
+    .milestone-section { padding: 48px 24px; }
+    .milestone-step-title { font-size: 18px; }
     .cta-section { background: linear-gradient(to bottom, transparent 60px, var(--oat) 60px); padding: 0 24px 40px; margin-top: -60px; }
     .cta-card { padding: 24px; gap: 24px; border-radius: 24px; }
     .cta-benefits { grid-template-columns: 1fr; gap: 12px; }
+    .cta-founder { flex-direction: column; align-items: flex-start; }
     .cta-benefit { padding: 20px; }
     .cta-bar-inside { padding: 20px; gap: 16px; }
     .cta-bar-buttons { flex-direction: column; width: 100%; }
@@ -670,7 +709,9 @@
        ========================================== -->
   <section class="manifesto-section">
     <div class="manifesto-inner">
+      <div class="manifesto-status m-reveal">In design &middot; Phase 1 opening 2027</div>
       <h1 class="manifesto-title m-reveal" data-i18n="home.manifesto.title">Where creators come together <span>to build what matters.</span></h1>
+      <p class="manifesto-qualifier m-reveal">For independent builders, solopreneurs and remote founders doing serious work.</p>
       <p class="manifesto-text m-reveal" data-i18n="home.manifesto.p1">In the era of AI, more and more work is being handed to machines. What's left is our most precious gift. <span>The gift of true creation.</span></p>
       <p class="manifesto-text m-reveal" data-i18n="home.manifesto.p2">The world belongs to the adaptable. We are becoming solopreneurs, independent creators, builders of one. But the best work still happens when we come together. To collaborate. To co-create. To build things that matter, <span>in the digital and physical realms.</span></p>
       <p class="manifesto-text m-reveal" data-i18n="home.manifesto.p3">Not creativity in silos. Creativity in community. Exchange of ideas. Diversity of minds. A place to live out the full creative impulse, and come up with things that matter.</p>
@@ -996,7 +1037,7 @@
           <img src="/assets/ev-workshops-thumb.jpg" alt="Workshops" loading="lazy" srcset="/assets/ev-workshops-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Planned</span>
+          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
           <p class="act-card-title" data-i18n="home.activities.a4.title">Small workshops and skill-sharing</p>
         </div>
       </div>
@@ -1005,7 +1046,7 @@
           <img src="/assets/ev-residency-thumb.jpg" alt="Residency programs" loading="lazy" srcset="/assets/ev-residency-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Planned</span>
+          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
           <p class="act-card-title" data-i18n="home.activities.a5.title">Residency programs</p>
         </div>
       </div>
@@ -1014,7 +1055,7 @@
           <img src="/assets/ev-conferences-thumb.jpg" alt="Conferences" loading="lazy" srcset="/assets/ev-conferences-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Planned</span>
+          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
           <p class="act-card-title" data-i18n="home.activities.a6.title">Conferences</p>
         </div>
       </div>
@@ -1023,7 +1064,7 @@
           <img src="/assets/ev-offsites-thumb.jpg" alt="Startup off-sites" loading="lazy" srcset="/assets/ev-offsites-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Planned</span>
+          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
           <p class="act-card-title" data-i18n="home.activities.a7.title">Startup off-sites</p>
         </div>
       </div>
@@ -1032,7 +1073,7 @@
           <img src="/assets/ev-retreats-thumb.jpg" alt="Founder retreats" loading="lazy" srcset="/assets/ev-retreats-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Planned</span>
+          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
           <p class="act-card-title" data-i18n="home.activities.a8.title">Founder retreats</p>
         </div>
       </div>
@@ -1041,7 +1082,7 @@
           <img src="/assets/ev-standups-thumb.jpg" alt="Daily stand-ups" loading="lazy" srcset="/assets/ev-standups-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.coming">Coming soon</span>
+          <span class="act-card-status" data-i18n="home.activities.status.coming">Phase 2</span>
           <p class="act-card-title" data-i18n="home.activities.a9.title">Daily stand-ups and check-ins</p>
         </div>
       </div>
@@ -1050,7 +1091,7 @@
           <img src="/assets/ev-mindfulness-thumb.jpg" alt="Mindfulness practices" loading="lazy" srcset="/assets/ev-mindfulness-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.coming">Coming soon</span>
+          <span class="act-card-status" data-i18n="home.activities.status.coming">Phase 2</span>
           <p class="act-card-title" data-i18n="home.activities.a10.title">Mindfulness practices</p>
         </div>
       </div>
@@ -1059,7 +1100,7 @@
           <img src="/assets/ev-yoga-thumb.jpg" alt="Yoga and movement" loading="lazy" srcset="/assets/ev-yoga-thumb.jpg 560w" sizes="280px">
         </div>
         <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.coming">Coming soon</span>
+          <span class="act-card-status" data-i18n="home.activities.status.coming">Phase 2</span>
           <p class="act-card-title" data-i18n="home.activities.a11.title">Yoga and movement classes</p>
         </div>
       </div>
@@ -1097,6 +1138,30 @@
   <div class="full-image full-bleed">
     <img src="/assets/cta-bg.jpg" alt="NāM Space" loading="lazy">
   </div>
+
+  <!-- Milestone / build progress -->
+  <section class="milestone-section">
+    <div class="milestone-inner fade-up">
+      <p class="milestone-eyebrow">Where we are</p>
+      <div class="milestone-track">
+        <div class="milestone-step current">
+          <span class="milestone-step-phase">Now</span>
+          <p class="milestone-step-title">Design &amp; community</p>
+          <p class="milestone-step-detail">Shaping the space with early members. Your input defines what gets built.</p>
+        </div>
+        <div class="milestone-step">
+          <span class="milestone-step-phase">2026</span>
+          <p class="milestone-step-title">Construction begins</p>
+          <p class="milestone-step-detail">Phase 1 build starts. Co-working, community kitchen, learning spaces, and accommodations.</p>
+        </div>
+        <div class="milestone-step">
+          <span class="milestone-step-phase">2027</span>
+          <p class="milestone-step-title">Phase 1 opens</p>
+          <p class="milestone-step-detail">Doors open to members. Founding members get first access and locked-in rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Blog -->
   <section class="blog-section">
@@ -1140,12 +1205,33 @@
   <section class="cta-section">
     <div class="cta-card fade-up">
       <div class="cta-header">
-        <h2 class="h2" data-i18n="cta.title">Join our journey</h2>
-        <p class="body-lg" data-i18n="cta.subtitle">And be the first to know about what's happening as we build, grow and open our doors.</p>
+        <h2 class="h2" data-i18n="cta.title">Become a founding member</h2>
+        <p class="body-lg" data-i18n="cta.subtitle">Shape what NāM becomes. Founding members get early access, founding rates, and a real say in what gets built.</p>
+      </div>
+      <div class="cta-benefits">
+        <div class="cta-benefit">
+          <p class="cta-benefit-title">Early access</p>
+          <p class="cta-benefit-desc">Be first to book when Phase 1 opens its doors</p>
+        </div>
+        <div class="cta-benefit">
+          <p class="cta-benefit-title">Founding rates</p>
+          <p class="cta-benefit-desc">Locked-in membership pricing before public launch</p>
+        </div>
+        <div class="cta-benefit">
+          <p class="cta-benefit-title">Shape the space</p>
+          <p class="cta-benefit-desc">Your input directly influences what gets built in Phase 1</p>
+        </div>
       </div>
       <div class="cta-bar-inside">
-        <p class="body-lg-semi" data-i18n="cta.follow">Follow our Instagram for updates</p>
-        <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="btn cta-btn-inside" data-i18n="cta.button">Go to Instagram</a>
+        <p class="body-lg-semi" data-i18n="cta.follow">Follow our journey on Instagram</p>
+        <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="btn cta-btn-inside" data-i18n="cta.button">Follow @namspaceth</a>
+      </div>
+      <div class="cta-founder">
+        <img src="/assets/alex-boulder-phangan-web.jpg" alt="Alex Duffner, founder of NāM" class="cta-founder-img">
+        <p class="cta-founder-text">
+          <strong>Alex Duffner, Founder</strong>
+          Building NāM on Koh Phangan since 2024. Designer, solopreneur, and island lover — making the space I always wished existed.
+        </p>
       </div>
     </div>
   </section>
