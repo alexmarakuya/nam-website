@@ -6,7 +6,7 @@
 <title>NāM Space — Founding Member Offer</title>
 <meta name="description" content="NāM Space — a design-led co-creation space on Koh Phangan, Thailand.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://nam.space/pitch/space/">
+<meta property="og:url" content="https://nam.space/pitch/space/founding-member-deck/">
 <meta property="og:title" content="NāM Space — Co-creation Space on Koh Phangan">
 <meta property="og:description" content="A design-led co-creation space on Koh Phangan.">
 <meta property="og:image:width" content="1200">
@@ -129,7 +129,7 @@
   .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.28; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); background-size: 180px 180px; mix-blend-mode: overlay; }
 
   /* Watermark */
-  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('/assets/River.png'); background-repeat: no-repeat; }
+  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('../../../assets/River.png'); background-repeat: no-repeat; }
   .watermark-light::before { opacity: 0.04; mix-blend-mode: multiply; }
   .watermark-dark::before { opacity: 0.06; mix-blend-mode: soft-light; filter: invert(1); }
   .wm-tr::before { width: 70%; height: 110%; top: -15%; right: -10%; background-size: contain; background-position: top right; }
@@ -430,7 +430,175 @@
 <div class="deck" id="deck">
 
 <!-- 01 ─ Hero -->
-<section class="slide hero-slide" id="s1">
+<!-- 01 ─ The Search (Big Quote) -->
+<section class="slide bg-dark grain" id="s1" style="position:relative;overflow:hidden;">
+  <div class="slide-inner grid-2" style="align-items:center;gap:4rem;">
+    <div>
+      <h1 style="font-size:clamp(2.2rem,4vw,3.4rem);font-weight:400;line-height:1.25;color:var(--bg);letter-spacing:-0.02em;">I spent nearly 10&nbsp;years traveling the world, looking for a place that didn&rsquo;t exist yet.</h1>
+      <p class="sub" style="margin-top:2rem;color:rgba(244,242,232,0.5);max-width:480px;">A place to build, to create, to grow &mdash; surrounded by people doing the same.</p>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;">
+      <img src="/assets/alex-lake-atitlan-guatemala-web.jpg" alt="Alex at Lake Atitlán, Guatemala" style="width:100%;max-height:70vh;object-fit:cover;border-radius:12px;">
+    </div>
+  </div>
+</section>
+
+
+<!-- 02 ─ What Was Missing (Founder Story) -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s2">
+  <div class="slide-inner" style="max-width:1200px;">
+    <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The search</div>
+    <h2>I found glimpses everywhere</h2>
+    <p class="sub-ep" style="margin-top:0.75rem;max-width:620px;margin-bottom:2rem;">Every place gave me a piece of what I was looking for.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.8rem 1.25rem;">
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Mongolia</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The incredible travel stories I heard in the hostel common room in Ulaanbaatar</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Mexico City</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The house my friend William and I turned into a startup HQ during COVID</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Medell&iacute;n</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The caf&eacute;s where I could work and socialize in the same room</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">SF &amp; London</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The hackerspaces where I got inspired by the craziest projects people were building</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Thailand</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The wellness spaces where I could unwind and reset my nervous system</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Everywhere</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The advice from fellow travelers around fireplaces &mdash; about life, awareness, and recognizing my own patterns</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Chiang Mai</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">Edge City &mdash; where I discovered pop-up cities, alternative governance, and regenerative finance</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Mexico City</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The beautiful designer-run co-living house my friend Ari created</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">London</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The Art Foundation course where I tried every art form and fell in love with pottery and sculpture</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">USA road trip</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">Where I learned how tiring it is to keep moving and never land</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Puerto Vallarta</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The co-working events I organized that turned into friendships and client connections</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Barcelona</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The dinners I hosted that brought groups of strangers together &mdash; still friends to this day</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Lake Atitl&aacute;n</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The stunning views that reminded me the world is bigger than any screen</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Every new city</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The loneliness of arriving somewhere new and not knowing anyone</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Every country</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The places where locals took me in and made me feel like I belonged</p>
+      </div>
+      <div>
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Oaxaca</span>
+        <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The moment I sat at a shared table with strangers &mdash; and it changed the trajectory of my life</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">02</div>
+</section>
+
+
+<!-- 03 ─ Finding Home (Founder Story) -->
+<section class="slide bg-warm grain watermark watermark-light wm-bl" id="s3">
+  <div class="slide-inner" style="max-width:750px;">
+    <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Koh Phangan</div>
+    <h2>Then I found the island</h2>
+    <p class="sub-ep" style="margin-top:1.5rem;">I landed on Koh Phangan and it had almost everything. The creative energy. The nature. The wellness. The events. The people building interesting things.</p>
+    <p class="sub-ep" style="margin-top:1.5rem;">It was only missing one crucial component: a <strong>physical space</strong> that brings it all together. A home for founders and people building things that matter.</p>
+    <p class="sub-ep" style="margin-top:1.5rem;">So I started building. First a community. Then I took an abandoned villa and turned it into <strong>Kin Haus</strong>, a co-living and co-working house. It became the proof of concept for something much bigger.</p>
+  </div>
+  <div class="sn">05</div>
+</section>
+
+
+<!-- 04 ─ Community Photo Collage -->
+<section class="slide bg-green grain" id="s4" style="padding:0;overflow:hidden;position:relative;">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:5px;padding:5px;width:100%;height:100%;">
+    <!-- Row 1-2, Col 1: video spanning 2 rows -->
+    <div style="border-radius:5px;overflow:hidden;grid-row:1/3;">
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+        <source src="/assets/Island_Connection_short.mp4" type="video/mp4">
+      </video>
+    </div>
+    <!-- Row 1, Col 2 -->
+    <div style="border-radius:5px;overflow:hidden;">
+      <img src="/assets/alex-landowners-site-visit-web.jpg" alt="With neighbors" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <!-- Row 1, Col 3 -->
+    <div style="border-radius:5px;overflow:hidden;">
+      <img src="/assets/mom-web.jpg" alt="With mom" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <!-- Row 2, Col 2: Text tile -->
+    <div style="border-radius:5px;overflow:hidden;background:var(--terracotta);display:flex;align-items:center;justify-content:center;padding:1.25rem;text-align:center;">
+      <p style="font-family:'Caveat',cursive;font-size:clamp(1.2rem,2vw,1.6rem);color:var(--bg);line-height:1.35;">This is what community feels like. Friends from all over the world, connected to my Thai roots through my neighbors.</p>
+    </div>
+    <!-- Row 2, Col 3 -->
+    <div style="border-radius:5px;overflow:hidden;">
+      <img src="/assets/alex-tree-blessing-phangan-web.jpg" alt="Tree blessing ceremony on Koh Phangan" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <!-- Row 3, Col 1 -->
+    <div style="border-radius:5px;overflow:hidden;">
+      <img src="/assets/friends-boat-phangan.jpeg" alt="Friends on a boat" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <!-- Row 3, Col 2 -->
+    <div style="border-radius:5px;overflow:hidden;">
+      <img src="/assets/Island Connection-web.jpg" alt="Island Connection" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <!-- Row 3, Col 3 -->
+    <div style="border-radius:5px;overflow:hidden;">
+      <img src="/assets/Party_Before-web.jpg" alt="Community gathering" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+  <div class="sn">04</div>
+</section>
+
+
+<!-- 05 ─ The Island's Struggle / A Place of Balance -->
+<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s5">
+  <div class="slide-inner" style="max-width:850px;">
+    <div class="label" style="color:var(--terracotta);"><img src="/assets/Asterix.svg" alt="" style="width:18px;height:18px;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);"> The deeper why</div>
+    <h2 style="color:var(--bg);">But I also saw something else</h2>
+    <p class="sub-ep" style="margin-top:1.5rem;color:rgba(244,242,232,0.75);">The island was struggling. People were treating it as a playground. Without respect for local culture, for nature, or for the spirit that makes Koh Phangan special.</p>
+    <p class="sub-ep" style="margin-top:1.5rem;color:rgba(244,242,232,0.75);">This project doesn&rsquo;t want to create another import. Another hustle incubator. I want to create something that comes <em>from the land</em>, from the spirit of generosity and tolerance that Thailand embodies, and fuse it with the creativity, the foresight, and the open spirit of the international community.</p>
+    <p class="sub-ep" style="margin-top:1.5rem;color:rgba(244,242,232,0.75);">A place of balance. Between working and living. Between giving and receiving. Between learning and teaching. Between going inside and opening up. Between nature and technology.</p>
+  </div>
+</section>
+
+
+<!-- 06 ─ The Vision Bridge (Founder Story) -->
+<section class="slide bg-green grain watermark watermark-dark wm-center" id="s6">
+  <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+    <h2 style="font-size:clamp(3rem,5.5vw,5rem);color:var(--bg);">Now I&rsquo;m building that place.</h2>
+    <p class="sub" style="margin-top:2rem;color:rgba(244,242,232,0.55);">N&#x101;M Space</p>
+  </div>
+</section>
+
+
+<!-- 06 ─ Hero -->
+<section class="slide hero-slide" id="s8">
   <div class="hero-main grain">
     <div class="hero-content">
       <h1>N&#x101;M<br>Space</h1>
@@ -454,93 +622,33 @@
 </section>
 
 
-<!-- 02 ─ Intro -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s2">
-  <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;">
-    <div style="max-width:700px;">
-      <h2 style="font-size:2.2rem;line-height:1.35;"><span style="color:var(--terracotta);">N&#x101;M Space</span> is a design-led co-creation space where founders, creatives, and remote teams come to live and work together in a truly supportive and inspiring environment.</h2>
-    </div>
-    <div style="display:flex;flex-direction:column;flex:1;justify-content:space-between;border-top:1px solid rgba(42,58,43,0.12);margin-top:2.5rem;">
-      <div style="display:flex;align-items:center;gap:1.2rem;padding:1.6rem 0;border-bottom:1px solid rgba(42,58,43,0.12);">
-        <img src="/assets/Asterix.svg" alt="" style="width:22px;height:22px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(47%) sepia(52%) saturate(588%) hue-rotate(338deg) brightness(92%) contrast(89%);">
-        <span style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--green);">Work &amp; Activity Spaces</span>
-        <span style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:400;color:var(--text-secondary);margin-left:auto;">Intentionally designed to support deep focus and collaboration</span>
+<!-- 05 ─ At a Glance -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s8">
+  <div class="slide-inner" style="max-width:1200px;">
+    <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Overview</div>
+    <h2>N&#x101;M Space at a glance</h2>
+    <p class="sub-ep" style="margin-top:1rem;max-width:640px;">A design-led co-working and co-living campus on Koh Phangan &mdash; nature-integrated workspace, accommodation, wellness, and community, built in phases on 4,800m&sup2; of freehold land.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:2.5rem;">
+      <div style="padding:1.5rem;background:var(--green);border-radius:10px;">
+        <h4 style="color:var(--terracotta);font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.75rem;">Work</h4>
+        <p style="color:var(--bg);font-size:0.95rem;line-height:1.6;opacity:0.85;">Co-working space, private work pods, creative classrooms &amp; workshops</p>
       </div>
-      <div style="display:flex;align-items:center;gap:1.2rem;padding:1.6rem 0;border-bottom:1px solid rgba(42,58,43,0.12);">
-        <img src="/assets/Asterix.svg" alt="" style="width:22px;height:22px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(47%) sepia(52%) saturate(588%) hue-rotate(338deg) brightness(92%) contrast(89%);">
-        <span style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--green);">Accommodation</span>
-        <span style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:400;color:var(--text-secondary);margin-left:auto;">Nature-integrated treehouse-style studios</span>
+      <div style="padding:1.5rem;background:var(--green);border-radius:10px;">
+        <h4 style="color:var(--terracotta);font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.75rem;">Live</h4>
+        <p style="color:var(--bg);font-size:0.95rem;line-height:1.6;opacity:0.85;">Treehouse studios, monthly &amp; weekly stays, designed for depth over turnover</p>
       </div>
-      <div style="display:flex;align-items:center;gap:1.2rem;padding:1.6rem 0;border-bottom:1px solid rgba(42,58,43,0.12);">
-        <img src="/assets/Asterix.svg" alt="" style="width:22px;height:22px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(47%) sepia(52%) saturate(588%) hue-rotate(338deg) brightness(92%) contrast(89%);">
-        <span style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--green);">Restorative Wellness</span>
-        <span style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:400;color:var(--text-secondary);margin-left:auto;">Dedicated outdoor wellness zone and programming</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:1.2rem;padding:1.6rem 0;border-bottom:1px solid rgba(42,58,43,0.12);">
-        <img src="/assets/Asterix.svg" alt="" style="width:22px;height:22px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(47%) sepia(52%) saturate(588%) hue-rotate(338deg) brightness(92%) contrast(89%);">
-        <span style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--green);">Culture &amp; Community</span>
-        <span style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:400;color:var(--text-secondary);margin-left:auto;">Mutual support, experimentation, and creative expression</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:1.2rem;padding:1.6rem 0;">
-        <img src="/assets/Asterix.svg" alt="" style="width:22px;height:22px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(47%) sepia(52%) saturate(588%) hue-rotate(338deg) brightness(92%) contrast(89%);">
-        <span style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--green);">Events &amp; Activities</span>
-        <span style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:400;color:var(--text-secondary);margin-left:auto;">Shared learning, workshops, and gatherings</span>
+      <div style="padding:1.5rem;background:var(--green);border-radius:10px;">
+        <h4 style="color:var(--terracotta);font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.75rem;">Gather</h4>
+        <p style="color:var(--bg);font-size:0.95rem;line-height:1.6;opacity:0.85;">Wellness facilities, community events, caf&eacute;, permaculture gardens</p>
       </div>
     </div>
   </div>
-  <div class="sn">02</div>
+  <div class="sn">08</div>
 </section>
 
 
-<!-- 03 ─ At a Glance -->
-<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s3">
-  <div class="slide-inner grid-2" style="align-items:center;gap:8rem;">
-    <div>
-      <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Overview</div>
-      <h2>N&#x101;M Space at a glance</h2>
-      <p class="sub-ep" style="margin-top:1rem;">Co-working workspace, nature-integrated accommodation, wellness facilities, activity spaces, and community gathering areas &mdash; built in phases on Koh Phangan.</p>
-    </div>
-    <div>
-      <div style="display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <img src="/assets/Asterix.svg" alt="" style="width:18px;height:18px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
-          <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.4rem;color:var(--green);">8</span>
-          <span style="font-family:'Epilogue',sans-serif;font-weight:400;font-size:1.4rem;color:var(--green);">Live-in studios</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <img src="/assets/Asterix.svg" alt="" style="width:18px;height:18px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
-          <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.4rem;color:var(--green);">50</span>
-          <span style="font-family:'Epilogue',sans-serif;font-weight:400;font-size:1.4rem;color:var(--green);">Co-working seats</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <img src="/assets/Asterix.svg" alt="" style="width:18px;height:18px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
-          <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.4rem;color:var(--green);">2</span>
-          <span style="font-family:'Epilogue',sans-serif;font-weight:400;font-size:1.4rem;color:var(--green);">Private offices</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <img src="/assets/Asterix.svg" alt="" style="width:18px;height:18px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
-          <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.4rem;color:var(--green);">300m&sup2;</span>
-          <span style="font-family:'Epilogue',sans-serif;font-weight:400;font-size:1.4rem;color:var(--green);">Work &amp; activity spaces</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(42,58,43,0.1);">
-          <img src="/assets/Asterix.svg" alt="" style="width:18px;height:18px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
-          <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.4rem;color:var(--green);">330m&sup2;</span>
-          <span style="font-family:'Epilogue',sans-serif;font-weight:400;font-size:1.4rem;color:var(--green);">Common &amp; activity spaces</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:1rem;padding:1.1rem 0;">
-          <img src="/assets/Asterix.svg" alt="" style="width:18px;height:18px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);">
-          <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.4rem;color:var(--terracotta);">4,800m&sup2;</span>
-          <span style="font-family:'Epilogue',sans-serif;font-weight:400;font-size:1.4rem;color:var(--green);">Freehold land</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="sn">03</div>
-</section>
-
-
-<!-- 04 ─ Why Koh Phangan -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s4">
+<!-- 06 ─ Why Koh Phangan -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s9">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Why here</div>
@@ -561,12 +669,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">04</div>
+  <div class="sn">09</div>
 </section>
 
 
-<!-- 05 ─ The Island -->
-<section class="slide bg-cream grain" id="s5">
+<!-- 07 ─ The Island -->
+<section class="slide bg-cream grain" id="s10">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The Island</div>
@@ -595,12 +703,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">05</div>
+  <div class="sn">10</div>
 </section>
 
 
-<!-- 06 ─ Landscape -->
-<section class="slide img-full" id="s6">
+<!-- 08 ─ Landscape -->
+<section class="slide img-full" id="s11">
   <img src="/assets/site-landscape-palms-boulders.jpg" alt="NāM Space landscape">
   <div class="img-full-overlay"></div>
   <div class="img-full-caption">
@@ -608,24 +716,24 @@
     <h2>Surrounded by nature</h2>
     <p>The N&#x101;M campus sits on secured land in Koh Phangan&rsquo;s creative heartland &mdash; close enough to the village, far enough to breathe.</p>
   </div>
-  <div class="sn">06</div>
+  <div class="sn">11</div>
 </section>
 
 
-<!-- 07 ─ The Problem -->
-<section class="slide bg-green grain watermark watermark-dark wm-center" id="s7">
+<!-- 09 ─ The Problem -->
+<section class="slide bg-green grain watermark watermark-dark wm-center" id="s12">
   <div class="slide-inner" style="max-width:800px;">
     <div class="label">The gap</div>
     <h2>People crave intentional spaces and community</h2>
     <p class="sub" style="margin-top:1.5rem;">Workspaces with no soul. Retreats with no work infrastructure. Communities with no depth. Most spaces offer one thing and bolt the rest on as an afterthought.</p>
     <p class="sub" style="margin-top:1.5rem;">The people doing the most meaningful work &mdash; the founders, the artists, the builders &mdash; are making do with places that weren&rsquo;t designed for how they actually work.</p>
   </div>
-  <div class="sn">07</div>
+  <div class="sn">12</div>
 </section>
 
 
-<!-- 08 ─ The Solution -->
-<section class="slide bg-terracotta grain" id="s8">
+<!-- 10 ─ The Solution -->
+<section class="slide bg-terracotta grain" id="s13">
   <div class="slide-inner" style="max-width:1100px;">
     <div class="label">The answer</div>
     <h2>Everything in one place</h2>
@@ -637,7 +745,7 @@
       </div>
       <div style="flex:1;padding:0 1.5rem;border-left:1px solid rgba(244,242,232,0.15);">
         <h4 style="color:var(--bg);font-size:1.3rem;">Live</h4>
-        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">16 private studios (8 founding + 8 Phase 2), communal kitchen, shared spaces</p>
+        <p style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.65);line-height:1.6;">8 private studios, communal kitchen, shared spaces</p>
       </div>
       <div style="flex:1;padding:0 1.5rem;border-left:1px solid rgba(244,242,232,0.15);">
         <h4 style="color:var(--bg);font-size:1.3rem;">Restore</h4>
@@ -653,12 +761,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">08</div>
+  <div class="sn">13</div>
 </section>
 
 
-<!-- 09 ─ Section: The Philosophy -->
-<section class="slide hero-slide" id="s9">
+<!-- 11 ─ Section: The Philosophy -->
+<section class="slide hero-slide" id="s14">
   <div class="hero-main grain">
     <div class="hero-content">
       <div class="label" style="color:var(--terracotta-light);">Part two</div>
@@ -667,7 +775,7 @@
       <p class="sub" style="color:rgba(244,242,232,0.55);margin-top:1.5rem;">How we think, what we value, and why the space feels different.</p>
     </div>
     <div class="hero-footer-line">
-      <span style="color:rgba(244,242,232,0.3);">09</span>
+      <span style="color:rgba(244,242,232,0.3);">11</span>
     </div>
   </div>
   <div class="hero-accent-strip">
@@ -682,8 +790,8 @@
 </section>
 
 
-<!-- 10 ─ Water: The Thesis -->
-<section class="slide bg-green grain watermark watermark-dark wm-center" id="s10" style="position:relative;overflow:hidden;">
+<!-- 12 ─ Water: The Thesis -->
+<section class="slide bg-green grain watermark watermark-dark wm-center" id="s15" style="position:relative;overflow:hidden;">
   <img src="/assets/river-texture.svg" alt="" style="position:absolute;right:-5%;top:50%;transform:translateY(-50%);height:90%;opacity:0.1;pointer-events:none;">
   <div class="slide-inner" style="max-width:850px;position:relative;z-index:1;">
     <div class="label" style="color:var(--terracotta-light);">The element</div>
@@ -692,12 +800,12 @@
     <p class="sub" style="margin-top:1.5rem;color:rgba(244,242,232,0.95);max-width:640px;font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.8;">We&rsquo;re building the banks &mdash; the structure that lets creativity flow with purpose and create impact far beyond this island.</p>
     <p style="font-family:'Epilogue',sans-serif;font-style:italic;font-weight:300;color:var(--terracotta-light);margin-top:2rem;font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.8;">Everything flows from here.</p>
   </div>
-  <div class="sn">10</div>
+  <div class="sn">15</div>
 </section>
 
 
-<!-- 11 ─ Rhythm: Structure Enables Flow -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s11">
+<!-- 13 ─ Rhythm: Structure Enables Flow -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s16">
   <div class="slide-inner" style="max-width:900px;">
     <div style="margin-bottom:2rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Rhythm</div>
@@ -723,13 +831,13 @@
       </div>
     </div>
   </div>
-  <div class="sn">11</div>
+  <div class="sn">16</div>
 </section>
 
 
 
-<!-- 12 ─ Mission -->
-<section class="slide bg-terracotta grain" id="s12">
+<!-- 14 ─ Mission -->
+<section class="slide bg-terracotta grain" id="s17">
   <div class="slide-inner" style="max-width:800px;">
     <div class="label">The mission</div>
     <h2>Build environments where people do their best work</h2>
@@ -749,12 +857,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">12</div>
+  <div class="sn">17</div>
 </section>
 
 
-<!-- 13 ─ Values -->
-<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s13">
+<!-- 15 ─ Values -->
+<section class="slide bg-cream grain watermark watermark-light wm-bl" id="s18">
   <div class="slide-inner" style="max-width:1000px;">
     <div style="margin-bottom:1.5rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Values</div>
@@ -793,12 +901,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">13</div>
+  <div class="sn">18</div>
 </section>
 
 
-<!-- 14 ─ Section: What We're Building -->
-<section class="slide hero-slide" id="s14">
+<!-- 16 ─ Section: What We're Building -->
+<section class="slide hero-slide" id="s19">
   <div class="hero-main grain">
     <div class="hero-content">
       <div class="label" style="color:var(--terracotta-light);">Part three</div>
@@ -808,7 +916,7 @@
       <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.35);margin-top:1.5rem;line-height:1.8;">Work &amp; Creation &middot; Accommodation &middot; Wellness &middot; Community &middot; Events &amp; Activities</p>
     </div>
     <div class="hero-footer-line">
-      <span style="color:rgba(244,242,232,0.3);">14</span>
+      <span style="color:rgba(244,242,232,0.3);">16</span>
     </div>
   </div>
   <div class="hero-accent-strip">
@@ -821,8 +929,8 @@
 </section>
 
 
-<!-- 15 ─ Work & Creation -->
-<section class="slide swiss-split" id="s15">
+<!-- 17 ─ Work & Creation -->
+<section class="slide swiss-split" id="s20">
   <div class="swiss-split-img">
     <img src="/assets/deep-work-1.jpg" alt="NāM workspace">
     <div class="swiss-split-img-overlay"></div>
@@ -859,12 +967,12 @@
       <div><h4>Event &amp; workshop space</h4><p>Flexible rooms for talks, workshops, and community gatherings.</p></div>
     </div>
   </div>
-  <div class="sn">15</div>
+  <div class="sn">20</div>
 </section>
 
 
-<!-- 16 ─ Accommodation -->
-<section class="slide swiss-split" id="s16">
+<!-- 18 ─ Accommodation -->
+<section class="slide swiss-split" id="s21">
   <div class="swiss-split-img">
     <img src="/assets/exterior-3.jpg" alt="NāM accommodation">
     <div class="swiss-split-img-overlay"></div>
@@ -886,14 +994,14 @@
     </div>
     <div class="list-item">
       <div class="dot"></div>
-      <div><h4>Founder's House</h4><p>Two-week founder residencies run from the space — structured co-living with curated programming, community events, and deep work sessions.</p></div>
+      <div><h4>Founder's House residencies</h4><p>Two-week founder residencies run from the space — structured co-living with curated programming, community events, and deep work sessions.</p></div>
     </div>
   </div>
 </section>
 
 
-<!-- 17 ─ Wellness -->
-<section class="slide swiss-split swiss-split-reverse" id="s17">
+<!-- 19 ─ Wellness -->
+<section class="slide swiss-split swiss-split-reverse" id="s22">
   <div class="swiss-split-content">
     <div class="list-item">
       <div class="dot"></div>
@@ -922,12 +1030,12 @@
       <p style="color:rgba(244,242,232,0.7);margin-top:0.5rem;">Designed into the daily rhythm so restoration is habit, not holiday.</p>
     </div>
   </div>
-  <div class="sn">17</div>
+  <div class="sn">22</div>
 </section>
 
 
-<!-- 18 ─ Community Spaces -->
-<section class="slide swiss-split" id="s18">
+<!-- 20 ─ Community Spaces -->
+<section class="slide swiss-split" id="s23">
   <div class="swiss-split-img">
     <img src="/assets/cafe-1.jpg" alt="NāM community">
     <div class="swiss-split-img-overlay"></div>
@@ -955,8 +1063,8 @@
 </section>
 
 
-<!-- 19 ─ Already Happening -->
-<section class="slide bg-green grain" id="s19" style="padding:0;overflow:hidden;">
+<!-- 21 ─ Already Happening -->
+<section class="slide bg-green grain" id="s24" style="padding:0;overflow:hidden;">
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:5px;padding:5px;width:100%;height:100%;">
     <!-- Row 1-2, Col 1: video spanning 2 rows -->
     <div style="border-radius:5px;overflow:hidden;grid-row:1/3;">
@@ -997,15 +1105,15 @@
     </div>
     <!-- Row 3, Col 3 -->
     <div style="border-radius:5px;overflow:hidden;">
-      <img src="/assets/Party_Before.JPG" alt="Community gathering" style="width:100%;height:100%;object-fit:cover;">
+      <img src="/assets/Party_Before-web.jpg" alt="Community gathering" style="width:100%;height:100%;object-fit:cover;">
     </div>
   </div>
-  <div class="sn">19</div>
+  <div class="sn">24</div>
 </section>
 
 
-<!-- 20 ─ Who It's For -->
-<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s20">
+<!-- 22 ─ Who It's For -->
+<section class="slide bg-green grain watermark watermark-dark wm-tr" id="s25">
   <div class="slide-inner">
     <div style="margin-bottom:2rem;">
       <div class="label">Audience</div>
@@ -1042,12 +1150,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">20</div>
+  <div class="sn">25</div>
 </section>
 
 
-<!-- 21 ─ Location -->
-<section class="slide swiss-split" id="s21">
+<!-- 23 ─ Location -->
+<section class="slide swiss-split" id="s26">
   <div class="swiss-split-img" style="background:#1a1a18;overflow:hidden;position:relative;">
     <div class="map-flyin" style="width:100%;height:100%;position:relative;">
       <iframe src="https://maps.google.com/maps?q=9.709964,100.019259&t=k&z=17&output=embed" width="100%" height="100%" style="border:0;position:absolute;inset:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -1069,8 +1177,8 @@
 </section>
 
 
-<!-- 22 ─ Commitments Detail -->
-<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s22">
+<!-- 24 ─ Commitments Detail -->
+<section class="slide bg-green grain watermark watermark-dark wm-bl" id="s27">
   <div class="slide-inner" style="max-width:1000px;">
     <div style="margin-bottom:2rem;">
       <div class="label">Commitments</div>
@@ -1122,12 +1230,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">22</div>
+  <div class="sn">27</div>
 </section>
 
 
-<!-- 23 ─ Development Phases -->
-<section class="slide bg-cream grain watermark watermark-light wm-br" id="s23">
+<!-- 25 ─ Development Phases -->
+<section class="slide bg-cream grain watermark watermark-light wm-br" id="s28">
   <div class="slide-inner">
     <div style="margin-bottom:2.5rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Roadmap</div>
@@ -1141,7 +1249,7 @@
         <div style="width:14px;height:14px;border-radius:50%;background:var(--terracotta);position:relative;z-index:1;margin-bottom:1.5rem;"></div>
         <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-secondary);margin-bottom:0.4rem;">Phase 1</div>
         <h3 style="color:var(--green);font-size:1.4rem;margin-bottom:0.75rem;">Founding Studios &amp; Campus Core</h3>
-        <p style="color:var(--text-secondary);line-height:1.6;">8 founding member studios, co-working workspace, shared kitchen, caf&eacute;, wellness and activity spaces. The first Founder's House cohort runs from here.</p>
+        <p style="color:var(--text-secondary);line-height:1.6;">8 founding member studios, co-working workspace, shared kitchen, caf&eacute;, wellness and activity spaces. The first Founder&rsquo;s House cohort runs from here.</p>
         <p style="font-family:'Sometype Mono',monospace;font-size:1.1rem;font-weight:600;color:var(--terracotta);margin-top:1rem;">2026&ndash;2027</p>
       </div>
       <!-- Phase 2 -->
@@ -1154,12 +1262,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">23</div>
+  <div class="sn">28</div>
 </section>
 
 
-<!-- 24 ─ Why Now -->
-<section class="slide bg-terracotta grain" id="s24">
+<!-- 26 ─ Why Now -->
+<section class="slide bg-terracotta grain" id="s29">
   <div class="slide-inner" style="max-width:1100px;">
     <div style="text-align:center;margin-bottom:2.5rem;">
       <div class="label" style="justify-content:center;">Momentum</div>
@@ -1188,12 +1296,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">24</div>
+  <div class="sn">29</div>
 </section>
 
 
-<!-- 25 ─ Vision -->
-<section class="slide img-full" id="s25">
+<!-- 27 ─ Vision -->
+<section class="slide img-full" id="s30">
   <img src="/assets/landscape.jpg" alt="Koh Phangan landscape">
   <div class="img-full-overlay" style="background:linear-gradient(to top, rgba(26,26,24,0.85) 0%, rgba(26,26,24,0.4) 50%, rgba(26,26,24,0.2) 100%);"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-start;z-index:2;padding:60px 80px;">
@@ -1202,42 +1310,12 @@
       <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.5);margin-top:1.5rem;">Koh Phangan, Thailand</p>
     </div>
   </div>
-  <div class="sn">25</div>
+  <div class="sn">30</div>
 </section>
 
 
-<!-- 26 ─ CTA -->
-<section class="slide swiss-split" id="s26">
-  <div class="swiss-split-img">
-    <img src="/assets/nam-main.jpg" alt="NāM Space campus">
-    <div class="swiss-split-img-overlay"></div>
-    <div class="swiss-split-img-caption">
-      <h2>N&#x101;M Space</h2>
-    </div>
-  </div>
-  <div class="swiss-split-bar"></div>
-  <div class="swiss-split-content">
-    <div class="cta-content">
-      <div class="label"><img src="/assets/asterisk.svg" alt="" class="asterisk asterisk-sm"> Next step</div>
-      <h2>Join the journey</h2>
-      <p>If something resonated &mdash; the vision, the space, the island &mdash; speak to us. No pressure, no rush.</p>
-      <p>Whether you want to work from here, collaborate, or just stay connected &mdash; we&rsquo;d love to hear from you.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
-        <a href="https://wa.me/66612345678" class="cta-btn cta-desktop-btn" target="_blank" rel="noopener">Message on WhatsApp &rarr;</a>
-        <button onclick="goTo(26)" class="cta-btn" style="background:transparent;border:2px solid var(--green);color:var(--green);cursor:pointer;">Interested in investing? &rarr;</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- FOUNDING MEMBER OFFER                      -->
-<!-- ═══════════════════════════════════════════ -->
-
-
-<!-- 27 ─ Founding Member Section Break -->
-<section class="slide bg-green grain" id="s27" style="overflow:hidden;">
+<!-- 31 ─ Founding Member Offer -->
+<section class="slide bg-green grain" id="s31" style="overflow:hidden;">
   <div style="position:absolute;top:50%;left:50%;width:1600px;height:1600px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(212,107,68,0.22) 0%,rgba(212,107,68,0.08) 40%,transparent 65%);animation:orbMove 35s ease-in-out infinite,orbMorph 25s ease-in-out infinite;pointer-events:none;z-index:0;filter:blur(70px);"></div>
   <style>
     @keyframes orbMove {
@@ -1266,12 +1344,12 @@
     </div>
     <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.4);margin-top:0.75rem;letter-spacing:0.06em;">Koh Phangan, Thailand &middot; 8 founding spots only</p>
   </div>
-  <div class="sn">27</div>
+  <div class="sn">31</div>
 </section>
 
 
-<!-- 28 ─ Three Numbers -->
-<section class="slide bg-green grain" id="s28">
+<!-- 32 ─ Three Numbers -->
+<section class="slide bg-green grain" id="s32">
   <div class="slide-inner" style="max-width:1200px;">
     <div style="margin-bottom:3rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The offer</div>
@@ -1296,12 +1374,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">28</div>
+  <div class="sn">32</div>
 </section>
 
 
-<!-- 29 ─ How It Works -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s29">
+<!-- 33 ─ How It Works -->
+<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s33">
   <div class="slide-inner" style="max-width:1100px;">
     <div style="margin-bottom:2.5rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The mechanics</div>
@@ -1339,12 +1417,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">29</div>
+  <div class="sn">33</div>
 </section>
 
 
-<!-- 30 ─ Returns Chart -->
-<section class="slide bg-cream grain" id="s30">
+<!-- 34 ─ Returns Chart -->
+<section class="slide bg-cream grain" id="s34">
   <div class="slide-inner" style="max-width:1300px;">
     <div style="margin-bottom:1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
       <div>
@@ -1505,24 +1583,24 @@
     // init after slide becomes active
     var inited = false;
     var observer = new MutationObserver(function() {
-      var slide = document.getElementById('s30');
+      var slide = document.getElementById('s34');
       if (slide && slide.classList.contains('active') && !inited) {
         inited = true;
         renderChart(activeScenario);
       }
     });
-    observer.observe(document.getElementById('s30'), { attributes: true, attributeFilter: ['class'] });
+    observer.observe(document.getElementById('s34'), { attributes: true, attributeFilter: ['class'] });
     // also render immediately in case slide is already active
     setTimeout(function() { if (!inited) { inited = true; renderChart(activeScenario); } }, 300);
   })();
   </script>
 
-  <div class="sn">30</div>
+  <div class="sn">34</div>
 </section>
 
 
-<!-- 31 ─ Tax Advantage -->
-<section class="slide bg-terracotta grain" id="s31">
+<!-- 35 ─ Tax Advantage -->
+<section class="slide bg-terracotta grain" id="s35">
   <div class="slide-inner" style="max-width:1050px;">
     <div style="margin-bottom:2.5rem;">
       <div class="label" style="color:rgba(244,242,232,0.65);">For European investors</div>
@@ -1558,12 +1636,12 @@
       </div>
     </div>
   </div>
-  <div class="sn">31</div>
+  <div class="sn">35</div>
 </section>
 
 
-<!-- 32 ─ Founder -->
-<section class="slide swiss-split" id="s32">
+<!-- 36 ─ Founder -->
+<section class="slide swiss-split" id="s36">
   <div class="swiss-split-img">
     <img src="/assets/alex-boulder-phangan-web.jpg" alt="Alex Duffner, Founder of NāM Space" onerror="this.src='/assets/nam-main.jpg'">
     <div class="swiss-split-img-overlay"></div>
@@ -1609,8 +1687,8 @@
 </section>
 
 
-<!-- 33 ─ Closing CTA -->
-<section class="slide bg-green grain" id="s33">
+<!-- 37 ─ Closing CTA -->
+<section class="slide bg-green grain" id="s37">
   <div class="slide-inner" style="max-width:860px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;">
     <img src="/assets/Asterix.svg" alt="" style="width:48px;height:48px;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);margin-bottom:2rem;">
     <div class="label" style="justify-content:center;color:var(--terracotta);">8 founding spots</div>
@@ -1622,7 +1700,7 @@
     </div>
     <p style="font-family:'Sometype Mono',monospace;font-size:0.75rem;color:rgba(244,242,232,0.3);margin-top:3rem;letter-spacing:0.08em;">N&#x101;M Space Company Limited &middot; Koh Phangan, Thailand &middot; Everything flows from here.</p>
   </div>
-  <div class="sn">33</div>
+  <div class="sn">37</div>
 </section>
 
 
@@ -1708,48 +1786,54 @@
   var navOpen = false;
 
   var slideData = [
+    { section: 'The Story', items: [
+      { idx: 0, title: 'The Search' },
+      { idx: 1, title: 'Glimpses' },
+      { idx: 2, title: 'Finding Home' },
+      { idx: 3, title: 'Community' },
+      { idx: 4, title: 'A Place of Balance' },
+      { idx: 5, title: 'The Vision' },
+      { idx: 6, title: 'Hero' }
+    ]},
     { section: 'Context', items: [
-      { idx: 0, title: 'N\u0101M Space' },
-      { idx: 1, title: 'Introduction' },
-      { idx: 2, title: 'At a Glance' },
-      { idx: 3, title: 'Why Koh Phangan' },
-      { idx: 4, title: 'The Island' },
-      { idx: 5, title: 'Landscape' },
-      { idx: 6, title: 'The Gap' },
-      { idx: 7, title: 'The Solution' }
+      { idx: 7, title: 'At a Glance' },
+      { idx: 8, title: 'Why Koh Phangan' },
+      { idx: 9, title: 'The Island' },
+      { idx: 10, title: 'Landscape' },
+      { idx: 11, title: 'The Gap' },
+      { idx: 12, title: 'The Solution' }
     ]},
     { section: 'Philosophy', items: [
-      { idx: 8, title: 'The Philosophy' },
-      { idx: 9, title: 'Water' },
-      { idx: 10, title: 'Rhythm' },
-      { idx: 11, title: 'Mission' },
-      { idx: 12, title: 'Values' }
+      { idx: 13, title: 'The Philosophy' },
+      { idx: 14, title: 'Water' },
+      { idx: 15, title: 'Rhythm' },
+      { idx: 16, title: 'Mission' },
+      { idx: 17, title: 'Values' }
     ]},
     { section: 'Five Pillars', items: [
-      { idx: 13, title: 'What We\u2019re Building' },
-      { idx: 14, title: 'Work & Creation' },
-      { idx: 15, title: 'Accommodation' },
-      { idx: 16, title: 'Wellness' },
-      { idx: 17, title: 'Community Spaces' },
-      { idx: 18, title: 'Events & Activities' }
+      { idx: 18, title: 'What We\u2019re Building' },
+      { idx: 19, title: 'Work & Creation' },
+      { idx: 20, title: 'Accommodation' },
+      { idx: 21, title: 'Wellness' },
+      { idx: 22, title: 'Community Spaces' },
+      { idx: 23, title: 'Events & Activities' }
     ]},
     { section: 'Close', items: [
-      { idx: 19, title: 'Who It\u2019s For' },
-      { idx: 20, title: 'Location' },
-      { idx: 21, title: 'How We Build' },
-      { idx: 22, title: 'Two Phases' },
-      { idx: 23, title: 'Why Now' },
-      { idx: 24, title: 'Vision' },
-      { idx: 25, title: 'Contact' }
+      { idx: 24, title: 'Who It\u2019s For' },
+      { idx: 25, title: 'Location' },
+      { idx: 26, title: 'How We Build' },
+      { idx: 27, title: 'Two Phases' },
+      { idx: 28, title: 'Why Now' },
+      { idx: 29, title: 'Vision' }
     ]},
     { section: 'Founding Member', items: [
-      { idx: 26, title: 'Founding Member Offer' },
-      { idx: 27, title: 'The Numbers' },
-      { idx: 28, title: 'How It Works' },
-      { idx: 29, title: 'Returns Chart' },
-      { idx: 30, title: 'Tax Advantage' },
-      { idx: 31, title: 'The Founder' },
-      { idx: 32, title: 'Ready to Join?' }
+      { idx: 30, title: 'Founding Member Offer' },
+      { idx: 31, title: 'The Numbers' },
+      { idx: 32, title: 'How It Works' },
+      { idx: 33, title: 'Returns Chart' },
+      { idx: 34, title: 'Tax Advantage' },
+      { idx: 35, title: 'The Founder' },
+      { idx: 36, title: 'Ready to Join?' }
     ]}
   ];
 
