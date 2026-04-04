@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM Space — Founding Member Offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --orange: #C4622D;
+    --green: #2D4A3E;
+    --dark: #1A1A18;
+    --muted: #8A8578;
+    --light-rule: rgba(196,98,45,0.15);
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { page-break-after: avoid; }
+  }
+
+  body {
+    background: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: var(--cream);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* LEFT SPINE */
+  .spine {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--orange);
+  }
+
+  /* HEADER */
+  .header {
+    padding: 48px 52px 0 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .logo-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--dark);
+  }
+
+  .logo-mark span {
+    color: var(--orange);
+  }
+
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 6px 12px;
+    margin-top: 4px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 40px 52px 36px 52px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--orange);
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 480px;
+    letter-spacing: 0.02em;
+  }
+
+  /* PRICE HERO */
+  .price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--green);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .price-currency {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--green);
+  }
+
+  .price-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-left: 4px;
+    align-self: center;
+  }
+
+  /* BREAKDOWN (dark) */
+  .breakdown {
+    padding: 32px 52px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+
+  .breakdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+
+  .breakdown-item {
+    padding: 0 24px 0 0;
+    border-right: 1px solid var(--light-rule);
+    margin-right: 24px;
+  }
+
+  .breakdown-item:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .breakdown-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .breakdown-value span {
+    font-size: 16px;
+    color: var(--orange);
+  }
+
+  .breakdown-name {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--dark);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .breakdown-desc {
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* WHAT YOU GET */
+  .benefits {
+    padding: 32px 52px;
+    border-bottom: 1px solid var(--light-rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 40px;
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .benefit-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .benefit-text strong {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 3px;
+  }
+
+  .benefit-text p {
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* TAX NOTE */
+  .tax-note {
+    margin: 0 52px;
+    padding: 20px 24px;
+    background: rgba(196,98,45,0.06);
+    border-left: 2px solid var(--orange);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .tax-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .tax-text {
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--dark);
+  }
+
+  .tax-text strong {
+    font-weight: 500;
+    color: var(--orange);
+  }
+
+  /* RETURNS TABLE */
+  .returns {
+    padding: 28px 52px 0 52px;
+  }
+
+  .returns-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .returns-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .returns-table th:not(:first-child) { text-align: right; }
+
+  .returns-table td {
+    font-size: 10px;
+    font-weight: 300;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-rule);
+    color: var(--dark);
+    vertical-align: middle;
+  }
+
+  .returns-table td:not(:first-child) { text-align: right; }
+
+  .returns-table tr:last-child td { border-bottom: none; }
+
+  .returns-table .highlight td {
+    color: var(--green);
+    font-weight: 400;
+  }
+
+  .returns-table .year {
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: auto;
+    padding: 24px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--light-rule);
+  }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+
+  .footer-contact {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="spine"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-mark">N<span>ā</span>M SPACE</div>
+    <div class="badge">Founding Member Offer — 2026</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Koh Phangan, Thailand &middot; 8 Founding Spots Only</div>
+    <h1 class="hero-title">Put in once.<br><em>Earn every year</em><br>for 30 years.</h1>
+    <p class="hero-sub">NāM Space is a design-led co-living and co-working campus on Koh Phangan. You invest once. Every year, NāM pays you a share of what it earns. You get your money back in around 8 years. After that, it's pure income — for 20 more years. Plus 3 weeks in Thailand, every year, included.</p>
+    <div class="price-block">
+      <div class="price-currency">€</div>
+      <div class="price-amount">55,555</div>
+      <div class="price-label">one time<br>investment</div>
+    </div>
+  </div>
+
+  <!-- THREE NUMBERS -->
+  <div class="breakdown" style="background:var(--green);">
+    <div class="breakdown-grid">
+      <div class="breakdown-item" style="border-right-color:rgba(245,240,232,0.1); margin-right:24px;">
+        <div class="breakdown-value" style="color:var(--orange); font-size:48px;">€6,750</div>
+        <div class="breakdown-name" style="color:var(--cream);">Per Year, Into Your Account</div>
+        <div class="breakdown-desc" style="color:rgba(245,240,232,0.6);">Your annual share of NāM Space earnings — from rooms, co-working memberships, events and retreats. Paid every January.</div>
+      </div>
+      <div class="breakdown-item" style="border-right-color:rgba(245,240,232,0.1); margin-right:24px;">
+        <div class="breakdown-value" style="color:var(--orange); font-size:48px;">~8<span style="font-size:20px; color:rgba(245,240,232,0.5);"> yrs</span></div>
+        <div class="breakdown-name" style="color:var(--cream);">To Get Your Money Back</div>
+        <div class="breakdown-desc" style="color:rgba(245,240,232,0.6);">At projected earnings your full €55,555 is returned in around 8 years. Then you keep earning for 20 more years with nothing further to pay.</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-value" style="color:var(--orange); font-size:48px;">3<span style="font-size:20px; color:rgba(245,240,232,0.5);"> wks</span></div>
+        <div class="breakdown-name" style="color:var(--cream);">Free Stay Per Year</div>
+        <div class="breakdown-desc" style="color:rgba(245,240,232,0.6);">Your room at NāM Space, every year for 10 years. A real base in one of Southeast Asia's most inspiring places — included, not extra.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="benefits" style="padding-top:28px; padding-bottom:28px;">
+    <div class="benefit-item">
+      <div class="benefit-dot"></div>
+      <div class="benefit-text">
+        <strong>You invest once</strong>
+        <p>€55,555 buys you a founding stake in NāM Space Company Limited. No ongoing fees, no top-ups, no hidden costs. Ever.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-dot"></div>
+      <div class="benefit-text">
+        <strong>NāM pays you every year</strong>
+        <p>Your share of net profit from rooms, co-working and events — distributed every January for 30 years. As NāM grows, your payment grows.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-dot"></div>
+      <div class="benefit-text">
+        <strong>8 founding spots only</strong>
+        <p>Not a sales tactic — just the number that makes sense for this phase of the campus. All 8 members get identical terms.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-dot"></div>
+      <div class="benefit-text">
+        <strong>Unlimited co-working included</strong>
+        <p>Fast internet, private desks, meeting rooms and a community of founders and remote professionals — yours as a founding member.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAX NOTE -->
+  <div class="tax-note">
+    <div class="tax-icon">&#9678;</div>
+    <div class="tax-text">
+      <strong>European investors:</strong> On request, part of your investment can be invoiced as a prepaid co-living and co-working membership by NāM Space Company Limited. For remote workers and self-employed professionals this may qualify as a business expense — potentially saving you <strong>€8–10K in tax immediately</strong>, bringing your effective investment closer to €45,000. Talk to your advisor. We handle the paperwork.
+    </div>
+  </div>
+
+  <!-- RETURNS TABLE -->
+  <div class="returns">
+    <div class="section-label" style="margin-bottom:16px;">What lands in your account each year</div>
+    <table class="returns-table">
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Your Annual Return</th>
+          <th>Money Back In</th>
+          <th>After 30 Years</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="year">Conservative</span></td>
+          <td>€5,556 / yr</td>
+          <td>~10 years</td>
+          <td>€166,000+</td>
+        </tr>
+        <tr class="highlight">
+          <td><span class="year">Midpoint</span></td>
+          <td>€6,750 / yr</td>
+          <td>~8 years</td>
+          <td>€202,000+</td>
+        </tr>
+        <tr>
+          <td><span class="year">Optimistic</span></td>
+          <td>€7,936 / yr</td>
+          <td>~7 years</td>
+          <td>€238,000+</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:9px;color:var(--muted);margin-top:10px;font-family:'DM Mono',monospace;letter-spacing:0.05em;">Projections based on 16 rooms at €1,500/month, co-working memberships and events at NāM Space. Founding member share: 2.5% of total net profit. Exchange rate €1 = ฿36. Paid annually after taxes. This is a profit share, not a guaranteed return — distributions are proportional to actual performance. NāM Space Company Limited, Koh Phangan, Thailand.</p>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div style="padding: 32px 52px; border-bottom: 1px solid var(--light-rule);">
+    <blockquote style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; font-style:italic; line-height:1.5; color:var(--green); letter-spacing:-0.01em; border-left:2px solid var(--orange); padding-left:24px; margin:0;">
+      An 11–15% annualised return, comparable to top-performing real estate, with a lifestyle asset in Southeast Asia included.
+    </blockquote>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="returns" style="padding-top:28px; padding-bottom:0;">
+    <div class="section-label" style="margin-bottom:20px;">How NāM Space grows</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0;">
+
+      <div style="padding:0 24px 0 0; border-right:1px solid var(--light-rule); margin-right:24px;">
+        <div style="font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.25em; text-transform:uppercase; color:var(--orange); margin-bottom:10px;">Phase 1 &middot; Now</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; color:var(--dark); margin-bottom:12px; line-height:1.2;">The Foundation</div>
+        <div style="font-size:10px; font-weight:300; line-height:1.8; color:var(--muted);">
+          8 rooms &middot; Co-working space &middot; Common areas &middot; Small café
+          <div style="margin-top:10px; font-size:9px; color:var(--dark); font-weight:400;">This is what your investment builds. A tight, beautifully designed campus that works from day one.</div>
+        </div>
+      </div>
+
+      <div style="padding:0 24px 0 0; border-right:1px solid var(--light-rule); margin-right:24px;">
+        <div style="font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.25em; text-transform:uppercase; color:var(--orange); margin-bottom:10px;">Phase 2 &middot; Year 2–3</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; color:var(--dark); margin-bottom:12px; line-height:1.2;">The Expansion</div>
+        <div style="font-size:10px; font-weight:300; line-height:1.8; color:var(--muted);">
+          16 rooms &middot; Expanded co-working &middot; Event space &middot; Auditorium for classes and conferences &middot; Wellness areas
+          <div style="margin-top:10px; font-size:9px; color:var(--dark); font-weight:400;">This is where revenue accelerates and your annual distribution grows with it.</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.25em; text-transform:uppercase; color:var(--orange); margin-bottom:10px;">Phase 3 &middot; Year 4+</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; color:var(--dark); margin-bottom:12px; line-height:1.2;">The Campus</div>
+        <div style="font-size:10px; font-weight:300; line-height:1.8; color:var(--muted);">
+          Art and creator spaces &middot; Full restaurant and café &middot; Maker spaces &middot; Gym and fitness facilities
+          <div style="margin-top:10px; font-size:9px; color:var(--dark); font-weight:400;">A full creative and wellness campus. Multiple revenue streams. Your share grows with every addition.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">NāM Space Company Limited &middot; Koh Phangan, Thailand &middot; Everything flows from here.</div>
+    <a href="mailto:alex@nam.space" class="footer-contact">alex@nam.space</a>
+  </div>
+
+</div>
+</body>
+</html>
