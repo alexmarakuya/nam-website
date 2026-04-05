@@ -406,19 +406,6 @@
 </head>
 <body>
 
-<div id="mobileNotice" style="display:none;position:fixed;inset:0;z-index:9999;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;">
-  <div style="width:48px;height:48px;margin-bottom:1.5rem;opacity:0.4;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--green);"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-  </div>
-  <h2 style="font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:500;color:var(--green);margin-bottom:0.75rem;">Best viewed on desktop</h2>
-  <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:var(--text-secondary);line-height:1.6;max-width:320px;">This presentation is designed for larger screens. Please open it on a laptop or desktop for the best experience.</p>
-  <button onclick="document.getElementById('mobileNotice').style.display='none'" style="margin-top:2rem;padding:0.75rem 1.5rem;font-family:'Sometype Mono',monospace;font-size:0.8rem;background:var(--green);color:var(--bg);border:none;border-radius:4px;cursor:pointer;letter-spacing:0.05em;">Continue anyway &rarr;</button>
-</div>
-<style>
-  @media (max-width: 960px) {
-    #mobileNotice { display:flex !important; }
-  }
-</style>
 
 <div class="progress-bar" id="progress"></div>
 <div class="env-badge" id="envBadge" style="display:none;">
@@ -1378,8 +1365,9 @@
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
     <div class="label" style="justify-content:center;color:var(--terracotta);">Investment</div>
     <h2 style="max-width:640px;color:var(--bg);font-size:clamp(2.4rem,4.5vw,3.8rem);">The Founding Member Offer</h2>
-    <p class="sub" style="margin-top:1.25rem;max-width:520px;color:rgba(244,242,232,0.65);">8 founding spots. Your own studio. Unlimited personal use. Rental income when you&rsquo;re away.</p>
+    <p class="sub" style="margin-top:1.25rem;max-width:520px;color:rgba(244,242,232,0.65);">8 founding spots. Your own studio (24&ndash;32 m&sup2;). Unlimited personal use. Rental income when you&rsquo;re away.</p>
     <div style="margin-top:2.5rem;display:flex;align-items:baseline;gap:12px;justify-content:center;">
+      <span style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.45);letter-spacing:0.1em;text-transform:uppercase;align-self:center;">from</span>
       <span style="font-family:'Epilogue',sans-serif;font-size:clamp(3.5rem,7vw,5.5rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;55,000</span>
       <span style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.45);letter-spacing:0.1em;text-transform:uppercase;">one-time</span>
     </div>
@@ -1395,7 +1383,7 @@
     <div style="margin-bottom:3rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The offer</div>
       <h2 style="color:var(--bg);">Your unit. Your base.<br>Your income when you&rsquo;re away.</h2>
-      <p class="sub" style="color:rgba(244,242,232,0.65);margin-top:1rem;max-width:560px;">&euro;55,000 buys you one of 8 founding member units at N&#x101;M Space. Stay as long as you want. When you&rsquo;re not there, opt into rental management and earn 70% of rental income.</p>
+      <p class="sub" style="color:rgba(244,242,232,0.65);margin-top:1rem;max-width:560px;">From &euro;55,000 buys you one of 8 founding member units (24&ndash;32 m&sup2;) at N&#x101;M Space. Stay as long as you want. When you&rsquo;re not there, opt into rental management and earn 70% of rental income.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;">
       <div class="eco-card" style="padding:2rem 2.5rem 2rem 0;border-right:1px solid rgba(244,242,232,0.12);">
