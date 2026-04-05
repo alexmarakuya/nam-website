@@ -234,7 +234,7 @@
   .features-left .h2 span { color: var(--sage); }
   .features-left .subtitle { color: var(--oat); font-size: var(--text-body-lg); letter-spacing: -0.4px; }
   .features-right { display: flex; flex-direction: column; width: 480px; }
-  .feature-item { display: flex; align-items: center; gap: 16px; padding: 24px 12px; border-bottom: 1px solid var(--foliage); }
+  .feature-item { display: flex; align-items: center; gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--foliage); }
   .feature-item:last-child { border-bottom: none; }
   .feature-item .body-lg-semi { color: var(--cream); }
 
@@ -295,7 +295,7 @@
   /* =============================================
      ACTIVITIES — carousel
      ============================================= */
-  .activities-section { background: var(--cream); width: 100%; display: flex; flex-direction: column; align-items: center; padding: 120px 0; gap: 48px; position: relative; overflow: hidden; }
+  .activities-section { background: var(--oat); width: 100%; display: flex; flex-direction: column; align-items: center; padding: 120px 0; gap: 48px; position: relative; overflow: hidden; }
   .activities-section::before {
     content: '';
     position: absolute;
@@ -326,6 +326,11 @@
   .activities-header .h2 { color: var(--slate); }
   .activities-header .h2 span { color: var(--sunwashed); }
   .activities-header .body-lg { color: var(--slate); }
+
+  .community-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 1200px; width: 100%; padding: 0 64px; }
+  .community-img { aspect-ratio: 1; overflow: hidden; border-radius: 16px; }
+  .community-img img, .community-img video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .community-img:hover img, .community-img:hover video { transform: scale(1.05); }
 
   .act-card-status { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--pebble); letter-spacing: 0.02em; text-transform: uppercase; }
 
@@ -388,7 +393,7 @@
   /* =============================================
      CTA (original Figma)
      ============================================= */
-  .cta-section { background: linear-gradient(to bottom, transparent 120px, var(--oat) 120px); width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; padding: 0 64px 80px; margin-top: -120px; z-index: 2; }
+  .cta-section { background: var(--oat); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; position: relative; padding: 80px 64px; z-index: 2; }
   .cta-card { background: var(--sunwashed); border-radius: 40px; padding: 48px; max-width: 1120px; width: 100%; display: flex; flex-direction: column; gap: 36px; position: relative; z-index: 2; }
   .cta-header { text-align: center; display: flex; flex-direction: column; gap: 8px; }
   .cta-header .h2 { color: var(--cream); }
@@ -400,10 +405,12 @@
   .cta-benefit .body-sm { color: rgba(255,255,255,0.7); }
   .cta-bar-inside { background: var(--cream); border-radius: 24px; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
   .cta-bar-inside .body-lg-semi { color: var(--deep-green); }
-  .cta-bar-buttons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .cta-bar-buttons { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .cta-btn-inside { background: var(--sunwashed); color: var(--cream); border-radius: 24px; padding: 14px 28px; font-size: 16px; }
-  .cta-bar-secondary { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 500; font-size: 16px; color: var(--deep-green); text-decoration: none; padding: 14px 20px; border-radius: 24px; border: 1px solid rgba(57, 56, 52, 0.2); transition: border-color 0.2s, background 0.2s; }
-  .cta-bar-secondary:hover { border-color: var(--deep-green); background: rgba(57, 56, 52, 0.04); }
+  .cta-bar-primary { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 500; font-size: 16px; color: var(--sunwashed); text-decoration: none; padding: 14px 24px; border-radius: 24px; background: var(--cream); border: 1px solid var(--cream); transition: filter 0.2s; }
+  .cta-bar-primary:hover { filter: brightness(0.95); }
+  .cta-bar-secondary { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 500; font-size: 16px; color: var(--cream); text-decoration: none; padding: 14px 24px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.4); background: transparent; transition: border-color 0.2s, background 0.2s; }
+  .cta-bar-secondary:hover { border-color: var(--cream); background: rgba(255, 255, 255, 0.1); }
 
   /* Buttons */
   .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px; background: var(--sunwashed); border-radius: 8px; font-family: var(--font-mono); font-weight: 500; font-size: var(--text-body-lg); line-height: 1.2; letter-spacing: -0.4px; color: var(--cream); text-decoration: none; transition: filter 0.2s; flex-shrink: 0; white-space: nowrap; border: none; cursor: pointer; }
@@ -481,9 +488,36 @@
   .cta-benefit-title { font-family: var(--font-mono); font-weight: 600; font-size: 14px; color: var(--cream); margin-bottom: 4px; }
   .cta-benefit-desc { font-family: var(--font-mono); font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
   .cta-founder { display: flex; align-items: center; gap: 20px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 28px; }
-  .cta-founder-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+
+  /* Founder + Journal combined */
+  .founder-journal-section { background: var(--oat); width: 100%; display: flex; justify-content: center; padding: 80px 64px; }
+  .founder-journal-inner { max-width: 1120px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+  .founder-journal-left { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; background: var(--deep-green); border-radius: 32px; padding: 40px 32px; }
+  .founder-journal-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top; }
+  .founder-journal-info { display: flex; flex-direction: column; gap: 8px; }
+  .founder-journal-info strong { color: var(--cream); font-family: var(--font-display); font-size: 22px; font-weight: 600; }
+  .founder-journal-info span { font-family: var(--font-mono); font-size: 14px; color: var(--sage); letter-spacing: 0.5px; }
+  .founder-journal-info p { font-family: var(--font-mono); font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); margin-top: 8px; }
+  .founder-journal-btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 500; font-size: 14px; color: var(--cream); text-decoration: none; padding: 12px 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); transition: border-color 0.2s, background 0.2s; margin-top: 8px; }
+  .founder-journal-btn:hover { border-color: var(--cream); background: rgba(255,255,255,0.1); }
+  .founder-journal-right { display: flex; flex-direction: column; gap: 20px; }
+  .founder-journal-label { font-family: var(--font-mono); font-weight: 600; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--foliage); }
+  .journal-list { display: flex; flex-direction: column; }
+  .journal-item { display: flex; align-items: center; gap: 16px; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(42,58,43,0.1); transition: background 0.2s; }
+  .journal-item:first-child { border-top: 1px solid rgba(42,58,43,0.1); }
+  .journal-item:hover { background: rgba(42,58,43,0.03); }
+  .journal-item-thumb { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+  .journal-item-text { flex: 1; min-width: 0; }
+  .journal-item-title { font-family: var(--font-display); font-size: 16px; font-weight: 500; color: var(--deep-green); line-height: 1.3; }
+  .journal-item-excerpt { font-family: var(--font-mono); font-size: 13px; color: var(--foliage); margin-top: 2px; }
+  .journal-item-date { font-family: var(--font-mono); font-size: 12px; color: var(--pebble); flex-shrink: 0; }
+  .founder-journal-right .blog-section-link { color: var(--sunwashed); text-decoration: none; font-size: 15px; }
+  .founder-journal-right .blog-section-link:hover { text-decoration: underline; }
+  .cta-founder-img { width: 100px; height: 100px; border-radius: 20px; object-fit: cover; flex-shrink: 0; }
   .cta-founder-text { font-family: var(--font-mono); font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.75); }
   .cta-founder-text strong { color: var(--cream); font-weight: 600; display: block; margin-bottom: 2px; }
+  .cta-founder-btn { flex-shrink: 0; font-family: var(--font-mono); font-weight: 500; font-size: 14px; color: var(--cream); text-decoration: none; padding: 10px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); transition: border-color 0.2s, background 0.2s; }
+  .cta-founder-btn:hover { border-color: var(--cream); background: rgba(255,255,255,0.1); }
 
   /* =============================================
      TABLET
@@ -523,17 +557,20 @@
     .activities-section { padding: 60px 0; }
     .activities-header { padding: 0 40px; }
     .activities-track { padding: 0 40px; gap: 20px; }
+    .community-grid { padding: 0 40px; grid-template-columns: repeat(4, 1fr); }
     .act-card { width: 260px; }
     .activities-cta { margin: 0 40px; width: auto; }
     .full-image { aspect-ratio: 16 / 9; padding: 0 40px; }
     .mfu-section { padding: 60px 40px; }
-    .mfu-inner { flex-direction: column; gap: 48px; }
-    .cta-section { background: linear-gradient(to bottom, transparent 80px, var(--oat) 80px); padding: 0 40px 60px; margin-top: -80px; }
+    .mfu-inner { flex-direction: column-reverse; gap: 48px; }
+    .cta-section { padding: 60px 40px; }
     .milestone-section { padding: 60px 40px; }
     .milestone-track { flex-direction: column; gap: 0; }
     .milestone-step { padding: 20px 0; border-top: none; border-left: 2px solid var(--foliage); padding-left: 20px; }
     .milestone-step.current { border-left-color: var(--sunwashed); border-top: none; }
     .cta-benefits { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .founder-journal-section { padding: 60px 40px; }
+    .founder-journal-inner { gap: 40px; }
     .cta-founder { flex-direction: row; }
     .cta-bar-inside { flex-direction: column; text-align: center; }
     .blog-section { padding: 60px 40px 160px; }
@@ -621,6 +658,7 @@
     .full-image { padding: 0 24px; }
     .activities-section { padding: 48px 0; gap: 32px; }
     .activities-header { padding: 0 24px; }
+    .community-grid { padding: 0 24px; grid-template-columns: repeat(2, 1fr); gap: 6px; border-radius: 12px; }
     .activities-track { padding: 0 24px; gap: 16px; }
     .act-card { width: 220px; border-radius: 20px; }
     .act-card-img-wrap { margin: 7px 7px 0; border-radius: 12px; }
@@ -639,14 +677,16 @@
     .mfu-inner { gap: 32px; }
     .milestone-section { padding: 48px 24px; }
     .milestone-step-title { font-size: 18px; }
-    .cta-section { background: linear-gradient(to bottom, transparent 60px, var(--oat) 60px); padding: 0 24px 40px; margin-top: -60px; }
+    .cta-section { padding: 40px 24px; }
     .cta-card { padding: 24px; gap: 24px; border-radius: 24px; }
     .cta-benefits { grid-template-columns: 1fr; gap: 12px; }
+    .founder-journal-section { padding: 48px 24px; }
+    .founder-journal-inner { grid-template-columns: 1fr; gap: 48px; }
     .cta-founder { flex-direction: column; align-items: flex-start; }
     .cta-benefit { padding: 20px; }
     .cta-bar-inside { padding: 20px; gap: 16px; }
     .cta-bar-buttons { flex-direction: column; width: 100%; }
-    .cta-bar-buttons .btn, .cta-bar-buttons .cta-bar-secondary { width: 100%; justify-content: center; text-align: center; }
+    .cta-bar-buttons .btn, .cta-bar-buttons .cta-bar-primary, .cta-bar-buttons .cta-bar-secondary { width: 100%; justify-content: center; text-align: center; }
     .blog-section { padding: 48px 24px 120px; }
     .blog-section-inner { gap: 32px; }
     .blog-section-grid { grid-template-columns: 1fr; }
@@ -688,7 +728,7 @@
           <button class="lang-opt" data-lang="th">TH</button>
         </div>
       </div>
-      <a href="https://instagram.com/namspaceth" target="_blank" rel="noopener noreferrer" class="nav-cta" data-i18n="nav.cta">Follow us</a>
+      <a href="#cta" class="nav-cta" data-i18n="nav.cta">Join us</a>
     </nav>
   </header>
 
@@ -963,120 +1003,6 @@
 
   </div><!-- /spaces-wrapper -->
 
-  <!-- Activities, Events and Programs -->
-  <section class="activities-section">
-    <div class="activities-header fade-up">
-      <h2 class="h2" data-i18n="home.activities.title">Activities, <span>events and programs</span></h2>
-      <p class="body-lg" data-i18n="home.activities.subtitle">A great space is not enough. That's why we host a range of activities, gatherings, and programs.</p>
-    </div>
-
-    <div class="activities-carousel fade-up" role="region" aria-label="Activities carousel" tabindex="0">
-      <div class="activities-track">
-      <a href="https://wa.me/message/3RVKLOPKCTS2P1" target="_blank" class="act-card act-card-link">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-coworking-thumb.jpg" alt="Co-working events" loading="lazy" srcset="/assets/ev-coworking-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.weekly">Weekly</span>
-          <p class="act-card-title" data-i18n="home.activities.a1.title">Co-working events</p>
-          <p class="act-card-join" data-i18n="home.activities.a1.join">Join WhatsApp group &rarr;</p>
-        </div>
-      </a>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-masterminds-thumb.jpg" alt="Masterminds" loading="lazy" srcset="/assets/ev-masterminds-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.weekly">Weekly</span>
-          <p class="act-card-title" data-i18n="home.activities.a2.title">Masterminds and professional circles</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-talks-thumb.jpg" alt="Talks and discussions" loading="lazy" srcset="/assets/ev-talks-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.trial">Trial</span>
-          <p class="act-card-title" data-i18n="home.activities.a3.title">Talks, discussions, and informal salons</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-workshops-thumb.jpg" alt="Workshops" loading="lazy" srcset="/assets/ev-workshops-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
-          <p class="act-card-title" data-i18n="home.activities.a4.title">Small workshops and skill-sharing</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-residency-thumb.jpg" alt="Residency programs" loading="lazy" srcset="/assets/ev-residency-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
-          <p class="act-card-title" data-i18n="home.activities.a5.title">Residency programs</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-conferences-thumb.jpg" alt="Conferences" loading="lazy" srcset="/assets/ev-conferences-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
-          <p class="act-card-title" data-i18n="home.activities.a6.title">Conferences</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-offsites-thumb.jpg" alt="Startup off-sites" loading="lazy" srcset="/assets/ev-offsites-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
-          <p class="act-card-title" data-i18n="home.activities.a7.title">Startup off-sites</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-retreats-thumb.jpg" alt="Founder retreats" loading="lazy" srcset="/assets/ev-retreats-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.planned">Phase 1</span>
-          <p class="act-card-title" data-i18n="home.activities.a8.title">Founder retreats</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-standups-thumb.jpg" alt="Daily stand-ups" loading="lazy" srcset="/assets/ev-standups-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.coming">Phase 2</span>
-          <p class="act-card-title" data-i18n="home.activities.a9.title">Daily stand-ups and check-ins</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-mindfulness-thumb.jpg" alt="Mindfulness practices" loading="lazy" srcset="/assets/ev-mindfulness-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.coming">Phase 2</span>
-          <p class="act-card-title" data-i18n="home.activities.a10.title">Mindfulness practices</p>
-        </div>
-      </div>
-      <div class="act-card">
-        <div class="act-card-img-wrap">
-          <img src="/assets/ev-yoga-thumb.jpg" alt="Yoga and movement" loading="lazy" srcset="/assets/ev-yoga-thumb.jpg 560w" sizes="280px">
-        </div>
-        <div class="act-card-caption">
-          <span class="act-card-status" data-i18n="home.activities.status.coming">Phase 2</span>
-          <p class="act-card-title" data-i18n="home.activities.a11.title">Yoga and movement classes</p>
-        </div>
-      </div>
-      </div>
-    </div>
-
-  </section>
-
   <!-- Made for us -->
   <section class="mfu-section">
     <img src="/assets/river-texture.svg" alt="" class="river-bg" style="width: 140%; top: -20%; right: -30%; transform: rotate(30deg);">
@@ -1131,65 +1057,97 @@
     </div>
   </section>
 
-  <!-- Blog -->
-  <section class="blog-section">
-    <div class="blog-section-inner fade-up">
-      <div class="blog-section-header">
-        <h2 class="h2" data-i18n="home.blog.title">From the journal</h2>
-        <p class="body-lg" data-i18n="home.blog.subtitle">Stories, updates and reflections from NāM.</p>
-      </div>
-      <div class="blog-section-grid">
-        <a href="/blog/the-origin-of-nam/" class="blog-card">
-          <div class="blog-card-img">
-            <img src="/assets/blog/the-origin-of-nam/nam-land.jpg" alt="Rocky hillside with palm trees on the NāM land" loading="lazy">
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-date">12.05.2025</p>
-            <h3 class="blog-card-title" data-i18n="home.blog.card2.title">The origin of NāM</h3>
-            <p class="blog-card-excerpt" data-i18n="home.blog.card2.excerpt">A tale of land, spirits and AI.</p>
-          </div>
-        </a>
-      </div>
-      <a href="/blog/" class="blog-section-link body-lg-semi" data-i18n="home.blog.readall">Read all posts &rarr;</a>
+  <!-- Meet our community -->
+  <section class="activities-section">
+    <div class="activities-header fade-up">
+      <h2 class="h2">Meet our <span>community</span></h2>
+      <p class="body-lg">The space isn&rsquo;t built yet, but the community already is. Friends from all over the world, connected through shared purpose and a love for this island.</p>
     </div>
-  </section>
 
+    <div class="community-grid fade-up">
+      <div class="community-img">
+        <img src="/assets/Party_Before-web.jpg" alt="Community gathering" loading="lazy">
+      </div>
+      <div class="community-img">
+        <img src="/assets/Yoga.jpeg" alt="Yoga session" loading="lazy">
+      </div>
+      <div class="community-img">
+        <video autoplay muted loop playsinline><source src="/assets/Island_Connection_short.mp4" type="video/mp4"></video>
+      </div>
+      <div class="community-img">
+        <img src="/assets/AI Meetup.jpeg" alt="Tech meetup" loading="lazy">
+      </div>
+      <div class="community-img">
+        <img src="/assets/alex-tree-blessing-phangan-web.jpg" alt="Tree blessing ceremony" loading="lazy">
+      </div>
+      <div class="community-img">
+        <img src="/assets/Founders Running Club.jpg" alt="Running club" loading="lazy">
+      </div>
+      <div class="community-img">
+        <img src="/assets/Island Connection-web.jpg" alt="Island Connection" loading="lazy">
+      </div>
+      <div class="community-img">
+        <video autoplay muted loop playsinline><source src="/assets/Party_2_short.mp4" type="video/mp4"></video>
+      </div>
+      <div class="community-img">
+        <img src="/assets/kin-haus-2026-03-kin-haus-party-1-dj-booth-nightlife-web.jpg" alt="Kin Haus party" loading="lazy">
+      </div>
+      <div class="community-img">
+        <img src="/assets/alex-landowners-site-visit-web.jpg" alt="With neighbors" loading="lazy">
+      </div>
+      <div class="community-img">
+        <img src="/assets/friends-boat-phangan.jpeg" alt="Friends on a boat" loading="lazy">
+      </div>
+      <div class="community-img">
+        <img src="/assets/mom-web.jpg" alt="With mom" loading="lazy">
+      </div>
+    </div>
+
+  </section>
 
   <!-- ==========================================
        ACT 4: THE CALL
        ========================================== -->
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section id="cta" class="cta-section">
     <div class="cta-card fade-up">
       <div class="cta-header">
-        <h2 class="h2" data-i18n="cta.title">Join the community</h2>
-        <p class="body-lg" data-i18n="cta.subtitle">Experience NāM before it's built. We're already running events, retreats, and gatherings on Koh Phangan — join us and help shape what comes next.</p>
+        <h2 class="h2" data-i18n="cta.title">Come build with us</h2>
+        <p class="body-lg" data-i18n="cta.subtitle">Experience N&#x101;M before it&rsquo;s built. Join our events and gatherings on Koh Phangan &mdash; or stay at KIN Haus, our co-living villa.</p>
       </div>
-      <div class="cta-benefits">
-        <div class="cta-benefit">
-          <p class="cta-benefit-title">Events & gatherings</p>
-          <p class="cta-benefit-desc">Monthly community events, talks, and house parties on the island</p>
-        </div>
-        <div class="cta-benefit">
-          <p class="cta-benefit-title">Founder's House</p>
-          <p class="cta-benefit-desc">Two-week founder residencies starting July 2026</p>
-        </div>
-        <div class="cta-benefit">
-          <p class="cta-benefit-title">Shape what's next</p>
-          <p class="cta-benefit-desc">The people who show up now define what NāM becomes</p>
+      <div class="cta-bar-buttons">
+        <a href="https://app.nam.space" target="_blank" rel="noopener noreferrer" class="cta-bar-primary" data-i18n="cta.button">Join the N&#x101;M community today &rarr;</a>
+        <a href="https://kinhouse.space" target="_blank" rel="noopener noreferrer" class="cta-bar-secondary">Stay at KIN Haus &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder + Journal -->
+  <section class="founder-journal-section">
+    <div class="founder-journal-inner fade-up">
+      <div class="founder-journal-left">
+        <img src="/assets/alex-lake-atitlan-guatemala-web.jpg" alt="Alex Duffner, founder of NāM" class="founder-journal-img">
+        <div class="founder-journal-info">
+          <strong>Alex Duffner</strong>
+          <span>Founder of N&#x101;M</span>
+          <p>Building NāM on Koh Phangan since 2024. Designer, solopreneur, and island lover — making the space I always wished existed.</p>
+          <a href="https://wa.me/message/3RVKLOPKCTS2P1" target="_blank" rel="noopener noreferrer" class="founder-journal-btn">Talk to me &rarr;</a>
         </div>
       </div>
-      <div class="cta-bar-inside">
-        <p class="body-lg-semi" data-i18n="cta.follow">Join the NāM community</p>
-        <a href="https://app.nam.space" target="_blank" rel="noopener noreferrer" class="btn cta-btn-inside" data-i18n="cta.button">Join NāM &rarr;</a>
-      </div>
-      <div class="cta-founder">
-        <img src="/assets/alex-boulder-phangan-web.jpg" alt="Alex Duffner, founder of NāM" class="cta-founder-img">
-        <p class="cta-founder-text">
-          <strong>Alex Duffner, Founder</strong>
-          Building NāM on Koh Phangan since 2024. Designer, solopreneur, and island lover — making the space I always wished existed.
-        </p>
+      <div class="founder-journal-right">
+        <p class="founder-journal-label">From the journal</p>
+        <div class="journal-list">
+          <a href="/blog/the-origin-of-nam/" class="journal-item">
+            <img src="/assets/blog/the-origin-of-nam/nam-land.jpg" alt="The origin of NāM" class="journal-item-thumb" loading="lazy">
+            <div class="journal-item-text">
+              <h3 class="journal-item-title">The origin of N&#x101;M</h3>
+              <p class="journal-item-excerpt">A tale of land, spirits and AI.</p>
+            </div>
+            <span class="journal-item-date">12.05.2025</span>
+          </a>
+        </div>
+        <a href="/blog/" class="blog-section-link body-lg-semi" data-i18n="home.blog.readall">Read all posts &rarr;</a>
       </div>
     </div>
   </section>
