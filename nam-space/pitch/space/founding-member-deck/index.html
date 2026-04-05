@@ -369,38 +369,78 @@
   }
 
   @media (max-width: 768px) {
-    .slide { padding: 0 24px; justify-content: flex-start !important; align-items: flex-start !important; }
-    .slide-inner { padding-top: 0; width: 100%; }
-    .hero-main h1 { font-size: clamp(4.5rem, 9vw, 9rem) !important; }
-    .sn { display: none !important; }
+    /* Core slide layout — top/bottom breathing room */
+    .slide { padding: 12px 20px; justify-content: flex-start !important; align-items: flex-start !important; }
+    .slide-inner { padding-top: 2px; width: 100%; }
     .slide.img-full { padding: 0 !important; }
+    .sn { display: none !important; }
+    .img-hint { display: none !important; }
+
+    /* Navigation */
     .nav-bar { padding: 0 12px; }
     .slide-nav-dropdown { width: calc(100vw - 32px); }
     .slide-counter { width: 140px; }
     .currency-picker { left: 12px; }
     .share-btn { right: 12px; }
-    .img-full-caption { left: 24px; right: 24px; bottom: 28px; }
-    .hero-main { padding: 12px 24px 16px; }
-    .hero-img-strip { width: 35%; }
+
+    /* Hero slide — hide image strip, stack content */
+    .hero-slide { flex-direction: column; }
+    .hero-main { height: auto; flex: 1; padding: 20px; }
+    .hero-main h1 { font-size: clamp(4rem, 11vw, 7rem) !important; }
+    .hero-main .hero-sub { font-size: 0.95rem !important; margin-top: 1.5rem; }
+    .hero-accent-strip { display: none; }
+    .hero-img-strip { display: none; }
+
+    /* Swiss split */
+    .swiss-split { flex-direction: column; }
+    .swiss-split-img { width: 100%; height: 35vh; }
+    .swiss-split-bar { width: 100%; height: 4px; }
+    .swiss-split-content { padding: 16px 20px; }
+
+    /* Typography */
+    .sub { font-size: 1.05rem !important; }
+    .sub-ep { font-size: 1.1rem !important; }
+
+    /* Full-bleed image captions */
+    .img-full-caption { left: 20px; right: 20px; bottom: 24px; }
+    .img-full-caption h2 { font-size: clamp(1.6rem, 5vw, 2.5rem); }
+
+    /* TOC */
     .toc { grid-template-columns: 1fr; }
     .toc-section { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
-    .swiss-split { flex-direction: column; }
-    .swiss-split-img { width: 100%; height: 40vh; }
-    .swiss-split-bar { width: 100%; height: 4px; }
-    .swiss-split-content { padding: 12px 24px 16px; }
-    .hero-slide { flex-direction: column; }
-    .hero-main { height: auto; flex: 1; }
-    .hero-accent-strip { display: none; }
-    .sub { font-size: 1.1rem !important; }
-    .sub-ep { font-size: 1.15rem !important; }
+
+    /* Info rows */
     .info-row { grid-template-columns: 28px 1fr; gap: 0.2rem; }
     .info-row .info-value { grid-column: 2; }
-    .card { padding: 1.75rem 0 !important; }
+
+    /* Cards */
+    .card { padding: 1.5rem 0 !important; }
     .concept-card { flex-direction: column; gap: 1rem; padding: 1.5rem 0; }
     .card-thumb { width: 100%; min-width: 100%; height: 160px; border-radius: 8px; }
-    .tbl th, .tbl td { font-size: 0.72rem !important; padding: 0.55rem 0.4rem !important; }
+
+    /* Tables: scrollable horizontally */
+    .tbl { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .tbl th, .tbl td { font-size: 0.72rem !important; padding: 0.55rem 0.4rem !important; white-space: nowrap; }
     .tbl th { font-size: 0.62rem !important; }
-    .img-hint { display: none !important; }
+
+    /* Pricing hero: scale down big number */
+    .price-big { font-size: clamp(2.8rem, 9vw, 4rem) !important; }
+    .price-display { gap: 8px !important; flex-wrap: wrap; }
+
+    /* Inline grid collapses */
+    .glimpses-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem 0.75rem !important; }
+    .glance-grid { display: flex !important; flex-direction: column !important; gap: 0.6rem !important; }
+    .why-now-grid { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+    .eco-grid-3 { display: flex !important; flex-direction: column !important; }
+    .eco-grid-3 .eco-card { border-right: none !important; padding: 1.25rem 0 !important; }
+    .how-grid-2 { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
+    .tax-grid-2 { display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+
+    /* Chart milestones: 6-col → 3-col */
+    #chartMilestones { grid-template-columns: repeat(3, 1fr) !important; }
+
+    /* CTA buttons: full-width */
+    .cta-btn { display: block !important; text-align: center !important; }
   }
 </style>
 </head>
@@ -437,7 +477,7 @@
     <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The search</div>
     <h2>I found glimpses everywhere</h2>
     <p class="sub-ep" style="margin-top:0.75rem;max-width:620px;margin-bottom:2rem;">Every place gave me a piece of what I was looking for.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.8rem 1.25rem;">
+    <div class="glimpses-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.8rem 1.25rem;">
       <div>
         <span style="font-family:'Sometype Mono',monospace;font-size:0.68rem;color:var(--terracotta);letter-spacing:0.03em;">Mongolia</span>
         <p style="font-size:0.82rem;color:var(--green);line-height:1.45;margin-top:0.3rem;">The incredible travel stories I heard in the hostel common room in Ulaanbaatar</p>
@@ -615,7 +655,7 @@
     <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Overview</div>
     <h2>N&#x101;M Space at a glance</h2>
     <p class="sub-ep" style="margin-top:1rem;max-width:640px;">A design-led co-working and co-living campus on Koh Phangan &mdash; nature-integrated workspace, accommodation, wellness, and community, built in three phases on 4,800m&sup2; of freehold land.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:2.5rem;">
+    <div class="glance-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:2.5rem;">
       <div style="padding:1.5rem;background:var(--green);border-radius:10px;">
         <h4 style="color:var(--terracotta);font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.75rem;">Work</h4>
         <p style="color:var(--bg);font-size:0.95rem;line-height:1.6;opacity:0.85;">Co-working space, private work pods, creative classrooms &amp; workshops</p>
@@ -1301,7 +1341,7 @@
       <div class="label" style="justify-content:center;">Momentum</div>
       <h2>Why now</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+    <div class="why-now-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
       <div style="text-align:center;">
         <img src="/assets/Asterix.svg" alt="" style="width:24px;height:24px;filter:brightness(0) invert(1);opacity:0.5;margin-bottom:1rem;">
         <h4 style="color:var(--bg);font-size:1.1rem;margin-bottom:0.5rem;">Land is secured</h4>
@@ -1366,9 +1406,9 @@
     <div class="label" style="justify-content:center;color:var(--terracotta);">Investment</div>
     <h2 style="max-width:640px;color:var(--bg);font-size:clamp(2.4rem,4.5vw,3.8rem);">The Founding Member Offer</h2>
     <p class="sub" style="margin-top:1.25rem;max-width:520px;color:rgba(244,242,232,0.65);">8 founding spots. Your own studio (24&ndash;32 m&sup2;). Unlimited personal use. Rental income when you&rsquo;re away.</p>
-    <div style="margin-top:2.5rem;display:flex;align-items:baseline;gap:12px;justify-content:center;">
+    <div class="price-display" style="margin-top:2.5rem;display:flex;align-items:baseline;gap:12px;justify-content:center;">
       <span style="font-family:'Sometype Mono',monospace;font-size:1rem;color:rgba(244,242,232,0.45);letter-spacing:0.1em;text-transform:uppercase;align-self:center;">from</span>
-      <span style="font-family:'Epilogue',sans-serif;font-size:clamp(3.5rem,7vw,5.5rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;55,000</span>
+      <span class="price-big" style="font-family:'Epilogue',sans-serif;font-size:clamp(3.5rem,7vw,5.5rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;55,000</span>
       <span style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.45);letter-spacing:0.1em;text-transform:uppercase;">one-time</span>
     </div>
     <p style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.4);margin-top:0.75rem;letter-spacing:0.06em;">30-year leasehold &middot; Koh Phangan, Thailand &middot; 8 founding spots only</p>
@@ -1385,7 +1425,7 @@
       <h2 style="color:var(--bg);">Your unit. Your base.<br>Your income when you&rsquo;re away.</h2>
       <p class="sub" style="color:rgba(244,242,232,0.65);margin-top:1rem;max-width:560px;">From &euro;55,000 buys you one of 8 founding member units (24&ndash;32 m&sup2;) at N&#x101;M Space. Stay as long as you want. When you&rsquo;re not there, opt into rental management and earn 70% of rental income.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;">
+    <div class="eco-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;">
       <div class="eco-card" style="padding:2rem 2.5rem 2rem 0;border-right:1px solid rgba(244,242,232,0.12);">
         <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2.8rem,4.5vw,4rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;9,450</div>
         <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(244,242,232,0.5);margin-top:0.5rem;margin-bottom:1rem;">Per year, when fully rented</div>
@@ -1415,7 +1455,7 @@
       <h2>How it works</h2>
       <p class="sub" style="max-width:500px;">Simple structure. No ongoing fees. No surprises.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+    <div class="how-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
       <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(42,58,43,0.1);border-radius:8px;">
         <div style="width:36px;height:36px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.85rem;font-weight:600;flex-shrink:0;">1</div>
         <div>
@@ -1671,7 +1711,7 @@
       <h2>Save €8–10K before you start</h2>
       <p class="sub" style="color:rgba(244,242,232,0.75);margin-top:0.75rem;max-width:580px;">On request, part of your investment can be invoiced as a prepaid co-living and co-working membership by NāM Space Company Limited.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+    <div class="tax-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
       <div style="background:rgba(244,242,232,0.12);border-radius:8px;padding:2rem;">
         <h3 style="color:var(--bg);font-size:1.1rem;margin-bottom:1rem;">Remote workers &amp; self-employed</h3>
         <p style="color:rgba(244,242,232,0.75);font-size:0.95rem;line-height:1.65;">For freelancers, solopreneurs and self-employed professionals in Europe, a prepaid co-living/co-working membership may qualify as a business expense — saving you up to €8–10K in tax immediately.</p>
