@@ -1494,48 +1494,69 @@
       <h2>How the investment is allocated</h2>
       <p class="sub-ep" style="margin-top:0.75rem;max-width:540px;">Your founding member investment goes directly into building N&#x101;M Space. Accommodation alone accounts for &frac34; of the total build.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:1.5rem;">
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.6rem;">
-          <span style="font-family:'Epilogue',sans-serif;font-size:1.05rem;font-weight:500;">Accommodation &mdash; 8 founding studios (24&ndash;32 m&sup2;)</span>
-          <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:600;color:var(--green);white-space:nowrap;margin-left:1rem;">&euro;480,000</span>
+
+    <!-- Single stacked bar -->
+    <div style="margin-bottom:2rem;">
+      <div style="display:flex;height:48px;border-radius:8px;overflow:hidden;gap:2px;">
+        <div style="flex:74;background:var(--green);display:flex;align-items:center;padding:0 14px;" title="Accommodation €480,000">
+          <span style="font-family:'Sometype Mono',monospace;font-size:0.72rem;color:rgba(244,242,232,0.8);letter-spacing:0.06em;white-space:nowrap;">74%</span>
         </div>
-        <div style="height:10px;background:var(--border);border-radius:99px;overflow:hidden;">
-          <div style="width:74%;height:100%;background:var(--green);border-radius:99px;"></div>
+        <div style="flex:14;background:var(--terracotta);display:flex;align-items:center;justify-content:center;" title="Coworking €90,000">
+          <span style="font-family:'Sometype Mono',monospace;font-size:0.65rem;color:rgba(244,242,232,0.8);letter-spacing:0.04em;">14%</span>
         </div>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">4 &times; &euro;55,000 (24 m&sup2;) + 4 &times; &euro;65,000 (32 m&sup2;) &mdash; construction, fit-out, and furnishing</p>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.6rem;">
-          <span style="font-family:'Epilogue',sans-serif;font-size:1.05rem;font-weight:500;">Coworking &amp; creative infrastructure</span>
-          <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:600;color:var(--terracotta);white-space:nowrap;margin-left:1rem;">&euro;90,000 <span style="font-size:0.7rem;color:var(--text-muted);">est.</span></span>
+        <div style="flex:8;background:#8b9e8c;display:flex;align-items:center;justify-content:center;" title="Social areas €50,000">
+          <span style="font-family:'Sometype Mono',monospace;font-size:0.6rem;color:rgba(244,242,232,0.7);">8%</span>
         </div>
-        <div style="height:10px;background:var(--border);border-radius:99px;overflow:hidden;">
-          <div style="width:14%;height:100%;background:var(--terracotta);border-radius:99px;"></div>
+        <div style="flex:5;background:var(--border);display:flex;align-items:center;justify-content:center;" title="Contingency €30,000">
+          <span style="font-family:'Sometype Mono',monospace;font-size:0.55rem;color:var(--text-muted);">5%</span>
         </div>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">Work pods, classroom, event space, high-speed networking</p>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.6rem;">
-          <span style="font-family:'Epilogue',sans-serif;font-size:1.05rem;font-weight:500;">Common areas &amp; outdoor</span>
-          <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:600;color:var(--text-secondary);white-space:nowrap;margin-left:1rem;">&euro;50,000 <span style="font-size:0.7rem;color:var(--text-muted);">est.</span></span>
-        </div>
-        <div style="height:10px;background:var(--border);border-radius:99px;overflow:hidden;">
-          <div style="width:8%;height:100%;background:var(--text-secondary);border-radius:99px;opacity:0.7;"></div>
-        </div>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">Wellness, permaculture gardens, poolside and communal spaces</p>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.6rem;">
-          <span style="font-family:'Epilogue',sans-serif;font-size:1.05rem;font-weight:500;">Contingency &amp; project management</span>
-          <span style="font-family:'Sometype Mono',monospace;font-size:0.95rem;font-weight:600;color:var(--text-muted);white-space:nowrap;margin-left:1rem;">&euro;30,000 <span style="font-size:0.7rem;color:var(--text-muted);">est.</span></span>
-        </div>
-        <div style="height:10px;background:var(--border);border-radius:99px;overflow:hidden;">
-          <div style="width:5%;height:100%;background:var(--border);border-radius:99px;"></div>
-        </div>
-        <p style="font-family:'Sometype Mono',monospace;font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">Legal, licensing, and construction buffer</p>
       </div>
     </div>
+
+    <!-- Legend -->
+    <div style="display:flex;flex-direction:column;gap:1.1rem;">
+      <div style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--green);flex-shrink:0;margin-top:3px;"></div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;">
+            <span style="font-family:'Epilogue',sans-serif;font-size:1rem;font-weight:500;">Accommodation</span>
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.9rem;font-weight:600;color:var(--green);white-space:nowrap;">&euro;480,000</span>
+          </div>
+          <p style="font-family:'Sometype Mono',monospace;font-size:0.76rem;color:var(--text-muted);margin-top:0.2rem;line-height:1.5;">8 founding studios (24&ndash;32 m&sup2;), common areas &mdash; 4 &times; &euro;55k + 4 &times; &euro;65k</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--terracotta);flex-shrink:0;margin-top:3px;"></div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;">
+            <span style="font-family:'Epilogue',sans-serif;font-size:1rem;font-weight:500;">Co-working</span>
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.9rem;font-weight:600;color:var(--terracotta);white-space:nowrap;">&euro;90,000 <span style="font-size:0.7rem;color:var(--text-muted);">est.</span></span>
+          </div>
+          <p style="font-family:'Sometype Mono',monospace;font-size:0.76rem;color:var(--text-muted);margin-top:0.2rem;line-height:1.5;">Deep work space, meeting rooms, call booths &amp; work pods, high-speed networking</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:12px;height:12px;border-radius:3px;background:#8b9e8c;flex-shrink:0;margin-top:3px;"></div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;">
+            <span style="font-family:'Epilogue',sans-serif;font-size:1rem;font-weight:500;">Social &amp; events</span>
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.9rem;font-weight:600;color:var(--text-secondary);white-space:nowrap;">&euro;50,000 <span style="font-size:0.7rem;color:var(--text-muted);">est.</span></span>
+          </div>
+          <p style="font-family:'Sometype Mono',monospace;font-size:0.76rem;color:var(--text-muted);margin-top:0.2rem;line-height:1.5;">Social area, cafe and flexible event space</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:12px;height:12px;border-radius:3px;background:var(--border);flex-shrink:0;margin-top:3px;"></div>
+        <div style="flex:1;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;">
+            <span style="font-family:'Epilogue',sans-serif;font-size:1rem;font-weight:500;">Contingency &amp; PM</span>
+            <span style="font-family:'Sometype Mono',monospace;font-size:0.9rem;font-weight:600;color:var(--text-muted);white-space:nowrap;">&euro;30,000 <span style="font-size:0.7rem;color:var(--text-muted);">est.</span></span>
+          </div>
+          <p style="font-family:'Sometype Mono',monospace;font-size:0.76rem;color:var(--text-muted);margin-top:0.2rem;line-height:1.5;">Legal, licensing, and construction buffer</p>
+        </div>
+      </div>
+    </div>
+
     <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
       <span style="font-family:'Sometype Mono',monospace;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);">Total build budget</span>
       <span style="font-family:'Epilogue',sans-serif;font-size:1.8rem;font-weight:600;color:var(--green);">&euro;650,000</span>
