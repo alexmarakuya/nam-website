@@ -228,7 +228,7 @@
      FEATURES (original Figma)
      ============================================= */
   .features-section { background: var(--deep-green); width: 100%; display: flex; flex-direction: column; align-items: center; padding: 80px 120px; gap: 32px; position: relative; overflow: hidden; }
-  .features-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; width: 100%; }
+  .features-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; width: 100%; gap: 80px; }
   .features-left { display: flex; flex-direction: column; gap: 24px; max-width: 620px; }
   .features-left .h2 { color: var(--cream); }
   .features-left .h2 span { color: var(--sage); }
@@ -818,27 +818,27 @@
       </div>
       <div class="features-right">
         <div class="feature-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.features.f1">quiet focus</p>
         </div>
         <div class="feature-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.features.f2">collaboration</p>
         </div>
         <div class="feature-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.features.f3">hands-on making</p>
         </div>
         <div class="feature-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.features.f4">shared learning</p>
         </div>
         <div class="feature-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.features.f5">mindful breaks</p>
         </div>
         <div class="feature-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.features.f6">daydreaming</p>
         </div>
       </div>
@@ -852,132 +852,111 @@
   <!-- Category strip — phases -->
   <section class="category-strip">
     <div class="category-strip-inner">
-      <p class="h3" data-i18n="home.spaces.phases_title">Spaces will be built in phases, shaped by your input</p>
-      <div class="phases-legend" role="group" aria-label="Filter by phase">
-        <button class="phase-pill active" data-phase="all" aria-pressed="true" data-i18n="home.spaces.all">All</button>
-        <button class="phase-pill p1" data-phase="1" aria-pressed="false" data-i18n="home.spaces.phase1">Phase 1</button>
-        <button class="phase-pill p2" data-phase="2" aria-pressed="false" data-i18n="home.spaces.phase2">Phase 2</button>
-        <button class="phase-pill p3" data-phase="3" aria-pressed="false" data-i18n="home.spaces.phase3">Phase 3</button>
-      </div>
+      <p class="h3" data-i18n="home.spaces.phases_title">Built in three phases — shaped by those who show up first</p>
     </div>
   </section>
 
-  <!-- Workspaces -->
+  <!-- Phase 1: Founding Studios, Workspaces & Common Areas -->
   <section class="card-section bg-oat">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3" data-i18n="home.spaces.workspaces">Work spaces</h3>
+      <h3 class="h3">Phase 1 &mdash; Founding Studios, Work &amp; Community</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/ws-shared.jpg" alt="Shared work areas" loading="lazy" srcset="/assets/ws-shared.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s1.title">Shared work areas</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s1.desc">Calm, open spaces for working alone or alongside others.</p>
+        <div class="card-img"><img src="/assets/ac-deluxe.jpg" alt="Founders studios" loading="lazy" srcset="/assets/ac-deluxe.jpg 720w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Founders studios</p>
+        <p class="body-sm card-desc">8 private treehouse-style studios for founding members. Your base at NāM — the first Founder's House cohort lives here.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/ws-focused.jpg" alt="Focused work spaces" loading="lazy" srcset="/assets/ws-focused.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s2.title">Focused work spaces</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s2.desc">Quiet desks for deep, independent work with minimal distraction.</p>
+        <div class="card-img"><img src="/assets/ws-shared.jpg" alt="Shared work areas" loading="lazy" srcset="/assets/ws-shared.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Co-working spaces</p>
+        <p class="body-sm card-desc">Shared desks, focused work areas, and air-conditioned pods for deep, independent work.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/ws-pods.jpg" alt="Private work pods" loading="lazy" srcset="/assets/ws-pods.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s3.title">Private work pods</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s3.desc">Fully air-conditioned pods for focused immersion, with nature outside.</p>
+        <div class="card-img"><img src="/assets/cm-kitchen.jpg" alt="Community kitchen" loading="lazy" srcset="/assets/cm-kitchen.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Community kitchen &amp; caf&eacute;</p>
+        <p class="body-sm card-desc">Shared kitchen for meals and a caf&eacute; for quick bites. The social heart of the campus.</p>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="/assets/cm-outdoor.jpg" alt="Outdoor gathering areas" loading="lazy" srcset="/assets/cm-outdoor.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Outdoor gathering areas</p>
+        <p class="body-sm card-desc">Shaded outdoor spaces for informal meetings, co-working, and shared moments.</p>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="/assets/ws-pods.jpg" alt="Private work pods" loading="lazy" srcset="/assets/ws-pods.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Private work pods</p>
+        <p class="body-sm card-desc">Fully air-conditioned pods for focused immersion, with nature outside.</p>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="/assets/rw-napping.jpg" alt="Napping rooms" loading="lazy" srcset="/assets/rw-napping.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Napping rooms</p>
+        <p class="body-sm card-desc">Dimly lit, quiet rooms for rest, short naps, and recovery from stimulation.</p>
       </div>
     </div>
   </section>
 
-  <!-- Specialist Spaces -->
+  <!-- Phase 2: Additional Studios & Wellness -->
   <section class="card-section bg-cream">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3" data-i18n="home.spaces.specialist">Specialist spaces</h3>
+      <h3 class="h3">Phase 2 &mdash; Expanded Living &amp; Wellness</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/sp-recording.jpg" alt="Recording studio" loading="lazy" srcset="/assets/sp-recording.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s4.title">Recording studio</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s4.desc">Soundproofed studio for music, video, and podcast production.</p>
+        <div class="card-img"><img src="/assets/ac-flexi.jpg" alt="Additional Studios" loading="lazy" srcset="/assets/ac-flexi.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">8 additional studios</p>
+        <p class="body-sm card-desc">A second ring of treehouse studios, bringing the campus to 16 rooms total. Open to residents and longer-stay guests.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/sp-maker.jpg" alt="Maker space" loading="lazy" srcset="/assets/sp-maker.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-3">Phase 3</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s5.title">Maker space</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s5.desc">Hands-on workspace for prototyping, building, and working with materials.</p>
+        <div class="card-img"><img src="/assets/rw-onsen.jpg" alt="Onsen and ice bath" loading="lazy" srcset="/assets/rw-onsen.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Onsen, sauna &amp; ice bath</p>
+        <p class="body-sm card-desc">Wood-fired sauna, Japanese-style hot pools, and cold plunge integrated into stepped natural ponds.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/sp-pottery.jpg" alt="Pottery studio" loading="lazy" srcset="/assets/sp-pottery.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-3">Phase 3</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s6.title">Pottery studio</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s6.desc">A space for working with clay, independently or with guidance.</p>
+        <div class="card-img"><img src="/assets/rw-nature.jpg" alt="Nature walks and gardens" loading="lazy" srcset="/assets/rw-nature.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Nature walks &amp; gardens</p>
+        <p class="body-sm card-desc">Paths through the hillside for walking, resting, reading, or quiet reflection.</p>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="/assets/ws-focused.jpg" alt="Expanded co-working spaces" loading="lazy" srcset="/assets/ws-focused.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Expanded co-working spaces</p>
+        <p class="body-sm card-desc">Additional desks, meeting areas, and focused work zones as the community grows.</p>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="/assets/sp-recording.jpg" alt="Recording & podcast studios" loading="lazy" srcset="/assets/sp-recording.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Recording &amp; podcast studios</p>
+        <p class="body-sm card-desc">Soundproofed studios for music, video, and podcast production.</p>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="/assets/cm-kitchen.jpg" alt="Onsite restaurant" loading="lazy" srcset="/assets/cm-kitchen.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Onsite restaurant</p>
+        <p class="body-sm card-desc">A proper kitchen and dining space serving daily meals for residents and guests.</p>
       </div>
     </div>
   </section>
 
-  <!-- Rest and Wellness -->
+  <!-- Phase 3: Creative Campus -->
   <section class="card-section bg-oat">
     <div class="card-section-header">
       <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3" data-i18n="home.spaces.rest">Rest and wellness areas</h3>
+      <h3 class="h3">Phase 3 &mdash; Creative Campus</h3>
     </div>
     <div class="card-grid fade-up">
       <div class="card">
-        <div class="card-img"><img src="/assets/rw-napping.jpg" alt="Napping & quiet rooms" loading="lazy" srcset="/assets/rw-napping.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s7.title">Napping & quiet rooms</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s7.desc">Dimly lit, quiet rooms for rest, short naps, and recovery from stimulation.</p>
+        <div class="card-img"><img src="/assets/cm-learning.jpg" alt="Auditorium & classrooms" loading="lazy" srcset="/assets/cm-learning.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Auditorium &amp; classrooms</p>
+        <p class="body-sm card-desc">A proper venue for talks, courses, screenings, and community events.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/rw-onsen.jpg" alt="Onsen and ice bath" loading="lazy" srcset="/assets/rw-onsen.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s8.title">Onsen and ice bath</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s8.desc">Sauna, hot and cold pools integrated into stepped natural ponds.</p>
+        <div class="card-img"><img src="/assets/sp-pottery.jpg" alt="Art spaces" loading="lazy" srcset="/assets/sp-pottery.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Art spaces</p>
+        <p class="body-sm card-desc">Studios for ceramics, painting, and other creative disciplines.</p>
       </div>
       <div class="card">
-        <div class="card-img"><img src="/assets/rw-nature.jpg" alt="Nature walks and gardens" loading="lazy" srcset="/assets/rw-nature.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s9.title">Nature walks and gardens</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s9.desc">Paths through nature for walking, resting, reading, or quiet reflection.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Community -->
-  <section class="card-section bg-cream">
-    <div class="card-section-header">
-      <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3" data-i18n="home.spaces.community">Community and activity spaces</h3>
-    </div>
-    <div class="card-grid fade-up">
-      <div class="card">
-        <div class="card-img"><img src="/assets/cm-kitchen.jpg" alt="Community kitchen" loading="lazy" srcset="/assets/cm-kitchen.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s10.title">Community kitchen</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s10.desc">Shared kitchen for meals, quick bites, and time away from your desk.</p>
-      </div>
-      <div class="card">
-        <div class="card-img"><img src="/assets/cm-learning.jpg" alt="Learning spaces" loading="lazy" srcset="/assets/cm-learning.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s11.title">Learning spaces</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s11.desc">Flexible rooms for talks, skill-sharing, and group activities.</p>
-      </div>
-      <div class="card">
-        <div class="card-img"><img src="/assets/cm-outdoor.jpg" alt="Outdoor gathering areas" loading="lazy" srcset="/assets/cm-outdoor.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-1">Phase 1</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s12.title">Outdoor gathering areas</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s12.desc">Shaded outdoor spaces for informal meetings and shared moments.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Accommodations -->
-  <section class="card-section bg-oat">
-    <div class="card-section-header">
-      <img src="/assets/icon-section.svg" alt="" class="icon">
-      <h3 class="h3" data-i18n="home.spaces.accommodations">Accommodations</h3>
-    </div>
-    <div class="card-grid fade-up">
-      <div class="card">
-        <div class="card-img"><img src="/assets/ac-deluxe.jpg" alt="Deluxe Treehouse" loading="lazy" srcset="/assets/ac-deluxe.jpg 720w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s13.title">Deluxe Treehouse</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s13.desc">Fully featured room with a private desk, for solo stays or couples.</p>
-      </div>
-      <div class="card">
-        <div class="card-img"><img src="/assets/ac-flexi.jpg" alt="Flexi Treehouse" loading="lazy" srcset="/assets/ac-flexi.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"><span class="card-phase phase-2">Phase 2</span></div>
-        <p class="body-lg-semi card-title" data-i18n="home.spaces.s14.title">Flexi Treehouse</p>
-        <p class="body-sm card-desc" data-i18n="home.spaces.s14.desc">Compact room with stowable beds, designed for solo travelers.</p>
+        <div class="card-img"><img src="/assets/sp-maker.jpg" alt="Maker spaces" loading="lazy" srcset="/assets/sp-maker.jpg 760w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 378px"></div>
+        <p class="body-lg-semi card-title">Maker spaces</p>
+        <p class="body-sm card-desc">Hands-on workshops for prototyping, woodwork, and working with materials.</p>
       </div>
     </div>
   </section>
@@ -1104,15 +1083,15 @@
     <div class="mfu-inner fade-up">
       <div class="mfu-left">
         <div class="mfu-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.mfu.i1">A space for long-term focus and deep creative work</p>
         </div>
         <div class="mfu-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.mfu.i2">A community where collaboration happens naturally</p>
         </div>
         <div class="mfu-item">
-          <img src="/assets/icon-misc.svg" alt="" class="icon-sm">
+          <img src="/assets/icon-section.svg" alt="" class="icon-sm">
           <p class="body-lg-semi" data-i18n="home.mfu.i3">An ecosystem that connects people, ideas, and opportunities</p>
         </div>
       </div>
@@ -1202,7 +1181,7 @@
         </div>
       </div>
       <div class="cta-bar-inside">
-        <p class="body-lg-semi" data-i18n="cta.follow">Join the NāM community platform</p>
+        <p class="body-lg-semi" data-i18n="cta.follow">Join the NāM community</p>
         <a href="https://app.nam.space" target="_blank" rel="noopener noreferrer" class="btn cta-btn-inside" data-i18n="cta.button">Join NāM &rarr;</a>
       </div>
       <div class="cta-founder">
