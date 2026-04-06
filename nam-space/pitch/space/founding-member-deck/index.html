@@ -1757,7 +1757,7 @@
       </div>
       <div style="display:flex;gap:0;border-radius:6px;overflow:hidden;border:1px solid rgba(42,58,43,0.15);align-self:flex-start;margin-top:0.5rem;">
         <button onclick="setChartScenario('conservative')" id="btn-conservative" style="padding:0.45rem 1rem;font-family:'Sometype Mono',monospace;font-size:0.75rem;background:transparent;color:var(--text-secondary);border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.2s;">Conservative <span style="opacity:0.5;font-size:0.65rem;">50% occ</span></button>
-        <button onclick="setChartScenario('midpoint')" id="btn-midpoint" style="padding:0.45rem 1rem;font-family:'Sometype Mono',monospace;font-size:0.75rem;background:rgba(42,58,43,0.08);color:var(--green);border:none;border-left:1px solid rgba(42,58,43,0.15);border-right:1px solid rgba(42,58,43,0.15);cursor:pointer;letter-spacing:0.05em;font-weight:600;transition:all 0.2s;">Midpoint <span style="opacity:0.6;font-size:0.65rem;font-weight:400;">70% occ</span></button>
+        <button onclick="setChartScenario('midpoint')" id="btn-midpoint" style="padding:0.45rem 1rem;font-family:'Sometype Mono',monospace;font-size:0.75rem;background:rgba(42,58,43,0.08);color:var(--green);border:none;border-left:1px solid rgba(42,58,43,0.15);border-right:1px solid rgba(42,58,43,0.15);cursor:pointer;letter-spacing:0.05em;font-weight:600;transition:all 0.2s;">Midpoint <span style="opacity:0.6;font-size:0.65rem;font-weight:400;">65% occ</span></button>
         <button onclick="setChartScenario('optimistic')" id="btn-optimistic" style="padding:0.45rem 1rem;font-family:'Sometype Mono',monospace;font-size:0.75rem;background:transparent;color:var(--text-secondary);border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.2s;">Optimistic <span style="opacity:0.5;font-size:0.65rem;">80% occ</span></button>
       </div>
     </div>
@@ -1808,8 +1808,8 @@
         milestoneYrs: [1,3,5,10,20,30]
       },
       midpoint: {
-        // 70% occupancy → ramps to 75% by yr2, +2.5%/yr thereafter. €1,250/mo × 60% share
-        annual: [6300,6750,6919,7091,7269,7450,7637,7827,8023,8223,8429,8639,8855,9077,9304,9537,9775,10020,10270,10527,10790,11060,11336,11620,11910,12208,12513,12826,13147,13475],
+        // 65% occupancy → ramps to 70% by yr2, +2.5%/yr thereafter. €1,250/mo × 60% share
+        annual: [5850,6268,6425,6585,6750,6918,7091,7268,7450,7636,7827,8022,8222,8429,8640,8853,9077,9304,9536,9775,10020,10270,10527,10790,11060,11336,11619,11910,12208,12513],
         milestoneYrs: [1,3,5,10,20,30]
       },
       optimistic: {
