@@ -1,0 +1,9 @@
+User-agent: *
+
+# Casa NāM — shelved, not publicly available
+Disallow: /casa-nam/
+
+# Pitch decks — investor-facing, not for public indexing
+Disallow: /pitch/
+
+Allow: /
