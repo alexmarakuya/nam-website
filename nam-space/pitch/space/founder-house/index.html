@@ -173,7 +173,7 @@
   .swiss-split-img-caption h2 { font-family: 'Sometype Mono', monospace; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; color: #fff; line-height: 1.25; }
   .swiss-split-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.8) 0%, rgba(26,26,24,0.35) 50%, rgba(26,26,24,0.1) 100%); pointer-events: none; }
   .swiss-split-bar { width: 6px; flex-shrink: 0; background: var(--terracotta); }
-  .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 40px; min-width: 0; overflow-y: auto; scrollbar-width: none; }
+  .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 40px; min-width: 0; overflow-y: auto; scrollbar-width: none; background: var(--bg); }
   .swiss-split-content::-webkit-scrollbar { display: none; }
 
   /* Hero */
@@ -1386,10 +1386,9 @@
   <img src="/assets/fh-exterior-village.png" alt="NāM Founder House" style="object-position:center 40%;">
   <div class="img-full-overlay" style="background:linear-gradient(to top, rgba(26,26,24,0.92) 0%, rgba(26,26,24,0.55) 45%, rgba(26,26,24,0.15) 100%);"></div>
   <div class="img-full-caption">
-    <div class="label" style="color:var(--terracotta-light);">Introducing</div>
-    <h2 style="font-size:clamp(2.5rem,5vw,4.5rem);font-weight:400;line-height:1.1;">N&#x101;M Founder House</h2>
-    <p style="margin-top:1rem;max-width:540px;font-size:1.05rem;line-height:1.7;">8 private studios in the jungle hillside. Your own space &mdash; to live, work, and earn from. Owned by the people who build this community.</p>
-    <p style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.45);margin-top:1.5rem;letter-spacing:0.06em;">30-year leasehold &middot; 8 founding spots only</p>
+    <h2 style="font-size:clamp(2.8rem,5.5vw,5rem);font-weight:500;line-height:1.1;color:#fff;">Introducing<br>N&#x101;M Founder House</h2>
+    <p style="margin-top:1.25rem;max-width:540px;font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,0.85);">8 private studios in the jungle hillside. Your own space &mdash; to live, work, and earn from. Owned by the people who build this community.</p>
+    <p style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(255,255,255,0.45);margin-top:1.5rem;letter-spacing:0.06em;">30-year leasehold &middot; 8 founding spots only</p>
   </div>
   <div class="sn">31</div>
 </section>
@@ -1406,15 +1405,15 @@
     </div>
   </div>
   <div class="swiss-split-bar"></div>
-  <div class="swiss-split-content" style="justify-content:center;">
+  <div class="swiss-split-content" style="justify-content:center;background:var(--bg);">
     <!-- Prices — hero element -->
     <div style="display:flex;gap:1.5rem;align-items:stretch;margin-bottom:2.5rem;">
-      <div style="flex:1;border:1px solid var(--border);border-radius:10px;padding:1.75rem 1.5rem;text-align:center;">
+      <div style="flex:1;border:1px solid var(--border);border-radius:10px;padding:1.75rem 1.5rem;text-align:center;background:#fff;">
         <div style="font-family:'Sometype Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:0.75rem;">24 m&sup2;</div>
         <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;55,000</div>
         <div style="font-family:'Sometype Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.6rem;">one-time</div>
       </div>
-      <div style="flex:1;border:1px solid var(--border);border-radius:10px;padding:1.75rem 1.5rem;text-align:center;">
+      <div style="flex:1;border:1px solid var(--border);border-radius:10px;padding:1.75rem 1.5rem;text-align:center;background:#fff;">
         <div style="font-family:'Sometype Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:0.75rem;">32 m&sup2;</div>
         <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;65,000</div>
         <div style="font-family:'Sometype Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.6rem;">one-time</div>
@@ -1425,15 +1424,15 @@
     <div style="display:flex;flex-direction:column;gap:1rem;border-top:1px solid var(--border);padding-top:1.75rem;">
       <div class="list-item" style="display:flex;gap:1rem;align-items:flex-start;">
         <div class="dot" style="margin-top:6px;flex-shrink:0;"></div>
-        <div><h4 style="font-size:0.95rem;">Unlimited personal use</h4><p style="font-size:0.88rem;">Stay as long as you like. No nightly fees, no booking needed.</p></div>
+        <div><h4 style="font-size:0.95rem;color:var(--text);">Unlimited personal use</h4><p style="font-size:0.88rem;color:var(--text-secondary);">Stay as long as you like. No nightly fees, no booking needed.</p></div>
       </div>
       <div class="list-item" style="display:flex;gap:1rem;align-items:flex-start;">
         <div class="dot" style="margin-top:6px;flex-shrink:0;"></div>
-        <div><h4 style="font-size:0.95rem;">60% rental income when away</h4><p style="font-size:0.88rem;">Opt in, NāM handles everything. ~11–12% net yield at 70% occupancy.</p></div>
+        <div><h4 style="font-size:0.95rem;color:var(--text);">60% rental income when away</h4><p style="font-size:0.88rem;color:var(--text-secondary);">Opt in, NāM handles everything. ~11–12% net yield at 70% occupancy.</p></div>
       </div>
       <div class="list-item" style="display:flex;gap:1rem;align-items:flex-start;">
         <div class="dot" style="margin-top:6px;flex-shrink:0;"></div>
-        <div><h4 style="font-size:0.95rem;">Community-governed</h4><p style="font-size:0.88rem;">Founding members vote on who joins. Culture stays protected.</p></div>
+        <div><h4 style="font-size:0.95rem;color:var(--text);">Community-governed</h4><p style="font-size:0.88rem;color:var(--text-secondary);">Founding members vote on who joins. Culture stays protected.</p></div>
       </div>
     </div>
   </div>
@@ -1466,7 +1465,7 @@
         <p style="font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.65;">Your 60% at &euro;1,500/mo (32&nbsp;m&sup2;) or &euro;1,250/mo (24&nbsp;m&sup2;). Maintenance waived in the rental pool &mdash; only the &euro;50/mo renovation reserve applies.</p>
       </div>
       <div class="eco-card" style="padding:2rem 2.5rem;border-right:1px solid rgba(244,242,232,0.12);">
-        <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2.8rem,4.5vw,4rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">11<span style="font-size:1.4rem;color:rgba(244,242,232,0.35);">%</span></div>
+        <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2.8rem,4.5vw,4rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">11<span style="font-size:1.4rem;color:rgba(244,242,232,0.35);margin-left:0.2em;">%</span></div>
         <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(244,242,232,0.5);margin-top:0.5rem;margin-bottom:1rem;">Net yield at 70% occupancy</div>
         <p style="font-size:0.9rem;color:rgba(244,242,232,0.6);line-height:1.65;">11.3% on the 24&nbsp;m&sup2;, 11.9% on the 32&nbsp;m&sup2; &mdash; at 70% occupancy, after management fee and renovation reserve. First payouts EOY 2028.</p>
       </div>
