@@ -44,7 +44,7 @@
   body {
     height: 100%; margin: 0; overflow: hidden;
     font-family: 'Epilogue', sans-serif;
-    background: var(--green); color: var(--text);
+    background: #1a1a18; color: var(--text);
     line-height: 1.5; -webkit-font-smoothing: antialiased;
     display: flex; flex-direction: column;
   }
@@ -167,7 +167,7 @@
 
   /* Swiss split */
   .swiss-split { padding: 0; display: flex; height: 100%; }
-  .swiss-split-img { width: 48%; flex-shrink: 0; align-self: stretch; position: relative; overflow: hidden; }
+  .swiss-split-img { width: 58%; flex-shrink: 0; align-self: stretch; position: relative; overflow: hidden; }
   .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .swiss-split-img-caption { position: absolute; bottom: 32px; left: 60px; right: 60px; color: #fff; z-index: 2; }
   .swiss-split-img-caption h2 { font-family: 'Sometype Mono', monospace; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; color: #fff; line-height: 1.25; }
@@ -187,7 +187,7 @@
   .hero-accent-strip { width: 48px; flex-shrink: 0; height: 100%; display: flex; flex-direction: column; }
   .hero-accent-cream { flex: 1; background: var(--bg); }
   .hero-accent-terracotta { flex: 1; background: var(--terracotta); }
-  .hero-img-strip { width: 33%; flex-shrink: 0; height: 100%; position: relative; overflow: hidden; }
+  .hero-img-strip { width: 42%; flex-shrink: 0; height: 100%; position: relative; overflow: hidden; }
   .hero-img-strip img, .hero-img-strip video { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
 
   /* Full-bleed image slide */
@@ -333,7 +333,9 @@
   .slide-nav-backdrop.visible { opacity: 1; }
 
   /* Progress bar */
-  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); z-index: 200; transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; }
+  .progress-wrap { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200; }
+  .progress-track { position: absolute; inset: 0; background: transparent; transition: background 0.5s ease; }
+  .progress-bar { position: absolute; top: 0; left: 0; height: 100%; background: var(--terracotta); transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.9; }
 
   /* Environment badge */
   .env-badge { position: fixed; top: 12px; left: 12px; z-index: 300; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; cursor: default; }
@@ -364,8 +366,8 @@
     .toc-section { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; }
     .img-full-caption { left: 44px; right: 44px; bottom: 28px; }
     .hero-main { padding: 50px 44px 30px; }
-    .hero-img-strip { width: 30%; }
-    .swiss-split-img { width: 42%; }
+    .hero-img-strip { width: 36%; }
+    .swiss-split-img { width: 50%; }
     .swiss-split-content { padding: 50px 44px 30px; }
   }
 
@@ -448,7 +450,10 @@
 <body>
 
 
-<div class="progress-bar" id="progress"></div>
+<div class="progress-wrap" id="progressWrap">
+  <div class="progress-track" id="progressTrack"></div>
+  <div class="progress-bar" id="progress"></div>
+</div>
 <div class="env-badge" id="envBadge" style="display:none;">
   <div class="env-dot" id="envDot"></div>
   <span class="env-label" id="envLabel"></span>
@@ -1587,42 +1592,38 @@
 
 
 <!-- 33 ─ How It Works -->
-<section class="slide bg-cream grain watermark watermark-light wm-tr" id="s33">
-  <div class="slide-inner" style="max-width:1100px;">
-    <div style="margin-bottom:2.5rem;">
+<section class="slide swiss-split swiss-split-reverse bg-cream grain" id="s33">
+  <div class="swiss-split-content">
+    <div style="margin-bottom:2rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> The mechanics</div>
       <h2>How it works</h2>
-      <p class="sub" style="max-width:500px;">Simple structure. No ongoing fees. No surprises.</p>
+      <p class="sub" style="max-width:400px;">Simple structure. No ongoing fees. No surprises.</p>
     </div>
-    <div class="how-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(42,58,43,0.1);border-radius:8px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.85rem;font-weight:600;flex-shrink:0;">1</div>
-        <div>
-          <h4>You invest once</h4>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;">&euro;55,000 (24&nbsp;m&sup2;) or &euro;65,000 (32&nbsp;m&sup2;). 5% deposit on architecture sign-off, then milestone payments tied to independent site inspections. Full refund if the raise doesn&rsquo;t complete.</p>
-        </div>
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+      <div class="list-item" style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">1</div>
+        <div><h4>You invest once</h4><p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.55;">&euro;55,000 or &euro;65,000. 5% deposit on architecture sign-off, milestone payments thereafter. Full refund if the raise doesn&rsquo;t complete.</p></div>
       </div>
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(42,58,43,0.1);border-radius:8px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.85rem;font-weight:600;flex-shrink:0;">2</div>
-        <div>
-          <h4>Stay whenever you want</h4>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;">Stay as long as you like. Your studio is your base in Thailand.</p>
-        </div>
+      <div class="list-item" style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">2</div>
+        <div><h4>Stay whenever you want</h4><p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.55;">Your studio, your base in Thailand. No booking needed.</p></div>
       </div>
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(42,58,43,0.1);border-radius:8px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.85rem;font-weight:600;flex-shrink:0;">3</div>
-        <div>
-          <h4>Earn when you&rsquo;re away</h4>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;">Opt into rental management when you&rsquo;re away. You keep 60%. N&#x101;M handles everything.</p>
-        </div>
+      <div class="list-item" style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">3</div>
+        <div><h4>Earn when you&rsquo;re away</h4><p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.55;">Opt into rental management. You keep 60%. N&#x101;M handles everything.</p></div>
       </div>
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(42,58,43,0.1);border-radius:8px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.85rem;font-weight:600;flex-shrink:0;">4</div>
-        <div>
-          <h4>Community-governed</h4>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;">8 founding members form a circle. When a unit changes hands, existing members vote on the new one. Culture is protected.</p>
-        </div>
+      <div class="list-item" style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--terracotta);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;flex-shrink:0;">4</div>
+        <div><h4>Community-governed</h4><p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.55;">8 founding members vote on new members. Culture stays protected.</p></div>
       </div>
+    </div>
+  </div>
+  <div class="swiss-split-bar"></div>
+  <div class="swiss-split-img">
+    <img src="/assets/fh-studio-interior-2.png" alt="NāM studio interior" style="object-position:center center;">
+    <div class="swiss-split-img-overlay"></div>
+    <div class="swiss-split-img-caption">
+      <h2 style="font-size:clamp(1.6rem,2.8vw,2.4rem);">How it works</h2>
     </div>
   </div>
   <div class="sn">33</div>
@@ -1785,35 +1786,35 @@
 
 
 <!-- NEW ─ Timeline -->
-<section class="slide bg-cream grain" id="s33e" style="padding:60px 0 40px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:center;">
+<section class="slide bg-terracotta grain" id="s33e" style="padding:60px 0 40px;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;justify-content:center;">
   <style>
     .tl-outer { flex:1;display:flex;flex-direction:column;min-height:0; }
     .tl-header { padding:0 80px 2rem;flex-shrink:0; }
     .tl-track-wrap { position:relative;flex:1;min-height:0;overflow:hidden; }
     .tl-track { display:flex;align-items:stretch;height:100%;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding:0 80px;gap:0; }
     .tl-track::-webkit-scrollbar { display:none; }
-    .tl-item { flex-shrink:0;width:240px;display:flex;flex-direction:column;border-right:1px solid var(--border); }
-    .tl-item:first-child { border-left:1px solid var(--border); }
-    .tl-item.tl-highlight { background:rgba(42,58,43,0.04); }
-    .tl-date { font-family:'Sometype Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:1.25rem 1.5rem 0.75rem;border-bottom:1px solid var(--border);color:var(--terracotta); }
-    .tl-item.tl-highlight .tl-date { color:var(--green); }
+    .tl-item { flex-shrink:0;width:240px;display:flex;flex-direction:column;border-right:1px solid rgba(244,242,232,0.25); }
+    .tl-item:first-child { border-left:1px solid rgba(244,242,232,0.25); }
+    .tl-item.tl-highlight { background:rgba(244,242,232,0.12); }
+    .tl-date { font-family:'Sometype Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:1.25rem 1.5rem 0.75rem;border-bottom:1px solid rgba(244,242,232,0.2);color:rgba(244,242,232,0.6); }
+    .tl-item.tl-highlight .tl-date { color:var(--bg); }
     .tl-dot-row { display:flex;align-items:center;padding:0 1.5rem;height:28px;margin-top:-1px; }
-    .tl-dot { width:10px;height:10px;border-radius:50%;background:var(--border);flex-shrink:0; }
-    .tl-item.tl-highlight .tl-dot { background:var(--green); }
-    .tl-line { flex:1;height:1px;background:var(--border);margin-left:6px; }
+    .tl-dot { width:10px;height:10px;border-radius:50%;background:rgba(244,242,232,0.3);flex-shrink:0; }
+    .tl-item.tl-highlight .tl-dot { background:var(--bg); }
+    .tl-line { flex:1;height:1px;background:rgba(244,242,232,0.2);margin-left:6px; }
     .tl-body { padding:1rem 1.5rem 1.5rem;flex:1; }
-    .tl-body h4 { font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;line-height:1.3; }
-    .tl-item.tl-highlight .tl-body h4 { color:var(--green); }
-    .tl-body p { font-size:0.82rem;color:var(--text-secondary);line-height:1.55; }
+    .tl-body h4 { font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;line-height:1.3;color:rgba(244,242,232,0.9); }
+    .tl-item.tl-highlight .tl-body h4 { color:#fff; }
+    .tl-body p { font-size:0.82rem;color:rgba(244,242,232,0.65);line-height:1.55; }
     .tl-arrows { padding:1.25rem 80px 0;display:flex;gap:0.5rem;align-items:center;flex-shrink:0; }
-    .tl-arrow-btn { background:none;border:1px solid var(--border);border-radius:6px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:1rem;transition:border-color 0.15s,color 0.15s; }
-    .tl-arrow-btn:hover { border-color:var(--terracotta);color:var(--terracotta); }
-    .tl-hint { font-family:'Sometype Mono',monospace;font-size:0.72rem;color:var(--text-muted);margin-left:0.75rem;letter-spacing:0.06em; }
+    .tl-arrow-btn { background:none;border:1px solid rgba(244,242,232,0.35);border-radius:6px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(244,242,232,0.7);font-size:1rem;transition:border-color 0.15s,color 0.15s; }
+    .tl-arrow-btn:hover { border-color:rgba(244,242,232,0.9);color:#fff; }
+    .tl-hint { font-family:'Sometype Mono',monospace;font-size:0.72rem;color:rgba(244,242,232,0.45);margin-left:0.75rem;letter-spacing:0.06em; }
   </style>
   <div class="tl-outer">
     <div class="tl-header">
-      <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Timeline</div>
-      <h2>From deposit to full return</h2>
+      <div class="label" style="color:rgba(244,242,232,0.65);"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Timeline</div>
+      <h2 style="color:var(--bg);">From deposit to full return</h2>
     </div>
     <div class="tl-track-wrap">
       <div class="tl-track" id="tlTrack">
@@ -2148,16 +2149,17 @@
 
 
 <!-- 37 ─ Closing CTA -->
-<section class="slide bg-green grain" id="s37">
+<section class="slide bg-cream grain" id="s37">
   <div class="slide-inner" style="max-width:860px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;">
-    <img src="/assets/Asterix.svg" alt="" style="width:48px;height:48px;filter:brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(594%) hue-rotate(338deg) brightness(93%) contrast(89%);margin-bottom:2rem;">
-    <div class="label" style="justify-content:center;color:var(--terracotta);">8 founding spots</div>
-    <h2 style="color:var(--bg);font-size:clamp(2.2rem,4vw,3.5rem);margin-top:0.5rem;">Ready to be part of it?</h2>
-    <p class="sub" style="color:rgba(244,242,232,0.65);margin-top:1.25rem;text-align:center;">If the vision resonates &mdash; the space, the island, the opportunity &mdash; reach out. We&rsquo;ll walk you through everything.</p>
+    <img src="/assets/Asterix.svg" alt="" style="width:48px;height:48px;margin-bottom:2rem;">
+    <div class="label" style="justify-content:center;">8 founding spots</div>
+    <h2 style="font-size:clamp(2.2rem,4vw,3.5rem);margin-top:0.5rem;">Ready to be part of it?</h2>
+    <p class="sub" style="margin-top:1.25rem;text-align:center;max-width:520px;">If the vision resonates &mdash; the space, the island, the opportunity &mdash; reach out. We&rsquo;ll walk you through everything.</p>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.5rem;justify-content:center;">
       <a href="https://wa.me/66639407272" class="cta-btn" target="_blank" rel="noopener" style="background:var(--terracotta);color:var(--bg);border:none;">Message Alex on WhatsApp &rarr;</a>
+      <a href="https://alexduffner.notion.site/N-M-Founder-House-Investor-Overview-33e2127878f581318200c1d0bea2f25c?source=copy_link" class="cta-btn" target="_blank" rel="noopener" style="background:transparent;color:var(--text);border:2px solid var(--text);opacity:0.75;">View Investor Overview &rarr;</a>
     </div>
-    <p style="font-family:'Sometype Mono',monospace;font-size:0.75rem;color:rgba(244,242,232,0.3);margin-top:3rem;letter-spacing:0.08em;">N&#x101;M Space Company Limited &middot; Koh Phangan, Thailand &middot; Everything flows from here.</p>
+    <p style="font-family:'Sometype Mono',monospace;font-size:0.75rem;color:var(--text-muted);margin-top:3rem;letter-spacing:0.08em;">N&#x101;M Space Company Limited &middot; Koh Phangan, Thailand &middot; Everything flows from here.</p>
   </div>
   <div class="sn">37</div>
 </section>
@@ -2205,6 +2207,16 @@
   const counter = document.getElementById('counter');
   const progress = document.getElementById('progress');
 
+  var progressTrack = document.getElementById('progressTrack');
+  var bgTrackMap = {
+    'bg-green':      '#1a2b1a',
+    'bg-dark':       '#1a1a18',
+    'bg-terracotta': '#b85a35',
+    'bg-cream':      '#e0ddd0',
+    'bg-warm':       '#e8e0d0',
+    'img-full':      '#1a1a18'
+  };
+
   function goTo(n) {
     if (navOpen) closeSlideNav();
     current = Math.max(0, Math.min(total - 1, n));
@@ -2218,6 +2230,16 @@
       if (i === current) s.classList.add('active');
       else s.classList.remove('active');
     });
+    // Match progress track color to current slide's background
+    var activeSlide = slides[current];
+    var trackColor = '#1a1a18';
+    if (activeSlide) {
+      var classList = activeSlide.classList;
+      for (var bg in bgTrackMap) {
+        if (classList.contains(bg)) { trackColor = bgTrackMap[bg]; break; }
+      }
+    }
+    if (progressTrack) progressTrack.style.background = trackColor;
     if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
   }
 
