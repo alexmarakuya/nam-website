@@ -44,7 +44,7 @@
   body {
     height: 100%; margin: 0; overflow: hidden;
     font-family: 'Epilogue', sans-serif;
-    background: #1a1a18; color: var(--text);
+    background: var(--bg); color: var(--text);
     line-height: 1.5; -webkit-font-smoothing: antialiased;
     display: flex; flex-direction: column;
   }
@@ -2079,22 +2079,23 @@
       <!-- Flexible payout -->
       <div style="border:1px solid var(--border);border-radius:10px;padding:2rem;background:#fff;">
         <div style="font-family:'Sometype Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--terracotta);margin-bottom:0.75rem;">Rental income</div>
-        <h3 style="font-size:1.05rem;font-weight:600;margin-bottom:0.75rem;color:var(--text);">Flexible payout options</h3>
-        <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin-bottom:1.25rem;">Choose how and when your 60% rental share is distributed. NāM handles all collection and disbursement — you decide the cadence.</p>
-        <div style="display:flex;flex-direction:column;gap:0.75rem;">
-          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid var(--border);">
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--terracotta);flex-shrink:0;"></div>
-            <div><span style="font-size:0.88rem;font-weight:500;color:var(--text);">Monthly</span> <span style="font-size:0.82rem;color:var(--text-secondary);">— steady cash flow, transferred automatically</span></div>
+        <h3 style="font-size:1.05rem;font-weight:600;margin-bottom:0.75rem;color:var(--text);">Annual payout, your currency</h3>
+        <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin-bottom:1.25rem;">Your 60% rental share is paid out once a year, with a full occupancy and revenue report. Rental is collected in Thai Baht — choose your preferred payout currency.</p>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;font-weight:600;color:var(--terracotta);width:36px;flex-shrink:0;">THB</div>
+            <div style="font-size:0.88rem;color:var(--text-secondary);">Thai Baht — local payout, zero conversion</div>
           </div>
-          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid var(--border);">
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--terracotta);flex-shrink:0;"></div>
-            <div><span style="font-size:0.88rem;font-weight:500;color:var(--text);">Quarterly</span> <span style="font-size:0.82rem;color:var(--text-secondary);">— batched with a full occupancy report</span></div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;font-weight:600;color:var(--terracotta);width:36px;flex-shrink:0;">EUR</div>
+            <div style="font-size:0.88rem;color:var(--text-secondary);">Euros — converted at time of distribution</div>
           </div>
-          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;">
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--terracotta);flex-shrink:0;"></div>
-            <div><span style="font-size:0.88rem;font-weight:500;color:var(--text);">Annual</span> <span style="font-size:0.82rem;color:var(--text-secondary);">— lump sum, useful for tax planning</span></div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 0;">
+            <div style="font-family:'Sometype Mono',monospace;font-size:0.75rem;font-weight:600;color:var(--terracotta);width:36px;flex-shrink:0;">USD</div>
+            <div style="font-size:0.88rem;color:var(--text-secondary);">US Dollars — converted at time of distribution</div>
           </div>
         </div>
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.7rem;color:var(--text-muted);margin-top:1rem;line-height:1.5;">Wire transfer or Wise. FX rate applied at distribution date.</p>
       </div>
 
     </div>
