@@ -333,7 +333,8 @@
   .slide-nav-backdrop.visible { opacity: 1; }
 
   /* Progress bar */
-  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--terracotta); transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.9; z-index: 200; }
+  .progress-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 3px; z-index: 200; pointer-events: none; }
+  .progress-bar { position: absolute; top: 0; left: 0; height: 100%; width: 0; background: var(--terracotta); transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.9; }
 
   /* Environment badge */
   .env-badge { position: fixed; top: 12px; left: 12px; z-index: 300; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; cursor: default; }
@@ -448,7 +449,7 @@
 <body>
 
 
-<div class="progress-bar" id="progress"></div>
+<div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
 <div class="env-badge" id="envBadge" style="display:none;">
   <div class="env-dot" id="envDot"></div>
   <span class="env-label" id="envLabel"></span>
@@ -1695,41 +1696,45 @@
 
 
 <!-- 33b ─ Exit Options -->
-<section class="slide bg-green grain" id="s33b">
+<section class="slide bg-cream grain" id="s33b">
   <div class="slide-inner" style="max-width:1100px;">
-    <div style="margin-bottom:2.5rem;">
+    <div style="margin-bottom:2rem;">
       <div class="label"><img src="/assets/Asterix.svg" alt="" class="asterisk asterisk-sm"> Exit options</div>
-      <h2 style="color:var(--bg);">You&rsquo;re never locked in</h2>
-      <p class="sub" style="color:rgba(244,242,232,0.65);max-width:500px;margin-top:0.75rem;">Available after 5 years with 12 months&rsquo; written notice.</p>
+      <h2>You&rsquo;re never locked in</h2>
+      <p class="sub" style="color:var(--text-secondary);max-width:500px;margin-top:0.5rem;">Available after 5 years with 12 months&rsquo; written notice.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:1.5rem;">
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(244,242,232,0.12);border-radius:8px;">
-        <div style="font-family:'Epilogue',sans-serif;font-size:1.8rem;font-weight:600;color:var(--terracotta);flex-shrink:0;width:28px;">A</div>
-        <div>
-          <h4 style="color:var(--bg);">Sell to another person</h4>
-          <p style="color:rgba(244,242,232,0.65);font-size:0.95rem;line-height:1.6;">Find a buyer. Existing members vote by simple majority. N&#x101;M retains right of first refusal. If no approved buyer is found within 24 months, N&#x101;M buys back at the fixed appreciation price.</p>
+    <!-- 3-column top row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem;">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:var(--terracotta);margin-bottom:1rem;">
+          <span style="font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;color:#fff;">A</span>
         </div>
+        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Sell to another member</h4>
+        <p style="font-size:0.83rem;color:var(--text-secondary);line-height:1.6;">Find a buyer. Members vote by simple majority. N&#x101;M retains right of first refusal. If no buyer is found within 24 months, N&#x101;M buys back at the fixed appreciation price.</p>
       </div>
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(244,242,232,0.12);border-radius:8px;">
-        <div style="font-family:'Epilogue',sans-serif;font-size:1.8rem;font-weight:600;color:var(--terracotta);flex-shrink:0;width:28px;">B</div>
-        <div>
-          <h4 style="color:var(--bg);">Sell back to N&#x101;M</h4>
-          <p style="color:rgba(244,242,232,0.65);font-size:0.95rem;line-height:1.6;">Original price + 5% per year. After 5 years: &euro;70,200 on a &euro;55,000 unit, &euro;83,000 on a &euro;65,000 unit. Simple, fixed, no disputes.</p>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:var(--terracotta);margin-bottom:1rem;">
+          <span style="font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;color:#fff;">B</span>
         </div>
+        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Sell back to N&#x101;M</h4>
+        <p style="font-size:0.83rem;color:var(--text-secondary);line-height:1.6;">Original price + 5% per year. After 5 years: &euro;70,200 on a &euro;55K unit, &euro;83,000 on a &euro;65K unit. Fixed, simple, no disputes.</p>
       </div>
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(244,242,232,0.12);border-radius:8px;">
-        <div style="font-family:'Epilogue',sans-serif;font-size:1.8rem;font-weight:600;color:var(--terracotta);flex-shrink:0;width:28px;">C</div>
-        <div>
-          <h4 style="color:var(--bg);">Convert to profit share</h4>
-          <p style="color:rgba(244,242,232,0.65);font-size:0.95rem;line-height:1.6;">Hand the unit to N&#x101;M and join the profit share arrangement. Conversion terms to be agreed.</p>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:var(--green);margin-bottom:1rem;">
+          <span style="font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;color:#fff;">C</span>
         </div>
+        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Convert to profit share</h4>
+        <p style="font-size:0.83rem;color:var(--text-secondary);line-height:1.6;">Hand the unit back to N&#x101;M and join the wider profit share arrangement. Conversion terms agreed at the time.</p>
       </div>
-      <div class="list-item" style="display:flex;gap:1.5rem;padding:1.75rem;border:1px solid rgba(244,242,232,0.12);border-radius:8px;">
-        <div style="font-family:'Epilogue',sans-serif;font-size:1.8rem;font-weight:600;color:var(--terracotta);flex-shrink:0;width:28px;">D</div>
-        <div>
-          <h4 style="color:var(--bg);">Renew the lease</h4>
-          <p style="color:rgba(244,242,232,0.65);font-size:0.95rem;line-height:1.6;">At year 30, preferential renewal at ~&euro;12,000 vs. ~&euro;36,400 at projected market rate. Your founding commitment locks in this right for life.</p>
-        </div>
+    </div>
+    <!-- Full-width bottom option -->
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;align-items:flex-start;gap:1.25rem;">
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;background:var(--green);flex-shrink:0;margin-top:2px;">
+        <span style="font-family:'Sometype Mono',monospace;font-size:0.8rem;font-weight:600;color:#fff;">D</span>
+      </div>
+      <div>
+        <h4 style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;">Renew the lease at year 30</h4>
+        <p style="font-size:0.83rem;color:var(--text-secondary);line-height:1.6;">Preferential renewal at ~&euro;12,000 vs. ~&euro;36,400 at projected market rate. Your founding commitment locks in this right for life.</p>
       </div>
     </div>
   </div>
