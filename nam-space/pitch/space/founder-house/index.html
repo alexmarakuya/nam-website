@@ -2204,6 +2204,15 @@
       if (i === current) s.classList.add('active');
       else s.classList.remove('active');
     });
+    // Sync body bg to slide so progress bar gap is invisible
+    var cl = slides[current].classList;
+    document.body.style.background =
+      cl.contains('bg-green')      ? 'var(--green)' :
+      cl.contains('bg-terracotta') ? 'var(--terracotta)' :
+      cl.contains('bg-dark')       ? '#1a1a18' :
+      cl.contains('bg-warm')       ? 'var(--bg-warm)' :
+      cl.contains('img-full')      ? '#1a1a18' :
+      'var(--bg)'; // cream default
     if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
   }
 
